@@ -93,7 +93,6 @@ def test_compute_metrics(stage, summary_network, random_set):
 
 
 def test_set_transformer_with_key_dim(set_transformer_key_dim_variation, random_set):
-
     set_transformer_key_dim_variation.build(keras.ops.shape(random_set))
     _ = set_transformer_key_dim_variation(random_set)
 
