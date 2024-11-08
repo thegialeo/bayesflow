@@ -111,13 +111,11 @@ class Adapter:
         self.transforms.append(transform)
         return self
 
-    def broadcast(
-        self, keys: str | Sequence[str], *, to: str, batch_dims_only: bool = True, scalars_to_arrays: bool = True
-    ):
+    def broadcast(self, keys: str | Sequence[str], *, to: str, batch_dims_only: bool = True):
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = Broadcast(keys, to=to, batch_dims_only=batch_dims_only, scalars_to_arrays=scalars_to_arrays)
+        transform = Broadcast(keys, to=to, batch_dims_only=batch_dims_only)
         self.transforms.append(transform)
         return self
 
