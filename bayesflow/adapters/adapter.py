@@ -111,11 +111,13 @@ class Adapter:
         self.transforms.append(transform)
         return self
 
-    def broadcast(self, keys: str | Sequence[str], *, expand_scalars: bool = True):
+    def broadcast(
+        self, keys: str | Sequence[str], *, to: str, batch_dims_only: bool = True, scalars_to_arrays: bool = True
+    ):
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = MapTransform({key: Broadcast(expand_scalars=expand_scalars) for key in keys})
+        transform = Broadcast(keys, to=to, batch_dims_only=batch_dims_only, scalars_to_arrays=scalars_to_arrays)
         self.transforms.append(transform)
         return self
 
