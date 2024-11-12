@@ -112,11 +112,13 @@ class Adapter:
         self.transforms.append(transform)
         return self
 
-    def broadcast(self, keys: str | Sequence[str], *, to: str, batch_dims_only: bool = True):
+    def broadcast(
+        self, keys: str | Sequence[str], *, to: str, expand: str | int | tuple = "left", exclude: int | tuple = -1
+    ):
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = Broadcast(keys, to=to, batch_dims_only=batch_dims_only)
+        transform = Broadcast(keys, to=to, expand=expand, exclude=exclude)
         self.transforms.append(transform)
         return self
 

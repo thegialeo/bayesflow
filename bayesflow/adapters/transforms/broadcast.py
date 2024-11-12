@@ -18,35 +18,68 @@ class Broadcast(Transform):
     Examples: #TODO
     """
 
-    def __init__(self, keys: Sequence[str], *, to: str, batch_dims_only: bool = True):
+    def __init__(self, keys: Sequence[str], *, to: str, expand: str | int | tuple = "left", exclude: int | tuple = -1):
         super().__init__()
         self.keys = keys
         self.to = to
-        self.batch_dims_only = batch_dims_only
+
+        if isinstance(expand, int):
+            expand = (expand,)
+
+        self.expand = expand
+
+        if isinstance(exclude, int):
+            exclude = (exclude,)
+
+        self.exclude = exclude
 
     @classmethod
     def from_config(cls, config: dict, custom_objects=None) -> "Broadcast":
         return cls(
             keys=deserialize(config["keys"], custom_objects),
             to=deserialize(config["to"], custom_objects),
-            batch_dims_only=deserialize(config["batch_dims_only"], custom_objects),
+            expand=deserialize(config["expand"], custom_objects),
+            exclude=deserialize(config["exclude"], custom_objects),
         )
 
     def get_config(self) -> dict:
         return {
             "keys": serialize(self.keys),
             "to": serialize(self.to),
-            "batch_dims_only": serialize(self.batch_dims_only),
+            "expand": serialize(self.expand),
+            "exclude": serialize(self.exclude),
         }
 
     # noinspection PyMethodOverriding
     def forward(self, data: dict[str, np.ndarray], **kwargs) -> dict[str, np.ndarray]:
         target_shape = data[self.to].shape
 
-        if self.batch_dims_only:
-            target_shape = target_shape[:-1] + (1,)
+        data = data.copy()
 
-        return {k: (np.broadcast_to(v, target_shape) if k in self.keys else v) for k, v in data.items()}
+        for k, v in data.items():
+            if k in self.keys:
+                len_diff = len(target_shape) - len(data[k].shape)
+
+                if self.expand == "left":
+                    data[k] = np.expand_dims(data[k], axis=tuple(np.arange(0, len_diff)))
+                elif self.expand == "right":
+                    data[k] = np.expand_dims(data[k], axis=tuple(-np.arange(1, len_diff + 1)))
+                elif isinstance(self.expand, tuple):
+                    if len(self.expand) == len_diff:
+                        raise ValueError("Length of `expand` must match the length difference of the involed arrays.")
+                    data[k] = np.expand_dims(data[k], axis=self.expand)
+
+                new_shape = target_shape
+                if self.exclude is not None:
+                    new_shape = np.array(new_shape, dtype=int)
+                    old_shape = np.array(data[k].shape, dtype=int)
+                    exclude = list(self.exclude)
+                    new_shape[exclude] = old_shape[exclude]
+                    new_shape = tuple(new_shape)
+
+                data[k] = np.broadcast_to(data[k], new_shape)
+
+        return data
 
     # noinspection PyMethodOverriding
     def inverse(self, data: dict[str, np.ndarray], **kwargs) -> dict[str, np.ndarray]:
