@@ -14,6 +14,7 @@ from .transforms import (
     Constrain,
     ConvertDType,
     Drop,
+    ExpandDims,
     FilterTransform,
     Keep,
     LambdaTransform,
@@ -174,6 +175,14 @@ class Adapter:
             keys = [keys]
 
         transform = Drop(keys)
+        self.transforms.append(transform)
+        return self
+
+    def expand_dims(self, keys: str | Sequence[str], *, axis: int | tuple):
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = ExpandDims(keys, axis=axis)
         self.transforms.append(transform)
         return self
 
