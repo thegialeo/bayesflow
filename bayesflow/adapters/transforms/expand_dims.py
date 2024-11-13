@@ -13,12 +13,25 @@ class ExpandDims(ElementwiseTransform):
     """
     Expand the shape of an array.
     Examples:
-        >>> ed = ExpandDims()
-        >>> ed(np.array([1, 2, 3]), axis=0).shape
+        shape (3,) array:
+        >>> a = np.array([1, 2, 3])
+        shape (2, 3) array:
+        >>> b = np.array([[1, 2, 3], [4, 5, 6]])
+        >>> dat = dict(a=a, b=b)
+
+        >>> ed = bf.adapters.transforms.ExpandDims("a", axis=0)
+        >>> new_dat = ed.forward(dat)
+        >>> new_dat["a"].shape
         (1, 3)
-        >>> ed(np.array([1, 2, 3]), axis=1).shape
+
+        >>> ed = bf.adapters.transforms.ExpandDims("a", axis=1)
+        >>> new_dat = ed.forward(dat)
+        >>> new_dat["a"].shape
         (3, 1)
-        >>> ed(np.array([[1, 2, 3], [4, 5, 6]]), axis=1).shape
+
+        >>> ed = bf.adapters.transforms.ExpandDims("b", axis=1)
+        >>> new_dat = ed.forward(dat)
+        >>> new_dat["b"].shape
         (2, 1, 3)
 
     It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.
