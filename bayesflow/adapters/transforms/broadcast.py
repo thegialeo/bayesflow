@@ -13,9 +13,33 @@ from .transform import Transform
 @serializable(package="bayesflow.adapters")
 class Broadcast(Transform):
     """
-    Broadcasts arrays or scalars to the shape of a given other array. Only batch dimensions
-    will be considered per default, i.e., all but the last dimension.
-    Examples: #TODO
+    Broadcasts arrays or scalars to the shape of a given other array.
+
+    Examples:
+        shape (1, ) array:
+        >>> a = np.array((1,))
+        shape (2, 3) array:
+        >>> b = np.array([[1, 2, 3], [4, 5, 6]])
+        shape (2, 2, 3) array:
+        >>> c = np.array([[[1, 2, 3], [4, 5, 6]], [[4, 5, 6], [1, 2, 3]]])
+        >>> dat = dict(a=a, b=b, c=c)
+
+        >>> bc = bf.adapters.transforms.Broadcast("a", to="b")
+        >>> new_dat = bc.forward(dat)
+        >>> new_dat["a"].shape
+        (2, 1)
+
+        >>> bc = bf.adapters.transforms.Broadcast("a", to="b", exclude=None)
+        >>> new_dat = bc.forward(dat)
+        >>> new_dat["a"].shape
+        (2, 3)
+
+        >>> bc = bf.adapters.transforms.Broadcast("b", to="c", expand=1)
+        >>> new_dat = bc.forward(dat)
+        >>> new_dat["b"].shape
+        (2, 2, 3)
+
+    It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.
     """
 
     def __init__(self, keys: Sequence[str], *, to: str, expand: str | int | tuple = "left", exclude: int | tuple = -1):
@@ -56,7 +80,7 @@ class Broadcast(Transform):
 
         data = data.copy()
 
-        for k, v in data.items():
+        for k in data.items():
             if k in self.keys:
                 len_diff = len(target_shape) - len(data[k].shape)
 
@@ -83,5 +107,7 @@ class Broadcast(Transform):
 
     # noinspection PyMethodOverriding
     def inverse(self, data: dict[str, np.ndarray], **kwargs) -> dict[str, np.ndarray]:
-        # TODO
+        # TODO: add inverse
+        # we will likely never actually need the inverse broadcasting in practice
+        # so adding this method is not high priority
         return data
