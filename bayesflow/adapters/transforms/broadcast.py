@@ -15,6 +15,17 @@ class Broadcast(Transform):
     """
     Broadcasts arrays or scalars to the shape of a given other array.
 
+    Parameters:
+
+    expand: Where should new dimensions be added to match the number of dimensions in `to`?
+    Can be "left", "right", or an integer or tuple containing the indices of the new dimensions.
+    The latter is needed if we want to include a dimension in the middle, which will be required
+    for more advanced cases. By default we expand left.
+
+    exclude: Which dimensions (of the dimensions after expansion) should retain their size,
+    rather than being broadcasted to the corresponding dimension size of `to`?
+    By default we exclude the last dimension (usually the data dimension) from broadcasting the size.
+
     Examples:
         shape (1, ) array:
         >>> a = np.array((1,))
