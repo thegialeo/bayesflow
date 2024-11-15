@@ -80,28 +80,29 @@ class Broadcast(Transform):
 
         data = data.copy()
 
-        for k in data.items():
-            if k in self.keys:
-                len_diff = len(target_shape) - len(data[k].shape)
+        for k in self.keys:
+            # ensure that .shape is defined
+            data[k] = np.asarray(data[k])
+            len_diff = len(target_shape) - len(data[k].shape)
 
-                if self.expand == "left":
-                    data[k] = np.expand_dims(data[k], axis=tuple(np.arange(0, len_diff)))
-                elif self.expand == "right":
-                    data[k] = np.expand_dims(data[k], axis=tuple(-np.arange(1, len_diff + 1)))
-                elif isinstance(self.expand, tuple):
-                    if len(self.expand) is not len_diff:
-                        raise ValueError("Length of `expand` must match the length difference of the involed arrays.")
-                    data[k] = np.expand_dims(data[k], axis=self.expand)
+            if self.expand == "left":
+                data[k] = np.expand_dims(data[k], axis=tuple(np.arange(0, len_diff)))
+            elif self.expand == "right":
+                data[k] = np.expand_dims(data[k], axis=tuple(-np.arange(1, len_diff + 1)))
+            elif isinstance(self.expand, tuple):
+                if len(self.expand) is not len_diff:
+                    raise ValueError("Length of `expand` must match the length difference of the involed arrays.")
+                data[k] = np.expand_dims(data[k], axis=self.expand)
 
-                new_shape = target_shape
-                if self.exclude is not None:
-                    new_shape = np.array(new_shape, dtype=int)
-                    old_shape = np.array(data[k].shape, dtype=int)
-                    exclude = list(self.exclude)
-                    new_shape[exclude] = old_shape[exclude]
-                    new_shape = tuple(new_shape)
+            new_shape = target_shape
+            if self.exclude is not None:
+                new_shape = np.array(new_shape, dtype=int)
+                old_shape = np.array(data[k].shape, dtype=int)
+                exclude = list(self.exclude)
+                new_shape[exclude] = old_shape[exclude]
+                new_shape = tuple(new_shape)
 
-                data[k] = np.broadcast_to(data[k], new_shape)
+            data[k] = np.broadcast_to(data[k], new_shape)
 
         return data
 
