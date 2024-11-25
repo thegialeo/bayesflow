@@ -2,7 +2,9 @@ import inspect
 import keras
 from typing import TypeVar
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping, Sequence
+
+import numpy as np
 
 from bayesflow.types import Tensor
 
@@ -11,7 +13,7 @@ from . import logging
 T = TypeVar("T")
 
 
-def convert_args(f, *args, **kwargs) -> tuple[any, ...]:
+def convert_args(f: Callable, *args: any, **kwargs: any) -> tuple[any, ...]:
     """Convert positional and keyword arguments to just positional arguments for f"""
     if not kwargs:
         return args
@@ -31,8 +33,8 @@ def convert_args(f, *args, **kwargs) -> tuple[any, ...]:
     return tuple(parameters)
 
 
-def convert_kwargs(f, *args, **kwargs) -> Mapping[str, any]:
-    """Convert positional and keyword arguments to just keyword arguments for f"""
+def convert_kwargs(f: Callable, *args: any, **kwargs: any) -> dict[str, any]:
+    """Convert positional and keyword arguments qto just keyword arguments for f"""
     if not args:
         return kwargs
 
@@ -49,7 +51,7 @@ def convert_kwargs(f, *args, **kwargs) -> Mapping[str, any]:
     return parameters
 
 
-def filter_kwargs(kwargs: Mapping[str, any], f: callable) -> Mapping[str, any]:
+def filter_kwargs(kwargs: Mapping[str, T], f: Callable) -> Mapping[str, T]:
     """Filter keyword arguments for f"""
     signature = inspect.signature(f)
 
@@ -63,9 +65,9 @@ def filter_kwargs(kwargs: Mapping[str, any], f: callable) -> Mapping[str, any]:
     return kwargs
 
 
-def keras_kwargs(kwargs: Mapping) -> Mapping:
+def keras_kwargs(kwargs: Mapping[str, T]) -> dict[str, T]:
     """Keep dictionary keys that do not end with _kwargs. Used for propagating
-    custom keyword arguments in custom simulators that inherit from keras.Model.
+    keyword arguments in nested layer classes.
     """
     return {key: value for key, value in kwargs.items() if not key.endswith("_kwargs")}
 
@@ -101,3 +103,40 @@ def split_tensors(data: Mapping[any, Tensor], axis: int = -1) -> Mapping[any, Te
             result[f"{key}_{i + 1}"] = split
 
     return result
+
+
+def dicts_to_arrays(
+    post_variables: dict[str, np.ndarray] | np.ndarray,
+    prior_variables: dict[str, np.ndarray] | np.ndarray,
+    names: Sequence[str] = None,
+    context: str = None,
+):
+    """Utility to optionally convert dicts as returned from approximators and adapters into arrays."""
+
+    if type(post_variables) is not type(prior_variables):
+        raise ValueError("You should either use dicts or tensors, but not separate types for your inputs.")
+
+    if isinstance(post_variables, dict):
+        if post_variables.keys() != prior_variables.keys():
+            raise ValueError("Keys in your posterior / prior arrays should match.")
+
+        # Use user-provided names instead of inferred ones
+        names = list(post_variables.keys()) if names is None else names
+
+        post_variables = np.concatenate([v for k, v in post_variables.items() if k in names], axis=-1)
+        prior_variables = np.concatenate([v for k, v in prior_variables.items() if k in names], axis=-1)
+
+    elif isinstance(post_variables, np.ndarray):
+        if names is not None:
+            if post_variables.shape[-1] != len(names) or prior_variables.shape[-1] != len(names):
+                raise ValueError("The length of the names list should match the number of target variables.")
+        else:
+            if context is not None:
+                names = [f"${context}_{{{i}}}$" for i in range(post_variables.shape[-1])]
+            else:
+                names = [f"$\\theta_{{{i}}}$" for i in range(post_variables.shape[-1])]
+
+    else:
+        raise TypeError("Only dicts and tensors are supported as arguments.")
+
+    return dict(post_variables=post_variables, prior_variables=prior_variables, names=names, num_variables=len(names))

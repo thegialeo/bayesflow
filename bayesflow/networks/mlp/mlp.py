@@ -1,10 +1,12 @@
+from collections.abc import Sequence
+from typing import Literal
+
 import keras
 from keras import layers
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
 from bayesflow.utils import keras_kwargs
-
 from .hidden_block import ConfigurableHiddenBlock
 
 
@@ -19,12 +21,14 @@ class MLP(keras.Layer):
 
     def __init__(
         self,
-        depth: int = 2,
-        width: int = 256,
+        *,
+        depth: int = None,
+        width: int = None,
+        widths: Sequence[int] = None,
         activation: str = "mish",
         kernel_initializer: str = "he_normal",
-        residual: bool = True,
-        dropout: float = 0.05,
+        residual: bool = False,
+        dropout: Literal[0, None] | float = 0.05,
         spectral_normalization: bool = False,
         **kwargs,
     ):
@@ -33,10 +37,9 @@ class MLP(keras.Layer):
 
         Parameters:
         -----------
-        hidden_dim       : int, optional, default: 256
-            The dimensionality of the hidden layers
-        num_hidden       : int, optional, default: 2
-            The number of hidden layers (minimum: 1)
+        widths           : tuple, optional, default: (512, 512)
+            The number of hidden units for each (residual) hidden layer.
+            Note: The depth of the network is inferred from len(widths)
         activation       : string, optional, default: 'gelu'
             The activation function of the dense layers
         residual         : bool, optional, default: True
@@ -47,12 +50,22 @@ class MLP(keras.Layer):
         dropout          : float, optional, default: 0.05
             Dropout rate for the hidden layers in the internal layers.
         """
-
         super().__init__(**keras_kwargs(kwargs))
+
+        if widths is not None:
+            if depth is not None or width is not None:
+                raise ValueError("Either specify 'widths' or 'depth' and 'width', not both.")
+        else:
+            if depth is None or width is None:
+                # use the default
+                depth = 2
+                width = 256
+
+            widths = [width] * depth
 
         self.res_blocks = []
         projector = layers.Dense(
-            units=width,
+            units=widths[0],
             kernel_initializer=kernel_initializer,
         )
         if spectral_normalization:
@@ -60,9 +73,9 @@ class MLP(keras.Layer):
         self.res_blocks.append(projector)
 
         if dropout is not None and dropout > 0.0:
-            self.res_blocks.append(layers.Dropout(dropout))
+            self.res_blocks.append(layers.Dropout(float(dropout)))
 
-        for _ in range(depth):
+        for width in widths:
             self.res_blocks.append(
                 ConfigurableHiddenBlock(
                     units=width,
@@ -79,9 +92,9 @@ class MLP(keras.Layer):
             layer.build(input_shape)
             input_shape = layer.compute_output_shape(input_shape)
 
-    def call(self, x: Tensor, **kwargs) -> Tensor:
+    def call(self, x: Tensor, training: bool = False, **kwargs) -> Tensor:
         for layer in self.res_blocks:
-            x = layer(x, training=kwargs.get("training", False))
+            x = layer(x, training=training)
         return x
 
     def compute_output_shape(self, input_shape):

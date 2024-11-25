@@ -3,6 +3,8 @@ from keras import ops
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Shape, Tensor
+from bayesflow.utils.decorators import allow_batch_size
+
 from .distribution import Distribution
 
 
@@ -33,12 +35,13 @@ class MixtureDistribution(Distribution):
             trainable=trainable_mixture,
         )
 
+    @allow_batch_size
     def sample(self, batch_shape: Shape) -> Tensor:
         # TODO - Implement efficiently
         raise NotImplementedError
 
-    def log_prob(self, tensor: Tensor) -> Tensor:
-        log_prob = [distribution.log_prob(tensor) for distribution in self.distributions]
+    def log_prob(self, x: Tensor, *, normalize: bool = True) -> Tensor:
+        log_prob = [distribution.log_prob(x, normalize=normalize) for distribution in self.distributions]
         log_prob = ops.stack(log_prob, axis=-1)
         log_prob = ops.logsumexp(log_prob + ops.log_softmax(self.mixture_logits), axis=-1)
         return log_prob

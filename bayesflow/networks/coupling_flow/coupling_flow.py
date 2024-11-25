@@ -9,7 +9,7 @@ from .couplings import DualCoupling
 from ..inference_network import InferenceNetwork
 
 
-@serializable(package="bayesflow.networks")
+@serializable(package="networks.coupling_flow")
 class CouplingFlow(InferenceNetwork):
     """Implements a coupling flow as a sequence of dual couplings with permutations and activation
     normalization. Incorporates ideas from [1-5].
@@ -37,7 +37,7 @@ class CouplingFlow(InferenceNetwork):
     def __init__(
         self,
         depth: int = 6,
-        subnet: str = "mlp",
+        subnet: str | type = "mlp",
         transform: str = "affine",
         permutation: str | None = "random",
         use_actnorm: bool = True,
@@ -50,13 +50,13 @@ class CouplingFlow(InferenceNetwork):
 
         self.invertible_layers = []
         for i in range(depth):
+            if use_actnorm:
+                self.invertible_layers.append(ActNorm(**kwargs.get("actnorm_kwargs", {})))
+
             if (p := find_permutation(permutation, **kwargs.get("permutation_kwargs", {}))) is not None:
                 self.invertible_layers.append(p)
 
             self.invertible_layers.append(DualCoupling(subnet, transform, **kwargs.get("coupling_kwargs", {})))
-
-            if use_actnorm:
-                self.invertible_layers.append(ActNorm(**kwargs.get("actnorm_kwargs", {})))
 
     # noinspection PyMethodOverriding
     def build(self, xz_shape, conditions_shape=None):
@@ -65,36 +65,29 @@ class CouplingFlow(InferenceNetwork):
         for layer in self.invertible_layers:
             layer.build(xz_shape=xz_shape, conditions_shape=conditions_shape)
 
-    def call(
-        self, xz: Tensor, conditions: Tensor = None, inverse: bool = False, **kwargs
-    ) -> Tensor | tuple[Tensor, Tensor]:
-        if inverse:
-            return self._inverse(xz, conditions=conditions, **kwargs)
-        return self._forward(xz, conditions=conditions, **kwargs)
-
     def _forward(
-        self, x: Tensor, conditions: Tensor = None, density: bool = False, **kwargs
+        self, x: Tensor, conditions: Tensor = None, density: bool = False, training: bool = False, **kwargs
     ) -> Tensor | tuple[Tensor, Tensor]:
         z = x
         log_det = keras.ops.zeros(keras.ops.shape(x)[:-1])
         for layer in self.invertible_layers:
-            z, det = layer(z, conditions=conditions, inverse=False, **kwargs)
+            z, det = layer(z, conditions=conditions, inverse=False, training=training, **kwargs)
             log_det += det
 
         if density:
-            log_prob = self.base_distribution.log_prob(z)
-            log_density = log_prob + log_det
+            log_density_latent = self.base_distribution.log_prob(z)
+            log_density = log_density_latent + log_det
             return z, log_density
 
         return z
 
     def _inverse(
-        self, z: Tensor, conditions: Tensor = None, density: bool = False, **kwargs
+        self, z: Tensor, conditions: Tensor = None, density: bool = False, training: bool = False, **kwargs
     ) -> Tensor | tuple[Tensor, Tensor]:
         x = z
         log_det = keras.ops.zeros(keras.ops.shape(z)[:-1])
         for layer in reversed(self.invertible_layers):
-            x, det = layer(x, conditions=conditions, inverse=True, **kwargs)
+            x, det = layer(x, conditions=conditions, inverse=True, training=training, **kwargs)
             log_det += det
 
         if density:

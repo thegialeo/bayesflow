@@ -1,3 +1,5 @@
+from collections.abc import Sequence
+
 import keras
 from keras import ops, layers
 from keras.saving import register_keras_serializable as serializable
@@ -19,13 +21,10 @@ class EquivariantModule(keras.Layer):
 
     def __init__(
         self,
-        num_dense_equivariant: int = 2,
-        num_dense_invariant_inner: int = 2,
-        num_dense_invariant_outer: int = 2,
-        units_equivariant: int = 128,
-        units_invariant_inner: int = 128,
-        units_invariant_outer: int = 128,
-        pooling: str | keras.Layer = "mean",
+        mlp_widths_equivariant: Sequence[int] = (128, 128),
+        mlp_widths_invariant_inner: Sequence[int] = (128, 128),
+        mlp_widths_invariant_outer: Sequence[int] = (128, 128),
+        pooling: str = "mean",
         activation: str = "gelu",
         kernel_initializer: str = "he_normal",
         dropout: int | float | None = 0.05,
@@ -43,11 +42,10 @@ class EquivariantModule(keras.Layer):
 
         super().__init__(**keras_kwargs(kwargs))
 
+        # Invariant module to increase expressiveness by concatenating outputs to each set member
         self.invariant_module = InvariantModule(
-            num_dense_inner=num_dense_invariant_inner,
-            num_dense_outer=num_dense_invariant_outer,
-            units_inner=units_invariant_inner,
-            units_outer=units_invariant_outer,
+            mlp_widths_inner=mlp_widths_invariant_inner,
+            mlp_widths_outer=mlp_widths_invariant_outer,
             activation=activation,
             kernel_initializer=kernel_initializer,
             dropout=dropout,
@@ -56,11 +54,12 @@ class EquivariantModule(keras.Layer):
             **kwargs,
         )
 
-        self.input_projector = layers.Dense(units_equivariant)
-        self.equivariant_fc = keras.Sequential(name="EquivariantFC")
-        for _ in range(num_dense_equivariant):
+        # Fully connected net + residual connection for an equivariant transform applied to each set member
+        self.input_projector = layers.Dense(mlp_widths_equivariant[-1])
+        self.equivariant_fc = keras.Sequential()
+        for width in mlp_widths_equivariant:
             layer = layers.Dense(
-                units=units_equivariant,
+                units=width,
                 activation=activation,
                 kernel_initializer=kernel_initializer,
             )
@@ -73,7 +72,7 @@ class EquivariantModule(keras.Layer):
     def build(self, input_shape):
         self.call(keras.ops.zeros(input_shape))
 
-    def call(self, input_set: Tensor, **kwargs) -> Tensor:
+    def call(self, input_set: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Performs the forward pass of a learnable equivariant transform.
 
         Parameters
@@ -85,7 +84,6 @@ class EquivariantModule(keras.Layer):
         #TODO
         """
 
-        training = kwargs.get("training", False)
         input_set = self.input_projector(input_set)
 
         # Store shape of input_set, will be (batch_size, ..., set_size, some_dim)

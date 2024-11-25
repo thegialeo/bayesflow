@@ -1,3 +1,5 @@
+from typing import Literal
+
 import keras
 from keras import layers
 from keras.saving import register_keras_serializable as serializable
@@ -12,8 +14,8 @@ class ConfigurableHiddenBlock(keras.layers.Layer):
         units: int = 256,
         activation: str = "mish",
         kernel_initializer: str = "he_normal",
-        residual: bool = True,
-        dropout: float = 0.05,
+        residual: bool = False,
+        dropout: Literal[0, None] | float = 0.05,
         spectral_normalization: bool = False,
         **kwargs,
     ):
@@ -29,11 +31,11 @@ class ConfigurableHiddenBlock(keras.layers.Layer):
             self.dense = layers.SpectralNormalization(self.dense)
 
         if dropout is not None and dropout > 0.0:
-            self.dropout = layers.Dropout(dropout)
+            self.dropout = layers.Dropout(float(dropout))
         else:
             self.dropout = None
 
-    def call(self, inputs: Tensor, training=False) -> Tensor:
+    def call(self, inputs: Tensor, training: bool = False, **kwargs) -> Tensor:
         x = self.dense(inputs, training=training)
 
         if self.dropout is not None:

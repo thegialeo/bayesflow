@@ -1,12 +1,11 @@
-import keras
-from keras import layers
-from keras.saving import register_keras_serializable as serializable, serialize_keras_object as serialize
+from collections.abc import Sequence
 
+import keras
+from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from .invariant_module import InvariantModule
 from .equivariant_module import EquivariantModule
-
+from .invariant_module import InvariantModule
 from ..summary_network import SummaryNetwork
 
 
@@ -27,14 +26,12 @@ class DeepSet(SummaryNetwork):
         self,
         summary_dim: int = 16,
         depth: int = 2,
-        inner_pooling: str | keras.Layer = "mean",
-        output_pooling: str | keras.Layer = "mean",
-        num_dense_equivariant: int = 2,
-        num_dense_invariant_inner: int = 2,
-        num_dense_invariant_outer: int = 2,
-        units_equivariant: int = 128,
-        units_invariant_inner: int = 128,
-        units_invariant_outer: int = 128,
+        inner_pooling: str = "mean",
+        output_pooling: str = "mean",
+        mlp_widths_equivariant: Sequence[int] = (64, 64),
+        mlp_widths_invariant_inner: Sequence[int] = (64, 64),
+        mlp_widths_invariant_outer: Sequence[int] = (64, 64),
+        mlp_widths_invariant_last: Sequence[int] = (64, 64),
         activation: str = "gelu",
         kernel_initializer: str = "he_normal",
         dropout: int | float | None = 0.05,
@@ -48,15 +45,12 @@ class DeepSet(SummaryNetwork):
         super().__init__(**kwargs)
 
         # Stack of equivariant modules for a many-to-many learnable transformation
-        self.equivariant_modules = keras.Sequential()
-        for i in range(depth):
+        self.equivariant_modules = []
+        for _ in range(depth):
             equivariant_module = EquivariantModule(
-                num_dense_equivariant=num_dense_equivariant,
-                num_dense_invariant_inner=num_dense_invariant_inner,
-                num_dense_invariant_outer=num_dense_invariant_outer,
-                units_equivariant=units_equivariant,
-                units_invariant_inner=units_invariant_inner,
-                units_invariant_outer=units_invariant_outer,
+                mlp_widths_equivariant=mlp_widths_equivariant,
+                mlp_widths_invariant_inner=mlp_widths_invariant_inner,
+                mlp_widths_invariant_outer=mlp_widths_invariant_outer,
                 activation=activation,
                 kernel_initializer=kernel_initializer,
                 spectral_normalization=spectral_normalization,
@@ -64,14 +58,12 @@ class DeepSet(SummaryNetwork):
                 pooling=inner_pooling,
                 **kwargs,
             )
-            self.equivariant_modules.add(equivariant_module)
+            self.equivariant_modules.append(equivariant_module)
 
         # Invariant module for a many-to-one transformation
         self.invariant_module = InvariantModule(
-            num_dense_inner=num_dense_invariant_inner,
-            num_dense_outer=num_dense_invariant_outer,
-            units_inner=units_invariant_inner,
-            units_outer=units_invariant_outer,
+            mlp_widths_inner=mlp_widths_invariant_last,
+            mlp_widths_outer=mlp_widths_invariant_last,
             activation=activation,
             kernel_initializer=kernel_initializer,
             dropout=dropout,
@@ -81,37 +73,23 @@ class DeepSet(SummaryNetwork):
         )
 
         # Output linear layer to project set representation down to "summary_dim" learned summary statistics
-        self.output_projector = layers.Dense(summary_dim, activation="linear")
+        self.output_projector = keras.layers.Dense(summary_dim, activation="linear")
         self.summary_dim = summary_dim
 
     def build(self, input_shape):
         super().build(input_shape)
         self.call(keras.ops.zeros(input_shape))
 
-    def call(self, x: Tensor, **kwargs) -> Tensor:
+    def call(self, x: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Performs the forward pass of a learnable deep invariant transformation consisting of
         a sequence of equivariant transforms followed by an invariant transform.
 
-        :param x: Tensor of shape (batch_size, set_size, n)
-            The input set
-
-        :return: Tensor of shape (batch_size, self.summary_dim)
-            Summary representation of the input set
-
+        #TODO
         """
-        x = self.equivariant_modules(x, **kwargs)
-        x = self.invariant_module(x, **kwargs)
+
+        for em in self.equivariant_modules:
+            x = em(x, training=training)
+
+        x = self.invariant_module(x, training=training)
 
         return self.output_projector(x)
-
-    def get_config(self):
-        base_config = super().get_config()
-
-        config = {
-            "invariant_module": serialize(self.equivariant_modules),
-            "equivariant_fc": serialize(self.invariant_module),
-            "output_projector": serialize(self.output_projector),
-            "summary_dim": serialize(self.summary_dim),
-        }
-
-        return base_config | config
