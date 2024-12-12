@@ -12,7 +12,7 @@ from . import (
 )
 
 from .workflows import BasicWorkflow
-from .approximators import ContinuousApproximator
+from .approximators import ContinuousApproximator, ContinuousPointApproximator
 from .adapters import Adapter
 from .datasets import OfflineDataset, OnlineDataset, DiskDataset
 from .simulators import make_simulator
