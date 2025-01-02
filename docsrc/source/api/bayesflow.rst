@@ -1,10 +1,5 @@
-﻿.. currentmodule:: bayesflow
-
-Public API: bayesflow package
+﻿Public API: bayesflow package
 =============================
-
-Autosummary
------------
 
 .. autosummary::
     :toctree: .
