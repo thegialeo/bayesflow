@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -220,17 +220,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_examples/Covid19_Initial_Posterior_Estimation.html" >v1.1.6</a></li>
-      <li><a href="/v1.1.5/_examples/Covid19_Initial_Posterior_Estimation.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_examples/Covid19_Initial_Posterior_Estimation.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_examples/Covid19_Initial_Posterior_Estimation.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_examples/Covid19_Initial_Posterior_Estimation.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_examples/Covid19_Initial_Posterior_Estimation.html" >dev</a></li>
       <li><a href="/master/_examples/Covid19_Initial_Posterior_Estimation.html" class="current">master</a></li>
+      <li><a href="/dev/_examples/Covid19_Initial_Posterior_Estimation.html" >dev</a></li>
   </ul>
   
 </div>
@@ -540,22 +536,22 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bayesflow.diagnostics</span> <span class="k">as</span> <span class="nn">diag</span>
-<span class="kn">from</span> <span class="nn">bayesflow.amortizers</span> <span class="kn">import</span> <span class="n">AmortizedPosterior</span>
-<span class="kn">from</span> <span class="nn">bayesflow.networks</span> <span class="kn">import</span> <span class="n">InvertibleNetwork</span><span class="p">,</span> <span class="n">SequenceNetwork</span>
-<span class="kn">from</span> <span class="nn">bayesflow.simulation</span> <span class="kn">import</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">Prior</span><span class="p">,</span> <span class="n">Simulator</span>
-<span class="kn">from</span> <span class="nn">bayesflow.trainers</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow.diagnostics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">diag</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.amortizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AmortizedPosterior</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvertibleNetwork</span><span class="p">,</span> <span class="n">SequenceNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.simulation</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">Prior</span><span class="p">,</span> <span class="n">Simulator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.trainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trainer</span>
 </pre></div>
 </div>
 </div>
@@ -615,7 +611,7 @@ Finally, we will also treat the number of initially infected individuals, <span 
 <p>How did we come up with these priors? In this case, we rely on the domain expertise and previous research by https://www.science.org/doi/10.1126/science.abb9789. In addition, the new parameter <span class="math notranslate nohighlight">\(\psi\)</span> follows an exponential distribution, which restricts it to positive numbers. Below is the implementation of these priors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_prior</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">model_prior</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a random draw from the joint prior.&quot;&quot;&quot;</span>
 
     <span class="n">lambd</span> <span class="o">=</span> <span class="n">RNG</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -650,10 +646,10 @@ Finally, we will also treat the number of initially infected individuals, <span 
 <h3><span class="section-number">6.3.2. </span>Simulator (Implicit Likelihood Function) <a class="anchor" id="simulator__implicit_likelihood"></a><a class="headerlink" href="#simulator-implicit-likelihood-function" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">nbinom</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">nbinom</span>
 
 
-<span class="k">def</span> <span class="nf">convert_params</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_params</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function to convert mean/dispersion parameterization of a negative binomial to N and p,</span>
 <span class="sd">    as expected by numpy&#39;s negative_binomial.</span>
 
@@ -666,7 +662,7 @@ Finally, we will also treat the number of initially infected individuals, <span 
     <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
 
 
-<span class="k">def</span> <span class="nf">stationary_SIR</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stationary_SIR</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs a forward simulation from the stationary SIR model given a random draw from the prior.&quot;&quot;&quot;</span>
 
     <span class="c1"># Extract parameters and round I0 and D</span>
@@ -710,7 +706,7 @@ Finally, we will also treat the number of initially infected individuals, <span 
 <p>We will define a simple helper function to load the actually reported cases for the first 2 weeks in Germany.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function to load cumulative cases and transform them to new cases.&quot;&quot;&quot;</span>
 
     <span class="n">confirmed_cases_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&quot;</span>
@@ -845,7 +841,7 @@ INFO:root:No optional simulation batchable context provided.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">configure_input</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure_input</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to configure the simulated quantities (i.e., simulator outputs)</span>
 <span class="sd">    into a neural network-friendly (BayesFlow) format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1145,10 +1141,10 @@ Wall time: 13.4 ms
 <p>Here, we will create a custom function which plots the observed data and then overlays draws from the posterior predictive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
-<span class="k">def</span> <span class="nf">plot_ppc</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">post_samples</span><span class="p">,</span> <span class="n">logscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#8f2727&quot;</span><span class="p">,</span> <span class="n">dummy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_ppc</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">post_samples</span><span class="p">,</span> <span class="n">logscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#8f2727&quot;</span><span class="p">,</span> <span class="n">dummy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function to perform some plotting of the posterior predictive.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1321,7 +1317,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

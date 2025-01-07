@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -217,17 +217,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_modules/bayesflow/experimental/rectifiers.html" class="current">v1.1.6</a></li>
-      <li><a href="/v1.1.5/_modules/bayesflow/experimental/rectifiers.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_modules/bayesflow/experimental/rectifiers.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_modules/bayesflow/experimental/rectifiers.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_modules/bayesflow/experimental/rectifiers.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/experimental/rectifiers.html" >dev</a></li>
       <li><a href="/master/_modules/bayesflow/experimental/rectifiers.html" >master</a></li>
+      <li><a href="/dev/_modules/bayesflow/experimental/rectifiers.html" >dev</a></li>
   </ul>
   
 </div>
@@ -395,21 +391,21 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow_probability</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tfp</span>
 
-<span class="kn">import</span> <span class="nn">bayesflow.default_settings</span> <span class="k">as</span> <span class="nn">defaults</span>
-<span class="kn">from</span> <span class="nn">bayesflow.computational_utilities</span> <span class="kn">import</span> <span class="n">compute_jacobian_trace</span>
-<span class="kn">from</span> <span class="nn">bayesflow.exceptions</span> <span class="kn">import</span> <span class="n">SummaryStatsError</span>
-<span class="kn">from</span> <span class="nn">bayesflow.helper_networks</span> <span class="kn">import</span> <span class="n">MCDropout</span>
-<span class="kn">from</span> <span class="nn">bayesflow.losses</span> <span class="kn">import</span> <span class="n">mmd_summary_space</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow.default_settings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">defaults</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.computational_utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_jacobian_trace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">SummaryStatsError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.helper_networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">MCDropout</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.losses</span><span class="w"> </span><span class="kn">import</span> <span class="n">mmd_summary_space</span>
 
 
 <div class="viewcode-block" id="DriftNetwork">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.DriftNetwork">[docs]</a>
-<span class="k">class</span> <span class="nc">DriftNetwork</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DriftNetwork</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a learnable velocity field for a neural ODE. Will typically be used</span>
 <span class="sd">    in conjunction with a ``RectifyingFlow`` instance, as proposed by [1] in the context</span>
 <span class="sd">    of unconditional image generation.</span>
@@ -419,9 +415,7 @@
 <span class="sd">    arXiv preprint arXiv:2209.03003.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DriftNetwork.__init__">
-<a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.DriftNetwork.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">target_dim</span><span class="p">,</span> <span class="n">num_dense</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dense_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mc_dropout</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dropout_prob</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a learnable velocity field instance to be used in the context of rectifying</span>
@@ -465,12 +459,11 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">pass</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">())</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">())</span>
 
 <div class="viewcode-block" id="DriftNetwork.call">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.DriftNetwork.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_vars</span><span class="p">,</span> <span class="n">latent_vars</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_vars</span><span class="p">,</span> <span class="n">latent_vars</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a linear interpolation between target and latent variables</span>
 <span class="sd">        over time (i.e., a single ODE step during training).</span>
 
@@ -496,7 +489,7 @@
 
 <div class="viewcode-block" id="DriftNetwork.drift">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.DriftNetwork.drift">[docs]</a>
-    <span class="k">def</span> <span class="nf">drift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_t</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_t</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the drift at target_t time given optional condition(s).</span>
 
 <span class="sd">        Parameters</span>
@@ -522,7 +515,7 @@
 
 <div class="viewcode-block" id="RectifiedDistribution">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution">[docs]</a>
-<span class="k">class</span> <span class="nc">RectifiedDistribution</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RectifiedDistribution</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a rectifying flows according to [1]. To be used as an alternative</span>
 <span class="sd">    to a normalizing flow in a BayesFlow pipeline.</span>
 
@@ -531,9 +524,7 @@
 <span class="sd">    arXiv preprint arXiv:2209.03003.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="RectifiedDistribution.__init__">
-<a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">drift_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">latent_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">summary_loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">drift_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">latent_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">summary_loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a composite neural network to represent an amortized approximate posterior through</span>
 <span class="sd">        for a rectifying flow.</span>
 
@@ -569,12 +560,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="n">drift_net</span><span class="o">.</span><span class="n">latent_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_latent_dist</span><span class="p">(</span><span class="n">latent_dist</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">loss_fun</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_loss</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">summary_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_summary_loss</span><span class="p">(</span><span class="n">summary_loss_fun</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_summary_loss</span><span class="p">(</span><span class="n">summary_loss_fun</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RectifiedDistribution.call">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_eval_points</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_eval_points</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the summary and drift network given an input dictionary.</span>
 
 <span class="sd">        Parameters</span>
@@ -636,7 +626,7 @@
 
 <div class="viewcode-block" id="RectifiedDistribution.compute_loss">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the posterior amortizer given an input dictionary, which will</span>
 <span class="sd">        typically be the output of a Bayesian ``GenerativeModel`` instance.</span>
 
@@ -674,7 +664,7 @@
 
 <div class="viewcode-block" id="RectifiedDistribution.sample">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution.sample">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates random draws from the approximate posterior given a dictionary with conditonal variables.</span>
 
 <span class="sd">        Parameters</span>
@@ -726,7 +716,7 @@
 
 <div class="viewcode-block" id="RectifiedDistribution.log_density">
 <a class="viewcode-back" href="../../../api/bayesflow.experimental.rectifiers.html#bayesflow.experimental.rectifiers.RectifiedDistribution.log_density">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the log density...&quot;&quot;&quot;</span>
 
         <span class="c1"># Compute condition (direct, summary, or both)</span>
@@ -750,7 +740,7 @@
         <span class="k">return</span> <span class="n">lpdf</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_solve_euler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_vars</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_solve_euler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_vars</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Simple stochastic parallel Euler solver.&quot;&quot;&quot;</span>
 
         <span class="n">num_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
@@ -761,10 +751,10 @@
             <span class="n">time_vec</span> <span class="o">+=</span> <span class="n">dt</span>
         <span class="k">return</span> <span class="n">target</span>
 
-    <span class="k">def</span> <span class="nf">_solve_euler_inv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_solve_euler_inv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Solves the reverse ODE (negative direction of drift) and returns the trace.&quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">velocity</span><span class="p">(</span><span class="n">latents</span><span class="p">,</span> <span class="n">drift</span><span class="p">,</span> <span class="n">time_vec</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">velocity</span><span class="p">(</span><span class="n">latents</span><span class="p">,</span> <span class="n">drift</span><span class="p">,</span> <span class="n">time_vec</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">drift</span><span class="p">(</span><span class="n">latents</span><span class="p">,</span> <span class="n">time_vec</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">v</span>
 
@@ -782,7 +772,7 @@
             <span class="n">time_vec</span> <span class="o">-=</span> <span class="n">dt</span>
         <span class="k">return</span> <span class="n">latents</span><span class="p">,</span> <span class="n">trace</span>
 
-    <span class="k">def</span> <span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines how to concatenate the provided conditions.&quot;&quot;&quot;</span>
 
         <span class="c1"># Compute learnable summaries, if given</span>
@@ -802,7 +792,7 @@
             <span class="k">raise</span> <span class="n">SummaryStatsError</span><span class="p">(</span><span class="s2">&quot;Could not concatenarte or determine conditioning inputs...&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sum_condition</span><span class="p">,</span> <span class="n">full_cond</span>
 
-    <span class="k">def</span> <span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which latent distribution to use and defaults to unit normal if ``None`` provided.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">latent_dist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -810,7 +800,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">latent_dist</span>
 
-    <span class="k">def</span> <span class="nf">_determine_summary_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_summary_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which summary loss to use if default `None` argument provided, otherwise return identity.&quot;&quot;&quot;</span>
 
         <span class="c1"># If callable, return provided loss</span>
@@ -829,7 +819,7 @@
                 <span class="s2">&quot;Could not infer summary_loss_fun, argument should be of type (None, callable, or str)!&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which summary loss to use if default ``None`` argument provided, otherwise return identity.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">loss_fun</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -874,7 +864,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

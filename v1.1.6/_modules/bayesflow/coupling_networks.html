@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -217,17 +217,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_modules/bayesflow/coupling_networks.html" class="current">v1.1.6</a></li>
-      <li><a href="/v1.1.5/_modules/bayesflow/coupling_networks.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_modules/bayesflow/coupling_networks.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_modules/bayesflow/coupling_networks.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_modules/bayesflow/coupling_networks.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/coupling_networks.html" >dev</a></li>
       <li><a href="/master/_modules/bayesflow/coupling_networks.html" >master</a></li>
+      <li><a href="/dev/_modules/bayesflow/coupling_networks.html" >dev</a></li>
   </ul>
   
 </div>
@@ -395,19 +391,19 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">EULER_CONST</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">PI_CONST</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">EULER_CONST</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">PI_CONST</span>
 
-<span class="kn">from</span> <span class="nn">bayesflow</span> <span class="kn">import</span> <span class="n">default_settings</span>
-<span class="kn">from</span> <span class="nn">bayesflow.exceptions</span> <span class="kn">import</span> <span class="n">ConfigurationError</span>
-<span class="kn">from</span> <span class="nn">bayesflow.helper_functions</span> <span class="kn">import</span> <span class="n">build_meta_dict</span>
-<span class="kn">from</span> <span class="nn">bayesflow.helper_networks</span> <span class="kn">import</span> <span class="n">ActNorm</span><span class="p">,</span> <span class="n">DenseCouplingNet</span><span class="p">,</span> <span class="n">Orthogonal</span><span class="p">,</span> <span class="n">Permutation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">default_settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigurationError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.helper_functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_meta_dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.helper_networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActNorm</span><span class="p">,</span> <span class="n">DenseCouplingNet</span><span class="p">,</span> <span class="n">Orthogonal</span><span class="p">,</span> <span class="n">Permutation</span>
 
 
 <div class="viewcode-block" id="AffineCoupling">
 <a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.AffineCoupling">[docs]</a>
-<span class="k">class</span> <span class="nc">AffineCoupling</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AffineCoupling</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a conditional affine coupling block according to [1, 2], with additional</span>
 <span class="sd">    options, such as residual blocks or Monte Carlo Dropout.</span>
 
@@ -421,9 +417,7 @@
 <span class="sd">    arXiv preprint arXiv:1907.02392.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AffineCoupling.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.AffineCoupling.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates one half of an affine coupling layer to be used as part of a ``CouplingLayer`` in</span>
 <span class="sd">        an ``InvertibleNetwork`` instance.</span>
 
@@ -462,12 +456,11 @@
 
         <span class="c1"># Internal network (learnable scale and translation)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">DenseCouplingNet</span><span class="p">(</span><span class="n">s_settings</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">translate</span> <span class="o">=</span> <span class="n">DenseCouplingNet</span><span class="p">(</span><span class="n">t_settings</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">translate</span> <span class="o">=</span> <span class="n">DenseCouplingNet</span><span class="p">(</span><span class="n">t_settings</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AffineCoupling.call">
 <a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.AffineCoupling.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs one pass through an affine coupling layer (either inverse or forward).</span>
 
 <span class="sd">        Parameters</span>
@@ -497,7 +490,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">(</span><span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the coupling layer. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -524,7 +517,7 @@
         <span class="n">log_det_J</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">log_det_J</span>
 
-    <span class="k">def</span> <span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs an inverse pass through the affine coupling block. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -554,7 +547,7 @@
 
 <div class="viewcode-block" id="SplineCoupling">
 <a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.SplineCoupling">[docs]</a>
-<span class="k">class</span> <span class="nc">SplineCoupling</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SplineCoupling</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a conditional spline coupling block according to [1, 2], with additional</span>
 <span class="sd">    options, such as residual blocks or Monte Carlo Dropout.</span>
 
@@ -569,9 +562,7 @@
 <span class="sd">    best in practice and lead to stable training.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="SplineCoupling.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.SplineCoupling.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_out</span><span class="p">,</span> <span class="n">settings_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates one half of a spline coupling layer to be used as part of a ``CouplingLayer`` in</span>
 <span class="sd">        an ``InvertibleNetwork`` instance.</span>
 
@@ -610,12 +601,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">num_total_spline_params</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spline_params_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim_out</span>
 
         <span class="c1"># Internal network (learnable spline parameters)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">DenseCouplingNet</span><span class="p">(</span><span class="n">settings_dict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_total_spline_params</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">DenseCouplingNet</span><span class="p">(</span><span class="n">settings_dict</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_total_spline_params</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SplineCoupling.call">
 <a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.SplineCoupling.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs one pass through a spline coupling layer (either inverse or forward).</span>
 
 <span class="sd">        Parameters</span>
@@ -645,7 +635,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">(</span><span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the spline coupling layer. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -670,7 +660,7 @@
         <span class="n">v</span><span class="p">,</span> <span class="n">log_det_J</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_spline</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">spline_params</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">log_det_J</span>
 
-    <span class="k">def</span> <span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs an inverse pass through the coupling block. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -695,7 +685,7 @@
         <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_spline</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">spline_params</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">u</span>
 
-    <span class="k">def</span> <span class="nf">_calculate_spline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">spline_params</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_spline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">spline_params</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes both directions of a rational quadratic spline (RQS) as in:</span>
 <span class="sd">        https://github.com/vislearn/FrEIA/blob/master/FrEIA/modules/splines/rational_quadratic.py</span>
 
@@ -814,7 +804,7 @@
             <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">log_jac</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
-    <span class="k">def</span> <span class="nf">_semantic_spline_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_semantic_spline_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a tuple of tensors from the output of the coupling net.</span>
 
 <span class="sd">        Parameters</span>
@@ -841,7 +831,7 @@
         <span class="n">parameters</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spline_params_counts</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">parameters</span>
 
-    <span class="k">def</span> <span class="nf">_constrain_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_constrain_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes care of zero spline parameters due to zeros kernel initializer and</span>
 <span class="sd">        applies parameter constraints for stability.</span>
 
@@ -888,13 +878,11 @@
 
 
 <div class="viewcode-block" id="CouplingLayer">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer">[docs]</a>
-<span class="k">class</span> <span class="nc">CouplingLayer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CouplingLayer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;General wrapper for a coupling layer (either affine or spline) with different settings.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="CouplingLayer.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">latent_dim</span><span class="p">,</span>
         <span class="n">coupling_settings</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -977,12 +965,11 @@
         <span class="k">if</span> <span class="n">use_act_norm</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">act_norm</span> <span class="o">=</span> <span class="n">ActNorm</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">act_norm_init</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">act_norm</span> <span class="o">=</span> <span class="kc">None</span></div>
-
+            <span class="bp">self</span><span class="o">.</span><span class="n">act_norm</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="CouplingLayer.call">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_or_z</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.call">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_or_z</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs one pass through the affine coupling layer (either inverse or forward).</span>
 
 <span class="sd">        Parameters</span>
@@ -1016,8 +1003,8 @@
 
 
 <div class="viewcode-block" id="CouplingLayer.forward">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.forward">[docs]</a>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.forward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through a coupling layer with an optinal `Permutation` and `ActNorm` layers.</span>
 
 <span class="sd">        Parameters</span>
@@ -1056,8 +1043,8 @@
 
 
 <div class="viewcode-block" id="CouplingLayer.inverse">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.inverse">[docs]</a>
-    <span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.inverse">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs an inverse pass through a coupling layer with an optinal `Permutation` and `ActNorm` layers.</span>
 
 <span class="sd">        Parameters</span>
@@ -1082,7 +1069,7 @@
         <span class="k">return</span> <span class="n">target</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the coupling layer. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -1109,7 +1096,7 @@
         <span class="n">log_det_J</span> <span class="o">=</span> <span class="n">log_det_J1</span> <span class="o">+</span> <span class="n">log_det_J2</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">log_det_J</span>
 
-    <span class="k">def</span> <span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs an inverse pass through the coupling block. Used internally by the instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -1171,7 +1158,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

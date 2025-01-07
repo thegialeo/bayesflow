@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -220,17 +220,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_examples/Amortized_Point_Estimation.html" >v1.1.6</a></li>
-      <li><a href="/v1.1.5/_examples/Amortized_Point_Estimation.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_examples/Amortized_Point_Estimation.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_examples/Amortized_Point_Estimation.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_examples/Amortized_Point_Estimation.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_examples/Amortized_Point_Estimation.html" >dev</a></li>
       <li><a href="/master/_examples/Amortized_Point_Estimation.html" class="current">master</a></li>
+      <li><a href="/dev/_examples/Amortized_Point_Estimation.html" >dev</a></li>
   </ul>
   
 </div>
@@ -455,18 +451,18 @@
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow_probability</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tfp</span>
 
-<span class="kn">import</span> <span class="nn">bayesflow</span> <span class="k">as</span> <span class="nn">bf</span>
-<span class="kn">from</span> <span class="nn">bayesflow.amortizers</span> <span class="kn">import</span> <span class="n">AmortizedPointEstimator</span>
-<span class="kn">from</span> <span class="nn">bayesflow.benchmarks</span> <span class="kn">import</span> <span class="n">Benchmark</span>
-<span class="kn">from</span> <span class="nn">bayesflow.helper_networks</span> <span class="kn">import</span> <span class="n">ConfigurableMLP</span>
-<span class="kn">from</span> <span class="nn">bayesflow.simulation</span> <span class="kn">import</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">Prior</span><span class="p">,</span> <span class="n">Simulator</span>
-<span class="kn">from</span> <span class="nn">bayesflow.summary_networks</span> <span class="kn">import</span> <span class="n">DeepSet</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.amortizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AmortizedPointEstimator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">Benchmark</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.helper_networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigurableMLP</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.simulation</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">Prior</span><span class="p">,</span> <span class="n">Simulator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.summary_networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepSet</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +527,7 @@ INFO:root:No optional simulation batchable context provided.
 <p>Next, we have to provide a configurator, to assure that the data is first passed to the <em>summary network</em>, and not directly to the inference network</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function for posterior configuration.&quot;&quot;&quot;</span>
 
     <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -623,12 +619,12 @@ Training epoch 10: 100%|██████████| 157/157 [00:00&lt;00:00,
 <p>First, we specify out generative model. The prior is a Pareto distribution with <span class="math notranslate nohighlight">\(\alpha=4\)</span> and <span class="math notranslate nohighlight">\(\beta=1\)</span>. The likelihood is a uniform distribution, with a minimum value of zero and a maximum value which is determined by the parameter <span class="math notranslate nohighlight">\(\theta\)</span>. For efficiency, we create a <em>batched</em> simulator, i.e. we generate a whole batch of data in one function call.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">batch_prior_fun</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_prior_fun</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
     <span class="n">dist</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Pareto</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dist</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">batch_simulator_fun</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">n_obs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">batch_simulator_fun</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">n_obs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="n">theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">),</span> <span class="n">maxval</span><span class="o">=</span><span class="n">theta</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
 
 
@@ -666,7 +662,7 @@ INFO:root:No optional simulation batchable context provided.
 <p>The configurator is similar to the one above, but we skip the <code class="docutils literal notranslate"><span class="pre">.astype</span></code> calls, as the generative model already produces TensorFlow tensors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function for posterior configuration.&quot;&quot;&quot;</span>
 
     <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -803,7 +799,7 @@ Wall time: 1.2 s
 <p>For comparison, we calculate the values with the analytic Bayes estimator as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_estimator</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bayes_estimator</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">max_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">+</span> <span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">max_vals</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
@@ -898,7 +894,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

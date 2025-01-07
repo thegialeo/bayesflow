@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -217,17 +217,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_modules/bayesflow/computational_utilities.html" class="current">v1.1.6</a></li>
-      <li><a href="/v1.1.5/_modules/bayesflow/computational_utilities.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_modules/bayesflow/computational_utilities.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_modules/bayesflow/computational_utilities.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_modules/bayesflow/computational_utilities.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/computational_utilities.html" >dev</a></li>
       <li><a href="/master/_modules/bayesflow/computational_utilities.html" >master</a></li>
+      <li><a href="/dev/_modules/bayesflow/computational_utilities.html" >dev</a></li>
   </ul>
   
 </div>
@@ -395,20 +391,20 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">from</span> <span class="nn">sklearn.calibration</span> <span class="kn">import</span> <span class="n">calibration_curve</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.calibration</span><span class="w"> </span><span class="kn">import</span> <span class="n">calibration_curve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPClassifier</span>
 
-<span class="kn">from</span> <span class="nn">bayesflow.default_settings</span> <span class="kn">import</span> <span class="n">MMD_BANDWIDTH_LIST</span>
-<span class="kn">from</span> <span class="nn">bayesflow.exceptions</span> <span class="kn">import</span> <span class="n">ShapeError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.default_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">MMD_BANDWIDTH_LIST</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShapeError</span>
 
 
 <div class="viewcode-block" id="posterior_calibration_error">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.posterior_calibration_error">[docs]</a>
-<span class="k">def</span> <span class="nf">posterior_calibration_error</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">posterior_calibration_error</span><span class="p">(</span>
     <span class="n">posterior_samples</span><span class="p">,</span>
     <span class="n">prior_samples</span><span class="p">,</span>
     <span class="n">alpha_resolution</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -475,8 +471,8 @@
 
 
 <div class="viewcode-block" id="compute_jacobian_trace">
-<a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.compute_jacobian_trace">[docs]</a>
-<span class="k">def</span> <span class="nf">compute_jacobian_trace</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.experimental.rectifiers.html#bayesflow.computational_utilities.compute_jacobian_trace">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_jacobian_trace</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the exact Jacobian Trace of function with respect to inputs. Suitable for low dimensions (&lt;32)</span>
 
 <span class="sd">    Parameters</span>
@@ -516,7 +512,7 @@
 
 <div class="viewcode-block" id="gaussian_kernel_matrix">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.gaussian_kernel_matrix">[docs]</a>
-<span class="k">def</span> <span class="nf">gaussian_kernel_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gaussian_kernel_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes a Gaussian radial basis functions (RBFs) between the samples of x and y.</span>
 
 <span class="sd">    We create a sum of multiple Gaussian kernels each having a width :math:`\sigma_i`.</span>
@@ -550,7 +546,7 @@
 
 <div class="viewcode-block" id="inverse_multiquadratic_kernel_matrix">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.inverse_multiquadratic_kernel_matrix">[docs]</a>
-<span class="k">def</span> <span class="nf">inverse_multiquadratic_kernel_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">inverse_multiquadratic_kernel_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes an inverse multiquadratic RBF between the samples of x and y.</span>
 
 <span class="sd">    We create a sum of multiple IM-RBF kernels each having a width :math:`\sigma_i`.</span>
@@ -581,7 +577,7 @@
 
 <div class="viewcode-block" id="mmd_kernel">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.mmd_kernel">[docs]</a>
-<span class="k">def</span> <span class="nf">mmd_kernel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mmd_kernel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the estimator of the Maximum Mean Discrepancy (MMD) between two samples: x and y.</span>
 
 <span class="sd">    Maximum Mean Discrepancy (MMD) is a distance-measure between random draws from</span>
@@ -611,7 +607,7 @@
 
 <div class="viewcode-block" id="mmd_kernel_unbiased">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.mmd_kernel_unbiased">[docs]</a>
-<span class="k">def</span> <span class="nf">mmd_kernel_unbiased</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mmd_kernel_unbiased</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the unbiased estimator of the Maximum Mean Discrepancy (MMD) between two samples: x and y.</span>
 <span class="sd">    Maximum Mean Discrepancy (MMD) is a distance-measure between the samples of the distributions `x ~ P` and `y ~ Q`.</span>
 
@@ -639,8 +635,8 @@
 
 
 <div class="viewcode-block" id="expected_calibration_error">
-<a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.expected_calibration_error">[docs]</a>
-<span class="k">def</span> <span class="nf">expected_calibration_error</span><span class="p">(</span><span class="n">m_true</span><span class="p">,</span> <span class="n">m_pred</span><span class="p">,</span> <span class="n">num_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.diagnostics.html#bayesflow.computational_utilities.expected_calibration_error">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">expected_calibration_error</span><span class="p">(</span><span class="n">m_true</span><span class="p">,</span> <span class="n">m_pred</span><span class="p">,</span> <span class="n">num_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Estimates the expected calibration error (ECE) of a model comparison network according to [1].</span>
 
 <span class="sd">    [1] Naeini, M. P., Cooper, G., &amp; Hauskrecht, M. (2015).</span>
@@ -702,8 +698,8 @@
 
 
 <div class="viewcode-block" id="maximum_mean_discrepancy">
-<a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.maximum_mean_discrepancy">[docs]</a>
-<span class="k">def</span> <span class="nf">maximum_mean_discrepancy</span><span class="p">(</span><span class="n">source_samples</span><span class="p">,</span> <span class="n">target_samples</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="n">mmd_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.computational_utilities.maximum_mean_discrepancy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">maximum_mean_discrepancy</span><span class="p">(</span><span class="n">source_samples</span><span class="p">,</span> <span class="n">target_samples</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="n">mmd_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the MMD given a particular choice of kernel.</span>
 
 <span class="sd">    For details, consult Gretton et al. (2012):</span>
@@ -745,7 +741,7 @@
 
 <div class="viewcode-block" id="get_coverage_probs">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.get_coverage_probs">[docs]</a>
-<span class="k">def</span> <span class="nf">get_coverage_probs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_coverage_probs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Vectorized function to compute the minimal coverage probability for uniform</span>
 <span class="sd">    ECDFs given evaluation points z and a sample of samples u.</span>
 
@@ -767,8 +763,8 @@
 
 
 <div class="viewcode-block" id="simultaneous_ecdf_bands">
-<a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.simultaneous_ecdf_bands">[docs]</a>
-<span class="k">def</span> <span class="nf">simultaneous_ecdf_bands</span><span class="p">(</span>
+<a class="viewcode-back" href="../../api/bayesflow.diagnostics.html#bayesflow.computational_utilities.simultaneous_ecdf_bands">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simultaneous_ecdf_bands</span><span class="p">(</span>
     <span class="n">num_samples</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">num_simulations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">max_num_points</span><span class="o">=</span><span class="mi">1000</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the simultaneous ECDF bands through simulation according to</span>
@@ -832,7 +828,7 @@
 
 <div class="viewcode-block" id="mean_squared_error">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.mean_squared_error">[docs]</a>
-<span class="k">def</span> <span class="nf">mean_squared_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mean_squared_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the mean squared error between a single true value and M estimates thereof.</span>
 
 <span class="sd">    Parameters</span>
@@ -860,7 +856,7 @@
 
 <div class="viewcode-block" id="root_mean_squared_error">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.root_mean_squared_error">[docs]</a>
-<span class="k">def</span> <span class="nf">root_mean_squared_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">root_mean_squared_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the root mean squared error (RMSE) between a single true value and M estimates thereof.</span>
 
 <span class="sd">    Parameters</span>
@@ -884,7 +880,7 @@
 
 <div class="viewcode-block" id="aggregated_error">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.aggregated_error">[docs]</a>
-<span class="k">def</span> <span class="nf">aggregated_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">,</span> <span class="n">inner_error_fun</span><span class="o">=</span><span class="n">root_mean_squared_error</span><span class="p">,</span> <span class="n">outer_aggregation_fun</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aggregated_error</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">,</span> <span class="n">inner_error_fun</span><span class="o">=</span><span class="n">root_mean_squared_error</span><span class="p">,</span> <span class="n">outer_aggregation_fun</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the aggregated error between a vector of N true values and M estimates of each true value.</span>
 
 <span class="sd">    x_true      : np.ndarray</span>
@@ -917,7 +913,7 @@
 
 <div class="viewcode-block" id="aggregated_rmse">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.aggregated_rmse">[docs]</a>
-<span class="k">def</span> <span class="nf">aggregated_rmse</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aggregated_rmse</span><span class="p">(</span><span class="n">x_true</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes the aggregated RMSE for a matrix of predictions.</span>
 
@@ -942,7 +938,7 @@
 
 <div class="viewcode-block" id="c2st">
 <a class="viewcode-back" href="../../api/bayesflow.computational_utilities.html#bayesflow.computational_utilities.c2st">[docs]</a>
-<span class="k">def</span> <span class="nf">c2st</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">c2st</span><span class="p">(</span>
     <span class="n">source_samples</span><span class="p">,</span>
     <span class="n">target_samples</span><span class="p">,</span>
     <span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -1063,7 +1059,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -217,17 +217,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_modules/bayesflow/default_settings.html" >v1.1.6</a></li>
-      <li><a href="/v1.1.5/_modules/bayesflow/default_settings.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_modules/bayesflow/default_settings.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_modules/bayesflow/default_settings.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_modules/bayesflow/default_settings.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/default_settings.html" >dev</a></li>
       <li><a href="/master/_modules/bayesflow/default_settings.html" class="current">master</a></li>
+      <li><a href="/dev/_modules/bayesflow/default_settings.html" >dev</a></li>
   </ul>
   
 </div>
@@ -395,34 +391,29 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 
 
 <div class="viewcode-block" id="Setting">
 <a class="viewcode-back" href="../../api/bayesflow.default_settings.html#bayesflow.default_settings.Setting">[docs]</a>
-<span class="k">class</span> <span class="nc">Setting</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Setting</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract base class for settings. It&#39;s here to potentially extend the setting functionality in future.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Setting.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.default_settings.html#bayesflow.default_settings.Setting.__init__">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
-</div>
 
 
 
 <div class="viewcode-block" id="MetaDictSetting">
 <a class="viewcode-back" href="../../api/bayesflow.default_settings.html#bayesflow.default_settings.MetaDictSetting">[docs]</a>
-<span class="k">class</span> <span class="nc">MetaDictSetting</span><span class="p">(</span><span class="n">Setting</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MetaDictSetting</span><span class="p">(</span><span class="n">Setting</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements an interface for a default meta_dict with optional mandatory fields.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MetaDictSetting.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.default_settings.html#bayesflow.default_settings.MetaDictSetting.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">mandatory_fields</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">mandatory_fields</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Parameters</span>
@@ -435,7 +426,6 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">meta_dict</span> <span class="o">=</span> <span class="n">meta_dict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mandatory_fields</span> <span class="o">=</span> <span class="n">mandatory_fields</span></div>
-</div>
 
 
 
@@ -631,7 +621,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>

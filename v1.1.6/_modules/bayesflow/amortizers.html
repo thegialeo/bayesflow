@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -217,17 +217,13 @@
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Tags</span></p>
   <ul>
       <li><a href="/v1.1.6/_modules/bayesflow/amortizers.html" class="current">v1.1.6</a></li>
-      <li><a href="/v1.1.5/_modules/bayesflow/amortizers.html" >v1.1.5</a></li>
-      <li><a href="/v1.1.4/_modules/bayesflow/amortizers.html" >v1.1.4</a></li>
-      <li><a href="/v1.1.3/_modules/bayesflow/amortizers.html" >v1.1.3</a></li>
-      <li><a href="/v1.1.2/_modules/bayesflow/amortizers.html" >v1.1.2</a></li>
   </ul>
   
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/amortizers.html" >dev</a></li>
       <li><a href="/master/_modules/bayesflow/amortizers.html" >master</a></li>
+      <li><a href="/dev/_modules/bayesflow/amortizers.html" >dev</a></li>
   </ul>
   
 </div>
@@ -395,26 +391,26 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow_probability</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tfp</span>
 
-<span class="kn">from</span> <span class="nn">bayesflow.default_settings</span> <span class="kn">import</span> <span class="n">DEFAULT_KEYS</span>
-<span class="kn">from</span> <span class="nn">bayesflow.exceptions</span> <span class="kn">import</span> <span class="n">ConfigurationError</span><span class="p">,</span> <span class="n">SummaryStatsError</span>
-<span class="kn">from</span> <span class="nn">bayesflow.helper_functions</span> <span class="kn">import</span> <span class="n">check_tensor_sanity</span>
-<span class="kn">from</span> <span class="nn">bayesflow.losses</span> <span class="kn">import</span> <span class="n">log_loss</span><span class="p">,</span> <span class="n">mmd_summary_space</span><span class="p">,</span> <span class="n">norm_diff</span>
-<span class="kn">from</span> <span class="nn">bayesflow.networks</span> <span class="kn">import</span> <span class="n">EvidentialNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.default_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_KEYS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigurationError</span><span class="p">,</span> <span class="n">SummaryStatsError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.helper_functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_tensor_sanity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.losses</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_loss</span><span class="p">,</span> <span class="n">mmd_summary_space</span><span class="p">,</span> <span class="n">norm_diff</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvidentialNetwork</span>
 
 
 <div class="viewcode-block" id="AmortizedTarget">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedTarget">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedTarget</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedTarget</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An abstract interface for an amortized learned distribution. Children should</span>
 <span class="sd">    implement the following public methods:</span>
 
@@ -423,43 +419,40 @@
 <span class="sd">    3. ``log_prob(input_dict, **kwargs)``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedTarget.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedTarget.__init__">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">pass</span></div>
-
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
 
 <div class="viewcode-block" id="AmortizedTarget.compute_loss">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedTarget.compute_loss">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="AmortizedTarget.sample">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedTarget.sample">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="AmortizedTarget.log_prob">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedTarget.log_prob">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_check_output_sanity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_output_sanity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
         <span class="n">check_tensor_sanity</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="AmortizedPosterior">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedPosterior</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedPosterior</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper to connect an inference network for parameter estimation with an optional summary network</span>
 <span class="sd">    as in the original BayesFlow set-up described in the paper:</span>
 
@@ -486,9 +479,7 @@
 <span class="sd">    Serves as in interface for learning ``p(parameters | data, context).``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedPosterior.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">inference_net</span><span class="p">,</span>
         <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -539,12 +530,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_net</span><span class="o">.</span><span class="n">latent_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_is_dynamic</span> <span class="o">=</span> <span class="n">latent_is_dynamic</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_summary_loss</span><span class="p">(</span><span class="n">summary_loss_fun</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_latent_dist</span><span class="p">(</span><span class="n">latent_dist</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_latent_dist</span><span class="p">(</span><span class="n">latent_dist</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AmortizedPosterior.call">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.call">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the summary and inference network given an input dictionary.</span>
 
 <span class="sd">        Parameters</span>
@@ -585,8 +575,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.compute_loss">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.compute_loss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the posterior amortizer given an input dictionary, which will</span>
 <span class="sd">        typically be the output of a Bayesian ``GenerativeModel`` instance.</span>
 
@@ -630,8 +620,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.call_loop">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.call_loop">[docs]</a>
-    <span class="k">def</span> <span class="nf">call_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.call_loop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the summary and inference network given a list of dicts</span>
 <span class="sd">        with the appropriate entries (i.e., as used for the standard call method).</span>
 
@@ -664,8 +654,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.sample">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.sample">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.sample">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates random draws from the approximate posterior given a dictionary with conditonal variables.</span>
 
 <span class="sd">        Parameters</span>
@@ -723,8 +713,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.sample_loop">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.sample_loop">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.sample_loop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates random draws from the approximate posterior given a list of dicts with conditonal variables.</span>
 <span class="sd">        Useful when GPU memory is limited or data sets have a different (non-Tensor) structure.</span>
 
@@ -755,8 +745,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.log_posterior">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.log_posterior">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_posterior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.log_posterior">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_posterior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the approximate log-posterior of targets given conditional variables via</span>
 <span class="sd">        the change-of-variable formula for a conditional normalizing flow.</span>
 
@@ -806,14 +796,14 @@
 
 
 <div class="viewcode-block" id="AmortizedPosterior.log_prob">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosterior.log_prob">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosterior.log_prob">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Identical to `log_posterior(input_dict, to_numpy, **kwargs)`.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_posterior</span><span class="p">(</span><span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="n">to_numpy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines how to concatenate the provided conditions.&quot;&quot;&quot;</span>
 
         <span class="c1"># Compute learnable summaries, if given</span>
@@ -833,7 +823,7 @@
             <span class="k">raise</span> <span class="n">SummaryStatsError</span><span class="p">(</span><span class="s2">&quot;Could not concatenate or determine conditioning inputs...&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sum_condition</span><span class="p">,</span> <span class="n">full_cond</span>
 
-    <span class="k">def</span> <span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which latent distribution to use and defaults to unit normal if None provided.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">latent_dist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -841,7 +831,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">latent_dist</span>
 
-    <span class="k">def</span> <span class="nf">_determine_summary_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_summary_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which summary loss to use if default `None` argument provided, otherwise return identity.&quot;&quot;&quot;</span>
 
         <span class="c1"># Throw, if summary loss without a summary network provided</span>
@@ -867,15 +857,13 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedLikelihood</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedLikelihood</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An interface for a surrogate model of a simulator, or an implicit likelihood</span>
 <span class="sd">    ``p(data | parameters, context)``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedLikelihood.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">surrogate_net</span><span class="p">,</span> <span class="n">latent_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">surrogate_net</span><span class="p">,</span> <span class="n">latent_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a composite neural architecture representing an amortized emulator</span>
 <span class="sd">        for the simulator (i.e., the implicit likelihood model).</span>
 
@@ -894,12 +882,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">surrogate_net</span> <span class="o">=</span> <span class="n">surrogate_net</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surrogate_net</span><span class="o">.</span><span class="n">latent_dim</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_latent_dist</span><span class="p">(</span><span class="n">latent_dist</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_latent_dist</span><span class="p">(</span><span class="n">latent_dist</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AmortizedLikelihood.call">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.call">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the summary and inference network.</span>
 
 <span class="sd">        Parameters</span>
@@ -926,8 +913,8 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.call_loop">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.call_loop">[docs]</a>
-    <span class="k">def</span> <span class="nf">call_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.call_loop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the surrogate network given a list of dicts</span>
 <span class="sd">        with the appropriate entries (i.e., as used for the standard call method).</span>
 
@@ -956,8 +943,8 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.sample">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.sample">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.sample">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates `n_samples` random draws from the surrogate likelihood given input conditions.</span>
 
 <span class="sd">        Parameters</span>
@@ -1002,8 +989,8 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.sample_loop">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.sample_loop">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.sample_loop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates random draws from the surrogate network given a list of dicts with conditional variables.</span>
 <span class="sd">        Useful when GPU memory is limited or data sets have a different (non-Tensor) structure.</span>
 
@@ -1033,8 +1020,8 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.log_likelihood">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.log_likelihood">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.log_likelihood">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the approximate log-likelihood of targets given conditional variables via</span>
 <span class="sd">        the change-of-variable formula for a conditional normalizing flow.</span>
 
@@ -1071,16 +1058,16 @@
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.log_prob">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.log_prob">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.log_prob">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Identical to `log_likelihood(input_dict, to_numpy, **kwargs)`.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood</span><span class="p">(</span><span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="n">to_numpy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="AmortizedLikelihood.compute_loss">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedLikelihood.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedLikelihood.compute_loss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the amortized given input data provided in input_dict.</span>
 
 <span class="sd">        Parameters</span>
@@ -1103,7 +1090,7 @@
         <span class="k">return</span> <span class="n">loss</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_latent_dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dist</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which latent distribution to use and defaults to unit normal if ``None`` provided.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">latent_dist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1114,8 +1101,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedPosteriorLikelihood</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedPosteriorLikelihood</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An interface for jointly learning a surrogate model of the simulator and an approximate</span>
 <span class="sd">    posterior given a generative model, as proposed by:</span>
 
@@ -1124,9 +1111,7 @@
 <span class="sd">    arXiv preprint arXiv:2302.09125.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedPosteriorLikelihood.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amortized_posterior</span><span class="p">,</span> <span class="n">amortized_likelihood</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amortized_posterior</span><span class="p">,</span> <span class="n">amortized_likelihood</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a joint learner comprising an amortized posterior and an amortized emulator.</span>
 
 <span class="sd">        Parameters</span>
@@ -1142,12 +1127,11 @@
         <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">amortized_posterior</span> <span class="o">=</span> <span class="n">amortized_posterior</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">amortized_likelihood</span> <span class="o">=</span> <span class="n">amortized_likelihood</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">amortized_likelihood</span> <span class="o">=</span> <span class="n">amortized_likelihood</span>
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.call">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.call">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through both amortizers.</span>
 
 <span class="sd">        Parameters</span>
@@ -1169,8 +1153,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.compute_loss">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.compute_loss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the join amortizer by summing the corresponding amortized posterior</span>
 <span class="sd">        and likelihood losses.</span>
 
@@ -1194,8 +1178,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.log_likelihood">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_likelihood">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_likelihood">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the approximate log-likelihood of data given conditional variables via</span>
 <span class="sd">        the change-of-variable formula for conditional normalizing flows.</span>
 
@@ -1225,8 +1209,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.log_posterior">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_posterior">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_posterior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_posterior">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_posterior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the approximate log-posterior of targets given conditional variables via</span>
 <span class="sd">        the change-of-variable formula for conditional normalizing flows.</span>
 
@@ -1255,8 +1239,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.log_prob">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_prob">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.log_prob">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Identical to calling separate `log_likelihood()` and `log_posterior()`.</span>
 
 <span class="sd">        Returns</span>
@@ -1272,8 +1256,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.sample_data">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates `n_samples` random draws from the surrogate likelihood given input conditions.</span>
 
 <span class="sd">        Parameters</span>
@@ -1304,8 +1288,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.sample_parameters">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample_parameters">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample_parameters">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates random draws from the approximate posterior given conditonal variables.</span>
 
 <span class="sd">        Parameters</span>
@@ -1336,8 +1320,8 @@
 
 
 <div class="viewcode-block" id="AmortizedPosteriorLikelihood.sample">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_post_samples</span><span class="p">,</span> <span class="n">n_lik_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedPosteriorLikelihood.sample">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_post_samples</span><span class="p">,</span> <span class="n">n_lik_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Identical to calling `sample_parameters()` and `sample_data()` separately.</span>
 
 <span class="sd">        Returns</span>
@@ -1355,8 +1339,8 @@
 
 
 <div class="viewcode-block" id="AmortizedModelComparison">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedModelComparison">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedModelComparison</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedModelComparison">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedModelComparison</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An interface to connect an evidential network for Bayesian model comparison with an optional summary network,</span>
 <span class="sd">    as described in the original paper on evidential neural networks for model comparison according to [1, 2]:</span>
 
@@ -1373,9 +1357,7 @@
 <span class="sd">    sake of consistency and modularity, the BayesFlow library separates the two constructs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedModelComparison.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedModelComparison.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a composite neural architecture for amortized bayesian model comparison.</span>
 
 <span class="sd">        Parameters</span>
@@ -1401,12 +1383,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">inference_net</span> <span class="o">=</span> <span class="n">inference_net</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_net</span> <span class="o">=</span> <span class="n">summary_net</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_loss</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_net</span><span class="o">.</span><span class="n">num_models</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_net</span><span class="o">.</span><span class="n">num_models</span>
 
 <div class="viewcode-block" id="AmortizedModelComparison.call">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedModelComparison.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedModelComparison.call">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through both networks.</span>
 
 <span class="sd">        Parameters</span>
@@ -1440,8 +1421,8 @@
 
 
 <div class="viewcode-block" id="AmortizedModelComparison.posterior_probs">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedModelComparison.posterior_probs">[docs]</a>
-    <span class="k">def</span> <span class="nf">posterior_probs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedModelComparison.posterior_probs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">posterior_probs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute posterior model probabilities (PMPs) given a dictionary with observed or</span>
 <span class="sd">        simulated data.</span>
 
@@ -1474,8 +1455,8 @@
 
 
 <div class="viewcode-block" id="AmortizedModelComparison.compute_loss">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedModelComparison.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.amortizers.AmortizedModelComparison.compute_loss">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the amortized model comparison instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -1496,7 +1477,7 @@
         <span class="k">return</span> <span class="n">loss</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper method to determines how to concatenate the provided conditions.&quot;&quot;&quot;</span>
 
         <span class="c1"># Compute learnable summaries, if given</span>
@@ -1516,7 +1497,7 @@
             <span class="k">raise</span> <span class="n">SummaryStatsError</span><span class="p">(</span><span class="s2">&quot;Could not concatenarte or determine conditioning inputs...&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sum_condition</span><span class="p">,</span> <span class="n">full_cond</span>
 
-    <span class="k">def</span> <span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper method to determine loss function to use.&quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">loss_fun</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1532,12 +1513,10 @@
 
 <div class="viewcode-block" id="TwoLevelAmortizedPosterior">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior">[docs]</a>
-<span class="k">class</span> <span class="nc">TwoLevelAmortizedPosterior</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TwoLevelAmortizedPosterior</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">AmortizedTarget</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An interface for estimating arbitrary two level hierarchical Bayesian models.&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="TwoLevelAmortizedPosterior.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_amortizer</span><span class="p">,</span> <span class="n">global_amortizer</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_amortizer</span><span class="p">,</span> <span class="n">global_amortizer</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates an wrapper for estimating two-level hierarchical Bayesian models.</span>
 
 <span class="sd">        Parameters</span>
@@ -1561,12 +1540,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">local_amortizer</span> <span class="o">=</span> <span class="n">local_amortizer</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">global_amortizer</span> <span class="o">=</span> <span class="n">global_amortizer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">summary_net</span> <span class="o">=</span> <span class="n">summary_net</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">summary_net</span> <span class="o">=</span> <span class="n">summary_net</span>
 
 <div class="viewcode-block" id="TwoLevelAmortizedPosterior.call">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Forward pass through the hierarchical amortized posterior.&quot;&quot;&quot;</span>
 
         <span class="n">local_summaries</span><span class="p">,</span> <span class="n">global_summaries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_condition</span><span class="p">(</span><span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1578,7 +1556,7 @@
 
 <div class="viewcode-block" id="TwoLevelAmortizedPosterior.compute_loss">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute loss of all amortizers.&quot;&quot;&quot;</span>
 
         <span class="n">local_summaries</span><span class="p">,</span> <span class="n">global_summaries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_condition</span><span class="p">(</span><span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1590,7 +1568,7 @@
 
 <div class="viewcode-block" id="TwoLevelAmortizedPosterior.sample">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior.sample">[docs]</a>
-    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtains samples from the joint hierarchical posterior given observations.</span>
 
 <span class="sd">        Important: Currently works only for single hierarchical data sets!</span>
@@ -1659,13 +1637,13 @@
 
 <div class="viewcode-block" id="TwoLevelAmortizedPosterior.log_prob">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.TwoLevelAmortizedPosterior.log_prob">[docs]</a>
-    <span class="k">def</span> <span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute normalized log density.&quot;&quot;&quot;</span>
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_prepare_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">local_summaries</span><span class="p">,</span> <span class="n">global_summaries</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">local_summaries</span><span class="p">,</span> <span class="n">global_summaries</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare input dictionaries for both amortizers.&quot;&quot;&quot;</span>
 
         <span class="c1"># Prepare inputs for local amortizer</span>
@@ -1678,7 +1656,7 @@
         <span class="n">global_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;direct_conditions&quot;</span><span class="p">:</span> <span class="n">global_summaries</span><span class="p">,</span> <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="n">_parameters</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">local_inputs</span><span class="p">,</span> <span class="n">global_inputs</span>
 
-    <span class="k">def</span> <span class="nf">_compute_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines conditionining variables for both amortizers.&quot;&quot;&quot;</span>
 
         <span class="c1"># Obtain needed summaries</span>
@@ -1704,7 +1682,7 @@
             <span class="n">local_summaries</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">local_summaries</span><span class="p">,</span> <span class="n">_conds</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">local_summaries</span><span class="p">,</span> <span class="n">global_summaries</span>
 
-    <span class="k">def</span> <span class="nf">_get_local_global</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_local_global</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper function to obtain local and global condition tensors.&quot;&quot;&quot;</span>
 
         <span class="c1"># Obtain summary conditions</span>
@@ -1726,7 +1704,7 @@
 
 <div class="viewcode-block" id="AmortizedPointEstimator">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPointEstimator">[docs]</a>
-<span class="k">class</span> <span class="nc">AmortizedPointEstimator</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AmortizedPointEstimator</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An interface to connect a neural point estimator for Bayesian estimation with an optional summary network [1].</span>
 
 <span class="sd">    [1] Sainsbury-Dale, M., Zammit-Mangion, A., &amp; Huser, R. (2024).</span>
@@ -1734,9 +1712,7 @@
 <span class="sd">    The American Statistician, 78(1), 1-14.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="AmortizedPointEstimator.__init__">
-<a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPointEstimator.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm_ord</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_net</span><span class="p">,</span> <span class="n">summary_net</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm_ord</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">loss_fun</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes a composite neural architecture for amortized bayesian model comparison.</span>
 
 <span class="sd">        Parameters</span>
@@ -1763,12 +1739,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">inference_net</span> <span class="o">=</span> <span class="n">inference_net</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_net</span> <span class="o">=</span> <span class="n">summary_net</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_loss</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">norm_ord</span><span class="p">)</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_loss</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">norm_ord</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AmortizedPointEstimator.call">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPointEstimator.call">[docs]</a>
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">return_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the summary and inference network given an input dictionary.</span>
 
 <span class="sd">        Parameters</span>
@@ -1810,7 +1785,7 @@
 
 <div class="viewcode-block" id="AmortizedPointEstimator.estimate">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPointEstimator.estimate">[docs]</a>
-    <span class="k">def</span> <span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="n">to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtains Bayesian point estimates given the data in input_dict.</span>
 
 <span class="sd">        Parameters</span>
@@ -1838,7 +1813,7 @@
 
 <div class="viewcode-block" id="AmortizedPointEstimator.compute_loss">
 <a class="viewcode-back" href="../../api/bayesflow.amortizers.html#bayesflow.amortizers.AmortizedPointEstimator.compute_loss">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes the loss of the posterior amortizer given an input dictionary, which will</span>
 <span class="sd">        typically be the output of a Bayesian ``GenerativeModel`` instance.</span>
 
@@ -1863,7 +1838,7 @@
         <span class="k">return</span> <span class="n">loss</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_summary_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">summary_conditions</span><span class="p">,</span> <span class="n">direct_conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines how to concatenate the provided conditions.&quot;&quot;&quot;</span>
 
         <span class="c1"># Compute learnable summaries, if given</span>
@@ -1883,7 +1858,7 @@
             <span class="k">raise</span> <span class="n">SummaryStatsError</span><span class="p">(</span><span class="s2">&quot;Could not concatenarte or determine conditioning inputs...&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sum_condition</span><span class="p">,</span> <span class="n">full_cond</span>
 
-    <span class="k">def</span> <span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">,</span> <span class="n">norm_ord</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_determine_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_fun</span><span class="p">,</span> <span class="n">norm_ord</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determines which loss function to use and defaults to the norm_ord=2 as specified by the ``__init__`` method.&quot;&quot;&quot;</span>
 
         <span class="c1"># In case of user-provided loss, override norm order</span>
@@ -1929,7 +1904,7 @@ By The BayesFlow authors
 
   <p class="copyright">
     
-      © Copyright 2023, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
       <br/>
     
   </p>
