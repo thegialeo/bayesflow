@@ -16,7 +16,7 @@ from .approximator import Approximator
 
 
 @serializable(package="bayesflow.approximators")
-class ContinuousPointApproximator(Approximator):
+class PointApproximator(Approximator):
     """
     Defines a workflow for performing fast posterior or likelihood inference.
     The distribution is approximated by a point with an feed-forward network and an optional summary network.
@@ -142,7 +142,12 @@ class ContinuousPointApproximator(Approximator):
         conditions = keras.tree.map_structure(keras.ops.convert_to_tensor, conditions)
         conditions = {"inference_variables": self._estimate(**conditions)}
         conditions = keras.tree.map_structure(keras.ops.convert_to_numpy, conditions)
-        conditions = self.adapter(conditions, inverse=True, strict=False, **kwargs)
+        conditions["inference_variables"] = {
+            key: self.adapter(
+                dict(inference_variables=conditions["inference_variables"][key]), inverse=True, strict=False, **kwargs
+            )
+            for key in conditions["inference_variables"].keys()
+        }
 
         if split:
             conditions = split_arrays(conditions, axis=-1)
