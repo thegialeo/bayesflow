@@ -21,7 +21,7 @@ class PointInferenceNetwork(keras.Layer):
         scoring_rules: dict[str, ScoringRule],
         body_subnet: str | type = "mlp",  # naming: shared_subnet / body / subnet ?
         heads_subnet: dict[str, str | keras.Layer] = None,  # TODO: `type` instead of `keras.Layer` ? Too specific ?
-        activations: dict[str, keras.layers.Activation | Callable | str] = None,
+        activations: dict[str, keras.Layer | Callable | str] = None,
         **kwargs,
     ):
         super().__init__(
@@ -36,7 +36,7 @@ class PointInferenceNetwork(keras.Layer):
 
         self.body_subnet = find_network(body_subnet, **kwargs.get("body_subnet_kwargs", {}))
 
-        if heads_subnet:
+        if heads_subnet is not None:
             self.heads = {
                 key: [find_network(value, **kwargs.get("heads_subnet_kwargs", {}).get(key, {}))]
                 for key, value in heads_subnet.items()
@@ -44,9 +44,9 @@ class PointInferenceNetwork(keras.Layer):
         else:
             self.heads = {key: [] for key in self.scoring_rules.keys()}
 
-        if activations:
+        if activations is not None:
             self.activations = {
-                key: (value if isinstance(value, keras.layers.Activation) else keras.layers.Activation(value))
+                key: (value if isinstance(value, keras.Layer) else keras.layers.Activation(value))
                 for key, value in activations.items()
             }  # make sure that each value is an Activation object
         else:
@@ -64,16 +64,16 @@ class PointInferenceNetwork(keras.Layer):
 
         assert set(self.scoring_rules.keys()) == set(self.heads.keys()) == set(self.activations.keys())
 
-    def build(self, xz_shape: Shape, conditions_shape: Shape = None) -> None:
+    def build(self, xz_shape: Shape, conditions_shape: Shape) -> None:
         # build the shared body network
         input_shape = conditions_shape
         self.body_subnet.build(input_shape)
         body_output_shape = self.body_subnet.compute_output_shape(input_shape)
 
         for key in self.heads.keys():
-            # head_output_shape (excluding batch_size) convention is (*prediction_shape, *parameter_block_shape)
-            prediction_shape = self.scoring_rules[key].prediction_shape
-            head_output_shape = prediction_shape + xz_shape[1:]
+            # head_output_shape (excluding batch_size) convention is (*target_shape, *parameter_block_shape)
+            target_shape = self.scoring_rules[key].target_shape
+            head_output_shape = target_shape + xz_shape[1:]
 
             # set correct head shape
             self.heads[key][-3].units = prod(head_output_shape)
@@ -91,13 +91,18 @@ class PointInferenceNetwork(keras.Layer):
         conditions: Tensor = None,
         training: bool = False,
         **kwargs,
-    ) -> Tensor | tuple[Tensor, Tensor]:
+    ) -> dict[str, Tensor]:
         # TODO: remove unnecessary simularity with InferenceNetwork
         return self._forward(xz, conditions=conditions, training=training, **kwargs)
 
     def _forward(
-        self, x: Tensor, conditions: Tensor = None, training: bool = False, **kwargs
-    ) -> Tensor | tuple[Tensor, Tensor]:
+        self,
+        x: Tensor,
+        conditions: Tensor = None,
+        training: bool = False,
+        **kwargs,
+        # TODO: propagate training flag
+    ) -> dict[str, Tensor]:
         body_output = self.body_subnet(conditions)
 
         output = dict()
