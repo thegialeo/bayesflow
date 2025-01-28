@@ -9,7 +9,7 @@ def batch_size():
 
 @pytest.fixture()
 def num_variables():
-    return 4
+    return 10
 
 
 @pytest.fixture()
