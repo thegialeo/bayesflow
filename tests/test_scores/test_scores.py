@@ -11,26 +11,32 @@ def test_require_argument_k():
     assert "missing 1 required positional argument: 'k'" in str(excinfo)
 
 
-def test_score_output(basic_scoring_rule, reference):
-    target_shape = (reference.shape[0], *basic_scoring_rule.target_shape, reference.shape[-1])
-    target = keras.ops.zeros(target_shape)
-    score = basic_scoring_rule.score(reference, target)
+def test_score_output(scoring_rule, random_conditions):
+    if random_conditions is None:
+        random_conditions = keras.ops.convert_to_tensor([[1.0]])
+
+    scoring_rule.set_target_shapes(random_conditions.shape)
+    print(scoring_rule.get_config())
+    target = {
+        k: scoring_rule.get_link(k)(keras.random.normal((random_conditions.shape[0],) + target_shape))
+        for k, target_shape in scoring_rule.target_shapes.items()
+    }
+    score = scoring_rule.score(random_conditions, target)
 
     assert score.ndim == 0
 
 
-def test_mean_score_optimality(mean_score, reference):
-    suboptimal_target = keras.ops.expand_dims(keras.random.uniform(reference.shape), axis=1)
-    optimal_target = keras.ops.expand_dims(reference, axis=1)
+def test_mean_score_optimality(mean_score, random_conditions):
+    if random_conditions is None:
+        random_conditions = keras.ops.convert_to_tensor([[1.0]])
 
-    suboptimal_score = mean_score.score(reference, suboptimal_target)
-    optimal_score = mean_score.score(reference, optimal_target)
+    mean_score.set_target_shapes(random_conditions.shape)
+    key = "value"
+    suboptimal_target = {key: keras.ops.expand_dims(keras.random.uniform(random_conditions.shape), axis=1)}
+    optimal_target = {key: keras.ops.expand_dims(random_conditions, axis=1)}
+
+    suboptimal_score = mean_score.score(random_conditions, suboptimal_target)
+    optimal_score = mean_score.score(random_conditions, optimal_target)
 
     assert suboptimal_score > optimal_score
     assert keras.ops.isclose(optimal_score, 0)
-
-
-def test_multivariate_normal_score_output(multivariate_normal_score, reference, mvn_target):
-    score = multivariate_normal_score.score(reference, mvn_target)
-
-    assert score.ndim == 0

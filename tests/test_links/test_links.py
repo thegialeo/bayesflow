@@ -68,4 +68,4 @@ def test_positive_semi_definite(random_matrix_batch):
 
     assert np.all(eigenvalues.real > 0) and np.all(
         np.isclose(eigenvalues.imag, 0)
-    ), "output is not positive semi-definite."
+    ), f"output is not positive semi-definite: real={eigenvalues.real}, imag={eigenvalues.imag}"

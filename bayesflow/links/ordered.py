@@ -1,17 +1,24 @@
 import keras
+from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.utils import keras_kwargs
 
 
+@serializable(package="links.ordered")
 class Ordered(keras.Layer):
     def __init__(self, axis: int, anchor_index: int, **kwargs):
         super().__init__(**keras_kwargs(kwargs))
         self.axis = axis
         self.anchor_index = anchor_index
 
+        self.config = {"axis": axis, "anchor_index": anchor_index, **kwargs}
+
+    def get_config(self):
+        base_config = super().get_config()
+        return base_config | self.config
+
     def build(self, input_shape):
         super().build(input_shape)
-        print("build Ordered()")
 
         assert (
             self.anchor_index % input_shape[self.axis] != 0 and self.anchor_index != -1
