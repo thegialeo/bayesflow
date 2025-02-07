@@ -14,16 +14,16 @@ import math
 class ScoringRule:
     def __init__(
         self,
-        subnets: dict[str, str | type] = dict(),
-        subnets_kwargs: dict[str, dict] = dict(),
-        links: dict[str, str | type] = dict(),
+        subnets: dict[str, str | type] = None,
+        subnets_kwargs: dict[str, dict] = None,
+        links: dict[str, str | type] = None,
     ):
-        self.subnets = subnets
-        self.subnets_kwargs = subnets_kwargs
-        self.links = links
+        self.subnets = subnets or {}
+        self.subnets_kwargs = subnets_kwargs or {}
+        self.links = links or {}
 
         self.config = {
-            "subnets_kwargs": subnets_kwargs,
+            "subnets_kwargs": self.subnets_kwargs,
         }
 
     def get_config(self):
@@ -123,7 +123,7 @@ class MeanScore(NormedDifferenceScore):
 
 
 class QuantileScore(ScoringRule):
-    def __init__(self, q: Sequence[float] = None, links=dict(value="ordered_quantiles"), **kwargs):
+    def __init__(self, q: Sequence[float] = None, links=None, **kwargs):
         super().__init__(links=links, **kwargs)
         if q is None:
             q = [0.1, 0.5, 0.9]
@@ -131,9 +131,7 @@ class QuantileScore(ScoringRule):
 
         self.q = q
         self._q = keras.ops.convert_to_tensor(q, dtype="float32")
-        self.links = {
-            key: OrderedQuantiles(q=q) if value == "ordered_quantiles" else value for key, value in links.items()
-        }
+        self.links = links or {"value": OrderedQuantiles(q=q)}
 
         self.config = {
             "q": q,
@@ -180,9 +178,10 @@ class ParametricDistributionRule(ScoringRule):
 
 
 class MultivariateNormalScore(ParametricDistributionRule):
-    def __init__(self, D: int = None, links=dict(covariance=PositiveSemiDefinite()), **kwargs):
+    def __init__(self, D: int = None, links=None, **kwargs):
         super().__init__(links=links, **kwargs)
         self.D = D
+        self.links = links or {"covariance": PositiveSemiDefinite()}
 
         self.config = {
             "D": D,
