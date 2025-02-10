@@ -88,18 +88,19 @@ class PointInferenceNetwork(keras.Layer):
 
     def call(
         self,
-        xz: Tensor,
+        xz: Tensor = None,
         conditions: Tensor = None,
         training: bool = False,
         **kwargs,
     ) -> dict[str, Tensor]:
+        if xz is None and not self.built:
+            raise ValueError("Cannot build inference network without inference variables.")
         if conditions is None:  # unconditional estimation uses a fixed input vector
             conditions = keras.ops.convert_to_tensor([[1.0]], dtype="float32")
-        return self._forward(xz, conditions=conditions, training=training, **kwargs)
+        return self._forward(conditions=conditions, training=training, **kwargs)
 
     def _forward(
         self,
-        x: Tensor,
         conditions: Tensor = None,
         training: bool = False,
         **kwargs,
@@ -113,11 +114,6 @@ class PointInferenceNetwork(keras.Layer):
         return output
 
     def compute_metrics(self, x: Tensor, conditions: Tensor = None, stage: str = "training") -> dict[str, Tensor]:
-        if not self.built:
-            xz_shape = keras.ops.shape(x)
-            conditions_shape = None if conditions is None else keras.ops.shape(conditions)
-            self.build(xz_shape, conditions_shape=conditions_shape)
-
         output = self(x, conditions)
 
         metrics = {}
