@@ -191,9 +191,10 @@ class FlowMatching(InferenceNetwork):
         else:
             # not pre-configured, resample
             x1 = x
-            if not self.base_distribution.built:
-                # ensure that base distribution is built
-                self.base_distribution.build(keras.ops.shape(x1))
+            if not self.built:
+                xz_shape = keras.ops.shape(x1)
+                conditions_shape = None if conditions is None else keras.ops.shape(conditions)
+                self.build(xz_shape, conditions_shape)
             x0 = self.base_distribution.sample(keras.ops.shape(x1)[:-1])
 
             if self.use_optimal_transport:
