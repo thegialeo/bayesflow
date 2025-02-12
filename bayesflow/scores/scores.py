@@ -159,6 +159,7 @@ class QuantileScore(ScoringRule):
         pointwise_differance = estimates - targets[:, None, :]
 
         scores = pointwise_differance * (keras.ops.cast(pointwise_differance > 0, float) - self._q[None, :, None])
+        scores = keras.ops.mean(scores, axis=1)
         score = self.aggregate(scores, weights)
         return score
 
