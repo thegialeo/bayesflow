@@ -75,7 +75,7 @@ class ScoringRule:
         link = self.get_link(key)
         return keras.Sequential([subnet, dense, reshape, link])
 
-    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor) -> Tensor:
+    def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor) -> Tensor:
         raise NotImplementedError
 
     def aggregate(self, scores: Tensor, weights: Tensor = None):
@@ -105,9 +105,9 @@ class NormedDifferenceScore(ScoringRule):
         target_shape = tuple(target_shape)
         return dict(value=target_shape[1:])
 
-    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
+    def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor = None) -> Tensor:
         estimates = estimates["value"]
-        pointwise_differance = estimates - target
+        pointwise_differance = estimates - targets
         scores = keras.ops.absolute(pointwise_differance) ** self.k
         score = self.aggregate(scores, weights)
         return score
@@ -154,9 +154,9 @@ class QuantileScore(ScoringRule):
         target_shape = tuple(target_shape)
         return dict(value=(len(self.q),) + target_shape[1:])
 
-    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
+    def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor = None) -> Tensor:
         estimates = estimates["value"]
-        pointwise_differance = estimates - target[:, None, :]
+        pointwise_differance = estimates - targets[:, None, :]
 
         scores = pointwise_differance * (keras.ops.cast(pointwise_differance > 0, float) - self._q[None, :, None])
         score = self.aggregate(scores, weights)
@@ -177,8 +177,8 @@ class ParametricDistributionRule(ScoringRule):
     def sample(self, batch_shape, **kwargs):
         raise NotImplementedError
 
-    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
-        scores = -self.log_prob(x=target, **estimates)
+    def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor = None) -> Tensor:
+        scores = -self.log_prob(x=targets, **estimates)
         score = self.aggregate(scores, weights)
         # multipy to mitigate instability due to relatively high values of parametric score
         return score * 0.01
