@@ -47,11 +47,11 @@ class ScoringRule:
 
         return cls(**config)
 
-    def get_target_shapes(self, reference_shape):
+    def get_head_shapes_from_target_shape(self, target_shape):
         raise NotImplementedError
 
-    def set_target_shapes(self, reference_shape):
-        self.target_shapes = self.get_target_shapes(reference_shape)
+    def set_head_shapes_from_target_shape(self, target_shape):
+        self.head_shapes = self.get_head_shapes_from_target_shape(target_shape)
 
     def get_subnet(self, key: str):
         if key not in self.subnets.keys():
@@ -69,14 +69,21 @@ class ScoringRule:
 
     def get_head(self, key: str):
         subnet = self.get_subnet(key)
-        target_shape = self.target_shapes[key]
-        dense = keras.layers.Dense(units=math.prod(target_shape))
-        reshape = keras.layers.Reshape(target_shape=target_shape)
+        head_shape = self.head_shapes[key]
+        dense = keras.layers.Dense(units=math.prod(head_shape))
+        reshape = keras.layers.Reshape(target_shape=head_shape)
         link = self.get_link(key)
         return keras.Sequential([subnet, dense, reshape, link])
 
-    def score(self, reference: Tensor, target: dict[str, Tensor]) -> Tensor:
+    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor) -> Tensor:
         raise NotImplementedError
+
+    def aggregate(self, scores: Tensor, weights: Tensor = None):
+        if weights is not None:
+            weighted = scores * weights
+        else:
+            weighted = scores
+        return keras.ops.mean(weighted)
 
 
 class NormedDifferenceScore(ScoringRule):
@@ -92,17 +99,17 @@ class NormedDifferenceScore(ScoringRule):
             "k": k,
         }
 
-    def get_target_shapes(self, reference_shape):
-        # keras.saving.load_model sometimes passes reference_shape as a list.
+    def get_head_shapes_from_target_shape(self, target_shape):
+        # keras.saving.load_model sometimes passes target_shape as a list.
         # This is why I force a conversion to tuple here.
-        reference_shape = tuple(reference_shape)
-        return dict(value=reference_shape[1:])
+        target_shape = tuple(target_shape)
+        return dict(value=target_shape[1:])
 
-    def score(self, reference: Tensor, target: dict[str, Tensor]) -> Tensor:
-        target = target["value"]
-        pointwise_differance = target - reference
-        score = keras.ops.absolute(pointwise_differance) ** self.k
-        score = keras.ops.mean(score)
+    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
+        estimates = estimates["value"]
+        pointwise_differance = estimates - target
+        scores = keras.ops.absolute(pointwise_differance) ** self.k
+        score = self.aggregate(scores, weights)
         return score
 
     def get_config(self):
@@ -141,18 +148,18 @@ class QuantileScore(ScoringRule):
         base_config = super().get_config()
         return base_config | self.config
 
-    def get_target_shapes(self, reference_shape):
-        # keras.saving.load_model sometimes passes reference_shape as a list.
+    def get_head_shapes_from_target_shape(self, target_shape):
+        # keras.saving.load_model sometimes passes target_shape as a list.
         # This is why I force a conversion to tuple here.
-        reference_shape = tuple(reference_shape)
-        return dict(value=(len(self.q),) + reference_shape[1:])
+        target_shape = tuple(target_shape)
+        return dict(value=(len(self.q),) + target_shape[1:])
 
-    def score(self, reference: Tensor, target: dict[str, Tensor]) -> Tensor:
-        target = target["value"]
-        pointwise_differance = target - reference[:, None, :]
+    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
+        estimates = estimates["value"]
+        pointwise_differance = estimates - target[:, None, :]
 
-        score = pointwise_differance * (keras.ops.cast(pointwise_differance > 0, float) - self._q[None, :, None])
-        score = keras.ops.mean(score)
+        scores = pointwise_differance * (keras.ops.cast(pointwise_differance > 0, float) - self._q[None, :, None])
+        score = self.aggregate(scores, weights)
         return score
 
 
@@ -161,7 +168,7 @@ class ParametricDistributionRule(ScoringRule):
     TODO
     """
 
-    def __init__(self, **kwargs):  # , target_mappings: dict[str, str] = None):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def log_prob(self, x, **kwargs):
@@ -170,9 +177,9 @@ class ParametricDistributionRule(ScoringRule):
     def sample(self, batch_shape, **kwargs):
         raise NotImplementedError
 
-    def score(self, reference: Tensor, target: dict[str, Tensor]) -> Tensor:
-        score = -self.log_prob(x=reference, **target)
-        score = keras.ops.mean(score)
+    def score(self, estimates: dict[str, Tensor], target: Tensor, weights: Tensor = None) -> Tensor:
+        scores = -self.log_prob(x=target, **estimates)
+        score = self.aggregate(scores, weights)
         # multipy to mitigate instability due to relatively high values of parametric score
         return score * 0.01
 
@@ -191,8 +198,8 @@ class MultivariateNormalScore(ParametricDistributionRule):
         base_config = super().get_config()
         return base_config | self.config
 
-    def get_target_shapes(self, reference_shape) -> dict[str, Shape]:
-        self.D = reference_shape[-1]
+    def get_head_shapes_from_target_shape(self, target_shape) -> dict[str, Shape]:
+        self.D = target_shape[-1]
         return dict(
             mean=(self.D,),
             covariance=(self.D, self.D),

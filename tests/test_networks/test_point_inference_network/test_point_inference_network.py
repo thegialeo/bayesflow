@@ -12,12 +12,12 @@ def test_output_structure(point_inference_network, random_samples, random_condit
 
     assert isinstance(output, dict)
     for score_key, score in point_inference_network.scores.items():
-        assert isinstance(score.target_shapes, dict)
+        assert isinstance(score.head_shapes, dict)
 
-        for head_key, target_shape in score.target_shapes.items():
+        for head_key, head_shape in score.head_shapes.items():
             head_output = output[score_key][head_key]
             assert keras.ops.is_tensor(head_output)
-            assert head_output.shape[1:] == target_shape
+            assert head_output.shape[1:] == head_shape
 
 
 def test_serialize_deserialize(point_inference_network, random_samples, random_conditions):

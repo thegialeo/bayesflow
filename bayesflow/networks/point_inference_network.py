@@ -52,11 +52,11 @@ class PointInferenceNetwork(keras.Layer):
         self.heads_flat = dict()  # see comment regarding heads_flat below
 
         for score_key, score in self.scores.items():
-            score.set_target_shapes(xz_shape)
+            score.set_head_shapes_from_target_shape(xz_shape)
 
             self.heads[score_key] = {}
 
-            for head_key in score.target_shapes.keys():
+            for head_key in score.head_shapes.keys():
                 head = score.get_head(head_key)
                 head.build(body_output_shape)
                 # If head is not tracked explicitly, self.variables does not include them.
@@ -120,7 +120,7 @@ class PointInferenceNetwork(keras.Layer):
         # calculate negative score as mean over all scores
         neg_score = 0
         for score_key, score in self.scores.items():
-            score_value = score.score(x, output[score_key])
+            score_value = score.score(output[score_key], x)
             neg_score += score_value
             metrics |= {score_key: score_value}
         neg_score /= len(self.scores)
