@@ -96,11 +96,11 @@ class NormedDifferenceScore(ScoringRule):
         # keras.saving.load_model sometimes passes reference_shape as a list.
         # This is why I force a conversion to tuple here.
         reference_shape = tuple(reference_shape)
-        return dict(value=(1,) + reference_shape[1:])
+        return dict(value=reference_shape[1:])
 
     def score(self, reference: Tensor, target: dict[str, Tensor]) -> Tensor:
         target = target["value"]
-        pointwise_differance = target - reference[:, None, :]
+        pointwise_differance = target - reference
         score = keras.ops.absolute(pointwise_differance) ** self.k
         score = keras.ops.mean(score)
         return score

@@ -32,8 +32,8 @@ def test_mean_score_optimality(mean_score, random_conditions):
 
     mean_score.set_target_shapes(random_conditions.shape)
     key = "value"
-    suboptimal_target = {key: keras.ops.expand_dims(keras.random.uniform(random_conditions.shape), axis=1)}
-    optimal_target = {key: keras.ops.expand_dims(random_conditions, axis=1)}
+    suboptimal_target = {key: keras.random.uniform(random_conditions.shape)}
+    optimal_target = {key: random_conditions}
 
     suboptimal_score = mean_score.score(random_conditions, suboptimal_target)
     optimal_score = mean_score.score(random_conditions, optimal_target)
