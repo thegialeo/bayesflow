@@ -222,8 +222,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/sklearn/calibration.html" class="current">master</a></li>
       <li><a href="/dev/_modules/sklearn/calibration.html" >dev</a></li>
+      <li><a href="/master/_modules/sklearn/calibration.html" class="current">master</a></li>
   </ul>
   
 </div>
@@ -401,11 +401,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">LeaveOneOut</span><span class="p">,</span> <span class="n">check_cv</span><span class="p">,</span> <span class="n">cross_val_predict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">label_binarize</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSVC</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">_safe_indexing</span><span class="p">,</span>
-    <span class="n">column_or_1d</span><span class="p">,</span>
-    <span class="n">indexable</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">_safe_indexing</span><span class="p">,</span> <span class="n">column_or_1d</span><span class="p">,</span> <span class="n">get_tags</span><span class="p">,</span> <span class="n">indexable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.utils._param_validation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">HasMethods</span><span class="p">,</span>
     <span class="n">Hidden</span><span class="p">,</span>
@@ -926,6 +922,11 @@
             <span class="p">)</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">router</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__sklearn_tags__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__sklearn_tags__</span><span class="p">()</span>
+        <span class="n">tags</span><span class="o">.</span><span class="n">input_tags</span><span class="o">.</span><span class="n">sparse</span> <span class="o">=</span> <span class="n">get_tags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_estimator</span><span class="p">())</span><span class="o">.</span><span class="n">input_tags</span><span class="o">.</span><span class="n">sparse</span>
+        <span class="k">return</span> <span class="n">tags</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_fit_classifier_calibrator_pair</span><span class="p">(</span>

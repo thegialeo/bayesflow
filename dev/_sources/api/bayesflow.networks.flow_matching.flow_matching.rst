@@ -15,6 +15,9 @@ bayesflow.networks.flow\_matching.flow\_matching
   
     deserialize_value_or_type
     expand_right_as
+    find_network
+    integrate
+    jacobian_trace
     keras_kwargs
     optimal_transport
     serializable
@@ -28,11 +31,8 @@ bayesflow.networks.flow\_matching.flow\_matching
 
   .. autosummary::
   
-    EulerIntegrator
     FlowMatching
     InferenceNetwork
-    RK2Integrator
-    RK4Integrator
     Sequence
   
   

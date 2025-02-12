@@ -256,7 +256,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../api/bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api/bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../api/bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -282,7 +281,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../api/bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api/bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../api/bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -346,7 +344,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -364,8 +361,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -381,8 +382,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/index.html" >master</a></li>
       <li><a href="/dev/_modules/index.html" class="current">dev</a></li>
+      <li><a href="/master/_modules/index.html" >master</a></li>
   </ul>
   
 </div>
@@ -598,7 +599,6 @@
 <li><a href="bayesflow/networks/cif/cif.html">bayesflow.networks.cif.cif</a></li>
 <li><a href="bayesflow/networks/cif/conditional_gaussian.html">bayesflow.networks.cif.conditional_gaussian</a></li>
 <li><a href="bayesflow/networks/consistency_models/consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li><a href="bayesflow/networks/consistency_models/continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 <li><a href="bayesflow/networks/coupling_flow/actnorm.html">bayesflow.networks.coupling_flow.actnorm</a></li>
 <li><a href="bayesflow/networks/coupling_flow/coupling_flow.html">bayesflow.networks.coupling_flow.coupling_flow</a></li>
 <li><a href="bayesflow/networks/coupling_flow/couplings/dual_coupling.html">bayesflow.networks.coupling_flow.couplings.dual_coupling</a></li>
@@ -619,10 +619,6 @@
 <li><a href="bayesflow/networks/embeddings/recurrent_embedding.html">bayesflow.networks.embeddings.recurrent_embedding</a></li>
 <li><a href="bayesflow/networks/embeddings/time2vec.html">bayesflow.networks.embeddings.time2vec</a></li>
 <li><a href="bayesflow/networks/flow_matching/flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li><a href="bayesflow/networks/flow_matching/integrators/euler.html">bayesflow.networks.flow_matching.integrators.euler</a></li>
-<li><a href="bayesflow/networks/flow_matching/integrators/integrator.html">bayesflow.networks.flow_matching.integrators.integrator</a></li>
-<li><a href="bayesflow/networks/flow_matching/integrators/runge_kutta.html">bayesflow.networks.flow_matching.integrators.runge_kutta</a></li>
-<li><a href="bayesflow/networks/flow_matching/integrators/runge_kutta_4.html">bayesflow.networks.flow_matching.integrators.runge_kutta_4</a></li>
 <li><a href="bayesflow/networks/free_form_flow/free_form_flow.html">bayesflow.networks.free_form_flow.free_form_flow</a></li>
 <li><a href="bayesflow/networks/inference_network.html">bayesflow.networks.inference_network</a></li>
 <li><a href="bayesflow/networks/lstnet/lstnet.html">bayesflow.networks.lstnet.lstnet</a></li>
@@ -660,10 +656,12 @@
 <li><a href="bayesflow/utils/exceptions/shape_error.html">bayesflow.utils.exceptions.shape_error</a></li>
 <li><a href="bayesflow/utils/functional.html">bayesflow.utils.functional</a></li>
 <li><a href="bayesflow/utils/hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
+<li><a href="bayesflow/utils/integrate.html">bayesflow.utils.integrate</a></li>
 <li><a href="bayesflow/utils/io.html">bayesflow.utils.io</a></li>
-<li><a href="bayesflow/utils/jacobian.html">bayesflow.utils.jacobian</a></li>
-<li><a href="bayesflow/utils/jacobian_trace/jacobian_trace.html">bayesflow.utils.jacobian_trace.jacobian_trace</a></li>
-<li><a href="bayesflow/utils/jvp.html">bayesflow.utils.jvp</a></li>
+<li><a href="bayesflow/utils/jacobian/jacobian.html">bayesflow.utils.jacobian.jacobian</a></li>
+<li><a href="bayesflow/utils/jacobian/jacobian_trace.html">bayesflow.utils.jacobian.jacobian_trace</a></li>
+<li><a href="bayesflow/utils/jacobian/jvp.html">bayesflow.utils.jacobian.jvp</a></li>
+<li><a href="bayesflow/utils/jacobian/vjp.html">bayesflow.utils.jacobian.vjp</a></li>
 <li><a href="bayesflow/utils/keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li><a href="bayesflow/utils/logging.html">bayesflow.utils.logging</a></li>
 <li><a href="bayesflow/utils/numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -672,7 +670,6 @@
 <li><a href="bayesflow/utils/serialization.html">bayesflow.utils.serialization</a></li>
 <li><a href="bayesflow/utils/tensor_utils.html">bayesflow.utils.tensor_utils</a></li>
 <li><a href="bayesflow/utils/validators.html">bayesflow.utils.validators</a></li>
-<li><a href="bayesflow/utils/vjp.html">bayesflow.utils.vjp</a></li>
 <li><a href="bayesflow/utils/workflow_utils.html">bayesflow.utils.workflow_utils</a></li>
 <li><a href="bayesflow/workflows/basic_workflow.html">bayesflow.workflows.basic_workflow</a></li>
 <li><a href="bayesflow/workflows/workflow.html">bayesflow.workflows.workflow</a></li>

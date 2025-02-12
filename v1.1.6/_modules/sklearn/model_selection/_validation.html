@@ -222,8 +222,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/sklearn/model_selection/_validation.html" >master</a></li>
       <li><a href="/dev/_modules/sklearn/model_selection/_validation.html" >dev</a></li>
+      <li><a href="/master/_modules/sklearn/model_selection/_validation.html" >master</a></li>
   </ul>
   
 </div>
@@ -716,7 +716,7 @@
     <span class="n">_check_groups_routing_disabled</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
 
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">indexable</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">params</span>
     <span class="n">cv</span> <span class="o">=</span> <span class="n">check_cv</span><span class="p">(</span><span class="n">cv</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">is_classifier</span><span class="p">(</span><span class="n">estimator</span><span class="p">))</span>
 
     <span class="n">scorers</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span>
@@ -1548,6 +1548,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_check_groups_routing_disabled</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">indexable</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">params</span>
 
     <span class="k">if</span> <span class="n">_routing_enabled</span><span class="p">():</span>
         <span class="c1"># For estimators, a MetadataRouter is created in get_metadata_routing</span>

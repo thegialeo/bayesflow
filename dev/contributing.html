@@ -54,8 +54,8 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="About us" href="about.html" />
-    <link rel="prev" title="bayesflow.workflows.workflow" href="api/bayesflow.workflows.workflow.html" />
+    <link rel="next" title="Patterns &amp; Caveats" href="development/index.html" />
+    <link rel="prev" title="About us" href="about.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -151,7 +151,7 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
@@ -257,7 +257,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +282,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -347,7 +345,6 @@
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -365,8 +362,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/contributing.html" >master</a></li>
       <li><a href="/dev/contributing.html" class="current">dev</a></li>
+      <li><a href="/master/contributing.html" >master</a></li>
   </ul>
   
 </div>
@@ -799,20 +800,20 @@ Re-build the documentation (see above) and your notebook will be included.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="api/bayesflow.workflows.workflow.html"
+       href="about.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.workflows.workflow</p>
+        <p class="prev-next-title">About us</p>
       </div>
     </a>
     <a class="right-next"
-       href="about.html"
+       href="development/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">About us</p>
+        <p class="prev-next-title">Patterns &amp; Caveats</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

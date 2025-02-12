@@ -16,14 +16,15 @@
     add_metric
     add_titles_and_labels
     batched_call
+    check_estimates_prior_shapes
     check_lengths_same
-    check_posterior_prior_shapes
-    compute_jacobian
     concatenate
     convert_args
     convert_kwargs
     deserialize_value_or_type
     detailed_loss_callback
+    expand
+    expand_as
     expand_left
     expand_left_as
     expand_left_to
@@ -31,6 +32,7 @@
     expand_right_as
     expand_right_to
     expand_tile
+    expand_to
     expected_calibration_error
     filter_kwargs
     find_batch_size
@@ -43,16 +45,19 @@
     find_recurrent_net
     find_summary_network
     format_bytes
+    integrate
+    jacobian
     jacobian_trace
     jvp
     keras_kwargs
-    log_jacobian_determinant
     make_quadratic
     optimal_transport
+    pad
     parse_bytes
     pickle_load
     prepare_plot_data
     prettify_subplots
+    searchsorted
     serialize_value_or_type
     simultaneous_ecdf_bands
     size_of
@@ -93,7 +98,6 @@
     git
     hparam_utils
     io
-    jacobian
     keras_utils
     logging
     numpy_utils

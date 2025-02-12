@@ -14,6 +14,8 @@ bayesflow.utils.tensor\_utils
   .. autosummary::
   
     concatenate
+    expand
+    expand_as
     expand_left
     expand_left_as
     expand_left_to
@@ -21,6 +23,9 @@ bayesflow.utils.tensor\_utils
     expand_right_as
     expand_right_to
     expand_tile
+    expand_to
+    pad
+    searchsorted
     size_of
     tile_axis
     tree_concatenate

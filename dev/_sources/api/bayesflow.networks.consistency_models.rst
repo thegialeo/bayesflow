@@ -18,7 +18,6 @@ bayesflow.networks.consistency\_models
   .. autosummary::
   
     ConsistencyModel
-    ContinuousConsistencyModel
   
   
 
@@ -36,7 +35,6 @@ bayesflow.networks.consistency\_models
     :recursive:
   
     consistency_model
-    continuous_consistency_model
 
   
   

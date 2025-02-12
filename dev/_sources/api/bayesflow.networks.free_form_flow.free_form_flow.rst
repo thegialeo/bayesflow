@@ -16,9 +16,9 @@ bayesflow.networks.free\_form\_flow.free\_form\_flow
     concatenate
     deserialize_value_or_type
     find_network
+    jacobian
     jvp
     keras_kwargs
-    log_jacobian_determinant
     serializable
     serialize_value_or_type
     vjp

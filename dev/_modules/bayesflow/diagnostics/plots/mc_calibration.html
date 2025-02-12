@@ -256,7 +256,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../api/bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../api/bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -282,7 +281,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../api/bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../api/bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -346,7 +344,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -364,8 +361,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -381,8 +382,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/bayesflow/diagnostics/plots/mc_calibration.html" >master</a></li>
       <li><a href="/dev/_modules/bayesflow/diagnostics/plots/mc_calibration.html" class="current">dev</a></li>
+      <li><a href="/master/_modules/bayesflow/diagnostics/plots/mc_calibration.html" >master</a></li>
   </ul>
   
 </div>
@@ -602,41 +603,42 @@
 
     <span class="c1"># Gather plot data and metadata into a dictionary</span>
     <span class="n">plot_data</span> <span class="o">=</span> <span class="n">prepare_plot_data</span><span class="p">(</span>
-        <span class="n">estimates</span><span class="o">=</span><span class="n">pred_models</span><span class="p">,</span>
-        <span class="n">ground_truths</span><span class="o">=</span><span class="n">true_models</span><span class="p">,</span>
+        <span class="n">targets</span><span class="o">=</span><span class="n">pred_models</span><span class="p">,</span>
+        <span class="n">references</span><span class="o">=</span><span class="n">true_models</span><span class="p">,</span>
         <span class="n">variable_names</span><span class="o">=</span><span class="n">model_names</span><span class="p">,</span>
         <span class="n">num_col</span><span class="o">=</span><span class="n">num_col</span><span class="p">,</span>
         <span class="n">num_row</span><span class="o">=</span><span class="n">num_row</span><span class="p">,</span>
         <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span>
+        <span class="n">default_name</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># Compute calibration</span>
     <span class="n">cal_errors</span><span class="p">,</span> <span class="n">true_probs</span><span class="p">,</span> <span class="n">pred_probs</span> <span class="o">=</span> <span class="n">expected_calibration_error</span><span class="p">(</span>
-        <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;ground_truths&quot;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">],</span> <span class="n">num_bins</span>
+        <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;references&quot;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span> <span class="n">num_bins</span>
     <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
         <span class="c1"># Plot calibration curve</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_probs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">true_probs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_probs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">true_probs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 
         <span class="c1"># Plot PMP distribution over bins</span>
         <span class="n">uniform_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">num_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">norm_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">])</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">uniform_bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">norm_weights</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">norm_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">][:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">uniform_bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">norm_weights</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
         <span class="c1"># Plot AB line</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 
         <span class="c1"># Tweak plot</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">])</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">])</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 
         <span class="c1"># Add ECE label</span>
         <span class="n">add_metric</span><span class="p">(</span>
-            <span class="n">ax</span><span class="p">[</span><span class="n">j</span><span class="p">],</span>
-            <span class="n">metric_text</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\widehat{{\mathrm{{ECE}}}}$ = </span><span class="si">{0:.3f}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">ax</span><span class="p">,</span>
+            <span class="n">metric_text</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\widehat{{\mathrm{{ECE}}}}$&quot;</span><span class="p">,</span>
             <span class="n">metric_value</span><span class="o">=</span><span class="n">cal_errors</span><span class="p">[</span><span class="n">j</span><span class="p">],</span>
             <span class="n">metric_fontsize</span><span class="o">=</span><span class="n">metric_fontsize</span><span class="p">,</span>
         <span class="p">)</span>

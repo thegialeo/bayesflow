@@ -222,8 +222,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/sklearn/linear_model/_huber.html" >master</a></li>
       <li><a href="/dev/_modules/sklearn/linear_model/_huber.html" >dev</a></li>
+      <li><a href="/master/_modules/sklearn/linear_model/_huber.html" >master</a></li>
   </ul>
   
 </div>
@@ -507,10 +507,10 @@
 <span class="sd">    ``|(y - Xw - c) / sigma| &lt; epsilon`` and the absolute loss for the samples</span>
 <span class="sd">    where ``|(y - Xw - c) / sigma| &gt; epsilon``, where the model coefficients</span>
 <span class="sd">    ``w``, the intercept ``c`` and the scale ``sigma`` are parameters</span>
-<span class="sd">    to be optimized. The parameter sigma makes sure that if y is scaled up</span>
-<span class="sd">    or down by a certain factor, one does not need to rescale epsilon to</span>
+<span class="sd">    to be optimized. The parameter `sigma` makes sure that if `y` is scaled up</span>
+<span class="sd">    or down by a certain factor, one does not need to rescale `epsilon` to</span>
 <span class="sd">    achieve the same robustness. Note that this does not take into account</span>
-<span class="sd">    the fact that the different features of X may be of different scales.</span>
+<span class="sd">    the fact that the different features of `X` may be of different scales.</span>
 
 <span class="sd">    The Huber loss function has the advantage of not being heavily influenced</span>
 <span class="sd">    by the outliers while not completely ignoring their effect.</span>
@@ -594,9 +594,9 @@
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
 <span class="sd">    .. [1] Peter J. Huber, Elvezio M. Ronchetti, Robust Statistics</span>
-<span class="sd">           Concomitant scale estimates, pg 172</span>
-<span class="sd">    .. [2] Art B. Owen (2006), A robust hybrid of lasso and ridge regression.</span>
-<span class="sd">           https://statweb.stanford.edu/~owen/reports/hhu.pdf</span>
+<span class="sd">           Concomitant scale estimates, p. 172</span>
+<span class="sd">    .. [2] Art B. Owen (2006), `A robust hybrid of lasso and ridge regression.</span>
+<span class="sd">           &lt;https://artowen.su.domains/reports/hhu.pdf&gt;`_</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -728,7 +728,12 @@
         <span class="n">residual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outliers_</span> <span class="o">=</span> <span class="n">residual</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span>
         <span class="k">return</span> <span class="bp">self</span></div>
-</div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__sklearn_tags__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__sklearn_tags__</span><span class="p">()</span>
+        <span class="n">tags</span><span class="o">.</span><span class="n">input_tags</span><span class="o">.</span><span class="n">sparse</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">tags</span></div>
 
 </pre></div>
 

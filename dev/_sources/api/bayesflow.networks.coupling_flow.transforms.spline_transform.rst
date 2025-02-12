@@ -13,7 +13,10 @@ bayesflow.networks.coupling\_flow.transforms.spline\_transform
 
   .. autosummary::
   
+    pad
+    searchsorted
     serializable
+    shifted_softplus
   
   
 

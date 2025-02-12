@@ -257,7 +257,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +282,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -347,7 +345,6 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -365,8 +362,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/api/bayesflow.utils.plot_utils.html" >master</a></li>
       <li><a href="/dev/api/bayesflow.utils.plot_utils.html" class="current">dev</a></li>
+      <li><a href="/master/api/bayesflow.utils.plot_utils.html" >master</a></li>
   </ul>
   
 </div>
@@ -599,7 +600,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_titles_and_labels"><code class="docutils literal notranslate"><span class="pre">add_titles_and_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_x_labels"><code class="docutils literal notranslate"><span class="pre">add_x_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_y_labels"><code class="docutils literal notranslate"><span class="pre">add_y_labels()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.check_posterior_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_posterior_prior_shapes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.check_estimates_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_estimates_prior_shapes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.dicts_to_arrays"><code class="docutils literal notranslate"><span class="pre">dicts_to_arrays()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.make_figure"><code class="docutils literal notranslate"><span class="pre">make_figure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.make_quadratic"><code class="docutils literal notranslate"><span class="pre">make_quadratic()</span></code></a></li>
@@ -637,8 +638,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.plot_utils.add_y_labels" title="bayesflow.utils.plot_utils.add_y_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_y_labels</span></code></a>(axes[, num_row, ylabel, ...])</p></td>
 <td><p>TODO: docstring</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.plot_utils.check_posterior_prior_shapes" title="bayesflow.utils.plot_utils.check_posterior_prior_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_posterior_prior_shapes</span></code></a>(post_variables, ...)</p></td>
-<td><p>Checks requirements for the shapes of posterior and prior draws as necessitated by most diagnostic functions.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.plot_utils.check_estimates_prior_shapes" title="bayesflow.utils.plot_utils.check_estimates_prior_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_estimates_prior_shapes</span></code></a>(estimates, ...)</p></td>
+<td><p>Checks requirements for the shapes of estimates and prior_samples draws as necessitated by most diagnostic functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.plot_utils.dicts_to_arrays" title="bayesflow.utils.plot_utils.dicts_to_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dicts_to_arrays</span></code></a>(targets[, references, ...])</p></td>
 <td><p>Helper function that prepares estimates and optional ground truths for diagnostics (plotting or computation of metrics).</p></td>
@@ -715,22 +716,22 @@ checks.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.plot_utils.check_posterior_prior_shapes">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">check_posterior_prior_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">post_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_posterior_prior_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.plot_utils.check_posterior_prior_shapes" title="Link to this definition">#</a></dt>
-<dd><p>Checks requirements for the shapes of posterior and prior draws as
+<dt class="sig sig-object py" id="bayesflow.utils.plot_utils.check_estimates_prior_shapes">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">check_estimates_prior_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_estimates_prior_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.plot_utils.check_estimates_prior_shapes" title="Link to this definition">#</a></dt>
+<dd><p>Checks requirements for the shapes of estimates and prior_samples draws as
 necessitated by most diagnostic functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>post_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_data_sets</p>
+<dt><strong>estimates</strong><span class="classifier">Tensor of shape (num_data_sets, num_post_draws, num_params) or (num_data_sets, num_params)</span></dt><dd><p>The model-generated predictions (posterior draws, point estimates) obtained from num_data_sets</p>
 </dd>
-<dt><strong>prior_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_params)</span></dt><dd><p>The prior draws obtained for generating num_data_sets</p>
+<dt><strong>prior_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_params)</span></dt><dd><p>The prior_samples draws obtained for generating num_data_sets</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>ShapeError</dt><dd><p>If there is a deviation form the expected shapes of <cite>post_samples</cite> and <cite>prior_samples</cite>.</p>
+<dt>ShapeError</dt><dd><p>If there is a deviation form the expected shapes of <cite>estimates</cite> and <cite>estimates</cite>.</p>
 </dd>
 </dl>
 </dd>
@@ -943,7 +944,7 @@ of <cite>estimates</cite> in terms of first and last axis.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_titles_and_labels"><code class="docutils literal notranslate"><span class="pre">add_titles_and_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_x_labels"><code class="docutils literal notranslate"><span class="pre">add_x_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.add_y_labels"><code class="docutils literal notranslate"><span class="pre">add_y_labels()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.check_posterior_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_posterior_prior_shapes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.check_estimates_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_estimates_prior_shapes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.dicts_to_arrays"><code class="docutils literal notranslate"><span class="pre">dicts_to_arrays()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.make_figure"><code class="docutils literal notranslate"><span class="pre">make_figure()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.plot_utils.make_quadratic"><code class="docutils literal notranslate"><span class="pre">make_quadratic()</span></code></a></li>

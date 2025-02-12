@@ -19,7 +19,6 @@
   
     CIF
     ConsistencyModel
-    ContinuousConsistencyModel
     CouplingFlow
     DeepSet
     FlowMatching

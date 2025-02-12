@@ -257,7 +257,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +282,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -347,7 +345,6 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -365,8 +362,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/api/bayesflow.utils.tensor_utils.html" >master</a></li>
       <li><a href="/dev/api/bayesflow.utils.tensor_utils.html" class="current">dev</a></li>
+      <li><a href="/master/api/bayesflow.utils.tensor_utils.html" >master</a></li>
   </ul>
   
 </div>
@@ -600,6 +601,8 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.TypeVar"><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand"><code class="docutils literal notranslate"><span class="pre">expand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_as"><code class="docutils literal notranslate"><span class="pre">expand_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left"><code class="docutils literal notranslate"><span class="pre">expand_left()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left_as"><code class="docutils literal notranslate"><span class="pre">expand_left_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left_to"><code class="docutils literal notranslate"><span class="pre">expand_left_to()</span></code></a></li>
@@ -607,6 +610,9 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_right_as"><code class="docutils literal notranslate"><span class="pre">expand_right_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_right_to"><code class="docutils literal notranslate"><span class="pre">expand_right_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_tile"><code class="docutils literal notranslate"><span class="pre">expand_tile()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_to"><code class="docutils literal notranslate"><span class="pre">expand_to()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.pad"><code class="docutils literal notranslate"><span class="pre">pad()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.searchsorted"><code class="docutils literal notranslate"><span class="pre">searchsorted()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.size_of"><code class="docutils literal notranslate"><span class="pre">size_of()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.tile_axis"><code class="docutils literal notranslate"><span class="pre">tile_axis()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.tree_concatenate"><code class="docutils literal notranslate"><span class="pre">tree_concatenate()</span></code></a></li>
@@ -630,6 +636,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.concatenate" title="bayesflow.utils.tensor_utils.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(*tensors[, axis])</p></td>
 <td><p>Concatenate multiple tensors along axis, some of which can be None.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.expand" title="bayesflow.utils.tensor_utils.expand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand</span></code></a>(x, n, side)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.expand_as" title="bayesflow.utils.tensor_utils.expand_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_as</span></code></a>(x, y, side)</p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.expand_left" title="bayesflow.utils.tensor_utils.expand_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left</span></code></a>(x, n)</p></td>
 <td><p>Expand x to the left n times</p></td>
 </tr>
@@ -651,16 +663,25 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.expand_tile" title="bayesflow.utils.tensor_utils.expand_tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_tile</span></code></a>(x, n, axis)</p></td>
 <td><p>Expand and tile x along the given axis n times</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.size_of" title="bayesflow.utils.tensor_utils.size_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_of</span></code></a>(x)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.expand_to" title="bayesflow.utils.tensor_utils.expand_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_to</span></code></a>(x, dim, side)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tile_axis" title="bayesflow.utils.tensor_utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.pad" title="bayesflow.utils.tensor_utils.pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pad</span></code></a>(x, value, n, axis[, side])</p></td>
+<td><p>Pad x with n values along axis on the given side.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.searchsorted" title="bayesflow.utils.tensor_utils.searchsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">searchsorted</span></code></a>(sorted_sequence, values[, side])</p></td>
+<td><p>Find indices where elements should be inserted to maintain order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.size_of" title="bayesflow.utils.tensor_utils.size_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_of</span></code></a>(x)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tile_axis" title="bayesflow.utils.tensor_utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
 <td><p>Tile x along the given axis n times</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tree_concatenate" title="bayesflow.utils.tensor_utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tree_concatenate" title="bayesflow.utils.tensor_utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Concatenate all tensors in the given sequence of nested structures.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tree_stack" title="bayesflow.utils.tensor_utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tensor_utils.tree_stack" title="bayesflow.utils.tensor_utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Like <a class="reference internal" href="#bayesflow.utils.tensor_utils.tree_concatenate" title="bayesflow.utils.tensor_utils.tree_concatenate"><code class="xref py py-func docutils literal notranslate"><span class="pre">tree_concatenate()</span></code></a>, except tensors are stacked instead of concatenated.</p></td>
 </tr>
 </tbody>
@@ -751,6 +772,16 @@ A.__constraints__ == (str, bytes)</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.expand">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.expand" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.expand_as">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">expand_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_as"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.expand_as" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.expand_left">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">expand_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.expand_left" title="Link to this definition">#</a></dt>
 <dd><p>Expand x to the left n times</p>
@@ -790,6 +821,24 @@ A.__constraints__ == (str, bytes)</p>
 <dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.expand_tile">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">expand_tile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_tile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.expand_tile" title="Link to this definition">#</a></dt>
 <dd><p>Expand and tile x along the given axis n times</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.expand_to">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">expand_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.expand_to" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.pad">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#pad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.pad" title="Link to this definition">#</a></dt>
+<dd><p>Pad x with n values along axis on the given side.
+The pad value must broadcast against the shape of x, except for the pad axis, where it must broadcast against n.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.tensor_utils.searchsorted">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.tensor_utils.</span></span><span class="sig-name descname"><span class="pre">searchsorted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sorted_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#searchsorted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.tensor_utils.searchsorted" title="Link to this definition">#</a></dt>
+<dd><p>Find indices where elements should be inserted to maintain order.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -896,6 +945,8 @@ Defaults to True if all tensors are numpy arrays, False otherwise.</p></li>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.TypeVar"><code class="docutils literal notranslate"><span class="pre">TypeVar</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand"><code class="docutils literal notranslate"><span class="pre">expand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_as"><code class="docutils literal notranslate"><span class="pre">expand_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left"><code class="docutils literal notranslate"><span class="pre">expand_left()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left_as"><code class="docutils literal notranslate"><span class="pre">expand_left_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_left_to"><code class="docutils literal notranslate"><span class="pre">expand_left_to()</span></code></a></li>
@@ -903,6 +954,9 @@ Defaults to True if all tensors are numpy arrays, False otherwise.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_right_as"><code class="docutils literal notranslate"><span class="pre">expand_right_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_right_to"><code class="docutils literal notranslate"><span class="pre">expand_right_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_tile"><code class="docutils literal notranslate"><span class="pre">expand_tile()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.expand_to"><code class="docutils literal notranslate"><span class="pre">expand_to()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.pad"><code class="docutils literal notranslate"><span class="pre">pad()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.searchsorted"><code class="docutils literal notranslate"><span class="pre">searchsorted()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.size_of"><code class="docutils literal notranslate"><span class="pre">size_of()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.tile_axis"><code class="docutils literal notranslate"><span class="pre">tile_axis()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.tensor_utils.tree_concatenate"><code class="docutils literal notranslate"><span class="pre">tree_concatenate()</span></code></a></li>

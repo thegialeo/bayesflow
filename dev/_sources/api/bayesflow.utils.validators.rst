@@ -13,8 +13,11 @@ bayesflow.utils.validators
 
   .. autosummary::
   
+    check_consistent_shapes
+    check_estimates_prior_shapes
+    check_estimates_shapes
     check_lengths_same
-    check_posterior_prior_shapes
+    check_prior_shapes
   
   
 

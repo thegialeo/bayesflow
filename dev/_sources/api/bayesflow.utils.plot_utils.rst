@@ -18,7 +18,7 @@ bayesflow.utils.plot\_utils
     add_titles_and_labels
     add_x_labels
     add_y_labels
-    check_posterior_prior_shapes
+    check_estimates_prior_shapes
     dicts_to_arrays
     make_figure
     make_quadratic

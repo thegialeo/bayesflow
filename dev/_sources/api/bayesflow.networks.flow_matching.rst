@@ -35,7 +35,6 @@ bayesflow.networks.flow\_matching
     :recursive:
   
     flow_matching
-    integrators
 
   
   

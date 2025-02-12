@@ -222,8 +222,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/_modules/sklearn/neural_network/_multilayer_perceptron.html" >master</a></li>
       <li><a href="/dev/_modules/sklearn/neural_network/_multilayer_perceptron.html" >dev</a></li>
+      <li><a href="/master/_modules/sklearn/neural_network/_multilayer_perceptron.html" >master</a></li>
   </ul>
   
 </div>
@@ -1143,6 +1143,11 @@
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
         <span class="k">return</span> <span class="n">score_function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__sklearn_tags__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__sklearn_tags__</span><span class="p">()</span>
+        <span class="n">tags</span><span class="o">.</span><span class="n">input_tags</span><span class="o">.</span><span class="n">sparse</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">tags</span>
 
 
 <div class="viewcode-block" id="MLPClassifier">

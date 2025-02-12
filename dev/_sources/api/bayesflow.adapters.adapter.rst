@@ -39,6 +39,7 @@ bayesflow.adapters.adapter
     Keep
     LambdaTransform
     MapTransform
+    MutableSequence
     OneHot
     Predicate
     Rename

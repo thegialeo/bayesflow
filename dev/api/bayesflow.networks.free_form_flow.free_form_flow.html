@@ -257,7 +257,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +282,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -347,7 +345,6 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -365,8 +362,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/api/bayesflow.networks.free_form_flow.free_form_flow.html" >master</a></li>
       <li><a href="/dev/api/bayesflow.networks.free_form_flow.free_form_flow.html" class="current">dev</a></li>
+      <li><a href="/master/api/bayesflow.networks.free_form_flow.free_form_flow.html" >master</a></li>
   </ul>
   
 </div>
@@ -700,9 +701,9 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.deserialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">deserialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.find_network"><code class="docutils literal notranslate"><span class="pre">find_network()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.jacobian"><code class="docutils literal notranslate"><span class="pre">jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp"><code class="docutils literal notranslate"><span class="pre">jvp()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs"><code class="docutils literal notranslate"><span class="pre">keras_kwargs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant"><code class="docutils literal notranslate"><span class="pre">log_jacobian_determinant()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.serializable"><code class="docutils literal notranslate"><span class="pre">serializable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.serialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">serialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp"><code class="docutils literal notranslate"><span class="pre">vjp()</span></code></a></li>
@@ -731,14 +732,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.find_network" title="bayesflow.networks.free_form_flow.free_form_flow.find_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_network</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp" title="bayesflow.networks.free_form_flow.free_form_flow.jvp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jvp</span></code></a>(fn, primals, tangents)</p></td>
-<td><p>Backend-agnostic version of the Jacobian-vector product (jvp).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.jacobian" title="bayesflow.networks.free_form_flow.free_form_flow.jacobian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobian</span></code></a>(f, x[, return_output])</p></td>
+<td><p>Compute the Jacobian matrix of f with respect to x.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs" title="bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_kwargs</span></code></a>(kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp" title="bayesflow.networks.free_form_flow.free_form_flow.jvp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jvp</span></code></a>(f, x, tangents[, return_output])</p></td>
+<td><p>Compute the Jacobian-vector product of f at x with tangents.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs" title="bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Keep dictionary keys that do not end with _kwargs.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant" title="bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_jacobian_determinant</span></code></a>(x_in, fn, *func_args)</p></td>
-<td><p>Computes the log Jacobian determinant of a function with respect to its input.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.serializable" title="bayesflow.networks.free_form_flow.free_form_flow.serializable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serializable</span></code></a>([package, name])</p></td>
 <td><p>Registers an object with the Keras serialization framework.</p></td>
@@ -746,8 +747,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.serialize_value_or_type" title="bayesflow.networks.free_form_flow.free_form_flow.serialize_value_or_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize_value_or_type</span></code></a>(config, name, obj)</p></td>
 <td><p>Serialize an object that can be either a value or a type and add it to a copy of the supplied dictionary.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp" title="bayesflow.networks.free_form_flow.free_form_flow.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(fn, *primals)</p></td>
-<td><p>Backend-agnostic version of the vector-Jacobian product (vjp).</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp" title="bayesflow.networks.free_form_flow.free_form_flow.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(f, x[, return_output])</p></td>
+<td><p>Compute the vector-Jacobian product of f at x.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1737,24 +1738,40 @@ a type or an object.</p>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.networks.free_form_flow.free_form_flow.jvp">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">jvp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fn:</span> <span class="pre">~collections.abc.Callable,</span> <span class="pre">primals:</span> <span class="pre">~bayesflow.types.tensor.Tensor</span> <span class="pre">|</span> <span class="pre">tuple[~bayesflow.types.tensor.Tensor,</span> <span class="pre">...],</span> <span class="pre">tangents:</span> <span class="pre">~bayesflow.types.tensor.Tensor</span> <span class="pre">|</span> <span class="pre">tuple[~bayesflow.types.tensor.Tensor,</span> <span class="pre">...])</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;built-in</span> <span class="pre">function</span> <span class="pre">any&gt;,</span> <span class="pre">~Tensor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jvp.html#jvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp" title="Link to this definition">#</a></dt>
-<dd><p>Backend-agnostic version of the Jacobian-vector product (jvp).
-Compute the Jacobian-vector product of the given function at the point given by the input (primals).</p>
+<dt class="sig sig-object py" id="bayesflow.networks.free_form_flow.free_form_flow.jacobian">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/jacobian.html#jacobian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.jacobian" title="Link to this definition">#</a></dt>
+<dd><p>Compute the Jacobian matrix of f with respect to x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>fn</strong> – The function to differentiate.
-Signature and return value must be compatible with the vjp method of the backend in use.</p></li>
-<li><p><strong>primals</strong> – Input tensors to <cite>fn</cite>.</p></li>
-<li><p><strong>tangents</strong> – Tangent vectors to differentiate <cite>fn</cite> with respect to.</p></li>
+<li><p><strong>f</strong> – The function to be differentiated.</p></li>
+<li><p><strong>x</strong> – Tensor of shape (…, D_in)
+The input tensor to f.</p></li>
+<li><p><strong>return_output</strong> – bool
+Whether to return the output of f(x) along with the Jacobian matrix.
+Default: False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of <cite>fn(*primals)</cite> and the Jacobian-vector product of <cite>fn</cite> evaluated at <cite>primals</cite> with respect to
-<cite>tangents</cite>.</p>
+<dd class="field-even"><p>Tensor of shape (…, D_out, D_in)
+The Jacobian matrix of f with respect to x.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>2-tuple of tensors:
+1. The output of f(x) (if return_output is True)
+2. Tensor of shape (…, D_out, D_in)</p>
+<blockquote>
+<div><p>The Jacobian matrix of f with respect to x.</p>
+</div></blockquote>
+</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.networks.free_form_flow.free_form_flow.jvp">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">jvp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tangents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/jvp.html#jvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp" title="Link to this definition">#</a></dt>
+<dd><p>Compute the Jacobian-vector product of f at x with tangents.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1762,34 +1779,6 @@ Signature and return value must be compatible with the vjp method of the backend
 <span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">keras_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#keras_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs" title="Link to this definition">#</a></dt>
 <dd><p>Keep dictionary keys that do not end with _kwargs. Used for propagating
 keyword arguments in nested layer classes.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">log_jacobian_determinant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">func_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'backward'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">func_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian.html#log_jacobian_determinant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant" title="Link to this definition">#</a></dt>
-<dd><p>Computes the log Jacobian determinant of a function
-with respect to its input.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x_in</strong> – The input tensor to compute the jacobian at.
-Shape: (batch_size, in_dim).</p></li>
-<li><p><strong>fn</strong> – The function to compute the jacobian of, which transforms
-<cite>x</cite> to <cite>fn(x)</cite> of shape (batch_size, out_dim).</p></li>
-<li><p><strong>func_args</strong> – The positional arguments to pass to the function.
-func_args are batched over the first dimension.</p></li>
-<li><p><strong>grad_type</strong> – The type of gradient to use. Either ‘backward’ or
-‘forward’.</p></li>
-<li><p><strong>func_kwargs</strong> – The keyword arguments to pass to the function.
-func_kwargs are not batched.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of the function <cite>fn(x)</cite> and the log jacobian determinant
-of the function with respect to its input <cite>x</cite> of shape
-(batch_size, out_dim, in_dim).</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1870,23 +1859,8 @@ simplify this.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.networks.free_form_flow.free_form_flow.vjp">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">vjp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fn:</span> <span class="pre">~collections.abc.Callable,</span> <span class="pre">*primals:</span> <span class="pre">~bayesflow.types.tensor.Tensor)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;built-in</span> <span class="pre">function</span> <span class="pre">any&gt;,</span> <span class="pre">collections.abc.Callable[[~Tensor],</span> <span class="pre">tuple[~Tensor,</span> <span class="pre">...]]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/vjp.html#vjp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp" title="Link to this definition">#</a></dt>
-<dd><p>Backend-agnostic version of the vector-Jacobian product (vjp).
-Computes the vector-Jacobian product of the given function at the point given by the input (primals).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fn</strong> – The function to differentiate.
-Signature and return value must be compatible with the vjp method of the backend in use.</p></li>
-<li><p><strong>primals</strong> – Input tensors to <cite>fn</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of <cite>fn(*primals)</cite> and a vjp function.
-The vjp function takes a single tensor argument, and returns the vector-Jacobian product of this argument with
-<cite>fn</cite> as evaluated at <cite>primals</cite>.</p>
-</dd>
-</dl>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.networks.free_form_flow.free_form_flow.</span></span><span class="sig-name descname"><span class="pre">vjp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/vjp.html#vjp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp" title="Link to this definition">#</a></dt>
+<dd><p>Compute the vector-Jacobian product of f at x.</p>
 </dd></dl>
 
 </section>
@@ -2044,9 +2018,9 @@ The vjp function takes a single tensor argument, and returns the vector-Jacobian
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.deserialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">deserialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.find_network"><code class="docutils literal notranslate"><span class="pre">find_network()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.jacobian"><code class="docutils literal notranslate"><span class="pre">jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.jvp"><code class="docutils literal notranslate"><span class="pre">jvp()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.keras_kwargs"><code class="docutils literal notranslate"><span class="pre">keras_kwargs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.log_jacobian_determinant"><code class="docutils literal notranslate"><span class="pre">log_jacobian_determinant()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.serializable"><code class="docutils literal notranslate"><span class="pre">serializable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.serialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">serialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.free_form_flow.free_form_flow.vjp"><code class="docutils literal notranslate"><span class="pre">vjp()</span></code></a></li>

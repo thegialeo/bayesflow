@@ -257,7 +257,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +282,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -347,7 +345,6 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -365,8 +362,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -382,8 +383,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/api/bayesflow.networks.html" >master</a></li>
       <li><a href="/dev/api/bayesflow.networks.html" class="current">dev</a></li>
+      <li><a href="/master/api/bayesflow.networks.html" >master</a></li>
   </ul>
   
 </div>
@@ -696,58 +697,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.weights"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.weights</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.__call__"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.__call__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_loss"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_loss()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_metric"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_metric()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_variable"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_variable()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_weight"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_weight()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.build"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.build_from_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.build_from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_mask"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_metrics"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_output_shape()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_spec"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_output_spec()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.consistency_function"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.consistency_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.count_params"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.count_params()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.dtype_policy"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.dtype_policy</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.from_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_build_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_build_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_weights()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input_spec"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input_spec</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.load_own_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.load_own_variables()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.log_prob"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.losses"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.losses</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.metrics"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.metrics</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.metrics_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.metrics_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.non_trainable_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.non_trainable_weights</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.output"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.output</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.path"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.path</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantization_mode"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantization_mode</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantize"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_build"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantized_build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantized_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.sample"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.sample()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.save_own_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.save_own_variables()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.set_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.set_weights()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.stateless_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.stateless_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.supports_masking"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.supports_masking</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.symbolic_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.symbolic_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable_weights</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.variable_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.variable_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.weights</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.__call__"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_loss()</span></code></a></li>
@@ -896,6 +845,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.trainable_weights"><code class="docutils literal notranslate"><span class="pre">FlowMatching.trainable_weights</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.variable_dtype"><code class="docutils literal notranslate"><span class="pre">FlowMatching.variable_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.variables"><code class="docutils literal notranslate"><span class="pre">FlowMatching.variables</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.velocity"><code class="docutils literal notranslate"><span class="pre">FlowMatching.velocity()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.weights"><code class="docutils literal notranslate"><span class="pre">FlowMatching.weights</span></code></a></li>
 </ul>
 </li>
@@ -1318,40 +1268,37 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.ConsistencyModel" title="bayesflow.networks.ConsistencyModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a Consistency Model with Consistency Training (CT) as described in [1-2].</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.ContinuousConsistencyModel" title="bayesflow.networks.ContinuousConsistencyModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousConsistencyModel</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements an sCM (simple, stable, and scalable Consistency Model) with continous-time Consistency Training (CT) as described in [1].</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.CouplingFlow" title="bayesflow.networks.CouplingFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.CouplingFlow" title="bayesflow.networks.CouplingFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a coupling flow as a sequence of dual couplings with permutations and activation normalization.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.DeepSet" title="bayesflow.networks.DeepSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeepSet</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.DeepSet" title="bayesflow.networks.DeepSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeepSet</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a deep set encoder introduced in [1].</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.FlowMatching" title="bayesflow.networks.FlowMatching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlowMatching</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.FlowMatching" title="bayesflow.networks.FlowMatching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlowMatching</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow, with ideas incorporated from [1-3].</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.FreeFormFlow" title="bayesflow.networks.FreeFormFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.FreeFormFlow" title="bayesflow.networks.FreeFormFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a dimensionality-preserving Free-form Flow.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.FusionTransformer" title="bayesflow.networks.FusionTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.FusionTransformer" title="bayesflow.networks.FusionTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a more flexible version of the TimeSeriesTransformer that applies a series of self-attention layers followed by cross-attention between the representation and a learnable template summarized via a recurrent net.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.LSTNet" title="bayesflow.networks.LSTNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSTNet</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.LSTNet" title="bayesflow.networks.LSTNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSTNet</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a LSTNet Architecture as described in [1]</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a simple configurable MLP with optional residual connections and dropout.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements the set transformer architecture from [1] which ultimately represents a learnable permutation-invariant function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.TimeSeriesTransformer" title="bayesflow.networks.TimeSeriesTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.TimeSeriesTransformer" title="bayesflow.networks.TimeSeriesTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Creates a regular transformer coupled with Time2Vec embeddings of time used to flexibly compress time series.</p></td>
 </tr>
 </tbody>
@@ -2347,490 +2294,6 @@ including <a href="#id63"><span class="problematic" id="id64">`</span></a>SeedGe
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">ContinuousConsistencyModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="bayesflow.networks.inference_network.html#bayesflow.networks.inference_network.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements an sCM (simple, stable, and scalable Consistency Model)
-with continous-time Consistency Training (CT) as described in [1].
-The sampling procedure is taken from [2].</p>
-<p>[1] Lu, C., &amp; Song, Y. (2024).
-Simplifying, Stabilizing and Scaling Continuous-Time Consistency Models
-arXiv preprint arXiv:2410.11081</p>
-<p>[2] Song, Y., Dhariwal, P., Chen, M. &amp; Sutskever, I. (2023).
-Consistency Models.
-arXiv preprint arXiv:2303.01469</p>
-<p>Creates an instance of an sCM to be used for consistency training (CT).</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.__call__" title="Link to this definition">#</a></dt>
-<dd><p>Call self as a function.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.add_loss">
-<span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.add_loss" title="Link to this definition">#</a></dt>
-<dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
-<p>Example:</p>
-<p><a href="#id65"><span class="problematic" id="id66">``</span></a><a href="#id67"><span class="problematic" id="id68">`</span></a>python
-class MyLayer(Layer):</p>
-<blockquote>
-<div><p>…
-def call(self, x):</p>
-<blockquote>
-<div><p>self.add_loss(ops.sum(x))
-return x</p>
-</div></blockquote>
-</div></blockquote>
-<p><a href="#id69"><span class="problematic" id="id70">``</span></a><a href="#id71"><span class="problematic" id="id72">`</span></a></p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.add_metric">
-<span class="sig-name descname"><span class="pre">add_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.add_metric" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.add_variable">
-<span class="sig-name descname"><span class="pre">add_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.add_variable" title="Link to this definition">#</a></dt>
-<dd><p>Add a weight variable to the layer.</p>
-<p>Alias of <cite>add_weight()</cite>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.add_weight">
-<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.add_weight" title="Link to this definition">#</a></dt>
-<dd><p>Add a weight variable to the layer.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>shape: Shape tuple for the variable. Must be fully-defined</dt><dd><p>(no <cite>None</cite> entries). Defaults to <cite>()</cite> (scalar) if unspecified.</p>
-</dd>
-<dt>initializer: Initializer object to use to populate the initial</dt><dd><p>variable value, or string name of a built-in initializer
-(e.g. <cite>“random_normal”</cite>). If unspecified, defaults to
-<cite>“glorot_uniform”</cite> for floating-point variables and to <cite>“zeros”</cite>
-for all other types (e.g. int, bool).</p>
-</dd>
-<dt>dtype: Dtype of the variable to create, e.g. <cite>“float32”</cite>. If</dt><dd><p>unspecified, defaults to the layer’s variable dtype
-(which itself defaults to <cite>“float32”</cite> if unspecified).</p>
-</dd>
-<dt>trainable: Boolean, whether the variable should be trainable via</dt><dd><p>backprop or whether its updates are managed manually. Defaults
-to <cite>True</cite>.</p>
-</dd>
-<dt>autocast: Boolean, whether to autocast layers variables when</dt><dd><p>accessing them. Defaults to <cite>True</cite>.</p>
-</dd>
-<dt>regularizer: Regularizer object to call to apply penalty on the</dt><dd><p>weight. These penalties are summed into the loss function
-during optimization. Defaults to <cite>None</cite>.</p>
-</dd>
-<dt>constraint: Contrainst object to call on the variable after any</dt><dd><p>optimizer update, or string name of a built-in constraint.
-Defaults to <cite>None</cite>.</p>
-</dd>
-<dt>aggregation: String, one of <cite>‘mean’</cite>, <cite>‘sum’</cite>,</dt><dd><p><cite>‘only_first_replica’</cite>. Annotates the variable with the type
-of multi-replica aggregation to be used for this variable
-when writing custom data parallel training loops.</p>
-</dd>
-</dl>
-<p>name: String name of the variable. Useful for debugging purposes.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.build_from_config">
-<span class="sig-name descname"><span class="pre">build_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.build_from_config" title="Link to this definition">#</a></dt>
-<dd><p>Builds the layer’s states with the supplied config dict.</p>
-<p>By default, this method calls the <cite>build(config[“input_shape”])</cite> method,
-which creates weights based on the layer’s input shape in the supplied
-config. If your config contains other information needed to load the
-layer’s state, you should override this method.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: Dict containing the input shape associated with this layer.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.compute_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_dtype</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.compute_dtype" title="Link to this definition">#</a></dt>
-<dd><p>The dtype of the computations performed by the layer.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.compute_mask">
-<span class="sig-name descname"><span class="pre">compute_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.compute_mask" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.compute_output_shape">
-<span class="sig-name descname"><span class="pre">compute_output_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_shape" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.compute_output_spec">
-<span class="sig-name descname"><span class="pre">compute_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_spec" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.consistency_function">
-<span class="sig-name descname"><span class="pre">consistency_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.consistency_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.consistency_function" title="Link to this definition">#</a></dt>
-<dd><p>Compute consistency function at time t.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Input vector</p>
-</dd>
-<dt><strong>t</strong><span class="classifier">Tensor</span></dt><dd><p>Vector of time samples in [0, pi/2]</p>
-</dd>
-<dt><strong>conditions</strong><span class="classifier">Tensor</span></dt><dd><p>The conditioning vector</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">bool</span></dt><dd><p>Flag to control whether the inner network operates in training or test mode</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments passed to the inner network.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.count_params">
-<span class="sig-name descname"><span class="pre">count_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.count_params" title="Link to this definition">#</a></dt>
-<dd><p>Count the total number of scalars composing the weights.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An integer count.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.dtype" title="Link to this definition">#</a></dt>
-<dd><p>Alias of <cite>layer.variable_dtype</cite>.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.dtype_policy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype_policy</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.dtype_policy" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.from_config">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.from_config" title="Link to this definition">#</a></dt>
-<dd><p>Creates an operation from its config.</p>
-<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
-same operation from the config dictionary.</p>
-<p>Note: If you override this method, you might receive a serialized dtype
-config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id73"><span class="problematic" id="id74">``</span></a><a href="#id75"><span class="problematic" id="id76">`</span></a>python
-if “dtype” in config and isinstance(config[“dtype”], dict):</p>
-<blockquote>
-<div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
-</div></blockquote>
-<p><a href="#id77"><span class="problematic" id="id78">``</span></a><a href="#id79"><span class="problematic" id="id80">`</span></a></p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><p>An operation instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.get_build_config">
-<span class="sig-name descname"><span class="pre">get_build_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.get_build_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns a dictionary with the layer’s input shape.</p>
-<p>This method returns a config dict that can be used by
-<cite>build_from_config(config)</cite> to create all states (e.g. Variables and
-Lookup tables) needed by the layer.</p>
-<p>By default, the config only contains the input shape that the layer
-was built with. If you’re writing a custom layer that creates state in
-an unusual way, you should override this method to make sure this state
-is already created when Keras attempts to load its value upon model
-loading.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A dict containing the input shape associated with the layer.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/continuous_consistency_model.html#ContinuousConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.get_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config of the object.</p>
-<p>An object config is a Python dictionary (serializable)
-containing the information needed to re-instantiate it.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.get_weights">
-<span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.get_weights" title="Link to this definition">#</a></dt>
-<dd><p>Return the values of <cite>layer.weights</cite> as a list of NumPy arrays.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.input">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.input" title="Link to this definition">#</a></dt>
-<dd><p>Retrieves the input tensor(s) of a symbolic operation.</p>
-<p>Only returns the tensor(s) corresponding to the <em>first time</em>
-the operation was called.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Input tensor or list of input tensors.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.input_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_dtype</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.input_dtype" title="Link to this definition">#</a></dt>
-<dd><p>The dtype layer inputs should be converted to.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.input_spec">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_spec</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.input_spec" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.load_own_variables">
-<span class="sig-name descname"><span class="pre">load_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.load_own_variables" title="Link to this definition">#</a></dt>
-<dd><p>Loads the state of the layer.</p>
-<p>You can override this method to take full control of how the state of
-the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>store: Dict from which the state of the model will be loaded.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.log_prob">
-<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.log_prob" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.losses">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">losses</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.losses" title="Link to this definition">#</a></dt>
-<dd><p>List of scalar losses from <cite>add_loss</cite>, regularizers and sublayers.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.metrics">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metrics</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.metrics" title="Link to this definition">#</a></dt>
-<dd><p>List of all metrics.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.metrics_variables">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metrics_variables</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.metrics_variables" title="Link to this definition">#</a></dt>
-<dd><p>List of all metric variables.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.non_trainable_variables">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_variables" title="Link to this definition">#</a></dt>
-<dd><p>List of all non-trainable layer state.</p>
-<p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id81"><span class="problematic" id="id82">`</span></a>SeedGenerator`s.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.non_trainable_weights">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_weights</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_weights" title="Link to this definition">#</a></dt>
-<dd><p>List of all non-trainable weight variables of the layer.</p>
-<p>These are the weights that should not be updated by the optimizer during
-training. Unlike, <cite>layer.non_trainable_variables</cite> this excludes metric
-state and random seeds.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.output">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.output" title="Link to this definition">#</a></dt>
-<dd><p>Retrieves the output tensor(s) of a layer.</p>
-<p>Only returns the tensor(s) corresponding to the <em>first time</em>
-the operation was called.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Output tensor or list of output tensors.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.path">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.path" title="Link to this definition">#</a></dt>
-<dd><p>The path of the layer.</p>
-<p>If the layer has not been built yet, it will be <cite>None</cite>.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.quantization_mode">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantization_mode</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.quantization_mode" title="Link to this definition">#</a></dt>
-<dd><p>The quantization mode of this layer, <cite>None</cite> if not quantized.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.quantize">
-<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.quantize" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.quantized_build">
-<span class="sig-name descname"><span class="pre">quantized_build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.quantized_call">
-<span class="sig-name descname"><span class="pre">quantized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.sample" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.save_own_variables">
-<span class="sig-name descname"><span class="pre">save_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.save_own_variables" title="Link to this definition">#</a></dt>
-<dd><p>Saves the state of the layer.</p>
-<p>You can override this method to take full control of how the state of
-the layer is saved upon calling <cite>model.save()</cite>.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>store: Dict where the state of the model will be saved.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.set_weights">
-<span class="sig-name descname"><span class="pre">set_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.set_weights" title="Link to this definition">#</a></dt>
-<dd><p>Sets the values of <cite>layer.weights</cite> from a list of NumPy arrays.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.stateless_call">
-<span class="sig-name descname"><span class="pre">stateless_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainable_variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_trainable_variables</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_losses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.stateless_call" title="Link to this definition">#</a></dt>
-<dd><p>Call the layer without any side effects.</p>
-<dl>
-<dt>Args:</dt><dd><p>trainable_variables: List of trainable variables of the model.
-non_trainable_variables: List of non-trainable variables of the</p>
-<blockquote>
-<div><p>model.</p>
-</div></blockquote>
-<p><a href="#id83"><span class="problematic" id="id84">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
-return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
-<blockquote>
-<div><p>losses created during <cite>call()</cite> as part of its return values.</p>
-</div></blockquote>
-<p><a href="#id85"><span class="problematic" id="id86">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
-<cite>(outputs, non_trainable_variables, losses)</cite>.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>Note: <cite>non_trainable_variables</cite> include not only non-trainable weights
-such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
-(if there are any random operations part of the layer, such as dropout),
-and <cite>Metric</cite> state (if there are any metrics attached to the layer).
-These are all elements of state of the layer.</p>
-<p>Example:</p>
-<p><a href="#id87"><span class="problematic" id="id88">``</span></a><a href="#id89"><span class="problematic" id="id90">`</span></a>python
-model = …
-data = …
-trainable_variables = model.trainable_variables
-non_trainable_variables = model.non_trainable_variables
-# Call the model with zero side effects
-outputs, non_trainable_variables = model.stateless_call(</p>
-<blockquote>
-<div><p>trainable_variables,
-non_trainable_variables,
-data,</p>
-</div></blockquote>
-<p>)
-# Attach the updated state to the model
-# (until you do this, the model is still in its pre-call state).
-for ref_var, value in zip(</p>
-<blockquote>
-<div><p>model.non_trainable_variables, non_trainable_variables</p>
-</div></blockquote>
-<dl class="simple">
-<dt>):</dt><dd><p>ref_var.assign(value)</p>
-</dd>
-</dl>
-<p><a href="#id91"><span class="problematic" id="id92">``</span></a><a href="#id93"><span class="problematic" id="id94">`</span></a></p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.supports_masking">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supports_masking</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.supports_masking" title="Link to this definition">#</a></dt>
-<dd><p>Whether this layer supports computing a mask using <cite>compute_mask</cite>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.symbolic_call">
-<span class="sig-name descname"><span class="pre">symbolic_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.symbolic_call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.trainable">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trainable</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.trainable" title="Link to this definition">#</a></dt>
-<dd><p>Settable boolean, whether this layer should be trainable or not.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.trainable_variables">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_variables" title="Link to this definition">#</a></dt>
-<dd><p>List of all trainable layer state.</p>
-<p>This is equivalent to <cite>layer.trainable_weights</cite>.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.trainable_weights">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trainable_weights</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_weights" title="Link to this definition">#</a></dt>
-<dd><p>List of all trainable weight variables of the layer.</p>
-<p>These are the weights that get updated by the optimizer during training.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.variable_dtype">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable_dtype</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.variable_dtype" title="Link to this definition">#</a></dt>
-<dd><p>The dtype of the state (weights) of the layer.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.variables">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.variables" title="Link to this definition">#</a></dt>
-<dd><p>List of all layer state, including random seeds.</p>
-<p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id95"><span class="problematic" id="id96">`</span></a>SeedGenerator`s.</p>
-<p>Note that metrics variables are not included here, use
-<cite>metrics_variables</cite> to visit all the metric variables.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.networks.ContinuousConsistencyModel.weights">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#bayesflow.networks.ContinuousConsistencyModel.weights" title="Link to this definition">#</a></dt>
-<dd><p>List of all weight variables of the layer.</p>
-<p>Unlike, <cite>layer.variables</cite> this excludes metric state and random seeds.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">CouplingFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.networks.inference_network.html#bayesflow.networks.inference_network.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
@@ -2861,7 +2324,7 @@ arXiv preprint arXiv:2006.06599.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.CouplingFlow.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id97"><span class="problematic" id="id98">``</span></a><a href="#id99"><span class="problematic" id="id100">`</span></a>python
+<p><a href="#id65"><span class="problematic" id="id66">``</span></a><a href="#id67"><span class="problematic" id="id68">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -2871,7 +2334,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id101"><span class="problematic" id="id102">``</span></a><a href="#id103"><span class="problematic" id="id104">`</span></a></p>
+<p><a href="#id69"><span class="problematic" id="id70">``</span></a><a href="#id71"><span class="problematic" id="id72">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -3002,12 +2465,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id105"><span class="problematic" id="id106">``</span></a><a href="#id107"><span class="problematic" id="id108">`</span></a>python
+<p><a href="#id73"><span class="problematic" id="id74">``</span></a><a href="#id75"><span class="problematic" id="id76">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id109"><span class="problematic" id="id110">``</span></a><a href="#id111"><span class="problematic" id="id112">`</span></a></p>
+<p><a href="#id77"><span class="problematic" id="id78">``</span></a><a href="#id79"><span class="problematic" id="id80">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -3111,7 +2574,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.CouplingFlow.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id113"><span class="problematic" id="id114">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id81"><span class="problematic" id="id82">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -3196,12 +2659,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id115"><span class="problematic" id="id116">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id83"><span class="problematic" id="id84">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id117"><span class="problematic" id="id118">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id85"><span class="problematic" id="id86">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -3216,7 +2679,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id119"><span class="problematic" id="id120">``</span></a><a href="#id121"><span class="problematic" id="id122">`</span></a>python
+<p><a href="#id87"><span class="problematic" id="id88">``</span></a><a href="#id89"><span class="problematic" id="id90">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -3239,7 +2702,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id123"><span class="problematic" id="id124">``</span></a><a href="#id125"><span class="problematic" id="id126">`</span></a></p>
+<p><a href="#id91"><span class="problematic" id="id92">``</span></a><a href="#id93"><span class="problematic" id="id94">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -3284,7 +2747,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.CouplingFlow.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id127"><span class="problematic" id="id128">`</span></a>SeedGenerator`s.</p>
+including <a href="#id95"><span class="problematic" id="id96">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -3322,7 +2785,7 @@ $rho$ and $tau$ can be any functions, such as neural networks.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.DeepSet.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id129"><span class="problematic" id="id130">``</span></a><a href="#id131"><span class="problematic" id="id132">`</span></a>python
+<p><a href="#id97"><span class="problematic" id="id98">``</span></a><a href="#id99"><span class="problematic" id="id100">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -3332,7 +2795,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id133"><span class="problematic" id="id134">``</span></a><a href="#id135"><span class="problematic" id="id136">`</span></a></p>
+<p><a href="#id101"><span class="problematic" id="id102">``</span></a><a href="#id103"><span class="problematic" id="id104">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -3466,12 +2929,12 @@ a sequence of equivariant transforms followed by an invariant transform.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id137"><span class="problematic" id="id138">``</span></a><a href="#id139"><span class="problematic" id="id140">`</span></a>python
+<p><a href="#id105"><span class="problematic" id="id106">``</span></a><a href="#id107"><span class="problematic" id="id108">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id141"><span class="problematic" id="id142">``</span></a><a href="#id143"><span class="problematic" id="id144">`</span></a></p>
+<p><a href="#id109"><span class="problematic" id="id110">``</span></a><a href="#id111"><span class="problematic" id="id112">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -3570,7 +3033,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.DeepSet.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id145"><span class="problematic" id="id146">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id113"><span class="problematic" id="id114">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -3650,12 +3113,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id147"><span class="problematic" id="id148">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id115"><span class="problematic" id="id116">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id149"><span class="problematic" id="id150">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id117"><span class="problematic" id="id118">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -3670,7 +3133,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id151"><span class="problematic" id="id152">``</span></a><a href="#id153"><span class="problematic" id="id154">`</span></a>python
+<p><a href="#id119"><span class="problematic" id="id120">``</span></a><a href="#id121"><span class="problematic" id="id122">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -3693,7 +3156,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id155"><span class="problematic" id="id156">``</span></a><a href="#id157"><span class="problematic" id="id158">`</span></a></p>
+<p><a href="#id123"><span class="problematic" id="id124">``</span></a><a href="#id125"><span class="problematic" id="id126">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -3738,7 +3201,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.DeepSet.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id159"><span class="problematic" id="id160">`</span></a>SeedGenerator`s.</p>
+including <a href="#id127"><span class="problematic" id="id128">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -3772,7 +3235,7 @@ with ideas incorporated from [1-3].</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FlowMatching.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id161"><span class="problematic" id="id162">``</span></a><a href="#id163"><span class="problematic" id="id164">`</span></a>python
+<p><a href="#id129"><span class="problematic" id="id130">``</span></a><a href="#id131"><span class="problematic" id="id132">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -3782,7 +3245,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id165"><span class="problematic" id="id166">``</span></a><a href="#id167"><span class="problematic" id="id168">`</span></a></p>
+<p><a href="#id133"><span class="problematic" id="id134">``</span></a><a href="#id135"><span class="problematic" id="id136">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -3913,12 +3376,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id169"><span class="problematic" id="id170">``</span></a><a href="#id171"><span class="problematic" id="id172">`</span></a>python
+<p><a href="#id137"><span class="problematic" id="id138">``</span></a><a href="#id139"><span class="problematic" id="id140">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id173"><span class="problematic" id="id174">``</span></a><a href="#id175"><span class="problematic" id="id176">`</span></a></p>
+<p><a href="#id141"><span class="problematic" id="id142">``</span></a><a href="#id143"><span class="problematic" id="id144">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -4022,7 +3485,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.FlowMatching.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id177"><span class="problematic" id="id178">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id145"><span class="problematic" id="id146">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -4107,12 +3570,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id179"><span class="problematic" id="id180">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id147"><span class="problematic" id="id148">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id181"><span class="problematic" id="id182">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id149"><span class="problematic" id="id150">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -4127,7 +3590,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id183"><span class="problematic" id="id184">``</span></a><a href="#id185"><span class="problematic" id="id186">`</span></a>python
+<p><a href="#id151"><span class="problematic" id="id152">``</span></a><a href="#id153"><span class="problematic" id="id154">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -4150,7 +3613,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id187"><span class="problematic" id="id188">``</span></a><a href="#id189"><span class="problematic" id="id190">`</span></a></p>
+<p><a href="#id155"><span class="problematic" id="id156">``</span></a><a href="#id157"><span class="problematic" id="id158">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -4195,10 +3658,15 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.FlowMatching.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id191"><span class="problematic" id="id192">`</span></a>SeedGenerator`s.</p>
+including <a href="#id159"><span class="problematic" id="id160">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.velocity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.weights">
@@ -4233,7 +3701,7 @@ In International Conference on Learning Representations.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id193"><span class="problematic" id="id194">``</span></a><a href="#id195"><span class="problematic" id="id196">`</span></a>python
+<p><a href="#id161"><span class="problematic" id="id162">``</span></a><a href="#id163"><span class="problematic" id="id164">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -4243,7 +3711,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id197"><span class="problematic" id="id198">``</span></a><a href="#id199"><span class="problematic" id="id200">`</span></a></p>
+<p><a href="#id165"><span class="problematic" id="id166">``</span></a><a href="#id167"><span class="problematic" id="id168">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -4384,12 +3852,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id201"><span class="problematic" id="id202">``</span></a><a href="#id203"><span class="problematic" id="id204">`</span></a>python
+<p><a href="#id169"><span class="problematic" id="id170">``</span></a><a href="#id171"><span class="problematic" id="id172">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id205"><span class="problematic" id="id206">``</span></a><a href="#id207"><span class="problematic" id="id208">`</span></a></p>
+<p><a href="#id173"><span class="problematic" id="id174">``</span></a><a href="#id175"><span class="problematic" id="id176">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -4493,7 +3961,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id209"><span class="problematic" id="id210">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id177"><span class="problematic" id="id178">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -4578,12 +4046,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id211"><span class="problematic" id="id212">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id179"><span class="problematic" id="id180">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id213"><span class="problematic" id="id214">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id181"><span class="problematic" id="id182">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -4598,7 +4066,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id215"><span class="problematic" id="id216">``</span></a><a href="#id217"><span class="problematic" id="id218">`</span></a>python
+<p><a href="#id183"><span class="problematic" id="id184">``</span></a><a href="#id185"><span class="problematic" id="id186">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -4621,7 +4089,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id219"><span class="problematic" id="id220">``</span></a><a href="#id221"><span class="problematic" id="id222">`</span></a></p>
+<p><a href="#id187"><span class="problematic" id="id188">``</span></a><a href="#id189"><span class="problematic" id="id190">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -4666,7 +4134,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id223"><span class="problematic" id="id224">`</span></a>SeedGenerator`s.</p>
+including <a href="#id191"><span class="problematic" id="id192">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -4745,7 +4213,7 @@ units (equiv. output dimensions) of the recurrent network.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FusionTransformer.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id225"><span class="problematic" id="id226">``</span></a><a href="#id227"><span class="problematic" id="id228">`</span></a>python
+<p><a href="#id193"><span class="problematic" id="id194">``</span></a><a href="#id195"><span class="problematic" id="id196">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -4755,7 +4223,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id229"><span class="problematic" id="id230">``</span></a><a href="#id231"><span class="problematic" id="id232">`</span></a></p>
+<p><a href="#id197"><span class="problematic" id="id198">``</span></a><a href="#id199"><span class="problematic" id="id200">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -4907,12 +4375,12 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id233"><span class="problematic" id="id234">``</span></a><a href="#id235"><span class="problematic" id="id236">`</span></a>python
+<p><a href="#id201"><span class="problematic" id="id202">``</span></a><a href="#id203"><span class="problematic" id="id204">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id237"><span class="problematic" id="id238">``</span></a><a href="#id239"><span class="problematic" id="id240">`</span></a></p>
+<p><a href="#id205"><span class="problematic" id="id206">``</span></a><a href="#id207"><span class="problematic" id="id208">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -5011,7 +4479,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.FusionTransformer.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id241"><span class="problematic" id="id242">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id209"><span class="problematic" id="id210">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -5091,12 +4559,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id243"><span class="problematic" id="id244">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id211"><span class="problematic" id="id212">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id245"><span class="problematic" id="id246">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id213"><span class="problematic" id="id214">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -5111,7 +4579,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id247"><span class="problematic" id="id248">``</span></a><a href="#id249"><span class="problematic" id="id250">`</span></a>python
+<p><a href="#id215"><span class="problematic" id="id216">``</span></a><a href="#id217"><span class="problematic" id="id218">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -5134,7 +4602,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id251"><span class="problematic" id="id252">``</span></a><a href="#id253"><span class="problematic" id="id254">`</span></a></p>
+<p><a href="#id219"><span class="problematic" id="id220">``</span></a><a href="#id221"><span class="problematic" id="id222">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -5179,7 +4647,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.FusionTransformer.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id255"><span class="problematic" id="id256">`</span></a>SeedGenerator`s.</p>
+including <a href="#id223"><span class="problematic" id="id224">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -5208,7 +4676,7 @@ including <a href="#id255"><span class="problematic" id="id256">`</span></a>Seed
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id257"><span class="problematic" id="id258">``</span></a><a href="#id259"><span class="problematic" id="id260">`</span></a>python
+<p><a href="#id225"><span class="problematic" id="id226">``</span></a><a href="#id227"><span class="problematic" id="id228">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -5218,7 +4686,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id261"><span class="problematic" id="id262">``</span></a><a href="#id263"><span class="problematic" id="id264">`</span></a></p>
+<p><a href="#id229"><span class="problematic" id="id230">``</span></a><a href="#id231"><span class="problematic" id="id232">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -5349,12 +4817,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id265"><span class="problematic" id="id266">``</span></a><a href="#id267"><span class="problematic" id="id268">`</span></a>python
+<p><a href="#id233"><span class="problematic" id="id234">``</span></a><a href="#id235"><span class="problematic" id="id236">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id269"><span class="problematic" id="id270">``</span></a><a href="#id271"><span class="problematic" id="id272">`</span></a></p>
+<p><a href="#id237"><span class="problematic" id="id238">``</span></a><a href="#id239"><span class="problematic" id="id240">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -5458,7 +4926,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id273"><span class="problematic" id="id274">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id241"><span class="problematic" id="id242">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -5543,12 +5011,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id275"><span class="problematic" id="id276">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id243"><span class="problematic" id="id244">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id277"><span class="problematic" id="id278">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id245"><span class="problematic" id="id246">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -5563,7 +5031,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id279"><span class="problematic" id="id280">``</span></a><a href="#id281"><span class="problematic" id="id282">`</span></a>python
+<p><a href="#id247"><span class="problematic" id="id248">``</span></a><a href="#id249"><span class="problematic" id="id250">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -5586,7 +5054,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id283"><span class="problematic" id="id284">``</span></a><a href="#id285"><span class="problematic" id="id286">`</span></a></p>
+<p><a href="#id251"><span class="problematic" id="id252">``</span></a><a href="#id253"><span class="problematic" id="id254">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -5631,7 +5099,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id287"><span class="problematic" id="id288">`</span></a>SeedGenerator`s.</p>
+including <a href="#id255"><span class="problematic" id="id256">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -5665,7 +5133,7 @@ Seattle, WA, USA, 2023, pp. 966-972, doi: 10.1109/AIM46323.2023.10196190.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.LSTNet.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id289"><span class="problematic" id="id290">``</span></a><a href="#id291"><span class="problematic" id="id292">`</span></a>python
+<p><a href="#id257"><span class="problematic" id="id258">``</span></a><a href="#id259"><span class="problematic" id="id260">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -5675,7 +5143,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id293"><span class="problematic" id="id294">``</span></a><a href="#id295"><span class="problematic" id="id296">`</span></a></p>
+<p><a href="#id261"><span class="problematic" id="id262">``</span></a><a href="#id263"><span class="problematic" id="id264">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -5817,12 +5285,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id297"><span class="problematic" id="id298">``</span></a><a href="#id299"><span class="problematic" id="id300">`</span></a>python
+<p><a href="#id265"><span class="problematic" id="id266">``</span></a><a href="#id267"><span class="problematic" id="id268">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id301"><span class="problematic" id="id302">``</span></a><a href="#id303"><span class="problematic" id="id304">`</span></a></p>
+<p><a href="#id269"><span class="problematic" id="id270">``</span></a><a href="#id271"><span class="problematic" id="id272">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -5921,7 +5389,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.LSTNet.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id305"><span class="problematic" id="id306">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id273"><span class="problematic" id="id274">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -6001,12 +5469,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id307"><span class="problematic" id="id308">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id275"><span class="problematic" id="id276">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id309"><span class="problematic" id="id310">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id277"><span class="problematic" id="id278">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -6021,7 +5489,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id311"><span class="problematic" id="id312">``</span></a><a href="#id313"><span class="problematic" id="id314">`</span></a>python
+<p><a href="#id279"><span class="problematic" id="id280">``</span></a><a href="#id281"><span class="problematic" id="id282">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -6044,7 +5512,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id315"><span class="problematic" id="id316">``</span></a><a href="#id317"><span class="problematic" id="id318">`</span></a></p>
+<p><a href="#id283"><span class="problematic" id="id284">``</span></a><a href="#id285"><span class="problematic" id="id286">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -6089,7 +5557,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.LSTNet.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id319"><span class="problematic" id="id320">`</span></a>SeedGenerator`s.</p>
+including <a href="#id287"><span class="problematic" id="id288">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -6122,7 +5590,7 @@ that the input and conditions are already concatenated (i.e., this is a single-i
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.MLP.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id321"><span class="problematic" id="id322">``</span></a><a href="#id323"><span class="problematic" id="id324">`</span></a>python
+<p><a href="#id289"><span class="problematic" id="id290">``</span></a><a href="#id291"><span class="problematic" id="id292">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -6132,7 +5600,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id325"><span class="problematic" id="id326">``</span></a><a href="#id327"><span class="problematic" id="id328">`</span></a></p>
+<p><a href="#id293"><span class="problematic" id="id294">``</span></a><a href="#id295"><span class="problematic" id="id296">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -6258,12 +5726,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id329"><span class="problematic" id="id330">``</span></a><a href="#id331"><span class="problematic" id="id332">`</span></a>python
+<p><a href="#id297"><span class="problematic" id="id298">``</span></a><a href="#id299"><span class="problematic" id="id300">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id333"><span class="problematic" id="id334">``</span></a><a href="#id335"><span class="problematic" id="id336">`</span></a></p>
+<p><a href="#id301"><span class="problematic" id="id302">``</span></a><a href="#id303"><span class="problematic" id="id304">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -6362,7 +5830,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.MLP.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id337"><span class="problematic" id="id338">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id305"><span class="problematic" id="id306">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -6442,12 +5910,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id339"><span class="problematic" id="id340">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id307"><span class="problematic" id="id308">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id341"><span class="problematic" id="id342">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id309"><span class="problematic" id="id310">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -6462,7 +5930,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id343"><span class="problematic" id="id344">``</span></a><a href="#id345"><span class="problematic" id="id346">`</span></a>python
+<p><a href="#id311"><span class="problematic" id="id312">``</span></a><a href="#id313"><span class="problematic" id="id314">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -6485,7 +5953,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id347"><span class="problematic" id="id348">``</span></a><a href="#id349"><span class="problematic" id="id350">`</span></a></p>
+<p><a href="#id315"><span class="problematic" id="id316">``</span></a><a href="#id317"><span class="problematic" id="id318">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -6530,7 +5998,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.MLP.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id351"><span class="problematic" id="id352">`</span></a>SeedGenerator`s.</p>
+including <a href="#id319"><span class="problematic" id="id320">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -6606,7 +6074,7 @@ inferred from the length of <cite>embed_dims</cite> tuple.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SetTransformer.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id353"><span class="problematic" id="id354">``</span></a><a href="#id355"><span class="problematic" id="id356">`</span></a>python
+<p><a href="#id321"><span class="problematic" id="id322">``</span></a><a href="#id323"><span class="problematic" id="id324">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -6616,7 +6084,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id357"><span class="problematic" id="id358">``</span></a><a href="#id359"><span class="problematic" id="id360">`</span></a></p>
+<p><a href="#id325"><span class="problematic" id="id326">``</span></a><a href="#id327"><span class="problematic" id="id328">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -6768,12 +6236,12 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id361"><span class="problematic" id="id362">``</span></a><a href="#id363"><span class="problematic" id="id364">`</span></a>python
+<p><a href="#id329"><span class="problematic" id="id330">``</span></a><a href="#id331"><span class="problematic" id="id332">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id365"><span class="problematic" id="id366">``</span></a><a href="#id367"><span class="problematic" id="id368">`</span></a></p>
+<p><a href="#id333"><span class="problematic" id="id334">``</span></a><a href="#id335"><span class="problematic" id="id336">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -6872,7 +6340,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.SetTransformer.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id369"><span class="problematic" id="id370">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id337"><span class="problematic" id="id338">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -6952,12 +6420,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id371"><span class="problematic" id="id372">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id339"><span class="problematic" id="id340">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id373"><span class="problematic" id="id374">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id341"><span class="problematic" id="id342">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -6972,7 +6440,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id375"><span class="problematic" id="id376">``</span></a><a href="#id377"><span class="problematic" id="id378">`</span></a>python
+<p><a href="#id343"><span class="problematic" id="id344">``</span></a><a href="#id345"><span class="problematic" id="id346">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -6995,7 +6463,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id379"><span class="problematic" id="id380">``</span></a><a href="#id381"><span class="problematic" id="id382">`</span></a></p>
+<p><a href="#id347"><span class="problematic" id="id348">``</span></a><a href="#id349"><span class="problematic" id="id350">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -7040,7 +6508,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.SetTransformer.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id383"><span class="problematic" id="id384">`</span></a>SeedGenerator`s.</p>
+including <a href="#id351"><span class="problematic" id="id352">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -7069,7 +6537,7 @@ including <a href="#id383"><span class="problematic" id="id384">`</span></a>Seed
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id385"><span class="problematic" id="id386">``</span></a><a href="#id387"><span class="problematic" id="id388">`</span></a>python
+<p><a href="#id353"><span class="problematic" id="id354">``</span></a><a href="#id355"><span class="problematic" id="id356">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -7079,7 +6547,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id389"><span class="problematic" id="id390">``</span></a><a href="#id391"><span class="problematic" id="id392">`</span></a></p>
+<p><a href="#id357"><span class="problematic" id="id358">``</span></a><a href="#id359"><span class="problematic" id="id360">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -7221,12 +6689,12 @@ layer’s state, you should override this method.</p>
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id393"><span class="problematic" id="id394">``</span></a><a href="#id395"><span class="problematic" id="id396">`</span></a>python
+<p><a href="#id361"><span class="problematic" id="id362">``</span></a><a href="#id363"><span class="problematic" id="id364">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id397"><span class="problematic" id="id398">``</span></a><a href="#id399"><span class="problematic" id="id400">`</span></a></p>
+<p><a href="#id365"><span class="problematic" id="id366">``</span></a><a href="#id367"><span class="problematic" id="id368">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -7325,7 +6793,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id401"><span class="problematic" id="id402">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id369"><span class="problematic" id="id370">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -7405,12 +6873,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id403"><span class="problematic" id="id404">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id371"><span class="problematic" id="id372">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id405"><span class="problematic" id="id406">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id373"><span class="problematic" id="id374">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -7425,7 +6893,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id407"><span class="problematic" id="id408">``</span></a><a href="#id409"><span class="problematic" id="id410">`</span></a>python
+<p><a href="#id375"><span class="problematic" id="id376">``</span></a><a href="#id377"><span class="problematic" id="id378">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -7448,7 +6916,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id411"><span class="problematic" id="id412">``</span></a><a href="#id413"><span class="problematic" id="id414">`</span></a></p>
+<p><a href="#id379"><span class="problematic" id="id380">``</span></a><a href="#id381"><span class="problematic" id="id382">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -7493,7 +6961,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id415"><span class="problematic" id="id416">`</span></a>SeedGenerator`s.</p>
+including <a href="#id383"><span class="problematic" id="id384">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -7561,7 +7029,7 @@ will be assumed.</p>
 <span class="sig-name descname"><span class="pre">add_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.add_loss" title="Link to this definition">#</a></dt>
 <dd><p>Can be called inside of the <cite>call()</cite> method to add a scalar loss.</p>
 <p>Example:</p>
-<p><a href="#id417"><span class="problematic" id="id418">``</span></a><a href="#id419"><span class="problematic" id="id420">`</span></a>python
+<p><a href="#id385"><span class="problematic" id="id386">``</span></a><a href="#id387"><span class="problematic" id="id388">`</span></a>python
 class MyLayer(Layer):</p>
 <blockquote>
 <div><p>…
@@ -7571,7 +7039,7 @@ def call(self, x):</p>
 return x</p>
 </div></blockquote>
 </div></blockquote>
-<p><a href="#id421"><span class="problematic" id="id422">``</span></a><a href="#id423"><span class="problematic" id="id424">`</span></a></p>
+<p><a href="#id389"><span class="problematic" id="id390">``</span></a><a href="#id391"><span class="problematic" id="id392">`</span></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -7723,12 +7191,12 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 same operation from the config dictionary.</p>
 <p>Note: If you override this method, you might receive a serialized dtype
 config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<p><a href="#id425"><span class="problematic" id="id426">``</span></a><a href="#id427"><span class="problematic" id="id428">`</span></a>python
+<p><a href="#id393"><span class="problematic" id="id394">``</span></a><a href="#id395"><span class="problematic" id="id396">`</span></a>python
 if “dtype” in config and isinstance(config[“dtype”], dict):</p>
 <blockquote>
 <div><p>policy = dtype_policies.deserialize(config[“dtype”])</p>
 </div></blockquote>
-<p><a href="#id429"><span class="problematic" id="id430">``</span></a><a href="#id431"><span class="problematic" id="id432">`</span></a></p>
+<p><a href="#id397"><span class="problematic" id="id398">``</span></a><a href="#id399"><span class="problematic" id="id400">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
 </dd>
@@ -7827,7 +7295,7 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id433"><span class="problematic" id="id434">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id401"><span class="problematic" id="id402">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -7907,12 +7375,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id435"><span class="problematic" id="id436">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id403"><span class="problematic" id="id404">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id437"><span class="problematic" id="id438">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id405"><span class="problematic" id="id406">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -7927,7 +7395,7 @@ such as <cite>BatchNormalization</cite> statistics, but also RNG seed state
 and <cite>Metric</cite> state (if there are any metrics attached to the layer).
 These are all elements of state of the layer.</p>
 <p>Example:</p>
-<p><a href="#id439"><span class="problematic" id="id440">``</span></a><a href="#id441"><span class="problematic" id="id442">`</span></a>python
+<p><a href="#id407"><span class="problematic" id="id408">``</span></a><a href="#id409"><span class="problematic" id="id410">`</span></a>python
 model = …
 data = …
 trainable_variables = model.trainable_variables
@@ -7950,7 +7418,7 @@ for ref_var, value in zip(</p>
 <dt>):</dt><dd><p>ref_var.assign(value)</p>
 </dd>
 </dl>
-<p><a href="#id443"><span class="problematic" id="id444">``</span></a><a href="#id445"><span class="problematic" id="id446">`</span></a></p>
+<p><a href="#id411"><span class="problematic" id="id412">``</span></a><a href="#id413"><span class="problematic" id="id414">`</span></a></p>
 </dd></dl>
 
 <dl class="py property">
@@ -7995,7 +7463,7 @@ for ref_var, value in zip(</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id447"><span class="problematic" id="id448">`</span></a>SeedGenerator`s.</p>
+including <a href="#id415"><span class="problematic" id="id416">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -8160,58 +7628,6 @@ including <a href="#id447"><span class="problematic" id="id448">`</span></a>Seed
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.weights"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.weights</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.__call__"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.__call__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_loss"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_loss()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_metric"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_metric()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_variable"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_variable()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.add_weight"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.add_weight()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.build"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.build_from_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.build_from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_mask"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_mask()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_metrics"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_output_shape()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.compute_output_spec"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.compute_output_spec()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.consistency_function"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.consistency_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.count_params"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.count_params()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.dtype_policy"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.dtype_policy</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.from_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_build_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_build_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_config"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.get_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.get_weights()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.input_spec"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.input_spec</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.load_own_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.load_own_variables()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.log_prob"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.losses"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.losses</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.metrics"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.metrics</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.metrics_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.metrics_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.non_trainable_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.non_trainable_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.non_trainable_weights</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.output"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.output</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.path"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.path</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantization_mode"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantization_mode</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantize"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_build"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantized_build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.quantized_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.quantized_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.sample"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.sample()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.save_own_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.save_own_variables()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.set_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.set_weights()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.stateless_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.stateless_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.supports_masking"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.supports_masking</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.symbolic_call"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.symbolic_call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable_variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.trainable_weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.trainable_weights</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.variable_dtype"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.variable_dtype</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.variables"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.variables</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ContinuousConsistencyModel.weights"><code class="docutils literal notranslate"><span class="pre">ContinuousConsistencyModel.weights</span></code></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.__call__"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_loss()</span></code></a></li>
@@ -8360,6 +7776,7 @@ including <a href="#id447"><span class="problematic" id="id448">`</span></a>Seed
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.trainable_weights"><code class="docutils literal notranslate"><span class="pre">FlowMatching.trainable_weights</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.variable_dtype"><code class="docutils literal notranslate"><span class="pre">FlowMatching.variable_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.variables"><code class="docutils literal notranslate"><span class="pre">FlowMatching.variables</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.velocity"><code class="docutils literal notranslate"><span class="pre">FlowMatching.velocity()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.weights"><code class="docutils literal notranslate"><span class="pre">FlowMatching.weights</span></code></a></li>
 </ul>
 </li>

@@ -259,7 +259,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.consistency_models.html">bayesflow.networks.consistency_models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.consistency_model.html">bayesflow.networks.consistency_models.consistency_model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.consistency_models.continuous_consistency_model.html">bayesflow.networks.consistency_models.continuous_consistency_model</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.coupling_flow.html">bayesflow.networks.coupling_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -285,7 +284,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.flow_matching.html">bayesflow.networks.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.flow_matching.html">bayesflow.networks.flow_matching.flow_matching</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.networks.flow_matching.integrators.html">bayesflow.networks.flow_matching.integrators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.networks.free_form_flow.html">bayesflow.networks.free_form_flow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -349,7 +347,6 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.git.html">bayesflow.utils.git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.hparam_utils.html">bayesflow.utils.hparam_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.io.html">bayesflow.utils.io</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.jacobian.html">bayesflow.utils.jacobian</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
@@ -367,8 +364,12 @@
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
 </ul>
 
     </div>
@@ -384,8 +385,8 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/master/api/bayesflow.utils.html" >master</a></li>
       <li><a href="/dev/api/bayesflow.utils.html" class="current">dev</a></li>
+      <li><a href="/master/api/bayesflow.utils.html" >master</a></li>
   </ul>
   
 </div>
@@ -598,14 +599,15 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.add_titles_and_labels"><code class="docutils literal notranslate"><span class="pre">add_titles_and_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.batched_call"><code class="docutils literal notranslate"><span class="pre">batched_call()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_estimates_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_estimates_prior_shapes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_lengths_same"><code class="docutils literal notranslate"><span class="pre">check_lengths_same()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_posterior_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_posterior_prior_shapes()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.compute_jacobian"><code class="docutils literal notranslate"><span class="pre">compute_jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.convert_args"><code class="docutils literal notranslate"><span class="pre">convert_args()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.convert_kwargs"><code class="docutils literal notranslate"><span class="pre">convert_kwargs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.deserialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">deserialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.detailed_loss_callback"><code class="docutils literal notranslate"><span class="pre">detailed_loss_callback()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand"><code class="docutils literal notranslate"><span class="pre">expand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_as"><code class="docutils literal notranslate"><span class="pre">expand_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left"><code class="docutils literal notranslate"><span class="pre">expand_left()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left_as"><code class="docutils literal notranslate"><span class="pre">expand_left_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left_to"><code class="docutils literal notranslate"><span class="pre">expand_left_to()</span></code></a></li>
@@ -613,6 +615,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_right_as"><code class="docutils literal notranslate"><span class="pre">expand_right_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_right_to"><code class="docutils literal notranslate"><span class="pre">expand_right_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_tile"><code class="docutils literal notranslate"><span class="pre">expand_tile()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_to"><code class="docutils literal notranslate"><span class="pre">expand_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expected_calibration_error"><code class="docutils literal notranslate"><span class="pre">expected_calibration_error()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.filter_kwargs"><code class="docutils literal notranslate"><span class="pre">filter_kwargs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_batch_size"><code class="docutils literal notranslate"><span class="pre">find_batch_size()</span></code></a></li>
@@ -625,16 +628,19 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_recurrent_net"><code class="docutils literal notranslate"><span class="pre">find_recurrent_net()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_summary_network"><code class="docutils literal notranslate"><span class="pre">find_summary_network()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.format_bytes"><code class="docutils literal notranslate"><span class="pre">format_bytes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jacobian"><code class="docutils literal notranslate"><span class="pre">jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jacobian_trace"><code class="docutils literal notranslate"><span class="pre">jacobian_trace()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jvp"><code class="docutils literal notranslate"><span class="pre">jvp()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.keras_kwargs"><code class="docutils literal notranslate"><span class="pre">keras_kwargs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.log_jacobian_determinant"><code class="docutils literal notranslate"><span class="pre">log_jacobian_determinant()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.make_quadratic"><code class="docutils literal notranslate"><span class="pre">make_quadratic()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.optimal_transport"><code class="docutils literal notranslate"><span class="pre">optimal_transport()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.pad"><code class="docutils literal notranslate"><span class="pre">pad()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.parse_bytes"><code class="docutils literal notranslate"><span class="pre">parse_bytes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.pickle_load"><code class="docutils literal notranslate"><span class="pre">pickle_load()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.prepare_plot_data"><code class="docutils literal notranslate"><span class="pre">prepare_plot_data()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.prettify_subplots"><code class="docutils literal notranslate"><span class="pre">prettify_subplots()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.searchsorted"><code class="docutils literal notranslate"><span class="pre">searchsorted()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.serialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">serialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.simultaneous_ecdf_bands"><code class="docutils literal notranslate"><span class="pre">simultaneous_ecdf_bands()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.size_of"><code class="docutils literal notranslate"><span class="pre">size_of()</span></code></a></li>
@@ -669,50 +675,56 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.batched_call" title="bayesflow.utils.batched_call"><code class="xref py py-obj docutils literal notranslate"><span class="pre">batched_call</span></code></a>(f, batch_shape[, args, kwargs, ...])</p></td>
 <td><p>Map f over the given batch shape with a for loop, preserving randomness unlike the keras built-in map apis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.check_lengths_same" title="bayesflow.utils.check_lengths_same"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_lengths_same</span></code></a>(*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.check_estimates_prior_shapes" title="bayesflow.utils.check_estimates_prior_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_estimates_prior_shapes</span></code></a>(estimates, ...)</p></td>
+<td><p>Checks requirements for the shapes of estimates and prior_samples draws as necessitated by most diagnostic functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.check_lengths_same" title="bayesflow.utils.check_lengths_same"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_lengths_same</span></code></a>(*args)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.check_posterior_prior_shapes" title="bayesflow.utils.check_posterior_prior_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_posterior_prior_shapes</span></code></a>(post_variables, ...)</p></td>
-<td><p>Checks requirements for the shapes of posterior and prior draws as necessitated by most diagnostic functions.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.compute_jacobian" title="bayesflow.utils.compute_jacobian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_jacobian</span></code></a>(x_in, fn, *func_args[, ...])</p></td>
-<td><p>Computes the Jacobian of a function with respect to its input.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.concatenate" title="bayesflow.utils.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(*tensors[, axis])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.concatenate" title="bayesflow.utils.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(*tensors[, axis])</p></td>
 <td><p>Concatenate multiple tensors along axis, some of which can be None.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.convert_args" title="bayesflow.utils.convert_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_args</span></code></a>(f, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.convert_args" title="bayesflow.utils.convert_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_args</span></code></a>(f, *args, **kwargs)</p></td>
 <td><p>Convert positional and keyword arguments to just positional arguments for f</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.convert_kwargs" title="bayesflow.utils.convert_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_kwargs</span></code></a>(f, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.convert_kwargs" title="bayesflow.utils.convert_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_kwargs</span></code></a>(f, *args, **kwargs)</p></td>
 <td><p>Convert positional and keyword arguments qto just keyword arguments for f</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.deserialize_value_or_type" title="bayesflow.utils.deserialize_value_or_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize_value_or_type</span></code></a>(config, name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.deserialize_value_or_type" title="bayesflow.utils.deserialize_value_or_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize_value_or_type</span></code></a>(config, name)</p></td>
 <td><p>Deserialize an object that can be either a value or a type and add it to the supplied dictionary.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.detailed_loss_callback" title="bayesflow.utils.detailed_loss_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detailed_loss_callback</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.detailed_loss_callback" title="bayesflow.utils.detailed_loss_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detailed_loss_callback</span></code></a>()</p></td>
 <td><p>Provides detailed callback for loss trajectory for every training step.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left" title="bayesflow.utils.expand_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left</span></code></a>(x, n)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand" title="bayesflow.utils.expand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand</span></code></a>(x, n, side)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_as" title="bayesflow.utils.expand_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_as</span></code></a>(x, y, side)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left" title="bayesflow.utils.expand_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left</span></code></a>(x, n)</p></td>
 <td><p>Expand x to the left n times</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left_as" title="bayesflow.utils.expand_left_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left_as</span></code></a>(x, y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left_as" title="bayesflow.utils.expand_left_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left_as</span></code></a>(x, y)</p></td>
 <td><p>Expand x to the left, matching the dimension of y</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left_to" title="bayesflow.utils.expand_left_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left_to</span></code></a>(x, dim)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_left_to" title="bayesflow.utils.expand_left_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_left_to</span></code></a>(x, dim)</p></td>
 <td><p>Expand x to the left, matching dim</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right" title="bayesflow.utils.expand_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right</span></code></a>(x, n)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right" title="bayesflow.utils.expand_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right</span></code></a>(x, n)</p></td>
 <td><p>Expand x to the right n times</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right_as" title="bayesflow.utils.expand_right_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right_as</span></code></a>(x, y)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right_as" title="bayesflow.utils.expand_right_as"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right_as</span></code></a>(x, y)</p></td>
 <td><p>Expand x to the right, matching the dimension of y</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right_to" title="bayesflow.utils.expand_right_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right_to</span></code></a>(x, dim)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_right_to" title="bayesflow.utils.expand_right_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_right_to</span></code></a>(x, dim)</p></td>
 <td><p>Expand x to the right, matching dim</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_tile" title="bayesflow.utils.expand_tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_tile</span></code></a>(x, n, axis)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expand_tile" title="bayesflow.utils.expand_tile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_tile</span></code></a>(x, n, axis)</p></td>
 <td><p>Expand and tile x along the given axis n times</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.expand_to" title="bayesflow.utils.expand_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_to</span></code></a>(x, dim, side)</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.expected_calibration_error" title="bayesflow.utils.expected_calibration_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expected_calibration_error</span></code></a>(m_true, m_pred[, ...])</p></td>
 <td><p>Estimates the expected calibration error (ECE) of a model comparison network according to [1].</p></td>
@@ -750,23 +762,29 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.format_bytes" title="bayesflow.utils.format_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_bytes</span></code></a>(b[, precision, si])</p></td>
 <td><p>Format a number of bytes as a human-readable string in the format '{value} {prefix}{unit}'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.jacobian_trace" title="bayesflow.utils.jacobian_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobian_trace</span></code></a>(f, x[, max_steps])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.integrate" title="bayesflow.utils.integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">integrate</span></code></a>(fn, state, start_time, stop_time)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.jacobian" title="bayesflow.utils.jacobian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobian</span></code></a>(f, x[, return_output])</p></td>
+<td><p>Compute the Jacobian matrix of f with respect to x.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.jacobian_trace" title="bayesflow.utils.jacobian_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobian_trace</span></code></a>(f, x[, max_steps, ...])</p></td>
 <td><p>Compute or estimate the trace of the Jacobian matrix of f.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.jvp" title="bayesflow.utils.jvp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jvp</span></code></a>(fn, primals, tangents)</p></td>
-<td><p>Backend-agnostic version of the Jacobian-vector product (jvp).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.jvp" title="bayesflow.utils.jvp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jvp</span></code></a>(f, x, tangents[, return_output])</p></td>
+<td><p>Compute the Jacobian-vector product of f at x with tangents.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.keras_kwargs" title="bayesflow.utils.keras_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Keep dictionary keys that do not end with _kwargs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.log_jacobian_determinant" title="bayesflow.utils.log_jacobian_determinant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_jacobian_determinant</span></code></a>(x_in, fn, *func_args)</p></td>
-<td><p>Computes the log Jacobian determinant of a function with respect to its input.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.make_quadratic" title="bayesflow.utils.make_quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_quadratic</span></code></a>(ax, x_data, y_data)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.make_quadratic" title="bayesflow.utils.make_quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_quadratic</span></code></a>(ax, x_data, y_data)</p></td>
 <td><p>Utility to make a subplots quadratic in order to avoid visual illusions in, e.g., recovery plots.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.optimal_transport" title="bayesflow.utils.optimal_transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimal_transport</span></code></a>(x1, x2, *aux[, method])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.optimal_transport" title="bayesflow.utils.optimal_transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimal_transport</span></code></a>(x1, x2, *aux[, method])</p></td>
 <td><p>Matches elements from x2 onto x1, such that the transport cost between them is minimized, according to the method and cost matrix used.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.pad" title="bayesflow.utils.pad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pad</span></code></a>(x, value, n, axis[, side])</p></td>
+<td><p>Pad x with n values along axis on the given side.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.parse_bytes" title="bayesflow.utils.parse_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_bytes</span></code></a>(s)</p></td>
 <td><p>Parse a string in the format '{value} {prefix}{unit}' and return the number of bytes, flooring to the nearest integer.</p></td>
@@ -780,32 +798,35 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.prettify_subplots" title="bayesflow.utils.prettify_subplots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prettify_subplots</span></code></a>(axes, num_subplots[, ...])</p></td>
 <td><p>TODO: docstring</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.serialize_value_or_type" title="bayesflow.utils.serialize_value_or_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize_value_or_type</span></code></a>(config, name, obj)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.searchsorted" title="bayesflow.utils.searchsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">searchsorted</span></code></a>(sorted_sequence, values[, side])</p></td>
+<td><p>Find indices where elements should be inserted to maintain order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.serialize_value_or_type" title="bayesflow.utils.serialize_value_or_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize_value_or_type</span></code></a>(config, name, obj)</p></td>
 <td><p>Serialize an object that can be either a value or a type and add it to a copy of the supplied dictionary.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.simultaneous_ecdf_bands" title="bayesflow.utils.simultaneous_ecdf_bands"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simultaneous_ecdf_bands</span></code></a>(num_samples[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.simultaneous_ecdf_bands" title="bayesflow.utils.simultaneous_ecdf_bands"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simultaneous_ecdf_bands</span></code></a>(num_samples[, ...])</p></td>
 <td><p>Computes the simultaneous ECDF bands through simulation according to the algorithm described in Section 2.2 of</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.size_of" title="bayesflow.utils.size_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_of</span></code></a>(x)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.size_of" title="bayesflow.utils.size_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_of</span></code></a>(x)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.split_arrays" title="bayesflow.utils.split_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_arrays</span></code></a>(data[, axis])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.split_arrays" title="bayesflow.utils.split_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_arrays</span></code></a>(data[, axis])</p></td>
 <td><p>Split tensors in the dictionary along the given axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.split_tensors" title="bayesflow.utils.split_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_tensors</span></code></a>(data[, axis])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.split_tensors" title="bayesflow.utils.split_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_tensors</span></code></a>(data[, axis])</p></td>
 <td><p>Split tensors in the dictionary along the given axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tile_axis" title="bayesflow.utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tile_axis" title="bayesflow.utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
 <td><p>Tile x along the given axis n times</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Concatenate all tensors in the given sequence of nested structures.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.tree_stack" title="bayesflow.utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.tree_stack" title="bayesflow.utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Like <a class="reference internal" href="#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-func docutils literal notranslate"><span class="pre">tree_concatenate()</span></code></a>, except tensors are stacked instead of concatenated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.utils.vjp" title="bayesflow.utils.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(fn, *primals)</p></td>
-<td><p>Backend-agnostic version of the vector-Jacobian product (vjp).</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.utils.vjp" title="bayesflow.utils.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(f, x[, return_output])</p></td>
+<td><p>Compute the vector-Jacobian product of f at x.</p></td>
 </tr>
 </tbody>
 </table>
@@ -846,31 +867,28 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.io.html#module-bayesflow.utils.io" title="bayesflow.utils.io"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.jacobian.html#module-bayesflow.utils.jacobian" title="bayesflow.utils.jacobian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobian</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.keras_utils.html#module-bayesflow.utils.keras_utils" title="bayesflow.utils.keras_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.keras_utils.html#module-bayesflow.utils.keras_utils" title="bayesflow.utils.keras_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_utils</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.logging.html#module-bayesflow.utils.logging" title="bayesflow.utils.logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logging</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.logging.html#module-bayesflow.utils.logging" title="bayesflow.utils.logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logging</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.numpy_utils.html#module-bayesflow.utils.numpy_utils" title="bayesflow.utils.numpy_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy_utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.numpy_utils.html#module-bayesflow.utils.numpy_utils" title="bayesflow.utils.numpy_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy_utils</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.plot_utils.html#module-bayesflow.utils.plot_utils" title="bayesflow.utils.plot_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.plot_utils.html#module-bayesflow.utils.plot_utils" title="bayesflow.utils.plot_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_utils</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.serialization.html#module-bayesflow.utils.serialization" title="bayesflow.utils.serialization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialization</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.serialization.html#module-bayesflow.utils.serialization" title="bayesflow.utils.serialization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialization</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.tensor_utils.html#module-bayesflow.utils.tensor_utils" title="bayesflow.utils.tensor_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor_utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.tensor_utils.html#module-bayesflow.utils.tensor_utils" title="bayesflow.utils.tensor_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor_utils</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.validators.html#module-bayesflow.utils.validators" title="bayesflow.utils.validators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validators</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.validators.html#module-bayesflow.utils.validators" title="bayesflow.utils.validators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validators</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.workflow_utils.html#module-bayesflow.utils.workflow_utils" title="bayesflow.utils.workflow_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">workflow_utils</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.workflow_utils.html#module-bayesflow.utils.workflow_utils" title="bayesflow.utils.workflow_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">workflow_utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -890,7 +908,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.batched_call">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">batched_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.tensor_utils.html#bayesflow.utils.tensor_utils.Sequence" title="collections.abc.Sequence"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/functional.html#batched_call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.batched_call" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">batched_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.tensor_utils.html#bayesflow.utils.tensor_utils.Sequence" title="collections.abc.Sequence"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/functional.html#batched_call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.batched_call" title="Link to this definition">#</a></dt>
 <dd><p>Map f over the given batch shape with a for loop, preserving randomness unlike the keras built-in map apis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -913,27 +931,22 @@ By default, all array-like arguments are mapped.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.check_lengths_same">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">check_lengths_same</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_lengths_same"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.check_lengths_same" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.check_posterior_prior_shapes">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">check_posterior_prior_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">post_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_posterior_prior_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.check_posterior_prior_shapes" title="Link to this definition">#</a></dt>
-<dd><p>Checks requirements for the shapes of posterior and prior draws as
+<dt class="sig sig-object py" id="bayesflow.utils.check_estimates_prior_shapes">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">check_estimates_prior_shapes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_estimates_prior_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.check_estimates_prior_shapes" title="Link to this definition">#</a></dt>
+<dd><p>Checks requirements for the shapes of estimates and prior_samples draws as
 necessitated by most diagnostic functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>post_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_data_sets</p>
+<dt><strong>estimates</strong><span class="classifier">Tensor of shape (num_data_sets, num_post_draws, num_params) or (num_data_sets, num_params)</span></dt><dd><p>The model-generated predictions (posterior draws, point estimates) obtained from num_data_sets</p>
 </dd>
-<dt><strong>prior_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_params)</span></dt><dd><p>The prior draws obtained for generating num_data_sets</p>
+<dt><strong>prior_samples</strong><span class="classifier">Tensor of shape (num_data_sets, num_params)</span></dt><dd><p>The prior_samples draws obtained for generating num_data_sets</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>ShapeError</dt><dd><p>If there is a deviation form the expected shapes of <cite>post_samples</cite> and <cite>prior_samples</cite>.</p>
+<dt>ShapeError</dt><dd><p>If there is a deviation form the expected shapes of <cite>estimates</cite> and <cite>estimates</cite>.</p>
 </dd>
 </dl>
 </dd>
@@ -941,31 +954,9 @@ necessitated by most diagnostic functions.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.compute_jacobian">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">compute_jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">func_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'backward'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">func_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian.html#compute_jacobian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.compute_jacobian" title="Link to this definition">#</a></dt>
-<dd><p>Computes the Jacobian of a function with respect to its input.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x_in</strong> – The input tensor to compute the jacobian at.
-Shape: (batch_size, in_dim).</p></li>
-<li><p><strong>fn</strong> – The function to compute the jacobian of, which transforms
-<cite>x</cite> to <cite>fn(x)</cite> of shape (batch_size, out_dim).</p></li>
-<li><p><strong>func_args</strong> – The positional arguments to pass to the function.
-func_args are batched over the first dimension.</p></li>
-<li><p><strong>grad_type</strong> – The type of gradient to use. Either ‘backward’ or
-‘forward’.</p></li>
-<li><p><strong>func_kwargs</strong> – The keyword arguments to pass to the function.
-func_kwargs are not batched.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of the function <cite>fn(x)</cite> and the jacobian
-of the function with respect to its input <cite>x</cite> of shape
-(batch_size, out_dim, in_dim).</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="bayesflow.utils.check_lengths_same">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">check_lengths_same</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/validators.html#check_lengths_same"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.check_lengths_same" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.concatenate">
@@ -975,13 +966,13 @@ of the function with respect to its input <cite>x</cite> of shape
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.convert_args">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">convert_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#convert_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.convert_args" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">convert_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#convert_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.convert_args" title="Link to this definition">#</a></dt>
 <dd><p>Convert positional and keyword arguments to just positional arguments for f</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.convert_kwargs">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">convert_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#convert_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.convert_kwargs" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">convert_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#convert_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.convert_kwargs" title="Link to this definition">#</a></dt>
 <dd><p>Convert positional and keyword arguments qto just keyword arguments for f</p>
 </dd></dl>
 
@@ -1026,6 +1017,16 @@ a type or an object.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.expand">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.expand" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.expand_as">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">expand_as</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_as"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.expand_as" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.expand_left">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">expand_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.expand_left" title="Link to this definition">#</a></dt>
 <dd><p>Expand x to the left n times</p>
@@ -1068,6 +1069,11 @@ a type or an object.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.expand_to">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">expand_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#expand_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.expand_to" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.expected_calibration_error">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">expected_calibration_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/comp_utils.html#expected_calibration_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.expected_calibration_error" title="Link to this definition">#</a></dt>
 <dd><p>Estimates the expected calibration error (ECE) of a model comparison network according to [1].</p>
@@ -1103,7 +1109,7 @@ Each list contains two arrays of length (num_bins) with the predicted and true p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.filter_kwargs">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">filter_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#filter_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.filter_kwargs" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">filter_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#filter_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.filter_kwargs" title="Link to this definition">#</a></dt>
 <dd><p>Filter keyword arguments for f</p>
 </dd></dl>
 
@@ -1213,8 +1219,44 @@ Each list contains two arrays of length (num_bins) with the predicted and true p
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.integrate">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'adaptive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rk45'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/integrate.html#integrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.integrate" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.jacobian">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/jacobian.html#jacobian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.jacobian" title="Link to this definition">#</a></dt>
+<dd><p>Compute the Jacobian matrix of f with respect to x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> – The function to be differentiated.</p></li>
+<li><p><strong>x</strong> – Tensor of shape (…, D_in)
+The input tensor to f.</p></li>
+<li><p><strong>return_output</strong> – bool
+Whether to return the output of f(x) along with the Jacobian matrix.
+Default: False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tensor of shape (…, D_out, D_in)
+The Jacobian matrix of f with respect to x.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>2-tuple of tensors:
+1. The output of f(x) (if return_output is True)
+2. Tensor of shape (…, D_out, D_in)</p>
+<blockquote>
+<div><p>The Jacobian matrix of f with respect to x.</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.jacobian_trace">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">jacobian_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian_trace/jacobian_trace.html#jacobian_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.jacobian_trace" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">jacobian_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SeedGenerator</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/jacobian_trace.html#jacobian_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.jacobian_trace" title="Link to this definition">#</a></dt>
 <dd><p>Compute or estimate the trace of the Jacobian matrix of f.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1226,12 +1268,17 @@ The input tensor to f.</p></li>
 If this does not exceed the dimensionality of f(x), use Hutchinson’s algorithm to
 return an unbiased estimate of the Jacobian trace.
 Otherwise, perform an exact computation.
-Default: 1</p></li>
+Default: None</p></li>
+<li><p><strong>return_output</strong> – bool
+Whether to return the output of f(x) along with the trace of the Jacobian.
+Default: False</p></li>
+<li><p><strong>seed</strong> – int or keras SeedGenerator
+The seed to use for hutchinson trace estimation. Only has an effect when max_steps &lt; d.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>2-tuple of tensors:
-1. The output of f(x)
+1. The output of f(x) (if return_output is True)
 2. Tensor of shape (n,)</p>
 <blockquote>
 <div><p>An unbiased estimate or the exact trace of the Jacobian of f.</p>
@@ -1243,23 +1290,8 @@ Default: 1</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.jvp">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">jvp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fn:</span> <span class="pre">~collections.abc.Callable,</span> <span class="pre">primals:</span> <span class="pre">~bayesflow.types.tensor.Tensor</span> <span class="pre">|</span> <span class="pre">tuple[~bayesflow.types.tensor.Tensor,</span> <span class="pre">...],</span> <span class="pre">tangents:</span> <span class="pre">~bayesflow.types.tensor.Tensor</span> <span class="pre">|</span> <span class="pre">tuple[~bayesflow.types.tensor.Tensor,</span> <span class="pre">...])</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;built-in</span> <span class="pre">function</span> <span class="pre">any&gt;,</span> <span class="pre">~Tensor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jvp.html#jvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.jvp" title="Link to this definition">#</a></dt>
-<dd><p>Backend-agnostic version of the Jacobian-vector product (jvp).
-Compute the Jacobian-vector product of the given function at the point given by the input (primals).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fn</strong> – The function to differentiate.
-Signature and return value must be compatible with the vjp method of the backend in use.</p></li>
-<li><p><strong>primals</strong> – Input tensors to <cite>fn</cite>.</p></li>
-<li><p><strong>tangents</strong> – Tangent vectors to differentiate <cite>fn</cite> with respect to.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of <cite>fn(*primals)</cite> and the Jacobian-vector product of <cite>fn</cite> evaluated at <cite>primals</cite> with respect to
-<cite>tangents</cite>.</p>
-</dd>
-</dl>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">jvp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tangents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/jvp.html#jvp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.jvp" title="Link to this definition">#</a></dt>
+<dd><p>Compute the Jacobian-vector product of f at x with tangents.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1267,34 +1299,6 @@ Signature and return value must be compatible with the vjp method of the backend
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">keras_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Mapping" title="collections.abc.Mapping"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/dict_utils.html#keras_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.keras_kwargs" title="Link to this definition">#</a></dt>
 <dd><p>Keep dictionary keys that do not end with _kwargs. Used for propagating
 keyword arguments in nested layer classes.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.log_jacobian_determinant">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">log_jacobian_determinant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.jacobian.html#bayesflow.utils.jacobian.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">func_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'backward'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">func_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian.html#log_jacobian_determinant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.log_jacobian_determinant" title="Link to this definition">#</a></dt>
-<dd><p>Computes the log Jacobian determinant of a function
-with respect to its input.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x_in</strong> – The input tensor to compute the jacobian at.
-Shape: (batch_size, in_dim).</p></li>
-<li><p><strong>fn</strong> – The function to compute the jacobian of, which transforms
-<cite>x</cite> to <cite>fn(x)</cite> of shape (batch_size, out_dim).</p></li>
-<li><p><strong>func_args</strong> – The positional arguments to pass to the function.
-func_args are batched over the first dimension.</p></li>
-<li><p><strong>grad_type</strong> – The type of gradient to use. Either ‘backward’ or
-‘forward’.</p></li>
-<li><p><strong>func_kwargs</strong> – The keyword arguments to pass to the function.
-func_kwargs are not batched.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of the function <cite>fn(x)</cite> and the log jacobian determinant
-of the function with respect to its input <cite>x</cite> of shape
-(batch_size, out_dim, in_dim).</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1333,6 +1337,13 @@ Default: ‘sinkhorn_knopp’</p></li>
 x1 and x2 in optimal transport permutation order.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.pad">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#pad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.pad" title="Link to this definition">#</a></dt>
+<dd><p>Pad x with n values along axis on the given side.
+The pad value must broadcast against the shape of x, except for the pad axis, where it must broadcast against n.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1412,6 +1423,12 @@ of <cite>estimates</cite> in terms of first and last axis.</p>
 <dt class="sig sig-object py" id="bayesflow.utils.prettify_subplots">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">prettify_subplots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_subplots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/plot_utils.html#prettify_subplots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.prettify_subplots" title="Link to this definition">#</a></dt>
 <dd><p>TODO: docstring</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.utils.searchsorted">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">searchsorted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sorted_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#searchsorted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.searchsorted" title="Link to this definition">#</a></dt>
+<dd><p>Find indices where elements should be inserted to maintain order.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1553,23 +1570,8 @@ Defaults to True if all tensors are numpy arrays, False otherwise.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.utils.vjp">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">vjp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">fn:</span> <span class="pre">~collections.abc.Callable,</span> <span class="pre">*primals:</span> <span class="pre">~bayesflow.types.tensor.Tensor)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;built-in</span> <span class="pre">function</span> <span class="pre">any&gt;,</span> <span class="pre">collections.abc.Callable[[~Tensor],</span> <span class="pre">tuple[~Tensor,</span> <span class="pre">...]]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/vjp.html#vjp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.vjp" title="Link to this definition">#</a></dt>
-<dd><p>Backend-agnostic version of the vector-Jacobian product (vjp).
-Computes the vector-Jacobian product of the given function at the point given by the input (primals).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fn</strong> – The function to differentiate.
-Signature and return value must be compatible with the vjp method of the backend in use.</p></li>
-<li><p><strong>primals</strong> – Input tensors to <cite>fn</cite>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The output of <cite>fn(*primals)</cite> and a vjp function.
-The vjp function takes a single tensor argument, and returns the vector-Jacobian product of this argument with
-<cite>fn</cite> as evaluated at <cite>primals</cite>.</p>
-</dd>
-</dl>
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">vjp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.utils.functional.html#bayesflow.utils.functional.Callable" title="collections.abc.Callable"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_output</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/jacobian/vjp.html#vjp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.vjp" title="Link to this definition">#</a></dt>
+<dd><p>Compute the vector-Jacobian product of f at x.</p>
 </dd></dl>
 
 </section>
@@ -1623,14 +1625,15 @@ The vjp function takes a single tensor argument, and returns the vector-Jacobian
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.add_titles_and_labels"><code class="docutils literal notranslate"><span class="pre">add_titles_and_labels()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.batched_call"><code class="docutils literal notranslate"><span class="pre">batched_call()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_estimates_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_estimates_prior_shapes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_lengths_same"><code class="docutils literal notranslate"><span class="pre">check_lengths_same()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.check_posterior_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_posterior_prior_shapes()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.compute_jacobian"><code class="docutils literal notranslate"><span class="pre">compute_jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.convert_args"><code class="docutils literal notranslate"><span class="pre">convert_args()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.convert_kwargs"><code class="docutils literal notranslate"><span class="pre">convert_kwargs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.deserialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">deserialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.detailed_loss_callback"><code class="docutils literal notranslate"><span class="pre">detailed_loss_callback()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand"><code class="docutils literal notranslate"><span class="pre">expand()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_as"><code class="docutils literal notranslate"><span class="pre">expand_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left"><code class="docutils literal notranslate"><span class="pre">expand_left()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left_as"><code class="docutils literal notranslate"><span class="pre">expand_left_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_left_to"><code class="docutils literal notranslate"><span class="pre">expand_left_to()</span></code></a></li>
@@ -1638,6 +1641,7 @@ The vjp function takes a single tensor argument, and returns the vector-Jacobian
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_right_as"><code class="docutils literal notranslate"><span class="pre">expand_right_as()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_right_to"><code class="docutils literal notranslate"><span class="pre">expand_right_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_tile"><code class="docutils literal notranslate"><span class="pre">expand_tile()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expand_to"><code class="docutils literal notranslate"><span class="pre">expand_to()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.expected_calibration_error"><code class="docutils literal notranslate"><span class="pre">expected_calibration_error()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.filter_kwargs"><code class="docutils literal notranslate"><span class="pre">filter_kwargs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_batch_size"><code class="docutils literal notranslate"><span class="pre">find_batch_size()</span></code></a></li>
@@ -1650,16 +1654,19 @@ The vjp function takes a single tensor argument, and returns the vector-Jacobian
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_recurrent_net"><code class="docutils literal notranslate"><span class="pre">find_recurrent_net()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.find_summary_network"><code class="docutils literal notranslate"><span class="pre">find_summary_network()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.format_bytes"><code class="docutils literal notranslate"><span class="pre">format_bytes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jacobian"><code class="docutils literal notranslate"><span class="pre">jacobian()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jacobian_trace"><code class="docutils literal notranslate"><span class="pre">jacobian_trace()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.jvp"><code class="docutils literal notranslate"><span class="pre">jvp()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.keras_kwargs"><code class="docutils literal notranslate"><span class="pre">keras_kwargs()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.log_jacobian_determinant"><code class="docutils literal notranslate"><span class="pre">log_jacobian_determinant()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.make_quadratic"><code class="docutils literal notranslate"><span class="pre">make_quadratic()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.optimal_transport"><code class="docutils literal notranslate"><span class="pre">optimal_transport()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.pad"><code class="docutils literal notranslate"><span class="pre">pad()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.parse_bytes"><code class="docutils literal notranslate"><span class="pre">parse_bytes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.pickle_load"><code class="docutils literal notranslate"><span class="pre">pickle_load()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.prepare_plot_data"><code class="docutils literal notranslate"><span class="pre">prepare_plot_data()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.prettify_subplots"><code class="docutils literal notranslate"><span class="pre">prettify_subplots()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.searchsorted"><code class="docutils literal notranslate"><span class="pre">searchsorted()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.serialize_value_or_type"><code class="docutils literal notranslate"><span class="pre">serialize_value_or_type()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.simultaneous_ecdf_bands"><code class="docutils literal notranslate"><span class="pre">simultaneous_ecdf_bands()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.size_of"><code class="docutils literal notranslate"><span class="pre">size_of()</span></code></a></li>
