@@ -28,9 +28,9 @@ def check_ordering(output, axis):
     assert np.all(np.diff(output, axis=axis) > 0), f"is not ordered along specified axis: {axis}."
     for i in range(output.ndim):
         if i != axis % output.ndim:
-            assert not np.all(
-                np.diff(output, axis=i) > 0
-            ), f"is ordered along axis which is not meant to be ordered: {i}."
+            assert not np.all(np.diff(output, axis=i) > 0), (
+                f"is ordered along axis which is not meant to be ordered: {i}."
+            )
 
 
 @pytest.mark.parametrize("axis", [0, 1, 2])
@@ -66,6 +66,6 @@ def test_positive_semi_definite(random_matrix_batch):
 
     eigenvalues = np.linalg.eig(output).eigenvalues
 
-    assert np.all(eigenvalues.real > 0) and np.all(
-        np.isclose(eigenvalues.imag, 0)
-    ), f"output is not positive semi-definite: real={eigenvalues.real}, imag={eigenvalues.imag}"
+    assert np.all(eigenvalues.real > 0) and np.all(np.isclose(eigenvalues.imag, 0)), (
+        f"output is not positive semi-definite: real={eigenvalues.real}, imag={eigenvalues.imag}"
+    )

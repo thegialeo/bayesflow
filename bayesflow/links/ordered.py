@@ -20,9 +20,9 @@ class Ordered(keras.Layer):
     def build(self, input_shape):
         super().build(input_shape)
 
-        assert (
-            self.anchor_index % input_shape[self.axis] != 0 and self.anchor_index != -1
-        ), "anchor should not be first or last index."
+        assert self.anchor_index % input_shape[self.axis] != 0 and self.anchor_index != -1, (
+            "anchor should not be first or last index."
+        )
         self.group_indeces = dict(
             below=list(range(0, self.anchor_index)),
             above=list(range(self.anchor_index + 1, input_shape[self.axis])),
