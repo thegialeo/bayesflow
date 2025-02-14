@@ -1,3 +1,4 @@
+import inspect
 from collections.abc import Callable, Mapping, Sequence
 from functools import singledispatch
 import numpy as np
@@ -65,7 +66,12 @@ def _(
         simulators.append(make_simulator(obj, **obj_kwargs))
 
     if meta_fn is not None:
+        if not inspect.signature(meta_fn).parameters:
+            original_meta_fn = meta_fn
+            meta_fn = lambda *_, **__: original_meta_fn()
+
         meta = LambdaSimulator(meta_fn, is_batched=True)
+
         simulators = [meta, *simulators]
 
     return SequentialSimulator(simulators, **kwargs)
