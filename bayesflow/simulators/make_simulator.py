@@ -1,8 +1,9 @@
 import inspect
 from collections.abc import Callable, Mapping, Sequence
 from functools import singledispatch
-import numpy as np
 from types import FunctionType
+
+import numpy as np
 
 from .simulator import Simulator
 
@@ -68,7 +69,9 @@ def _(
     if meta_fn is not None:
         if not inspect.signature(meta_fn).parameters:
             original_meta_fn = meta_fn
-            meta_fn = lambda *_, **__: original_meta_fn()
+
+            def meta_fn(*_, **__):
+                return original_meta_fn()
 
         meta = LambdaSimulator(meta_fn, is_batched=True)
 
