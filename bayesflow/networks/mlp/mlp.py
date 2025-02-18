@@ -2,7 +2,6 @@ from collections.abc import Sequence
 from typing import Literal
 
 import keras
-from keras import layers
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
@@ -64,17 +63,6 @@ class MLP(keras.Layer):
             widths = [width] * depth
 
         self.res_blocks = []
-        projector = layers.Dense(
-            units=widths[0],
-            kernel_initializer=kernel_initializer,
-        )
-        if spectral_normalization:
-            projector = layers.SpectralNormalization(projector)
-        self.res_blocks.append(projector)
-
-        if dropout is not None and dropout > 0.0:
-            self.res_blocks.append(layers.Dropout(float(dropout)))
-
         for width in widths:
             self.res_blocks.append(
                 ConfigurableHiddenBlock(
