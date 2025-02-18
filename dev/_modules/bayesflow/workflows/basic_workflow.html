@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -746,22 +741,22 @@
             <span class="n">figures</span><span class="p">[</span><span class="s2">&quot;losses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bf_plots</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loss_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
 
         <span class="n">figures</span><span class="p">[</span><span class="s2">&quot;recovery&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bf_plots</span><span class="o">.</span><span class="n">recovery</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;recovery_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
         <span class="n">figures</span><span class="p">[</span><span class="s2">&quot;calibration_ecdf&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bf_plots</span><span class="o">.</span><span class="n">calibration_ecdf</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration_ecdf_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
         <span class="n">figures</span><span class="p">[</span><span class="s2">&quot;z_score_contraction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bf_plots</span><span class="o">.</span><span class="n">z_score_contraction</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;z_score_contraction_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>
@@ -794,22 +789,22 @@
         <span class="p">)</span>
 
         <span class="n">root_mean_squared_error</span> <span class="o">=</span> <span class="n">bf_metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;root_mean_squared_error_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
         <span class="n">contraction</span> <span class="o">=</span> <span class="n">bf_metrics</span><span class="o">.</span><span class="n">posterior_contraction</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;posterior_contraction_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>
 
         <span class="n">calibration_errors</span> <span class="o">=</span> <span class="n">bf_metrics</span><span class="o">.</span><span class="n">calibration_error</span><span class="p">(</span>
-            <span class="n">targets</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
-            <span class="n">references</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
+            <span class="n">estimates</span><span class="o">=</span><span class="n">post_samples</span><span class="p">,</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">inference_variables</span><span class="p">,</span>
             <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration_error_kwargs&quot;</span><span class="p">,</span> <span class="p">{}),</span>
         <span class="p">)</span>

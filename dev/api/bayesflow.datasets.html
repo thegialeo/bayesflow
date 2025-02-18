@@ -154,13 +154,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -745,7 +740,9 @@ the dataset is infinite.</p>
 <dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.datasets.</span></span><span class="sig-name descname"><span class="pre">OfflineDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.adapter.html#bayesflow.adapters.adapter.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/offline_dataset.html#OfflineDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.OfflineDataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyDataset</span></code></p>
-<p>A dataset that is pre-simulated and stored in memory.</p>
+<p>A dataset that is pre-simulated and stored in memory. When storing and loading data from disk, it is recommended to
+save any pre-simulated data in raw form and create the <cite>OfflineDataset</cite> object only after loading in the raw data.
+See the <cite>DiskDataset</cite> class for handling large datasets that are split into multiple smaller files.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset.max_queue_size">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_queue_size</span></span><a class="headerlink" href="#bayesflow.datasets.OfflineDataset.max_queue_size" title="Link to this definition">#</a></dt>

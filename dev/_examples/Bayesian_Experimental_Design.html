@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -56,8 +56,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Posterior Estimation of SBML Models" href="SBML_Model_Posterior_Estimation.html" />
-    <link rel="prev" title="5. Hyperparameter Optimization Using Optuna" href="Hyperparameter_Optimization.html" />
+    <link rel="next" title="Public API: bayesflow package" href="../api/bayesflow.html" />
+    <link rel="prev" title="1. Hyperparameter Optimization Using Optuna" href="Hyperparameter_Optimization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -156,13 +156,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../examples.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -596,10 +591,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-intro-to-bed">6.1. Short intro to BED</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten-kinetics">6.2. Michaelis-Menten Kinetics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-designs-along-with-the-normalising-flow-posterior">6.2.1. Learning the designs along with the normalising flow posterior</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">6.2.1.1. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-intro-to-bed">2.1. Short intro to BED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten-kinetics">2.2. Michaelis-Menten Kinetics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-designs-along-with-the-normalising-flow-posterior">2.2.1. Learning the designs along with the normalising flow posterior</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.1.1. References</a></li>
 </ul>
 </li>
 </ul>
@@ -616,7 +611,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bayesian-experimental-design-bed-with-bayesflow-and-pytorch">
-<h1><span class="section-number">6. </span>Bayesian Experimental Design (BED) with BayesFlow and PyTorch<a class="headerlink" href="#bayesian-experimental-design-bed-with-bayesflow-and-pytorch" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Bayesian Experimental Design (BED) with BayesFlow and PyTorch<a class="headerlink" href="#bayesian-experimental-design-bed-with-bayesflow-and-pytorch" title="Link to this heading">#</a></h1>
 <p><em>Author: Desi R. Ivanova</em></p>
 <p>How can we ensure that the data we collect will give us the most information about the system we are studying? This is where Bayesian experimental design (BED) comes into play.</p>
 <p>BED is a principled framework that combines ideas from information theory and Bayesian modelling to systematically plan experiments that maximise information gain.
@@ -630,7 +625,7 @@ In this tutorial, we will:</p>
 <li><p>Use a normalizing flow from BayesFlow with a custom loss function that’s written in pure PyTorch</p></li>
 </ul>
 <section id="short-intro-to-bed">
-<h2><span class="section-number">6.1. </span>Short intro to BED<a class="headerlink" href="#short-intro-to-bed" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Short intro to BED<a class="headerlink" href="#short-intro-to-bed" title="Link to this heading">#</a></h2>
 <p>(<em>For a longer, more comprehensive overview, please see [1] or [2], or <a class="reference external" href="https://desirivanova.com/post/boed-intro/">this blogpost</a> for a slightly longer introduction.</em>)</p>
 <p>BED is a model-based approach to designing optimal experiments.
 We start with a Bayesian model (or simulator) <span class="math notranslate nohighlight">\(p(\theta)\,p(y \mid \xi, \theta)\)</span> of the underlying process we’re interested in.
@@ -704,7 +699,7 @@ With some Bayes rule gymnastics, we can write the EIG in the following equivalen
 </div>
 </section>
 <section id="michaelis-menten-kinetics">
-<h2><span class="section-number">6.2. </span>Michaelis-Menten Kinetics<a class="headerlink" href="#michaelis-menten-kinetics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Michaelis-Menten Kinetics<a class="headerlink" href="#michaelis-menten-kinetics" title="Link to this heading">#</a></h2>
 <p>As an example, we are going to use the <a class="reference external" href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">Michaelis-Menten kinetics</a>, which is a model that describes the rate of enzyme-catalyzed reactions. The model has the following form:
 $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \theta_1}{(L\xi)^s + \theta_2^s} \)</span>$</p>
 <p>We observe a noise-corrupted reaction rate <span class="math notranslate nohighlight">\(y\)</span>, where <span class="math notranslate nohighlight">\(p(y \mid \xi, \theta) = \mathcal{N}(y; f(\xi, \theta), \sigma_\epsilon)\)</span> and:</p>
@@ -1082,7 +1077,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
 However, these posteriors exhibit considerable uncertainty (wide distributions).</p>
 <p>Can we reduce this uncertainty (i.e., decrease the entropy) in our parameter estimates by optimising our choice of experimental designs?</p>
 <section id="learning-the-designs-along-with-the-normalising-flow-posterior">
-<h3><span class="section-number">6.2.1. </span>Learning the designs along with the normalising flow posterior<a class="headerlink" href="#learning-the-designs-along-with-the-normalising-flow-posterior" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1. </span>Learning the designs along with the normalising flow posterior<a class="headerlink" href="#learning-the-designs-along-with-the-normalising-flow-posterior" title="Link to this heading">#</a></h3>
 <p>We will use the same initial designs and the same architecture (<code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code>) for the NPE as before. The two changes we are making are:</p>
 <ol class="arabic simple">
 <li><p>Setting <code class="docutils literal notranslate"><span class="pre">learn_designs=True</span></code> when instantiating the <code class="docutils literal notranslate"><span class="pre">simulator</span></code>.</p></li>
@@ -1190,7 +1185,7 @@ However, these posteriors exhibit considerable uncertainty (wide distributions).
 <p>As before, the amortised posteriors closely align with the ground truth.
 The key improvement is that by learning optimal designs, we’ve achieved significantly more concentrated posteriors using the same amount of data! #gains 🚀 🎉</p>
 <section id="references">
-<h4><span class="section-number">6.2.1.1. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.2.1.1. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h4>
 <p>[1] Rainforth, T., Foster, A., Ivanova, D. R., &amp; Bickford Smith, F. (2024). Modern Bayesian experimental design. Statistical Science, 39(1), 100-114.</p>
 <p>[2] Huan, X., Jagalur, J., &amp; Marzouk, Y. (2024). Optimal experimental design: Formulations and computations. Acta Numerica, 33, 715-840.</p>
 <p>[3] Barber, D., &amp; Agakov, F. (2004). The im algorithm: a variational approach to information maximization. Advances in neural information processing systems, 16(320), 201.</p>
@@ -1217,15 +1212,15 @@ The key improvement is that by learning optimal designs, we’ve achieved signif
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Hyperparameter Optimization Using Optuna</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Hyperparameter Optimization Using Optuna</p>
       </div>
     </a>
     <a class="right-next"
-       href="SBML_Model_Posterior_Estimation.html"
+       href="../api/bayesflow.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Posterior Estimation of SBML Models</p>
+        <p class="prev-next-title">Public API: bayesflow package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1246,10 +1241,10 @@ The key improvement is that by learning optimal designs, we’ve achieved signif
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-intro-to-bed">6.1. Short intro to BED</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten-kinetics">6.2. Michaelis-Menten Kinetics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-designs-along-with-the-normalising-flow-posterior">6.2.1. Learning the designs along with the normalising flow posterior</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">6.2.1.1. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-intro-to-bed">2.1. Short intro to BED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten-kinetics">2.2. Michaelis-Menten Kinetics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-the-designs-along-with-the-normalising-flow-posterior">2.2.1. Learning the designs along with the normalising flow posterior</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#references">2.2.1.1. References</a></li>
 </ul>
 </li>
 </ul>

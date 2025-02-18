@@ -14,6 +14,8 @@ bayesflow.adapters.transforms.filter\_transform
   .. autosummary::
   
     deserialize
+    get_registered_name
+    get_registered_object
     serializable
     serialize
   

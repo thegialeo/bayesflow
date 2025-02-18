@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -625,7 +620,7 @@
 
 
 <div class="viewcode-block" id="register_keras_serializable">
-<a class="viewcode-back" href="../../../../api/bayesflow.networks.consistency_models.consistency_model.html#bayesflow.networks.cif.conditional_gaussian.register_keras_serializable">[docs]</a>
+<a class="viewcode-back" href="../../../../api/bayesflow.networks.consistency_models.consistency_model.html#bayesflow.adapters.transforms.filter_transform.register_keras_serializable">[docs]</a>
 <span class="nd">@keras_export</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="s2">&quot;keras.saving.register_keras_serializable&quot;</span><span class="p">,</span>
@@ -692,6 +687,8 @@
 
 
 
+<div class="viewcode-block" id="get_registered_name">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.transforms.filter_transform.get_registered_name">[docs]</a>
 <span class="nd">@keras_export</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="s2">&quot;keras.saving.get_registered_name&quot;</span><span class="p">,</span>
@@ -715,9 +712,12 @@
     <span class="k">if</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">GLOBAL_CUSTOM_NAMES</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">GLOBAL_CUSTOM_NAMES</span><span class="p">[</span><span class="n">obj</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__name__</span></div>
 
 
+
+<div class="viewcode-block" id="get_registered_object">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.transforms.filter_transform.get_registered_object">[docs]</a>
 <span class="nd">@keras_export</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="s2">&quot;keras.saving.get_registered_object&quot;</span><span class="p">,</span>
@@ -763,7 +763,8 @@
         <span class="k">return</span> <span class="n">custom_objects</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
     <span class="k">elif</span> <span class="n">module_objects</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">module_objects</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">module_objects</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
 </pre></div>
 
                 </article>

@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -562,6 +557,31 @@
 <span class="sd">    [3] Optimal Transport Flow Matching: arXiv:2302.00482</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">MLP_DEFAULT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;widths&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+        <span class="s2">&quot;activation&quot;</span><span class="p">:</span> <span class="s2">&quot;mish&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kernel_initializer&quot;</span><span class="p">:</span> <span class="s2">&quot;he_normal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;residual&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="s2">&quot;spectral_normalization&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sinkhorn&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cost&quot;</span><span class="p">:</span> <span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;regularization&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">INTEGRATE_DEFAULT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;rk45&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span>
+        <span class="s2">&quot;min_steps&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">}</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">subnet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;mlp&quot;</span><span class="p">,</span>
@@ -576,41 +596,28 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">use_optimal_transport</span> <span class="o">=</span> <span class="n">use_optimal_transport</span>
 
-        <span class="k">if</span> <span class="n">integrate_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">integrate_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;rk45&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span>
-                <span class="s2">&quot;min_steps&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-                <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-            <span class="p">}</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">integrate_kwargs</span> <span class="o">=</span> <span class="n">integrate_kwargs</span>
-
-        <span class="k">if</span> <span class="n">optimal_transport_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">optimal_transport_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sinkhorn&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;cost&quot;</span><span class="p">:</span> <span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;regularization&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-                <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-                <span class="s2">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mf">1e-4</span><span class="p">,</span>
-            <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">integrate_kwargs</span> <span class="o">=</span> <span class="n">integrate_kwargs</span> <span class="ow">or</span> <span class="n">FlowMatching</span><span class="o">.</span><span class="n">INTEGRATE_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimal_transport_kwargs</span> <span class="o">=</span> <span class="n">optimal_transport_kwargs</span> <span class="ow">or</span> <span class="n">FlowMatching</span><span class="o">.</span><span class="n">OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">optimal_transport_kwargs</span> <span class="o">=</span> <span class="n">optimal_transport_kwargs</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">seed_generator</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">SeedGenerator</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">subnet</span> <span class="o">=</span> <span class="n">find_network</span><span class="p">(</span><span class="n">subnet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="k">if</span> <span class="n">subnet</span> <span class="o">==</span> <span class="s2">&quot;mlp&quot;</span><span class="p">:</span>
+            <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">FlowMatching</span><span class="o">.</span><span class="n">MLP_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">subnet_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">subnet</span> <span class="o">=</span> <span class="n">find_network</span><span class="p">(</span><span class="n">subnet</span><span class="p">,</span> <span class="o">**</span><span class="n">subnet_kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">output_projector</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bias_initializer</span><span class="o">=</span><span class="s2">&quot;zeros&quot;</span><span class="p">)</span>
 
         <span class="c1"># serialization: store all parameters necessary to call __init__</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;base_distribution&quot;</span><span class="p">:</span> <span class="n">base_distribution</span><span class="p">,</span>
-            <span class="s2">&quot;use_optimal_transport&quot;</span><span class="p">:</span> <span class="n">use_optimal_transport</span><span class="p">,</span>
-            <span class="s2">&quot;optimal_transport_kwargs&quot;</span><span class="p">:</span> <span class="n">optimal_transport_kwargs</span><span class="p">,</span>
-            <span class="s2">&quot;integrate_kwargs&quot;</span><span class="p">:</span> <span class="n">integrate_kwargs</span><span class="p">,</span>
+            <span class="s2">&quot;use_optimal_transport&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_optimal_transport</span><span class="p">,</span>
+            <span class="s2">&quot;optimal_transport_kwargs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimal_transport_kwargs</span><span class="p">,</span>
+            <span class="s2">&quot;integrate_kwargs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">integrate_kwargs</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">serialize_value_or_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;subnet&quot;</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span>

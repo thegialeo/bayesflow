@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -544,17 +539,18 @@
 <div class="viewcode-block" id="recovery">
 <a class="viewcode-back" href="../../../../api/bayesflow.diagnostics.plots.html#bayesflow.diagnostics.recovery">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">recovery</span><span class="p">(</span>
+    <span class="n">estimates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">targets</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">references</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">variable_keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">variable_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">point_agg</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span>
     <span class="n">uncertainty_agg</span><span class="o">=</span><span class="n">median_abs_deviation</span><span class="p">,</span>
+    <span class="n">add_corr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">figsize</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">label_fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
     <span class="n">title_fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span>
     <span class="n">metric_fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
     <span class="n">tick_fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="n">add_corr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;#132a70&quot;</span><span class="p">,</span>
     <span class="n">num_col</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_row</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -581,7 +577,37 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    #TODO</span>
+<span class="sd">    estimates           : np.ndarray of shape (num_datasets, num_post_draws, num_params)</span>
+<span class="sd">        The posterior draws obtained from num_datasets</span>
+<span class="sd">    targets        : np.ndarray of shape (num_datasets, num_params)</span>
+<span class="sd">        The prior draws (true parameters) used for generating the num_datasets</span>
+<span class="sd">    variable_keys       : list or None, optional, default: None</span>
+<span class="sd">       Select keys from the dictionaries provided in estimates and targets.</span>
+<span class="sd">       By default, select all keys.</span>
+<span class="sd">    variable_names    : list or None, optional, default: None</span>
+<span class="sd">        The individual parameter names for nice plot titles. Inferred if None</span>
+<span class="sd">    point_agg         : function to compute point estimates. Default: median</span>
+<span class="sd">    uncertainty_agg   : function to compute uncertainty estimates. Default: MAD</span>
+<span class="sd">    add_corr          : boolean, default: True</span>
+<span class="sd">        Should correlations between estimates and ground truth values be shown?</span>
+<span class="sd">    figsize           : tuple or None, optional, default : None</span>
+<span class="sd">        The figure size passed to the matplotlib constructor. Inferred if None.</span>
+<span class="sd">    label_fontsize    : int, optional, default: 16</span>
+<span class="sd">        The font size of the y-label text.</span>
+<span class="sd">    title_fontsize    : int, optional, default: 18</span>
+<span class="sd">        The font size of the title text.</span>
+<span class="sd">    metric_fontsize   : int, optional, default: 16</span>
+<span class="sd">        The font size of the metrics shown as text.</span>
+<span class="sd">    tick_fontsize     : int, optional, default: 12</span>
+<span class="sd">        The font size of the axis ticklabels.</span>
+<span class="sd">    color             : str, optional, default: &#39;#8f2727&#39;</span>
+<span class="sd">        The color for the true vs. estimated scatter points and error bars.</span>
+<span class="sd">    num_row           : int, optional, default: None</span>
+<span class="sd">        The number of rows for the subplots. Dynamically determined if None.</span>
+<span class="sd">    num_col           : int, optional, default: None</span>
+<span class="sd">        The number of columns for the subplots. Dynamically determined if None.</span>
+<span class="sd">    xlabel:</span>
+<span class="sd">    ylabel:</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -590,27 +616,28 @@
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    ShapeError</span>
-<span class="sd">        If there is a deviation from the expected shapes of ``post_samples`` and ``prior_samples``.</span>
+<span class="sd">        If there is a deviation from the expected shapes of ``estimates`` and ``targets``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Gather plot data and metadata into a dictionary</span>
     <span class="n">plot_data</span> <span class="o">=</span> <span class="n">prepare_plot_data</span><span class="p">(</span>
+        <span class="n">estimates</span><span class="o">=</span><span class="n">estimates</span><span class="p">,</span>
         <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
-        <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">,</span>
+        <span class="n">variable_keys</span><span class="o">=</span><span class="n">variable_keys</span><span class="p">,</span>
         <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
         <span class="n">num_col</span><span class="o">=</span><span class="n">num_col</span><span class="p">,</span>
         <span class="n">num_row</span><span class="o">=</span><span class="n">num_row</span><span class="p">,</span>
         <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span>
     <span class="p">)</span>
 
+    <span class="n">estimates</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;estimates&quot;</span><span class="p">)</span>
     <span class="n">targets</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;targets&quot;</span><span class="p">)</span>
-    <span class="n">references</span> <span class="o">=</span> <span class="n">plot_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;references&quot;</span><span class="p">)</span>
 
     <span class="c1"># Compute point estimates and uncertainties</span>
-    <span class="n">point_estimate</span> <span class="o">=</span> <span class="n">point_agg</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">point_estimate</span> <span class="o">=</span> <span class="n">point_agg</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">uncertainty_agg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">u</span> <span class="o">=</span> <span class="n">uncertainty_agg</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">uncertainty_agg</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;num_variables&quot;</span><span class="p">]:</span>
@@ -619,7 +646,7 @@
         <span class="c1"># Add scatter and error bars</span>
         <span class="k">if</span> <span class="n">uncertainty_agg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span>
-                <span class="n">references</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span>
+                <span class="n">targets</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span>
                 <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span>
                 <span class="n">yerr</span><span class="o">=</span><span class="n">u</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span>
                 <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
@@ -628,12 +655,12 @@
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">references</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">targets</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">make_quadratic</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">references</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">make_quadratic</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">targets</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">add_corr</span><span class="p">:</span>
-            <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">references</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">targets</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">point_estimate</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">add_metric</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">metric_text</span><span class="o">=</span><span class="s2">&quot;$r$&quot;</span><span class="p">,</span> <span class="n">metric_value</span><span class="o">=</span><span class="n">corr</span><span class="p">,</span> <span class="n">metric_fontsize</span><span class="o">=</span><span class="n">metric_fontsize</span><span class="p">)</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;variable_names&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">title_fontsize</span><span class="p">)</span>

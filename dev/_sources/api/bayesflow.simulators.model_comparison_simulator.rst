@@ -14,7 +14,7 @@ bayesflow.simulators.model\_comparison\_simulator
   .. autosummary::
   
     allow_batch_size
-    tree_stack
+    tree_concatenate
   
   
 
@@ -24,6 +24,8 @@ bayesflow.simulators.model\_comparison\_simulator
 
   .. autosummary::
   
+    FunctionType
+    LambdaSimulator
     ModelComparisonSimulator
     Sequence
     Simulator

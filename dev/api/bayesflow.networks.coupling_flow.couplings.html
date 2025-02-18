@@ -154,13 +154,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -643,6 +638,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling"><code class="docutils literal notranslate"><span class="pre">SingleCoupling</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.__call__"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.add_loss"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.add_metric"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.add_metric()</span></code></a></li>
@@ -1171,6 +1167,11 @@ including <a href="#id31"><span class="problematic" id="id32">`</span></a>SeedGe
 <dd><p>Bases: <a class="reference internal" href="bayesflow.networks.coupling_flow.invertible_layer.html#bayesflow.networks.coupling_flow.invertible_layer.InvertibleLayer" title="bayesflow.networks.coupling_flow.invertible_layer.InvertibleLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvertibleLayer</span></code></a></p>
 <p>Implements a single coupling layer as a composition of a subnet and a transform.</p>
 <p>Subnet output tensors are linearly mapped to the correct dimension.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.coupling_flow.couplings.SingleCoupling.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'hard_silu',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'glorot_uniform',</span> <span class="pre">'residual':</span> <span class="pre">False,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(128,</span> <span class="pre">128)}</span></em><a class="headerlink" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.coupling_flow.couplings.SingleCoupling.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.__call__" title="Link to this definition">#</a></dt>
@@ -1708,6 +1709,7 @@ including <a href="#id63"><span class="problematic" id="id64">`</span></a>SeedGe
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling"><code class="docutils literal notranslate"><span class="pre">SingleCoupling</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.__call__"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.add_loss"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.coupling_flow.couplings.SingleCoupling.add_metric"><code class="docutils literal notranslate"><span class="pre">SingleCoupling.add_metric()</span></code></a></li>

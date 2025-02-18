@@ -154,13 +154,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -635,6 +630,8 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.deserialize"><code class="docutils literal notranslate"><span class="pre">deserialize()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.get_registered_name"><code class="docutils literal notranslate"><span class="pre">get_registered_name()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.get_registered_object"><code class="docutils literal notranslate"><span class="pre">get_registered_object()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.serializable"><code class="docutils literal notranslate"><span class="pre">serializable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.serialize"><code class="docutils literal notranslate"><span class="pre">serialize()</span></code></a></li>
 </ul>
@@ -655,6 +652,12 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.adapters.transforms.filter_transform.deserialize" title="bayesflow.adapters.transforms.filter_transform.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a>(config[, custom_objects, safe_mode])</p></td>
 <td><p>Retrieve the object by deserializing the config dict.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.adapters.transforms.filter_transform.get_registered_name" title="bayesflow.adapters.transforms.filter_transform.get_registered_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_registered_name</span></code></a>(obj)</p></td>
+<td><p>Returns the name registered to an object within the Keras framework.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.adapters.transforms.filter_transform.get_registered_object" title="bayesflow.adapters.transforms.filter_transform.get_registered_object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_registered_object</span></code></a>(name[, ...])</p></td>
+<td><p>Returns the class associated with <cite>name</cite> if it is registered with Keras.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.adapters.transforms.filter_transform.serializable" title="bayesflow.adapters.transforms.filter_transform.serializable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serializable</span></code></a>([package, name])</p></td>
 <td><p>Registers an object with the Keras serialization framework.</p></td>
@@ -993,6 +996,64 @@ applicable to the Keras v3 model format. Defaults to <cite>True</cite>.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.filter_transform.get_registered_name">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.filter_transform.</span></span><span class="sig-name descname"><span class="pre">get_registered_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/keras/src/saving/object_registration.html#get_registered_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.filter_transform.get_registered_name" title="Link to this definition">#</a></dt>
+<dd><p>Returns the name registered to an object within the Keras framework.</p>
+<p>This function is part of the Keras serialization and deserialization
+framework. It maps objects to the string names associated with those objects
+for serialization/deserialization.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>obj: The object to look up.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>The name associated with the object, or the default Python name if the</dt><dd><p>object is not registered.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.filter_transform.get_registered_object">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.filter_transform.</span></span><span class="sig-name descname"><span class="pre">get_registered_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_objects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/keras/src/saving/object_registration.html#get_registered_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.filter_transform.get_registered_object" title="Link to this definition">#</a></dt>
+<dd><p>Returns the class associated with <cite>name</cite> if it is registered with Keras.</p>
+<p>This function is part of the Keras serialization and deserialization
+framework. It maps strings to the objects associated with them for
+serialization/deserialization.</p>
+<p>Example:</p>
+<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a>python
+def from_config(cls, config, custom_objects=None):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if ‘my_custom_object_name’ in config:</dt><dd><dl class="simple">
+<dt>config[‘hidden_cls’] = tf.keras.saving.get_registered_object(</dt><dd><p>config[‘my_custom_object_name’], custom_objects=custom_objects)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a></p>
+<dl>
+<dt>Args:</dt><dd><p>name: The name to look up.
+custom_objects: A dictionary of custom objects to look the name up in.</p>
+<blockquote>
+<div><p>Generally, custom_objects is provided by the user.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>module_objects: A dictionary of custom objects to look the name up in.</dt><dd><p>Generally, module_objects is provided by midlevel library
+implementers.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>An instantiable class associated with <cite>name</cite>, or <cite>None</cite> if no such class</dt><dd><p>exists.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.filter_transform.serializable">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.filter_transform.</span></span><span class="sig-name descname"><span class="pre">serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Custom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.adapters.transforms.filter_transform.serializable" title="Link to this definition">#</a></dt>
 <dd><p>Registers an object with the Keras serialization framework.</p>
@@ -1005,7 +1066,7 @@ function that Keras will call to get the object’s serializable string key.</p>
 <p>The object will be registered under the key <cite>‘package&gt;name’</cite> where <cite>name</cite>,
 defaults to the object name if not passed.</p>
 <p>Example:</p>
-<p><a href="#id25"><span class="problematic" id="id26">``</span></a><cite>python
+<p><a href="#id33"><span class="problematic" id="id34">``</span></a><cite>python
 # Note that `’my_package’</cite> is used as the <cite>package</cite> argument here, and since
 # the <cite>name</cite> argument is not provided, <cite>‘MyDense’</cite> is used as the <cite>name</cite>.
 &#64;register_keras_serializable(‘my_package’)
@@ -1015,7 +1076,7 @@ class MyDense(keras.layers.Dense):</p>
 </div></blockquote>
 <p>assert get_registered_object(‘my_package&gt;MyDense’) == MyDense
 assert get_registered_name(MyDense) == ‘my_package&gt;MyDense’
-<a href="#id27"><span class="problematic" id="id28">``</span></a><a href="#id29"><span class="problematic" id="id30">`</span></a></p>
+<a href="#id35"><span class="problematic" id="id36">``</span></a><a href="#id37"><span class="problematic" id="id38">`</span></a></p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
 <dt>package: The package that this class belongs to. This is used for the</dt><dd><p><cite>key</cite> (which is <cite>“package&gt;name”</cite>) to identify the class. Note that
@@ -1138,6 +1199,8 @@ deserialized via <cite>deserialize_keras_object()</cite>.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.deserialize"><code class="docutils literal notranslate"><span class="pre">deserialize()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.get_registered_name"><code class="docutils literal notranslate"><span class="pre">get_registered_name()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.get_registered_object"><code class="docutils literal notranslate"><span class="pre">get_registered_object()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.serializable"><code class="docutils literal notranslate"><span class="pre">serializable()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.filter_transform.serialize"><code class="docutils literal notranslate"><span class="pre">serialize()</span></code></a></li>
 </ul>

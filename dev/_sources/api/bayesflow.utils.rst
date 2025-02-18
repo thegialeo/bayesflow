@@ -23,6 +23,7 @@
     convert_kwargs
     deserialize_value_or_type
     detailed_loss_callback
+    devices
     expand
     expand_as
     expand_left

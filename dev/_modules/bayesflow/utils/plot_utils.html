@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -544,8 +539,9 @@
 <div class="viewcode-block" id="prepare_plot_data">
 <a class="viewcode-back" href="../../../api/bayesflow.utils.plot_utils.html#bayesflow.utils.prepare_plot_data">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">prepare_plot_data</span><span class="p">(</span>
+    <span class="n">estimates</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">targets</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">references</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">variable_keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">variable_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_col</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_row</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -559,7 +555,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targets           : dict[str, ndarray] or ndarray</span>
+<span class="sd">    estimates           : dict[str, ndarray] or ndarray</span>
 <span class="sd">        The model-generated predictions or estimates, which can take the following forms:</span>
 <span class="sd">        - ndarray of shape (num_datasets, num_variables)</span>
 <span class="sd">            Point estimates for each dataset, where `num_datasets` is the number of datasets</span>
@@ -567,7 +563,7 @@
 <span class="sd">        - ndarray of shape (num_datasets, num_draws, num_variables)</span>
 <span class="sd">            Posterior samples for each dataset, where `num_datasets` is the number of datasets,</span>
 <span class="sd">            `num_draws` is the number of posterior draws, and `num_variables` is the number of variables.</span>
-<span class="sd">    references        : dict[str, ndarray] or ndarray, optional (default = None)</span>
+<span class="sd">    targets        : dict[str, ndarray] or ndarray, optional (default = None)</span>
 <span class="sd">        Ground truth values corresponding to the estimates. Must match the structure and dimensionality</span>
 <span class="sd">        of `estimates` in terms of first and last axis.</span>
 <span class="sd">    variable_names    : Sequence[str], optional (default = None)</span>
@@ -581,13 +577,17 @@
 <span class="sd">    stacked           : bool, optional, default: False</span>
 <span class="sd">        Whether the plots are stacked horizontally</span>
 <span class="sd">    default_name      : str, optional (default = &quot;var&quot;)</span>
-<span class="sd">        The default name to use for targets if None provided</span>
+<span class="sd">        The default name to use for estimates if None provided</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">plot_data</span> <span class="o">=</span> <span class="n">dicts_to_arrays</span><span class="p">(</span>
-        <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span> <span class="n">default_name</span><span class="o">=</span><span class="n">default_name</span>
+        <span class="n">estimates</span><span class="o">=</span><span class="n">estimates</span><span class="p">,</span>
+        <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
+        <span class="n">variable_keys</span><span class="o">=</span><span class="n">variable_keys</span><span class="p">,</span>
+        <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
+        <span class="n">default_name</span><span class="o">=</span><span class="n">default_name</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">check_estimates_prior_shapes</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;references&quot;</span><span class="p">])</span>
+    <span class="n">check_estimates_prior_shapes</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">])</span>
 
     <span class="c1"># Configure layout</span>
     <span class="n">num_row</span><span class="p">,</span> <span class="n">num_col</span> <span class="o">=</span> <span class="n">set_layout</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;num_variables&quot;</span><span class="p">],</span> <span class="n">num_row</span><span class="p">,</span> <span class="n">num_col</span><span class="p">,</span> <span class="n">stacked</span><span class="p">)</span>

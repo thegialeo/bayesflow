@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -6893,6 +6888,14 @@
         <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.decode">(bayesflow.networks.FreeFormFlow method)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.networks.free_form_flow.free_form_flow.html#bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">DECODER_MLP_DEFAULT_CONFIG (bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow attribute)</a>
+
+      <ul>
+        <li><a href="api/bayesflow.networks.free_form_flow.html#bayesflow.networks.free_form_flow.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">(bayesflow.networks.free_form_flow.FreeFormFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">(bayesflow.networks.FreeFormFlow attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/bayesflow.networks.html#bayesflow.networks.DeepSet">DeepSet (class in bayesflow.networks)</a>
 
       <ul>
@@ -6965,6 +6968,8 @@
         <li><a href="api/bayesflow.utils.callbacks.html#bayesflow.utils.callbacks.detailed_loss_callback">(in module bayesflow.utils.callbacks)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.devices">devices() (in module bayesflow.utils)</a>
+</li>
       <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalNormal">DiagonalNormal (class in bayesflow.distributions)</a>
 
       <ul>
@@ -7769,6 +7774,14 @@
         <li><a href="api/bayesflow.networks.free_form_flow.html#bayesflow.networks.free_form_flow.FreeFormFlow.encode">(bayesflow.networks.free_form_flow.FreeFormFlow method)</a>
 </li>
         <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.encode">(bayesflow.networks.FreeFormFlow method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/bayesflow.networks.free_form_flow.free_form_flow.html#bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">ENCODER_MLP_DEFAULT_CONFIG (bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow attribute)</a>
+
+      <ul>
+        <li><a href="api/bayesflow.networks.free_form_flow.html#bayesflow.networks.free_form_flow.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">(bayesflow.networks.free_form_flow.FreeFormFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">(bayesflow.networks.FreeFormFlow attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/bayesflow.networks.deep_set.deep_set.html#bayesflow.networks.deep_set.deep_set.EquivariantModule">EquivariantModule (class in bayesflow.networks.deep_set.deep_set)</a>
@@ -8927,6 +8940,8 @@
         <li><a href="api/bayesflow.metrics.root_mean_squard_error.html#bayesflow.metrics.root_mean_squard_error.partial.func">(bayesflow.metrics.root_mean_squard_error.partial attribute)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.FunctionType">FunctionType (in module bayesflow.simulators.model_comparison_simulator)</a>
+</li>
       <li><a href="api/bayesflow.networks.html#bayesflow.networks.FusionTransformer">FusionTransformer (class in bayesflow.networks)</a>
 
       <ul>
@@ -9847,6 +9862,10 @@
         <li><a href="api/bayesflow.networks.coupling_flow.couplings.html#bayesflow.networks.coupling_flow.couplings.SingleCoupling.get_parameters">(bayesflow.networks.coupling_flow.couplings.SingleCoupling method)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.transforms.filter_transform.get_registered_name">get_registered_name() (in module bayesflow.adapters.transforms.filter_transform)</a>
+</li>
+      <li><a href="api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.transforms.filter_transform.get_registered_object">get_registered_object() (in module bayesflow.adapters.transforms.filter_transform)</a>
+</li>
       <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.get_state_tree">get_state_tree() (bayesflow.approximators.Approximator method)</a>
 
       <ul>
@@ -11223,6 +11242,14 @@
         <li><a href="api/bayesflow.utils.html#bayesflow.utils.integrate">(in module bayesflow.utils)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.networks.flow_matching.flow_matching.html#bayesflow.networks.flow_matching.flow_matching.FlowMatching.INTEGRATE_DEFAULT_CONFIG">INTEGRATE_DEFAULT_CONFIG (bayesflow.networks.flow_matching.flow_matching.FlowMatching attribute)</a>
+
+      <ul>
+        <li><a href="api/bayesflow.networks.flow_matching.html#bayesflow.networks.flow_matching.FlowMatching.INTEGRATE_DEFAULT_CONFIG">(bayesflow.networks.flow_matching.FlowMatching attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG">(bayesflow.networks.FlowMatching attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/bayesflow.networks.deep_set.deep_set.html#bayesflow.networks.deep_set.deep_set.InvariantModule">InvariantModule (class in bayesflow.networks.deep_set.deep_set)</a>
 
       <ul>
@@ -11607,6 +11634,8 @@
 
       <ul>
         <li><a href="api/bayesflow.simulators.lambda_simulator.html#bayesflow.simulators.lambda_simulator.LambdaSimulator">(class in bayesflow.simulators.lambda_simulator)</a>
+</li>
+        <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.LambdaSimulator">(class in bayesflow.simulators.model_comparison_simulator)</a>
 </li>
       </ul></li>
       <li><a href="api/bayesflow.adapters.adapter.html#bayesflow.adapters.adapter.LambdaTransform">LambdaTransform (class in bayesflow.adapters.adapter)</a>
@@ -13309,6 +13338,66 @@
         <li><a href="api/bayesflow.networks.transformers.pma.html#bayesflow.networks.transformers.pma.MLP">(class in bayesflow.networks.transformers.pma)</a>
 </li>
       </ul></li>
+      <li><a href="api/bayesflow.approximators.continuous_approximator.html#bayesflow.approximators.continuous_approximator.InferenceNetwork.MLP_DEFAULT_CONFIG">MLP_DEFAULT_CONFIG (bayesflow.approximators.continuous_approximator.InferenceNetwork attribute)</a>
+
+      <ul>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CIF.MLP_DEFAULT_CONFIG">(bayesflow.networks.CIF attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.cif.html#bayesflow.networks.cif.CIF.MLP_DEFAULT_CONFIG">(bayesflow.networks.cif.CIF attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.cif.cif.html#bayesflow.networks.cif.cif.CIF.MLP_DEFAULT_CONFIG">(bayesflow.networks.cif.cif.CIF attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.cif.cif.html#bayesflow.networks.cif.cif.CouplingFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.cif.cif.CouplingFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.cif.cif.html#bayesflow.networks.cif.cif.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.cif.cif.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.consistency_models.consistency_model.html#bayesflow.networks.consistency_models.consistency_model.ConsistencyModel.MLP_DEFAULT_CONFIG">(bayesflow.networks.consistency_models.consistency_model.ConsistencyModel attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.consistency_models.consistency_model.html#bayesflow.networks.consistency_models.consistency_model.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.consistency_models.consistency_model.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.consistency_models.html#bayesflow.networks.consistency_models.ConsistencyModel.MLP_DEFAULT_CONFIG">(bayesflow.networks.consistency_models.ConsistencyModel attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG">(bayesflow.networks.ConsistencyModel attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.coupling_flow.html#bayesflow.networks.coupling_flow.coupling_flow.CouplingFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.coupling_flow.CouplingFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.coupling_flow.html#bayesflow.networks.coupling_flow.coupling_flow.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.coupling_flow.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.html#bayesflow.networks.coupling_flow.CouplingFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.CouplingFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.couplings.dual_coupling.html#bayesflow.networks.coupling_flow.couplings.dual_coupling.SingleCoupling.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.couplings.dual_coupling.SingleCoupling attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.couplings.single_coupling.html#bayesflow.networks.coupling_flow.couplings.single_coupling.SingleCoupling.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.couplings.single_coupling.SingleCoupling attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.coupling_flow.couplings.html#bayesflow.networks.coupling_flow.couplings.SingleCoupling.MLP_DEFAULT_CONFIG">(bayesflow.networks.coupling_flow.couplings.SingleCoupling attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.CouplingFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.flow_matching.flow_matching.html#bayesflow.networks.flow_matching.flow_matching.FlowMatching.MLP_DEFAULT_CONFIG">(bayesflow.networks.flow_matching.flow_matching.FlowMatching attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.flow_matching.flow_matching.html#bayesflow.networks.flow_matching.flow_matching.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.flow_matching.flow_matching.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.flow_matching.html#bayesflow.networks.flow_matching.FlowMatching.MLP_DEFAULT_CONFIG">(bayesflow.networks.flow_matching.FlowMatching attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG">(bayesflow.networks.FlowMatching attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.free_form_flow.free_form_flow.html#bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.free_form_flow.free_form_flow.FreeFormFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.free_form_flow.free_form_flow.html#bayesflow.networks.free_form_flow.free_form_flow.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.free_form_flow.free_form_flow.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.free_form_flow.html#bayesflow.networks.free_form_flow.FreeFormFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.free_form_flow.FreeFormFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.MLP_DEFAULT_CONFIG">(bayesflow.networks.FreeFormFlow attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.inference_network.html#bayesflow.networks.inference_network.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.inference_network.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.utils.workflow_utils.html#bayesflow.utils.workflow_utils.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.utils.workflow_utils.InferenceNetwork attribute)</a>
+</li>
+        <li><a href="api/bayesflow.workflows.basic_workflow.html#bayesflow.workflows.basic_workflow.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.workflows.basic_workflow.InferenceNetwork attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.mmd_hypothesis_test">mmd_hypothesis_test() (in module bayesflow.diagnostics)</a>
 
       <ul>
@@ -14466,6 +14555,14 @@
 
       <ul>
         <li><a href="api/bayesflow.utils.html#bayesflow.utils.optimal_transport">(in module bayesflow.utils)</a>
+</li>
+      </ul></li>
+      <li><a href="api/bayesflow.networks.flow_matching.flow_matching.html#bayesflow.networks.flow_matching.flow_matching.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">OPTIMAL_TRANSPORT_DEFAULT_CONFIG (bayesflow.networks.flow_matching.flow_matching.FlowMatching attribute)</a>
+
+      <ul>
+        <li><a href="api/bayesflow.networks.flow_matching.html#bayesflow.networks.flow_matching.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">(bayesflow.networks.flow_matching.FlowMatching attribute)</a>
+</li>
+        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">(bayesflow.networks.FlowMatching attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/bayesflow.networks.coupling_flow.permutations.html#bayesflow.networks.coupling_flow.permutations.OrthogonalPermutation">OrthogonalPermutation (class in bayesflow.networks.coupling_flow.permutations)</a>
@@ -16639,6 +16736,8 @@
 </li>
         <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.LambdaSimulator.rejection_sample">(bayesflow.simulators.LambdaSimulator method)</a>
 </li>
+        <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.LambdaSimulator.rejection_sample">(bayesflow.simulators.model_comparison_simulator.LambdaSimulator method)</a>
+</li>
         <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator.rejection_sample">(bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator method)</a>
 </li>
         <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.Simulator.rejection_sample">(bayesflow.simulators.model_comparison_simulator.Simulator method)</a>
@@ -17020,6 +17119,8 @@
         <li><a href="api/bayesflow.simulators.lambda_simulator.html#bayesflow.simulators.lambda_simulator.Simulator.sample">(bayesflow.simulators.lambda_simulator.Simulator method)</a>
 </li>
         <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.LambdaSimulator.sample">(bayesflow.simulators.LambdaSimulator method)</a>
+</li>
+        <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.LambdaSimulator.sample">(bayesflow.simulators.model_comparison_simulator.LambdaSimulator method)</a>
 </li>
         <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator.sample">(bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator method)</a>
 </li>
@@ -20400,9 +20501,11 @@
         <li><a href="api/bayesflow.networks.coupling_flow.transforms.transform.html#bayesflow.networks.coupling_flow.transforms.transform.Transform">(class in bayesflow.networks.coupling_flow.transforms.transform)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.simulators.simulator.html#bayesflow.simulators.simulator.tree_concatenate">tree_concatenate() (in module bayesflow.simulators.simulator)</a>
+      <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.tree_concatenate">tree_concatenate() (in module bayesflow.simulators.model_comparison_simulator)</a>
 
       <ul>
+        <li><a href="api/bayesflow.simulators.simulator.html#bayesflow.simulators.simulator.tree_concatenate">(in module bayesflow.simulators.simulator)</a>
+</li>
         <li><a href="api/bayesflow.utils.html#bayesflow.utils.tree_concatenate">(in module bayesflow.utils)</a>
 </li>
         <li><a href="api/bayesflow.utils.tensor_utils.html#bayesflow.utils.tensor_utils.tree_concatenate">(in module bayesflow.utils.tensor_utils)</a>
@@ -20414,8 +20517,6 @@
         <li><a href="api/bayesflow.datasets.disk_dataset.html#bayesflow.datasets.disk_dataset.tree_stack">(in module bayesflow.datasets.disk_dataset)</a>
 </li>
         <li><a href="api/bayesflow.simulators.lambda_simulator.html#bayesflow.simulators.lambda_simulator.tree_stack">(in module bayesflow.simulators.lambda_simulator)</a>
-</li>
-        <li><a href="api/bayesflow.simulators.model_comparison_simulator.html#bayesflow.simulators.model_comparison_simulator.tree_stack">(in module bayesflow.simulators.model_comparison_simulator)</a>
 </li>
         <li><a href="api/bayesflow.utils.html#bayesflow.utils.tree_stack">(in module bayesflow.utils)</a>
 </li>
@@ -20494,6 +20595,8 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/bayesflow.utils.dict_utils.html#bayesflow.utils.dict_utils.validate_variable_array">validate_variable_array() (in module bayesflow.utils.dict_utils)</a>
+</li>
       <li><a href="api/bayesflow.approximators.model_comparison_approximator.html#bayesflow.approximators.model_comparison_approximator.Mapping.values">values() (bayesflow.approximators.model_comparison_approximator.Mapping method)</a>
 
       <ul>

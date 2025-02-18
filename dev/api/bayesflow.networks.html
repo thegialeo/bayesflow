@@ -154,13 +154,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -595,6 +590,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF"><code class="docutils literal notranslate"><span class="pre">CIF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">CIF.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.__call__"><code class="docutils literal notranslate"><span class="pre">CIF.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.add_loss"><code class="docutils literal notranslate"><span class="pre">CIF.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.add_metric"><code class="docutils literal notranslate"><span class="pre">CIF.add_metric()</span></code></a></li>
@@ -646,6 +642,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.__call__"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.add_loss"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.add_metric"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.add_metric()</span></code></a></li>
@@ -698,6 +695,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.__call__"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_metric"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_metric()</span></code></a></li>
@@ -798,6 +796,9 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching"><code class="docutils literal notranslate"><span class="pre">FlowMatching</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.INTEGRATE_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.__call__"><code class="docutils literal notranslate"><span class="pre">FlowMatching.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.add_loss"><code class="docutils literal notranslate"><span class="pre">FlowMatching.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.add_metric"><code class="docutils literal notranslate"><span class="pre">FlowMatching.add_metric()</span></code></a></li>
@@ -850,6 +851,9 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.__call__"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.add_metric"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.add_metric()</span></code></a></li>
@@ -952,6 +956,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.__call__"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.add_loss"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.add_metric"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.add_metric()</span></code></a></li>
@@ -1361,6 +1366,11 @@ arXiv:1909.13833.</p>
 <p>Creates an instance of a <cite>CIF</cite> with configurable
 <cite>ConditionalGaussian</cite> distributions p and q, each containing MLP
 networks</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.CIF.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.networks.CIF.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.CIF.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.CIF.__call__" title="Link to this definition">#</a></dt>
@@ -1825,6 +1835,11 @@ arXiv preprint arXiv:2310.14189
 Discussion: https://openreview.net/forum?id=WNzy9bRDvG</p>
 <p>Creates an instance of a consistency model (CM) to be used
 for standalone consistency training (CT).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.__call__" title="Link to this definition">#</a></dt>
@@ -2313,6 +2328,11 @@ IEEE Transactions on Neural Networks and Learning Systems.</p>
 <p>[5] Alexanderson, S., &amp; Henter, G. E. (2020).
 Robust model training and generalisation with Studentising flows.
 arXiv preprint arXiv:2006.06599.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.networks.CouplingFlow.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.CouplingFlow.__call__" title="Link to this definition">#</a></dt>
@@ -3224,6 +3244,21 @@ with ideas incorporated from [1-3].</p>
 <p>[1] Rectified Flow: arXiv:2209.03003
 [2] Flow Matching: arXiv:2210.02747
 [3] Optimal Transport Flow Matching: arXiv:2302.00482</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">INTEGRATE_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'max_steps':</span> <span class="pre">100,</span> <span class="pre">'method':</span> <span class="pre">'rk45',</span> <span class="pre">'min_steps':</span> <span class="pre">10,</span> <span class="pre">'steps':</span> <span class="pre">'adaptive',</span> <span class="pre">'tolerance':</span> <span class="pre">0.001}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cost':</span> <span class="pre">'euclidean',</span> <span class="pre">'max_steps':</span> <span class="pre">100,</span> <span class="pre">'method':</span> <span class="pre">'sinkhorn',</span> <span class="pre">'regularization':</span> <span class="pre">0.1,</span> <span class="pre">'tolerance':</span> <span class="pre">0.0001}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FlowMatching.__call__" title="Link to this definition">#</a></dt>
@@ -3690,6 +3725,21 @@ In International Conference on Artificial Intelligence and Statistics.</p>
 Köthe, U. (2024). Lifting Architectural Constraints of Injective Flows.
 In International Conference on Learning Representations.</p>
 <p>Creates an instance of a Free-form Flow.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">DECODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">ENCODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.__call__" title="Link to this definition">#</a></dt>
@@ -4665,6 +4715,11 @@ including <a href="#id223"><span class="problematic" id="id224">`</span></a>Seed
 <dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">InferenceNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.__call__" title="Link to this definition">#</a></dt>
@@ -7526,6 +7581,7 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF"><code class="docutils literal notranslate"><span class="pre">CIF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">CIF.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.__call__"><code class="docutils literal notranslate"><span class="pre">CIF.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.add_loss"><code class="docutils literal notranslate"><span class="pre">CIF.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CIF.add_metric"><code class="docutils literal notranslate"><span class="pre">CIF.add_metric()</span></code></a></li>
@@ -7577,6 +7633,7 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.__call__"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.add_loss"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.add_metric"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.add_metric()</span></code></a></li>
@@ -7629,6 +7686,7 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.__call__"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.add_metric"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.add_metric()</span></code></a></li>
@@ -7729,6 +7787,9 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching"><code class="docutils literal notranslate"><span class="pre">FlowMatching</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.INTEGRATE_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.__call__"><code class="docutils literal notranslate"><span class="pre">FlowMatching.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.add_loss"><code class="docutils literal notranslate"><span class="pre">FlowMatching.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.add_metric"><code class="docutils literal notranslate"><span class="pre">FlowMatching.add_metric()</span></code></a></li>
@@ -7781,6 +7842,9 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.__call__"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.add_metric"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.add_metric()</span></code></a></li>
@@ -7883,6 +7947,7 @@ including <a href="#id415"><span class="problematic" id="id416">`</span></a>Seed
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.__call__"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.add_loss"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.add_metric"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.add_metric()</span></code></a></li>

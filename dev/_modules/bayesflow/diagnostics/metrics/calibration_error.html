@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -541,25 +536,31 @@
 <div class="viewcode-block" id="calibration_error">
 <a class="viewcode-back" href="../../../../api/bayesflow.diagnostics.metrics.html#bayesflow.diagnostics.calibration_error">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">calibration_error</span><span class="p">(</span>
+    <span class="n">estimates</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">targets</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">references</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">variable_keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">variable_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">resolution</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
     <span class="n">aggregation</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span>
     <span class="n">min_quantile</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.005</span><span class="p">,</span>
     <span class="n">max_quantile</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.995</span><span class="p">,</span>
-    <span class="n">variable_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes an aggregate score for the marginal calibration error over an ensemble of approximate</span>
 <span class="sd">    posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation</span>
-<span class="sd">    between an alpha-CI and the relative number of inliers from ``prior_samples`` over multiple alphas in</span>
+<span class="sd">    between an alpha-CI and the relative number of inliers from ``estimates`` over multiple alphas in</span>
 <span class="sd">    (0, 1).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targets  : np.ndarray of shape (num_datasets, num_draws, num_variables)</span>
+<span class="sd">    estimates  : np.ndarray of shape (num_datasets, num_draws, num_variables)</span>
 <span class="sd">        The random draws from the approximate posteriors over ``num_datasets``</span>
-<span class="sd">    references : np.ndarray of shape (num_datasets, num_variables)</span>
+<span class="sd">    targets : np.ndarray of shape (num_datasets, num_variables)</span>
 <span class="sd">        The corresponding ground-truth values sampled from the prior</span>
+<span class="sd">    variable_keys : Sequence[str], optional (default = None)</span>
+<span class="sd">       Select keys from the dictionaries provided in estimates and targets.</span>
+<span class="sd">       By default, select all keys.</span>
+<span class="sd">    variable_names : Sequence[str], optional (default = None)</span>
+<span class="sd">        Optional variable names to show in the output.</span>
 <span class="sd">    resolution    : int, optional, default: 20</span>
 <span class="sd">        The number of credibility intervals (CIs) to consider</span>
 <span class="sd">    aggregation   : callable or None, optional, default: np.median</span>
@@ -569,8 +570,6 @@
 <span class="sd">        The minimum posterior quantile to consider.</span>
 <span class="sd">    max_quantile  : float in (0, 1), optional, default: 0.995</span>
 <span class="sd">        The maximum posterior quantile to consider.</span>
-<span class="sd">    variable_names : Sequence[str], optional (default = None)</span>
-<span class="sd">        Optional variable names to select from the available variables.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -584,7 +583,12 @@
 <span class="sd">            The (inferred) variable names.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">samples</span> <span class="o">=</span> <span class="n">dicts_to_arrays</span><span class="p">(</span><span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">)</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">dicts_to_arrays</span><span class="p">(</span>
+        <span class="n">estimates</span><span class="o">=</span><span class="n">estimates</span><span class="p">,</span>
+        <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
+        <span class="n">variable_keys</span><span class="o">=</span><span class="n">variable_keys</span><span class="p">,</span>
+        <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># Define alpha values and the corresponding quantile bounds</span>
     <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">min_quantile</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">max_quantile</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
@@ -593,14 +597,14 @@
     <span class="n">uppers</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">lowers</span>
 
     <span class="c1"># Compute quantiles for each alpha, for each dataset and parameter</span>
-    <span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">lowers</span><span class="p">,</span> <span class="n">uppers</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">],</span> <span class="p">[</span><span class="n">lowers</span><span class="p">,</span> <span class="n">uppers</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="c1"># Shape: (2, resolution, num_datasets, num_params)</span>
     <span class="n">lower_bounds</span><span class="p">,</span> <span class="n">upper_bounds</span> <span class="o">=</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="c1"># Compute masks for inliers</span>
-    <span class="n">lower_mask</span> <span class="o">=</span> <span class="n">lower_bounds</span> <span class="o">&lt;=</span> <span class="n">samples</span><span class="p">[</span><span class="s2">&quot;references&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-    <span class="n">upper_mask</span> <span class="o">=</span> <span class="n">upper_bounds</span> <span class="o">&gt;=</span> <span class="n">samples</span><span class="p">[</span><span class="s2">&quot;references&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">lower_mask</span> <span class="o">=</span> <span class="n">lower_bounds</span> <span class="o">&lt;=</span> <span class="n">samples</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">upper_mask</span> <span class="o">=</span> <span class="n">upper_bounds</span> <span class="o">&gt;=</span> <span class="n">samples</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 
     <span class="c1"># Logical AND to identify inliers for each alpha</span>
     <span class="n">inlier_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">lower_mask</span><span class="p">,</span> <span class="n">upper_mask</span><span class="p">)</span>

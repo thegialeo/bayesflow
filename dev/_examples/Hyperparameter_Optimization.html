@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Hyperparameter Optimization Using Optuna &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>1. Hyperparameter Optimization Using Optuna &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -54,8 +54,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch" href="Bayesian_Experimental_Design.html" />
-    <link rel="prev" title="4. Amortized Posterior Estimation for Linear Regression" href="Linear_Regression.html" />
+    <link rel="next" title="2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch" href="Bayesian_Experimental_Design.html" />
+    <link rel="prev" title="Examples" href="../examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -154,13 +154,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../examples.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -594,15 +589,15 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">5.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-and-data">5.1.1. Simulator and Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-objective">5.1.2. Test Objective</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optuna-objective">5.1.3. Optuna Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-and-data">1.1.1. Simulator and Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-objective">1.1.2. Test Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optuna-objective">1.1.3. Optuna Objective</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">5.2. Optimization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-with-best-parameters">5.3. Training With Best Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-validation">5.3.1. Quick Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">1.2. Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-with-best-parameters">1.3. Training With Best Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-validation">1.3.1. Quick Validation</a></li>
 </ul>
 </li>
 </ul>
@@ -617,7 +612,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hyperparameter-optimization-using-optuna">
-<h1><span class="section-number">5. </span>Hyperparameter Optimization Using Optuna<a class="headerlink" href="#hyperparameter-optimization-using-optuna" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Hyperparameter Optimization Using Optuna<a class="headerlink" href="#hyperparameter-optimization-using-optuna" title="Link to this heading">#</a></h1>
 <p><em>Author: Stefan T. Radev</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,11 +644,11 @@
 </div>
 </div>
 <section id="setup">
-<h2><span class="section-number">5.1. </span>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>This is a work in progress notebook that will demonstrate how to combine automatic hyperparameter optimization using the awesome <code class="docutils literal notranslate"><span class="pre">optuna</span></code> package with BayesFlow.</p>
 <p>Let’s get started.</p>
 <section id="simulator-and-data">
-<h3><span class="section-number">5.1.1. </span>Simulator and Data<a class="headerlink" href="#simulator-and-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.1. </span>Simulator and Data<a class="headerlink" href="#simulator-and-data" title="Link to this heading">#</a></h3>
 <p>First, we simulate mini training and validation data sets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -690,7 +685,7 @@
 </div>
 </section>
 <section id="test-objective">
-<h3><span class="section-number">5.1.2. </span>Test Objective<a class="headerlink" href="#test-objective" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.2. </span>Test Objective<a class="headerlink" href="#test-objective" title="Link to this heading">#</a></h3>
 <p>We then define an “objective function” that will carry out the entire training and return the average validation loss over the last 5 epochs. This objective function will play the role of our “black box” function that we are going to minimize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -758,7 +753,7 @@ INFO:bayesflow:Building on a test batch.
 </div>
 </section>
 <section id="optuna-objective">
-<h3><span class="section-number">5.1.3. </span>Optuna Objective<a class="headerlink" href="#optuna-objective" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.1.3. </span>Optuna Objective<a class="headerlink" href="#optuna-objective" title="Link to this heading">#</a></h3>
 <p>We now create an optuna objective that will optimize some of the parameters. The objective is the same as before, but we will train for more epochs and take the average of the last 10 validation losses</p>
 <p>You can read more about <code class="docutils literal notranslate"><span class="pre">optuna</span></code>’s trial and study objects here:
 https://optuna.readthedocs.io/en/stable/tutorial/index.html</p>
@@ -813,7 +808,7 @@ https://optuna.readthedocs.io/en/stable/tutorial/index.html</p>
 </section>
 </section>
 <section id="optimization">
-<h2><span class="section-number">5.2. </span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
 <p>This will take some time…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -974,7 +969,7 @@ Best hyperparameters: {&#39;max_time&#39;: 24, &#39;width&#39;: 358, &#39;depth&
 </div>
 </section>
 <section id="training-with-best-parameters">
-<h2><span class="section-number">5.3. </span>Training With Best Parameters<a class="headerlink" href="#training-with-best-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Training With Best Parameters<a class="headerlink" href="#training-with-best-parameters" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create inference net</span>
@@ -1226,7 +1221,7 @@ Epoch 100/100
 </div>
 </div>
 <section id="quick-validation">
-<h3><span class="section-number">5.3.1. </span>Quick Validation<a class="headerlink" href="#quick-validation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.3.1. </span>Quick Validation<a class="headerlink" href="#quick-validation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the number of posterior draws you want to get</span>
@@ -1282,12 +1277,12 @@ Epoch 100/100
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Linear_Regression.html"
+       href="../examples.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Amortized Posterior Estimation for Linear Regression</p>
+        <p class="prev-next-title">Examples</p>
       </div>
     </a>
     <a class="right-next"
@@ -1295,7 +1290,7 @@ Epoch 100/100
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Bayesian Experimental Design (BED) with BayesFlow and PyTorch</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Bayesian Experimental Design (BED) with BayesFlow and PyTorch</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1316,15 +1311,15 @@ Epoch 100/100
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">5.1. Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-and-data">5.1.1. Simulator and Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-objective">5.1.2. Test Objective</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optuna-objective">5.1.3. Optuna Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1.1. Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-and-data">1.1.1. Simulator and Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-objective">1.1.2. Test Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optuna-objective">1.1.3. Optuna Objective</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">5.2. Optimization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-with-best-parameters">5.3. Training With Best Parameters</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-validation">5.3.1. Quick Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">1.2. Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-with-best-parameters">1.3. Training With Best Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-validation">1.3.1. Quick Validation</a></li>
 </ul>
 </li>
 </ul>

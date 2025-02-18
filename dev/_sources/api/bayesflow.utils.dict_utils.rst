@@ -21,6 +21,7 @@ bayesflow.utils.dict\_utils
     keras_kwargs
     split_arrays
     split_tensors
+    validate_variable_array
   
   
 

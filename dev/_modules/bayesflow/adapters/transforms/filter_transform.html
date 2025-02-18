@@ -153,13 +153,8 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">BayesFlow</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Quickstart_Amortized_Posterior_Estimation.html">1. Quickstart: Amortized Posterior Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/TwoMoons_StarterNotebook.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SIR_PosteriorEstimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Linear_Regression.html">4. Amortized Posterior Estimation for Linear Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">5. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">6. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/SBML_Model_Posterior_Estimation.html">7. Posterior Estimation of SBML Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Hyperparameter_Optimization.html">1. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_examples/Bayesian_Experimental_Design.html">2. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -537,6 +532,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">keras.saving</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">deserialize_keras_object</span> <span class="k">as</span> <span class="n">deserialize</span><span class="p">,</span>
+    <span class="n">get_registered_name</span><span class="p">,</span>
+    <span class="n">get_registered_object</span><span class="p">,</span>
     <span class="n">register_keras_serializable</span> <span class="k">as</span> <span class="n">serializable</span><span class="p">,</span>
     <span class="n">serialize_keras_object</span> <span class="k">as</span> <span class="n">serialize</span><span class="p">,</span>
 <span class="p">)</span>
@@ -625,21 +622,33 @@
 <a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.adapter.FilterTransform.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Transform&quot;</span><span class="p">:</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">transform_constructor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">&quot;Instantiating new elementwise transforms on a deserialized FilterTransform is not yet supported (and&quot;</span>
-                <span class="s2">&quot;may never be). As a work-around, you can manually register the elementwise transform constructor after&quot;</span>
-                <span class="s2">&quot;deserialization:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="s2">&quot;obj = deserialize(config)</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="s2">&quot;obj.transform_constructor = MyElementwiseTransform&quot;</span>
-            <span class="p">)</span>
-
+        <span class="n">transform_constructor</span> <span class="o">=</span> <span class="n">get_registered_object</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;transform_constructor&quot;</span><span class="p">])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;kwargs&quot;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">transform_constructor</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;LambdaTransform&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s2">&quot;LambdaTransform (created by Adapter.apply) could not be deserialized.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;This is probably because the custom transform functions `forward` and &quot;</span>
+                    <span class="s2">&quot;`backward` from `Adapter.apply` were not passed as `custom_objects`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;For example, if your adapter uses</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;`Adapter.apply(forward=forward_transform, inverse=inverse_transform)`,</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;you have to pass</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s1">&#39;`custom_objects={&quot;forward_transform&quot;: forward_transform, &#39;</span>
+                    <span class="s1">&#39;&quot;inverse_transform&quot;: inverse_transform}`</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="s2">&quot;to the function you use to load the serialized object.&quot;</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;The transform could not be deserialized properly. &quot;</span>
+                <span class="s2">&quot;The most likely reason is that some classes or functions &quot;</span>
+                <span class="s2">&quot;are not known during deserialization. Please pass them as `custom_objects`.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
         <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="n">transform_constructor</span><span class="o">=</span><span class="n">transform_constructor</span><span class="p">,</span>
             <span class="n">predicate</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;predicate&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
             <span class="n">include</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;include&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
             <span class="n">exclude</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;exclude&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
-            <span class="o">**</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;kwargs&quot;</span><span class="p">],</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">instance</span><span class="o">.</span><span class="n">transform_map</span> <span class="o">=</span> <span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;transform_map&quot;</span><span class="p">])</span>
@@ -651,6 +660,7 @@
 <a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.filter_transform.html#bayesflow.adapters.adapter.FilterTransform.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;transform_constructor&quot;</span><span class="p">:</span> <span class="n">get_registered_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_constructor</span><span class="p">),</span>
             <span class="s2">&quot;predicate&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predicate</span><span class="p">),</span>
             <span class="s2">&quot;include&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">include</span><span class="p">),</span>
             <span class="s2">&quot;exclude&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exclude</span><span class="p">),</span>
