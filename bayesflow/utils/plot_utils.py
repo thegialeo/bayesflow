@@ -17,7 +17,7 @@ def prepare_plot_data(
     num_row: int = None,
     figsize: tuple = None,
     stacked: bool = False,
-    default_name: str = "var",
+    default_name: str = "v",
 ) -> Mapping[str, Any]:
     """
     Procedural wrapper that encompasses all preprocessing steps, including shape-checking, parameter name
@@ -48,7 +48,7 @@ def prepare_plot_data(
         Size of the figure adjusting to the display resolution
     stacked           : bool, optional, default: False
         Whether the plots are stacked horizontally
-    default_name      : str, optional (default = "var")
+    default_name      : str, optional (default = "v")
         The default name to use for estimates if None provided
     """
 
