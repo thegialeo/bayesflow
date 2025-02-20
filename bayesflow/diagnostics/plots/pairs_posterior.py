@@ -114,9 +114,8 @@ def pairs_posterior(
     return g
 
 
-def plot_true_params(x, **kwargs):
+def plot_true_params(x, hue=None, **kwargs):
     """Custom function to plot true parameters on the diagonal."""
-
     # hue needs to be added to handle the case of plotting both posterior and prior
     param = x.iloc[0]  # Get the single true value for the diagonal
     # only plot on the diagonal a vertical line for the true parameter
