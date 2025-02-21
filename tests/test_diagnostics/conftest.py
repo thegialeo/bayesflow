@@ -3,6 +3,11 @@ import pytest
 
 
 @pytest.fixture()
+def var_names():
+    return [r"$\beta_0$", r"$\beta_1$", r"$\sigma$"]
+
+
+@pytest.fixture()
 def random_estimates():
     return {
         "beta": np.random.standard_normal(size=(32, 10, 2)),

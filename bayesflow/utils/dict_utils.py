@@ -124,7 +124,7 @@ def split_arrays(data: Mapping[str, np.ndarray], axis: int = -1) -> Mapping[str,
         splits = [np.squeeze(split, axis=axis) for split in splits]
 
         for i, split in enumerate(splits):
-            result[f"{key}_{i + 1}"] = split
+            result[f"{key}_{i}"] = split
 
     return result
 
@@ -214,7 +214,7 @@ def make_variable_array(
 
         # use default names if not otherwise specified
         if variable_names is None:
-            variable_names = [f"${default_name}_{{{i}}}$" for i in range(x.shape[-1])]
+            variable_names = [f"{default_name}_{i}" for i in range(x.shape[-1])]
 
         if dataset_ids is not None:
             x = x[dataset_ids]
