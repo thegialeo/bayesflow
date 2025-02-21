@@ -1,4 +1,5 @@
 import numpy as np
+from keras import ops
 
 from sklearn.calibration import calibration_curve
 
@@ -16,9 +17,9 @@ def expected_calibration_error(m_true, m_pred, num_bins=10):
 
     Parameters
     ----------
-    m_true      : np.ndarray of shape (num_sim, num_models)
+    m_true      : array of shape (num_sim, num_models)
         The one-hot-encoded true model indices.
-    m_pred      : tf.tensor of shape (num_sim, num_models)
+    m_pred      : array of shape (num_sim, num_models)
         The predicted posterior model probabilities.
     num_bins    : int, optional, default: 10
         The number of bins to use for the calibration curves (and marginal histograms).
@@ -32,11 +33,9 @@ def expected_calibration_error(m_true, m_pred, num_bins=10):
         Each list contains two arrays of length (num_bins) with the predicted and true probabilities for each bin.
     """
 
-    # Convert tf.Tensors to numpy, if passed
-    if type(m_true) is not np.ndarray:
-        m_true = m_true.numpy()
-    if type(m_pred) is not np.ndarray:
-        m_pred = m_pred.numpy()
+    # Convert tensors to numpy, if passed
+    m_true = ops.convert_to_numpy(m_true)
+    m_pred = ops.convert_to_numpy(m_pred)
 
     # Extract number of models and prepare containers
     n_models = m_true.shape[1]
