@@ -58,15 +58,17 @@ def test_z_score_contraction(random_estimates, random_targets):
     assert len(out.axes) == num_variables(random_estimates)
     assert out.axes[1].title._text == "beta_1"
 
+
 def test_pairs_samples(random_priors):
     out = bf.diagnostics.plots.pairs_samples(
-        samples = random_priors,
-        variable_keys = ["beta", "sigma"],
+        samples=random_priors,
+        variable_keys=["beta", "sigma"],
     )
     num_vars = random_priors["sigma"].shape[-1] + random_priors["beta"].shape[-1]
     assert out.axes.shape == (num_vars, num_vars)
     assert out.axes[0, 0].get_ylabel() == "beta_0"
     assert out.axes[2, 2].get_xlabel() == "sigma"
+
 
 def test_pairs_posterior(random_estimates, random_targets, random_priors):
     # basic functionality: automatic variable names
