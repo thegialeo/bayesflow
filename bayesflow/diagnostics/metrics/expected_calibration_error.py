@@ -41,15 +41,15 @@ def expected_calibration_error(
     -------
     result : dict
         Dictionary containing:
-        - "values" : float or np.ndarray
+        - "values" : np.ndarray
             The expected calibration error per model
         - "metric_name" : str
             The name of the metric ("Expected Calibration Error").
         - "model_names" : str
             The (inferred) variable names.
-        - "probs_true": (optional) list:
+        - "probs_true": (optional) list[np.ndarray]:
             Outputs of ``sklearn.calibration.calibration_curve()`` per model
-        - "probs_pred": (optional) list:
+        - "probs_pred": (optional) list[np.ndarray]:
             Outputs of ``sklearn.calibration.calibration_curve()`` per model
     """
 
@@ -89,7 +89,7 @@ def expected_calibration_error(
         probs_true.append(prob_true)
         probs_pred.append(prob_pred)
 
-    output = dict(values=ece, metric_name="Expected Calibration Error", model_names=model_names)
+    output = dict(values=np.array(ece), metric_name="Expected Calibration Error", model_names=model_names)
 
     if return_probs:
         output["probs_true"] = probs_true
