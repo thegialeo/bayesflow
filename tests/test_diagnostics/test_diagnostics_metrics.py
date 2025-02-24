@@ -1,4 +1,5 @@
 import bayesflow as bf
+import pytest
 
 
 def num_variables(x: dict):
@@ -47,3 +48,26 @@ def test_root_mean_squared_error(random_estimates, random_targets):
     assert out["values"].shape == (num_variables(random_estimates),)
     assert out["metric_name"] == "NRMSE"
     assert out["variable_names"] == ["beta_0", "beta_1", "sigma"]
+
+
+def test_expected_calibration_error(pred_models, true_models, model_names):
+    out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models, model_names=model_names)
+    assert list(out.keys()) == ["values", "metric_name", "model_names"]
+    assert out["values"].shape == (pred_models.shape[-1],)
+    assert out["metric_name"] == "Expected Calibration Error"
+    assert out["model_names"] == [r"$\mathcal{M}_0$", r"$\mathcal{M}_1$", r"$\mathcal{M}_2$"]
+
+    # returns probs?
+    out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models, return_probs=True)
+    assert list(out.keys()) == ["values", "metric_name", "model_names", "probs_true", "probs_pred"]
+    assert len(out["probs_true"]) == pred_models.shape[-1]
+    assert len(out["probs_pred"]) == pred_models.shape[-1]
+    # default: auto model names
+    assert out["model_names"] == ["M_0", "M_1", "M_2"]
+
+    # handles incorrect input?
+    with pytest.raises(Exception):
+        out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models, model_names=["a"])
+
+    with pytest.raises(Exception):
+        out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models.transpose)

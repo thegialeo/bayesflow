@@ -4,7 +4,6 @@ from . import (
     numpy_utils,
 )
 from .callbacks import detailed_loss_callback
-from .comp_utils import expected_calibration_error
 from .devices import devices
 from .dict_utils import (
     convert_args,

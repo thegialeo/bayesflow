@@ -1,5 +1,6 @@
 import numpy as np
 import pytest
+from bayesflow.utils.numpy_utils import softmax
 
 
 @pytest.fixture()
@@ -31,3 +32,22 @@ def random_priors():
         "sigma": np.random.standard_normal(size=(64, 1)),
         "y": np.random.standard_normal(size=(64, 3, 1)),
     }
+
+
+@pytest.fixture()
+def model_names():
+    return [r"$\mathcal{M}_0$", r"$\mathcal{M}_1$", r"$\mathcal{M}_2$"]
+
+
+@pytest.fixture()
+def true_models():
+    true_models = np.random.choice(3, 100)
+    true_models = np.eye(3)[true_models].astype(np.int32)
+    return true_models
+
+
+@pytest.fixture()
+def pred_models(true_models):
+    pred_models = np.random.normal(loc=true_models)
+    pred_models = softmax(pred_models, axis=-1)
+    return pred_models

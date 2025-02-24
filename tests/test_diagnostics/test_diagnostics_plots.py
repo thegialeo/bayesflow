@@ -102,3 +102,18 @@ def test_pairs_posterior(random_estimates, random_targets, random_priors):
             priors=random_priors,
             dataset_id=[1, 3],
         )
+
+
+def test_mc_calibration(pred_models, true_models, model_names):
+    out = bf.diagnostics.plots.mc_calibration(pred_models, true_models, model_names=model_names)
+    assert len(out.axes) == pred_models.shape[-1]
+    assert out.axes[0].get_ylabel() == "True Probability"
+    assert out.axes[0].get_xlabel() == "Predicted Probability"
+    assert out.axes[-1].get_title() == r"$\mathcal{M}_2$"
+
+
+def test_mc_confusion_matrix(pred_models, true_models, model_names):
+    out = bf.diagnostics.plots.mc_confusion_matrix(pred_models, true_models, model_names, normalize="true")
+    assert out.axes[0].get_ylabel() == "True model"
+    assert out.axes[0].get_xlabel() == "Predicted model"
+    assert out.axes[0].get_title() == "Confusion Matrix"
