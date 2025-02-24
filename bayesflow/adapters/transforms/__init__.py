@@ -16,3 +16,7 @@ from .rename import Rename
 from .standardize import Standardize
 from .to_array import ToArray
 from .transform import Transform
+
+from ...utils._docs import _add_imports_to_all
+
+_add_imports_to_all(include_modules=["transforms"])

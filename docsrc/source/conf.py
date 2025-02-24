@@ -90,7 +90,7 @@ autodoc_default_options = {
 # do not ignore __all__, use it to determine public members
 autosummary_ignore_module_all = False
 # include imported members in autosummary
-autosummary_imported_members = True
+autosummary_imported_members = False
 # selects content to insert into the main body of an autoclass directive.
 autoclass_content = "both"
 
