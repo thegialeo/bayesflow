@@ -153,38 +153,18 @@ class FilterTransform(Transform):
         return data
 
     def _should_transform(self, key: str, value: np.ndarray, inverse: bool = False) -> bool:
-        match self.predicate, self.include, self.exclude:
-            case None, None, None:
+        if self.predicate:
+            if self.exclude and key in self.exclude:
+                return False
+            if self.include and key in self.include:
                 return True
-
-            case None, None, exclude:
-                return key not in exclude
-
-            case None, include, None:
-                return key in include
-
-            case None, include, exclude:
-                return key in include and key not in exclude
-
-            case predicate, None, None:
-                return predicate(key, value, inverse=inverse)
-
-            case predicate, None, exclude:
-                if key in exclude:
-                    return False
-                return predicate(key, value, inverse=inverse)
-
-            case predicate, include, None:
-                if key in include:
-                    return True
-                return predicate(key, value, inverse=inverse)
-
-            case predicate, include, exclude:
-                if key in exclude:
-                    return False
-                if key in include:
-                    return True
-                return predicate(key, value, inverse=inverse)
+            return self.predicate(key, value, inverse=inverse)
+        else:
+            if self.include and key in self.include:
+                return True
+            if self.exclude and key in self.exclude:
+                return False
+            return not self.include and not self.exclude
 
     def _apply_transform(self, key: str, value: np.ndarray, inverse: bool = False, **kwargs) -> np.ndarray:
         if key not in self.transform_map:
