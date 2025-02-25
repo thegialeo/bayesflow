@@ -16,7 +16,7 @@ from .elementwise_transform import ElementwiseTransform
 @serializable(package="bayesflow.adapters")
 class Constrain(ElementwiseTransform):
     """
-    Constrains neural network predictions of a data variable to specificied bounds.
+    Constrains neural network predictions of a data variable to specified bounds.
 
     Parameters:
         String containing the name of the data variable to be transformed e.g. "sigma". See examples below.
@@ -28,14 +28,22 @@ class Constrain(ElementwiseTransform):
             - Double bounded methods: sigmoid, expit, (default = sigmoid)
             - Lower bound only methods: softplus, exp, (default = softplus)
             - Upper bound only methods: softplus, exp, (default = softplus)
-
+        inclusive: Indicates which bounds are inclusive (or exclusive).
+            - "lower": Lower bound is inclusive, upper bound is exclusive.
+            - "upper": Lower bound is exclusive, upper bound is inclusive.
+            - "both": Lower and upper bounds are inclusive.
+            - "none": Lower and upper bounds are exclusive.
+            - "default": Inclusive bounds are determined by the method.
+                - Double bounded methods are lower inclusive and upper exclusive.
+                - Single bounded methods are inclusive at the specified bound.
+        epsilon: Small value to ensure inclusive bounds are not violated.
 
 
     Examples:
         1) Let sigma be the standard deviation of a normal distribution,
         then sigma should always be greater than zero.
 
-        Useage:
+        Usage:
         adapter = (
             bf.Adapter()
             .constrain("sigma", lower=0)
@@ -45,14 +53,19 @@ class Constrain(ElementwiseTransform):
         [0,1] then we would constrain the neural network to estimate p in the following way.
 
         Usage:
-        adapter = (
-            bf.Adapter()
-            .constrain("p", lower=0, upper=1, method = "sigmoid")
-            )
+        >>> import bayesflow as bf
+        >>> adapter = bf.Adapter()
+        >>> adapter.constrain("p", lower=0, upper=1, method="sigmoid", inclusive="both")
     """
 
     def __init__(
-        self, *, lower: int | float | np.ndarray = None, upper: int | float | np.ndarray = None, method: str = "default"
+        self,
+        *,
+        lower: int | float | np.ndarray = None,
+        upper: int | float | np.ndarray = None,
+        method: str = "default",
+        inclusive: str = "default",
+        epsilon: float = 1e-16,
     ):
         super().__init__()
 
@@ -63,6 +76,9 @@ class Constrain(ElementwiseTransform):
             # double bounded case
             if np.any(lower >= upper):
                 raise ValueError("The lower bound must be strictly less than the upper bound.")
+
+            if inclusive == "default":
+                inclusive = "lower"
 
             match method:
                 case "default" | "sigmoid" | "expit" | "logit":
@@ -78,6 +94,9 @@ class Constrain(ElementwiseTransform):
                     raise TypeError(f"Expected a method name, got {other!r}.")
         elif lower is not None:
             # lower bounded case
+            if inclusive == "default":
+                inclusive = "lower"
+
             match method:
                 case "default" | "softplus":
 
@@ -99,6 +118,9 @@ class Constrain(ElementwiseTransform):
                     raise TypeError(f"Expected a method name, got {other!r}.")
         else:
             # upper bounded case
+            if inclusive == "default":
+                inclusive = "upper"
+
             match method:
                 case "default" | "softplus":
 
@@ -118,6 +140,25 @@ class Constrain(ElementwiseTransform):
                     raise ValueError(f"Unsupported method name for single bounded constraint: '{name}'.")
                 case other:
                     raise TypeError(f"Expected a method name, got {other!r}.")
+
+        match inclusive:
+            case "lower":
+                if lower is None:
+                    raise ValueError("Inclusive bounds must be specified.")
+                lower -= epsilon
+            case "upper":
+                if upper is None:
+                    raise ValueError("Inclusive bounds must be specified.")
+                upper += epsilon
+            case True | "both":
+                if lower is None or upper is None:
+                    raise ValueError("Inclusive bounds must be specified.")
+                lower -= epsilon
+                upper += epsilon
+            case False | None | "none":
+                pass
+            case other:
+                raise ValueError(f"Unsupported value for 'inclusive': {other!r}.")
 
         self.lower = lower
         self.upper = upper

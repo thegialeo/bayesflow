@@ -233,12 +233,17 @@ class Adapter(MutableSequence[Transform]):
         lower: int | float | np.ndarray = None,
         upper: int | float | np.ndarray = None,
         method: str = "default",
+        inclusive: str = "default",
+        epsilon: float = 1e-16,
     ):
         if isinstance(keys, str):
             keys = [keys]
 
         transform = MapTransform(
-            transform_map={key: Constrain(lower=lower, upper=upper, method=method) for key in keys}
+            transform_map={
+                key: Constrain(lower=lower, upper=upper, method=method, inclusive=inclusive, epsilon=epsilon)
+                for key in keys
+            }
         )
         self.transforms.append(transform)
         return self
