@@ -141,32 +141,34 @@ class Constrain(ElementwiseTransform):
                 case other:
                     raise TypeError(f"Expected a method name, got {other!r}.")
 
+        self.lower = lower
+        self.upper = upper
+        self.method = method
+        self.inclusive = inclusive
+        self.epsilon = epsilon
+
+        self.constrain = constrain
+        self.unconstrain = unconstrain
+
+        # do this last to avoid serialization issues
         match inclusive:
             case "lower":
                 if lower is None:
                     raise ValueError("Inclusive bounds must be specified.")
-                lower -= epsilon
+                lower = lower - epsilon
             case "upper":
                 if upper is None:
                     raise ValueError("Inclusive bounds must be specified.")
-                upper += epsilon
+                upper = upper + epsilon
             case True | "both":
                 if lower is None or upper is None:
                     raise ValueError("Inclusive bounds must be specified.")
-                lower -= epsilon
-                upper += epsilon
+                lower = lower - epsilon
+                upper = upper + epsilon
             case False | None | "none":
                 pass
             case other:
                 raise ValueError(f"Unsupported value for 'inclusive': {other!r}.")
-
-        self.lower = lower
-        self.upper = upper
-
-        self.method = method
-
-        self.constrain = constrain
-        self.unconstrain = unconstrain
 
     @classmethod
     def from_config(cls, config: dict, custom_objects=None) -> "Constrain":
@@ -177,6 +179,8 @@ class Constrain(ElementwiseTransform):
             "lower": self.lower,
             "upper": self.upper,
             "method": self.method,
+            "inclusive": self.inclusive,
+            "epsilon": self.epsilon,
         }
 
     def forward(self, data: np.ndarray, **kwargs) -> np.ndarray:
