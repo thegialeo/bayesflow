@@ -1,7 +1,7 @@
 import keras
 from keras.saving import register_keras_serializable as serializable
 
-from bayesflow.utils import keras_kwargs, serialize_value_or_type, deserialize_value_or_type
+from bayesflow.utils import keras_kwargs
 from bayesflow.types import Tensor
 from .single_coupling import SingleCoupling
 from ..invertible_layer import InvertibleLayer

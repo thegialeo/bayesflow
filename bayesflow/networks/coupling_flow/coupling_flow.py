@@ -2,7 +2,7 @@ import keras
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from bayesflow.utils import find_permutation, keras_kwargs, serialize_value_or_type, deserialize_value_or_type
+from bayesflow.utils import find_permutation, keras_kwargs
 
 from .actnorm import ActNorm
 from .couplings import DualCoupling

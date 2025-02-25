@@ -7,7 +7,7 @@ from keras.saving import (
 import numpy as np
 
 from bayesflow.types import Tensor
-from bayesflow.utils import find_network, keras_kwargs, serialize_value_or_type, deserialize_value_or_type
+from bayesflow.utils import find_network, keras_kwargs
 
 
 from ..inference_network import InferenceNetwork
