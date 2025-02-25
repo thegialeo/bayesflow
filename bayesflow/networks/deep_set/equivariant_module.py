@@ -5,7 +5,7 @@ from keras import ops, layers
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from bayesflow.utils import keras_kwargs
+from bayesflow.utils.decorators import sanitize_input_shape
 from .invariant_module import InvariantModule
 
 
@@ -30,7 +30,6 @@ class EquivariantModule(keras.Layer):
         dropout: int | float | None = 0.05,
         layer_norm: bool = True,
         spectral_normalization: bool = False,
-        **kwargs,
     ):
         """Creates an equivariant module according to [1] which combines equivariant transforms
         with nested invariant transforms, thereby enabling interactions between set members.
@@ -40,7 +39,7 @@ class EquivariantModule(keras.Layer):
         #TODO
         """
 
-        super().__init__(**keras_kwargs(kwargs))
+        super().__init__()
 
         # Invariant module to increase expressiveness by concatenating outputs to each set member
         self.invariant_module = InvariantModule(
@@ -51,7 +50,6 @@ class EquivariantModule(keras.Layer):
             dropout=dropout,
             pooling=pooling,
             spectral_normalization=spectral_normalization,
-            **kwargs,
         )
 
         # Fully connected net + residual connection for an equivariant transform applied to each set member
@@ -69,6 +67,7 @@ class EquivariantModule(keras.Layer):
 
         self.layer_norm = layers.LayerNormalization() if layer_norm else None
 
+    @sanitize_input_shape
     def build(self, input_shape):
         self.call(keras.ops.zeros(input_shape))
 

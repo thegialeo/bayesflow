@@ -22,7 +22,7 @@ def pytest_make_parametrize_id(config, val, argname):
     return f"{argname}={repr(val)}"
 
 
-@pytest.fixture(params=[2, 3], scope="session", autouse=True)
+@pytest.fixture(params=[2, 3], scope="session")
 def batch_size(request):
     return request.param
 
