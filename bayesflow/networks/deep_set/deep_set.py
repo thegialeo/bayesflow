@@ -42,7 +42,6 @@ class DeepSet(SummaryNetwork):
         """
         #TODO
         """
-
         super().__init__(**kwargs)
         self.initialize_config()
 

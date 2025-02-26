@@ -76,6 +76,7 @@ class FreeFormFlow(InferenceNetwork):
             Additional keyword arguments
         """
         super().__init__(base_distribution=base_distribution, **keras_kwargs(kwargs))
+        self.initialize_config()
 
         if encoder_subnet == "mlp":
             encoder_subnet_kwargs = FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG.copy()
