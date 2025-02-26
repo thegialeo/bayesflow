@@ -51,7 +51,7 @@ class ConfigurableHiddenBlock(keras.layers.Layer):
     def build(self, input_shape):
         self.dense.build(input_shape)
 
-        if input_shape[-1] != self.units:
+        if input_shape[-1] != self.units and self.residual:
             self.projector = self.add_weight(
                 shape=(input_shape[-1], self.units), initializer="glorot_uniform", trainable=True, name="projector"
             )
