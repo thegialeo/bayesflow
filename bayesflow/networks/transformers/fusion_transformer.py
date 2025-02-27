@@ -120,6 +120,7 @@ class FusionTransformer(SummaryNetwork):
             raise ValueError("Argument `template_dim` should be in ['lstm', 'gru']")
 
         self.output_projector = keras.layers.Dense(summary_dim)
+        self.summary_dim = summary_dim
 
     def call(self, input_sequence: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Compresses the input sequence into a summary vector of size `summary_dim`.
