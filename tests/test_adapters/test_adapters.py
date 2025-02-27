@@ -34,39 +34,56 @@ def test_serialize_deserialize(adapter, custom_objects, random_data):
 
 
 def test_constrain():
+    # check if constraint-implied transforms are applied correctly
     import numpy as np
     import warnings
     from bayesflow.adapters import Adapter
 
     data = {
-        "x1": np.random.exponential(1, size=(32, 1)),
-        "x2": -np.random.exponential(1, size=(32, 1)),
-        "x3": np.random.beta(0.5, 0.5, size=(32, 1)),
-        "x4": np.vstack((np.zeros(shape=(16, 1)), np.ones(shape=(16, 1)))),
-        "x5": np.zeros(shape=(32, 1)),
-        "x6": np.zeros(shape=(32, 1)),
+        "x_lower_cont": np.random.exponential(1, size=(32, 1)),
+        "x_upper_cont": -np.random.exponential(1, size=(32, 1)),
+        "x_both_cont": np.random.beta(0.5, 0.5, size=(32, 1)),
+        "x_lower_disc1": np.zeros(shape=(32, 1)),
+        "x_lower_disc2": np.zeros(shape=(32, 1)),
+        "x_upper_disc1": np.ones(shape=(32, 1)),
+        "x_upper_disc2": np.ones(shape=(32, 1)),
+        "x_both_disc1": np.vstack((np.zeros(shape=(16, 1)), np.ones(shape=(16, 1)))),
+        "x_both_disc2": np.vstack((np.zeros(shape=(16, 1)), np.ones(shape=(16, 1)))),
     }
 
     adapter = (
         Adapter()
-        .constrain("x1", lower=0)
-        .constrain("x2", upper=0)
-        .constrain("x3", lower=0, upper=1)
-        .constrain("x4", lower=0, upper=1, inclusive="both")
-        .constrain("x5", lower=0, inclusive="none")
-        .constrain("x6", upper=0, inclusive="none")
+        .constrain("x_lower_cont", lower=0)
+        .constrain("x_upper_cont", upper=0)
+        .constrain("x_both_cont", lower=0, upper=1)
+        .constrain("x_lower_disc1", lower=0, inclusive="lower")
+        .constrain("x_lower_disc2", lower=0, inclusive="none")
+        .constrain("x_upper_disc1", upper=1, inclusive="upper")
+        .constrain("x_upper_disc2", upper=1, inclusive="none")
+        .constrain("x_both_disc1", lower=0, upper=1, inclusive="both")
+        .constrain("x_both_disc2", lower=0, upper=1, inclusive="none")
     )
 
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)
         result = adapter(data)
 
-    # checks if transformations indeed have been applied
-    assert result["x1"].min() < 0.0
-    assert result["x2"].max() > 0.0
-    assert result["x3"].min() < 0.0
-    assert result["x3"].max() > 1.0
-    assert np.isfinite(result["x4"].min())
-    assert np.isfinite(result["x4"].max())
-    assert np.isneginf(result["x5"][0])
-    assert np.isinf(result["x6"][0])
+    # continuous variables should not have boundary issues
+    assert result["x_lower_cont"].min() < 0.0
+    assert result["x_upper_cont"].max() > 0.0
+    assert result["x_both_cont"].min() < 0.0
+    assert result["x_both_cont"].max() > 1.0
+
+    # discrete variables at the boundaries should not have issues
+    # if inclusive is set properly
+    assert np.isfinite(result["x_lower_disc1"].min())
+    assert np.isfinite(result["x_upper_disc1"].max())
+    assert np.isfinite(result["x_both_disc1"].min())
+    assert np.isfinite(result["x_both_disc1"].max())
+
+    # discrete variables at the boundaries should have issues
+    # if inclusive is not set properly
+    assert np.isneginf(result["x_lower_disc2"][0])
+    assert np.isinf(result["x_upper_disc2"][0])
+    assert np.isneginf(result["x_both_disc2"][0])
+    assert np.isinf(result["x_both_disc2"][-1])
