@@ -80,7 +80,6 @@ class SetTransformer(SummaryNetwork):
         """
 
         super().__init__(**kwargs)
-        self.summary_dim = summary_dim
 
         check_lengths_same(embed_dims, num_heads, mlp_depths, mlp_widths)
 
@@ -126,6 +125,7 @@ class SetTransformer(SummaryNetwork):
         )
         self.pooling_by_attention = PoolingByMultiHeadAttention(**(global_attention_settings | pooling_settings))
         self.output_projector = keras.layers.Dense(summary_dim)
+        self.summary_dim = summary_dim
 
     def call(self, input_set: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Compresses the input sequence into a summary vector of size `summary_dim`.
