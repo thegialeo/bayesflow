@@ -29,14 +29,13 @@ class Constrain(ElementwiseTransform):
             - Lower bound only methods: softplus, exp, (default = softplus)
             - Upper bound only methods: softplus, exp, (default = softplus)
         inclusive: Indicates which bounds are inclusive (or exclusive).
+            - "both" (default): Both lower and upper bounds are inclusive.
             - "lower": Lower bound is inclusive, upper bound is exclusive.
             - "upper": Lower bound is exclusive, upper bound is inclusive.
-            - "both": Lower and upper bounds are inclusive.
-            - "none": Lower and upper bounds are exclusive.
-            - "default": Inclusive bounds are determined by the method.
-                - Double bounded methods are lower inclusive and upper exclusive.
-                - Single bounded methods are inclusive at the specified bound.
+            - "none": Both lower and upper bounds are exclusive.
         epsilon: Small value to ensure inclusive bounds are not violated.
+            Current default is 1e-15 as this ensures finite outcomes
+            with the default transformations applied to data exactly at the boundaries.
 
 
     Examples:
@@ -64,8 +63,8 @@ class Constrain(ElementwiseTransform):
         lower: int | float | np.ndarray = None,
         upper: int | float | np.ndarray = None,
         method: str = "default",
-        inclusive: str = "default",
-        epsilon: float = 1e-16,
+        inclusive: str = "both",
+        epsilon: float = 1e-15,
     ):
         super().__init__()
 
@@ -76,9 +75,6 @@ class Constrain(ElementwiseTransform):
             # double bounded case
             if np.any(lower >= upper):
                 raise ValueError("The lower bound must be strictly less than the upper bound.")
-
-            if inclusive == "default":
-                inclusive = "lower"
 
             match method:
                 case "default" | "sigmoid" | "expit" | "logit":
@@ -94,9 +90,6 @@ class Constrain(ElementwiseTransform):
                     raise TypeError(f"Expected a method name, got {other!r}.")
         elif lower is not None:
             # lower bounded case
-            if inclusive == "default":
-                inclusive = "lower"
-
             match method:
                 case "default" | "softplus":
 
@@ -118,9 +111,6 @@ class Constrain(ElementwiseTransform):
                     raise TypeError(f"Expected a method name, got {other!r}.")
         else:
             # upper bounded case
-            if inclusive == "default":
-                inclusive = "upper"
-
             match method:
                 case "default" | "softplus":
 
@@ -153,18 +143,16 @@ class Constrain(ElementwiseTransform):
         # do this last to avoid serialization issues
         match inclusive:
             case "lower":
-                if lower is None:
-                    raise ValueError("Inclusive bounds must be specified.")
-                lower = lower - epsilon
+                if lower is not None:
+                    lower = lower - epsilon
             case "upper":
-                if upper is None:
-                    raise ValueError("Inclusive bounds must be specified.")
-                upper = upper + epsilon
+                if upper is not None:
+                    upper = upper + epsilon
             case True | "both":
-                if lower is None or upper is None:
-                    raise ValueError("Inclusive bounds must be specified.")
-                lower = lower - epsilon
-                upper = upper + epsilon
+                if lower is not None:
+                    lower = lower - epsilon
+                if upper is not None:
+                    upper = upper + epsilon
             case False | None | "none":
                 pass
             case other:

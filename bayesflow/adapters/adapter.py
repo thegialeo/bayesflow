@@ -233,8 +233,8 @@ class Adapter(MutableSequence[Transform]):
         lower: int | float | np.ndarray = None,
         upper: int | float | np.ndarray = None,
         method: str = "default",
-        inclusive: str = "default",
-        epsilon: float = 1e-16,
+        inclusive: str = "both",
+        epsilon: float = 1e-15,
     ):
         if isinstance(keys, str):
             keys = [keys]
