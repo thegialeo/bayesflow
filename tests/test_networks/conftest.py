@@ -1,11 +1,6 @@
 import pytest
 
 
-@pytest.fixture(params=[1, 4], scope="session")
-def summary_dim(request):
-    return request.param
-
-
 # For the serialization tests, we want to test passing str and type.
 # For all other tests, this is not necessary and would double test time.
 # Therefore, below we specify two variants of each network, one without and
