@@ -81,8 +81,6 @@ class SetTransformer(SummaryNetwork):
 
         super().__init__(**kwargs)
         self.summary_dim = summary_dim
-        self.key_dim = key_dim
-        self.num_attention_blocks = num_attention_blocks
 
         check_lengths_same(embed_dims, num_heads, mlp_depths, mlp_widths)
 

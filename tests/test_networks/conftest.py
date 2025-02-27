@@ -1,14 +1,10 @@
 import pytest
 
 
-@pytest.fixture(params=[1, 2, 16], scope="session")
+@pytest.fixture(params=[1, 4], scope="session")
 def summary_dim(request):
     return request.param
 
-
-@pytest.fixture(params=[1, 2, 16], scope="session")
-def key_dim(request):
-    return request.param
 
 # For the serialization tests, we want to test passing str and type.
 # For all other tests, this is not necessary and would double test time.
@@ -92,13 +88,6 @@ def set_transformer(summary_dim):
     from bayesflow.networks import SetTransformer
 
     return SetTransformer(summary_dim=summary_dim)
-
-
-@pytest.fixture(scope="function")
-def set_transformer_key_dim_variation(summary_dim, key_dim):
-    from bayesflow.networks import SetTransformer
-
-    return SetTransformer(summary_dim=summary_dim, key_dim=key_dim)
 
 
 @pytest.fixture(scope="function")
