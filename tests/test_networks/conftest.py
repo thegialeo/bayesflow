@@ -83,6 +83,7 @@ def lst_net(summary_dim):
 
     return LSTNet(summary_dim=summary_dim)
 
+
 @pytest.fixture(scope="function")
 def set_transformer(summary_dim):
     from bayesflow.networks import SetTransformer
