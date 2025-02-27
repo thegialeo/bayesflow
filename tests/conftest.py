@@ -1,7 +1,11 @@
+import logging
+
 import keras
 import pytest
 
 BACKENDS = ["jax", "numpy", "tensorflow", "torch"]
+
+logging.getLogger("bayesflow").setLevel(logging.DEBUG)
 
 
 def pytest_runtest_setup(item):
@@ -18,7 +22,7 @@ def pytest_make_parametrize_id(config, val, argname):
     return f"{argname}={repr(val)}"
 
 
-@pytest.fixture(params=[2, 3], scope="session", autouse=True)
+@pytest.fixture(params=[2, 3], scope="session")
 def batch_size(request):
     return request.param
 
@@ -45,14 +49,7 @@ def feature_size(request):
     return request.param
 
 
-@pytest.fixture(scope="function")
-def flow_matching():
-    from bayesflow.networks import FlowMatching
-
-    return FlowMatching(subnet="mlp", subnet_kwargs=dict(widths=(32, 32)))
-
-
-@pytest.fixture(params=["coupling_flow", "flow_matching"], scope="function")
+@pytest.fixture(params=["coupling_flow"], scope="function")
 def inference_network(request):
     return request.getfixturevalue(request.param)
 

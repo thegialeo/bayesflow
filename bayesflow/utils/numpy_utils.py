@@ -4,7 +4,7 @@ from scipy import special
 
 def inverse_sigmoid(x: np.ndarray) -> np.ndarray:
     """Inverse of the sigmoid function."""
-    return np.log(x / (1 - x))
+    return np.log(x) - np.log1p(-x)
 
 
 def inverse_shifted_softplus(
@@ -16,7 +16,9 @@ def inverse_shifted_softplus(
 
 def inverse_softplus(x: np.ndarray, beta: float = 1.0, threshold: float = 20.0) -> np.ndarray:
     """Numerically stabilized inverse softplus function."""
-    return np.where(beta * x > threshold, x, np.log(beta * np.expm1(x)) / beta)
+    with np.errstate(over="ignore"):
+        expm1_x = np.expm1(x)
+    return np.where(beta * x > threshold, x, np.log(beta * expm1_x) / beta)
 
 
 def one_hot(indices: np.ndarray, num_classes: int, dtype: str = "float32") -> np.ndarray:
@@ -37,4 +39,6 @@ softmax = special.softmax
 
 def softplus(x: np.ndarray, beta: float = 1.0, threshold: float = 20.0) -> np.ndarray:
     """Numerically stabilized softplus function."""
-    return np.where(beta * x > threshold, x, np.log1p(np.exp(beta * x)) / beta)
+    with np.errstate(over="ignore"):
+        exp_beta_x = np.exp(beta * x)
+    return np.where(beta * x > threshold, x, np.log1p(exp_beta_x) / beta)
