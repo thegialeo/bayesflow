@@ -31,12 +31,12 @@ PARALLEL_BUILDS = os.environ.get("BF_DOCS_SEQUENTIAL_BUILDS", "0") != "1"
 root = Git.root(Path(__file__).parent)
 
 #: CodeRegex matching the branches to build docs for
-BRANCH_REGEX = r"^(master|dev)$"
-# BRANCH_REGEX = r"^(master)$"
+# BRANCH_REGEX = r"^(master|dev)$"
+BRANCH_REGEX = r"^(dev)$"
 
 #: Regex matching the tags to build docs for
-TAG_REGEX = r"^v(1\.1\.6|(?!1\.)[\.0-9]*)$"
-# TAG_REGEX = r"^(v1.1.6)$"
+# TAG_REGEX = r"^v(1\.1\.6|(?!1\.)[\.0-9]*)$"
+TAG_REGEX = r""
 
 #: Output dir relative to project root
 OUTPUT_DIR = "_build_polyversion"
@@ -66,8 +66,8 @@ V1_BACKEND_DEPS = [
 #: Extra dependencies to install for version 2
 V2_BACKEND_DEPS = [
     "jax",
-    "torch",
-    "tensorflow",
+    # "torch",
+    # "tensorflow",
 ]
 
 VENV_DIR_NAME = ".bf_doc_gen_venv"
@@ -170,6 +170,8 @@ class DynamicPip(VirtualPythonEnvironment):
             # the .git directory, which is not copied for the build.
             logger.info("Setting setuptools version 'SETUPTOOLS_SCM_PRETEND_VERSION_FOR_BAYESFLOW=" + name[1:] + "'")
             self.env_vars["SETUPTOOLS_SCM_PRETEND_VERSION_FOR_BAYESFLOW"] = name[1:]
+        else:
+            self.env_vars["KERAS_BACKEND"] = "jax"
 
         super().__init__(path, name, Path(venv) / name, creator=creator)
 
@@ -209,6 +211,31 @@ class DynamicPip(VirtualPythonEnvironment):
         if process.returncode != 0:
             raise BuildError from CalledProcessError(cast(int, process.returncode), " ".join(cmd), out, err)
         return self
+
+    def activate(self, env: dict[str, str]) -> dict[str, str]:
+        """
+        Activate a python venv in a dictionary of environment variables.
+
+        .. warning:: This modifies the given dictionary in-place.
+
+        Parameters
+        ----------
+        env : dict[str, str]
+            The environment variable mapping to update.
+
+        Returns
+        -------
+        dict[str, str]
+            The dictionary that was passed with `env`.
+
+        """
+        env["VIRTUAL_ENV"] = str(self.venv)
+        env["PATH"] = str(self.venv / "bin") + ":" + env["PATH"]
+
+        # add environment variables to environment
+        for key, value in self.env_vars.items():
+            env[key] = value
+        return env
 
 
 # for some reason, VenvWrapper did not work for me (probably something specific
