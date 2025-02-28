@@ -6,7 +6,7 @@ from scipy.stats import binom as scipy_binomial
 def pointwise_ecdf_bands(
     num_estimates: int,
     num_points: int = None,
-    confidence: float = 0.95,
+    confidence: float = 0.99,
     min_point: float = 1e-5,
     max_point: float = 1 - 1e-5,
     max_num_points: int = 1000,

@@ -164,7 +164,14 @@ def calibration_ecdf_from_quantiles(
         titles = ["Stacked ECDFs"]
 
     for ax, title in zip(plot_data["axes"].flat, titles):
-        ax.fill_between(z, L, U, color=fill_color, alpha=0.2, label=rf"{int((1 - alpha) * 100)}$\%$ Confidence Bands")
+        ax.fill_between(
+            z,
+            L,
+            U,
+            color=fill_color,
+            alpha=0.2,
+            label=rf"{int((1 - alpha) * 100)}$\%$ Confidence Bands" + "\n(pointwise)",
+        )
         ax.legend(fontsize=legend_fontsize)
         ax.set_title(title, fontsize=title_fontsize)
 
