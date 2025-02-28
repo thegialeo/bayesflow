@@ -195,6 +195,8 @@ class MultivariateNormalScore(ParametricDistributionRule):
             "D": D,
         }
 
+        logging.warning("MultivariateNormalScore is unstable.")
+
     def get_config(self):
         base_config = super().get_config()
         return base_config | self.config
@@ -219,15 +221,17 @@ class MultivariateNormalScore(ParametricDistributionRule):
 
         return log_prob
 
-    # WIP: incorrect draft
     def sample(self, batch_shape, mean, covariance):
-        batch_size, D = mean.shape
-        # Ensure covariance is (batch_size, D, D)
-        assert covariance.shape == (batch_size, D, D)
+        batch_size, num_samples = batch_shape
+        D = mean.shape[-1]
+        assert mean.shape == (batch_size, D), "mean must have shape (batch_size, D)"
+        assert covariance.shape == (batch_size, D, D), "covariance must have shape (batch_size, D, D)"
 
         # Use Cholesky decomposition to generate samples
         chol = keras.ops.cholesky(covariance)
         normal_samples = keras.random.normal((*batch_shape, D))
-        samples = mean[:, :, None] + keras.ops.einsum("...ijk,...ikl->...ijl", chol, normal_samples)
+
+        scaled_normal = keras.ops.einsum("ijk,ilk->ilj", chol, normal_samples)  # (batch_size, num_samples, D)
+        samples = mean[:, None, :] + scaled_normal
 
         return samples
