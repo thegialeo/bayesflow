@@ -82,7 +82,7 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "imported-members": True,
-    "inherited-members": True,
+    "inherited-members": False,
     "show-inheritance": True,
     "special-members": "__call__",
     "memberorder": "bysource",
