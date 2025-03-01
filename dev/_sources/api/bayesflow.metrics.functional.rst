@@ -28,14 +28,4 @@ bayesflow.metrics.functional
 
   
   
-  .. rubric:: Modules
-
-  .. autosummary::
-    :toctree:
-    :template: custom-module-template.rst
-    :recursive:
-  
-    kernels
-
-  
   

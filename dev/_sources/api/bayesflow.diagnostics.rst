@@ -13,19 +13,19 @@
 
   .. autosummary::
   
-    calibration_ecdf
-    calibration_error
-    calibration_histogram
-    loss
-    mc_calibration
-    mc_confusion_matrix
-    mmd_hypothesis_test
+    recovery
     pairs_posterior
     pairs_samples
-    posterior_contraction
-    recovery
-    root_mean_squared_error
+    calibration_error
+    mmd_hypothesis_test
     z_score_contraction
+    root_mean_squared_error
+    loss
+    posterior_contraction
+    calibration_ecdf
+    mc_calibration
+    calibration_histogram
+    mc_confusion_matrix
   
   
 
@@ -38,16 +38,5 @@
   
 
   
-  
-  .. rubric:: Modules
-
-  .. autosummary::
-    :toctree:
-    :template: custom-module-template.rst
-    :recursive:
-  
-    metrics
-    plots
-
   
   

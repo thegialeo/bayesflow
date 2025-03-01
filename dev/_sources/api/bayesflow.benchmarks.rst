@@ -17,8 +17,8 @@
 
   .. autosummary::
   
-    LotkaVolterra
     TwoMoons
+    LotkaVolterra
   
   
 
@@ -27,15 +27,5 @@
   
 
   
-  
-  .. rubric:: Modules
-
-  .. autosummary::
-    :toctree:
-    :template: custom-module-template.rst
-    :recursive:
-  
-    simulators
-
   
   

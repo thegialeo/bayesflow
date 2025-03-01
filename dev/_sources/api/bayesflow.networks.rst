@@ -17,18 +17,18 @@
 
   .. autosummary::
   
-    CIF
-    ConsistencyModel
-    CouplingFlow
-    DeepSet
-    FlowMatching
-    FreeFormFlow
-    FusionTransformer
-    InferenceNetwork
     LSTNet
     MLP
+    ConsistencyModel
+    FusionTransformer
     SetTransformer
+    CouplingFlow
+    DeepSet
+    FreeFormFlow
+    FlowMatching
     SummaryNetwork
+    CIF
+    InferenceNetwork
     TimeSeriesTransformer
   
   
@@ -38,26 +38,5 @@
   
 
   
-  
-  .. rubric:: Modules
-
-  .. autosummary::
-    :toctree:
-    :template: custom-module-template.rst
-    :recursive:
-  
-    cif
-    consistency_models
-    coupling_flow
-    deep_set
-    embeddings
-    flow_matching
-    free_form_flow
-    inference_network
-    lstnet
-    mlp
-    summary_network
-    transformers
-
   
   

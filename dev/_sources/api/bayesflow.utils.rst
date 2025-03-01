@@ -13,61 +13,60 @@
 
   .. autosummary::
   
-    add_metric
-    add_titles_and_labels
-    batched_call
+    find_recurrent_net
     check_estimates_prior_shapes
-    check_lengths_same
-    concatenate
-    convert_args
-    convert_kwargs
-    deserialize_value_or_type
-    detailed_loss_callback
-    devices
-    expand
-    expand_as
-    expand_left
-    expand_left_as
-    expand_left_to
-    expand_right
-    expand_right_as
-    expand_right_to
-    expand_tile
-    expand_to
-    expected_calibration_error
-    filter_kwargs
-    find_batch_size
-    find_distribution
-    find_inference_network
-    find_memory_budget
+    simultaneous_ecdf_bands
     find_network
     find_permutation
-    find_pooling
-    find_recurrent_net
-    find_summary_network
-    format_bytes
+    find_memory_budget
     integrate
-    jacobian
-    jacobian_trace
-    jvp
-    keras_kwargs
-    make_quadratic
-    optimal_transport
-    pad
-    parse_bytes
-    pickle_load
-    prepare_plot_data
-    prettify_subplots
-    searchsorted
-    serialize_value_or_type
-    simultaneous_ecdf_bands
-    size_of
-    split_arrays
-    split_tensors
-    tile_axis
+    convert_kwargs
+    detailed_loss_callback
+    format_bytes
+    expand_left_to
     tree_concatenate
-    tree_stack
+    filter_kwargs
+    size_of
+    expand_left
     vjp
+    pickle_load
+    convert_args
+    split_tensors
+    expand_right
+    expand_left_as
+    jacobian
+    expand_right_to
+    searchsorted
+    deserialize_value_or_type
+    tree_stack
+    add_titles_and_labels
+    find_summary_network
+    expand
+    expand_right_as
+    serialize_value_or_type
+    parse_bytes
+    find_inference_network
+    check_lengths_same
+    expand_to
+    concatenate
+    jacobian_trace
+    optimal_transport
+    expand_as
+    add_metric
+    tile_axis
+    keras_kwargs
+    pad
+    make_quadratic
+    prepare_plot_data
+    jvp
+    find_distribution
+    devices
+    expand_tile
+    prettify_subplots
+    batched_call
+    find_batch_size
+    find_pooling
+    split_arrays
   
   
 
@@ -88,25 +87,9 @@
     :template: custom-module-template.rst
     :recursive:
   
-    callbacks
-    comp_utils
-    decorators
-    dict_utils
-    dispatch
-    ecdf
-    exceptions
-    functional
-    git
-    hparam_utils
-    io
+    numpy_utils
     keras_utils
     logging
-    numpy_utils
-    plot_utils
-    serialization
-    tensor_utils
-    validators
-    workflow_utils
 
   
   
