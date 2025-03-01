@@ -23,12 +23,12 @@
 
   .. autosummary::
   
-    HierarchicalSimulator
-    LambdaSimulator
-    TwoMoons
-    SequentialSimulator
-    ModelComparisonSimulator
     Simulator
+    SequentialSimulator
+    LambdaSimulator
+    ModelComparisonSimulator
+    HierarchicalSimulator
+    TwoMoons
   
   
 

@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="About us" href="../about.html" />
-    <link rel="prev" title="bayesflow.utils.logging" href="bayesflow.utils.logging.html" />
+    <link rel="prev" title="bayesflow.utils.numpy_utils" href="bayesflow.utils.numpy_utils.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,9 +196,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesflow.workflows</a></li>
@@ -434,16 +434,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.build_graph"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.build_graph()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.build_optimizer"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.build_optimizer()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.compute_diagnostics"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.compute_diagnostics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.default_adapter"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.default_adapter()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_disk"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_disk()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_offline"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_offline()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_online"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_online()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.log_prob"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.make_simulator"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.make_simulator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.plot_diagnostics"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.plot_diagnostics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.sample"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.sample()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.samples_to_data_frame"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.samples_to_data_frame()</span></code></a></li>
@@ -517,11 +514,6 @@ Important for automating diagnostics!</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.build_graph">
-<span class="sig-name descname"><span class="pre">build_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.build_graph" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.build_optimizer">
 <span class="sig-name descname"><span class="pre">build_optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optimizer</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/workflows/basic_workflow.html#BasicWorkflow.build_optimizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.build_optimizer" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
@@ -534,11 +526,6 @@ Important for automating diagnostics!</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.default_adapter">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inference_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/workflows/basic_workflow.html#BasicWorkflow.default_adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.default_adapter" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.fit" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -559,11 +546,6 @@ Important for automating diagnostics!</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.log_prob">
 <span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/bayesflow/workflows/basic_workflow.html#BasicWorkflow.log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.log_prob" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.workflows.BasicWorkflow.make_simulator">
-<span class="sig-name descname"><span class="pre">make_simulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulators_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">callable</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.workflows.BasicWorkflow.make_simulator" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -608,12 +590,12 @@ Important for automating diagnostics!</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesflow.utils.logging.html"
+       href="bayesflow.utils.numpy_utils.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.utils.logging</p>
+        <p class="prev-next-title">bayesflow.utils.numpy_utils</p>
       </div>
     </a>
     <a class="right-next"
@@ -642,16 +624,13 @@ Important for automating diagnostics!</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.build_graph"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.build_graph()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.build_optimizer"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.build_optimizer()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.compute_diagnostics"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.compute_diagnostics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.default_adapter"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.default_adapter()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_disk"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_disk()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_offline"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_offline()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.fit_online"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.fit_online()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.log_prob"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.make_simulator"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.make_simulator()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.plot_diagnostics"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.plot_diagnostics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.sample"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.sample()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.workflows.BasicWorkflow.samples_to_data_frame"><code class="docutils literal notranslate"><span class="pre">BasicWorkflow.samples_to_data_frame()</span></code></a></li>

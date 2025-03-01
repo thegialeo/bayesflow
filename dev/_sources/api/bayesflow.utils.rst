@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    find_recurrent_net
-    check_estimates_prior_shapes
-    simultaneous_ecdf_bands
-    find_network
-    find_permutation
-    find_memory_budget
-    integrate
-    convert_kwargs
     detailed_loss_callback
-    format_bytes
-    expand_left_to
-    tree_concatenate
     filter_kwargs
-    size_of
-    expand_left
-    vjp
-    pickle_load
-    convert_args
-    split_tensors
-    expand_right
-    expand_left_as
-    jacobian
-    expand_right_to
-    searchsorted
-    deserialize_value_or_type
-    tree_stack
-    add_titles_and_labels
-    find_summary_network
-    expand
-    expand_right_as
-    serialize_value_or_type
-    parse_bytes
-    find_inference_network
-    check_lengths_same
     expand_to
-    concatenate
-    jacobian_trace
-    optimal_transport
     expand_as
-    add_metric
-    tile_axis
-    keras_kwargs
-    pad
-    make_quadratic
+    split_arrays
+    searchsorted
+    parse_bytes
+    simultaneous_ecdf_bands
+    find_recurrent_net
+    expand_left
+    pickle_load
     prepare_plot_data
     jvp
-    find_distribution
     devices
-    expand_tile
+    find_distribution
+    expand_left_to
+    jacobian
     prettify_subplots
-    batched_call
+    find_inference_network
+    expand_right_to
+    convert_args
     find_batch_size
+    concatenate
+    size_of
+    jacobian_trace
+    integrate
+    make_quadratic
+    tree_stack
+    optimal_transport
     find_pooling
-    split_arrays
+    serialize_value_or_type
+    check_estimates_prior_shapes
+    deserialize_value_or_type
+    vjp
+    expand_left_as
+    tile_axis
+    expand_tile
+    expand_right
+    find_memory_budget
+    format_bytes
+    find_permutation
+    add_metric
+    pad
+    keras_kwargs
+    find_summary_network
+    find_network
+    convert_kwargs
+    expand_right_as
+    tree_concatenate
+    batched_call
+    check_lengths_same
+    expand
+    add_titles_and_labels
+    split_tensors
   
   
 
@@ -87,9 +87,9 @@
     :template: custom-module-template.rst
     :recursive:
   
-    numpy_utils
     keras_utils
     logging
+    numpy_utils
 
   
   
