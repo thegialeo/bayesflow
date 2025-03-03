@@ -13,7 +13,7 @@ from .continuous_approximator import ContinuousApproximator
 class PointApproximator(ContinuousApproximator):
     """
     Defines a workflow for performing fast posterior or likelihood inference.
-    The distribution is approximated by a point with an feed-forward network and an optional summary network.
+    The distribution is approximated by point estimators with a feed-forward network and an optional summary network.
     """
 
     def estimate(
@@ -27,7 +27,7 @@ class PointApproximator(ContinuousApproximator):
 
         conditions = self.adapter(conditions, strict=False, stage="inference", **kwargs)
         conditions = keras.tree.map_structure(keras.ops.convert_to_tensor, conditions)
-        conditions = {"inference_variables": self._estimate(**conditions)}
+        conditions = {"inference_variables": self._estimate(**conditions, **kwargs)}
         conditions = keras.tree.map_structure(keras.ops.convert_to_numpy, conditions)
         conditions = {
             outer_key: {
@@ -101,5 +101,5 @@ class PointApproximator(ContinuousApproximator):
 
         return self.inference_network(
             conditions=inference_conditions,
-            **filter_kwargs(kwargs, self.inference_network.sample),
+            **filter_kwargs(kwargs, self.inference_network.call),
         )
