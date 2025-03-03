@@ -17,8 +17,8 @@
 
   .. autosummary::
   
-    RootMeanSquaredError
     MaximumMeanDiscrepancy
+    RootMeanSquaredError
   
   
 

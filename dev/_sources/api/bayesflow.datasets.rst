@@ -18,8 +18,8 @@
   .. autosummary::
   
     DiskDataset
-    OnlineDataset
     RoundsDataset
+    OnlineDataset
     OfflineDataset
   
   
