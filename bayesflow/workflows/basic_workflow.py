@@ -181,9 +181,9 @@ class BasicWorkflow(Workflow):
             raise ValueError(f"No simulator found for generating {test_data} data sets.")
 
         if isinstance(self.inference_variables, str):
-            inference_variables = {self.inference_variables: test_data.pop(self.inference_variables)}
+            inference_variables = {self.inference_variables: test_data[self.inference_variables]}
         else:
-            inference_variables = {k: test_data.pop(k) for k in self.inference_variables}
+            inference_variables = {k: test_data[k] for k in self.inference_variables}
 
         post_samples = self.approximator.sample(
             num_samples=num_samples, conditions=test_data, **kwargs.get("approximator_kwargs", {})
@@ -231,9 +231,9 @@ class BasicWorkflow(Workflow):
             raise ValueError(f"No simulator found for generating {test_data} data sets.")
 
         if isinstance(self.inference_variables, str):
-            inference_variables = {self.inference_variables: test_data.pop(self.inference_variables)}
+            inference_variables = {self.inference_variables: test_data[self.inference_variables]}
         else:
-            inference_variables = {k: test_data.pop(k) for k in self.inference_variables}
+            inference_variables = {k: test_data[k] for k in self.inference_variables}
 
         post_samples = self.approximator.sample(
             num_samples=num_samples, conditions=test_data, **kwargs.get("approximator_kwargs", {})

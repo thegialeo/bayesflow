@@ -5,19 +5,20 @@ import matplotlib.pyplot as plt
 
 
 from bayesflow.utils import (
-    expected_calibration_error,
     prepare_plot_data,
     add_titles_and_labels,
     add_metric,
     prettify_subplots,
 )
 
+from bayesflow.diagnostics.metrics import expected_calibration_error
+
 
 def mc_calibration(
     pred_models: dict[str, np.ndarray] | np.ndarray,
     true_models: dict[str, np.ndarray] | np.ndarray,
     model_names: Sequence[str] = None,
-    num_bins: int = 10,
+    n_bins: int = 10,
     label_fontsize: int = 16,
     title_fontsize: int = 18,
     metric_fontsize: int = 14,
@@ -40,7 +41,7 @@ def mc_calibration(
         The one-hot-encoded true model indices per data set.
     model_names       : list or None, optional, default: None
         The model names for nice plot titles. Inferred if None.
-    num_bins          : int, optional, default: 10
+    n_bins          : int, optional, default: 10
         The number of bins to use for the calibration curves (and marginal histograms).
     label_fontsize    : int, optional, default: 16
         The font size of the y-label and y-label texts
@@ -77,17 +78,21 @@ def mc_calibration(
         default_name="M",
     )
 
-    # Compute calibration
-    cal_errors, true_probs, pred_probs = expected_calibration_error(
-        plot_data["targets"], plot_data["estimates"], num_bins
+    # compute ece and probs
+    ece = expected_calibration_error(
+        estimates=pred_models,
+        targets=true_models,
+        model_names=plot_data["variable_names"],
+        n_bins=n_bins,
+        return_probs=True,
     )
 
     for j, ax in enumerate(plot_data["axes"].flat):
         # Plot calibration curve
-        ax.plot(pred_probs[j], true_probs[j], "o-", color=color)
+        ax.plot(ece["probs_pred"][j], ece["probs_true"][j], "o-", color=color)
 
         # Plot PMP distribution over bins
-        uniform_bins = np.linspace(0.0, 1.0, num_bins + 1)
+        uniform_bins = np.linspace(0.0, 1.0, n_bins + 1)
         norm_weights = np.ones_like(plot_data["estimates"]) / len(plot_data["estimates"])
         ax.hist(plot_data["estimates"][:, j], bins=uniform_bins, weights=norm_weights[:, j], color="grey", alpha=0.3)
 
@@ -104,7 +109,7 @@ def mc_calibration(
         add_metric(
             ax,
             metric_text=r"$\widehat{{\mathrm{{ECE}}}}$",
-            metric_value=cal_errors[j],
+            metric_value=ece["values"][j],
             metric_fontsize=metric_fontsize,
         )
 

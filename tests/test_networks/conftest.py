@@ -1,13 +1,6 @@
 import pytest
 
 
-@pytest.fixture()
-def deep_set():
-    from bayesflow.networks import DeepSet
-
-    return DeepSet()
-
-
 # For the serialization tests, we want to test passing str and type.
 # For all other tests, this is not necessary and would double test time.
 # Therefore, below we specify two variants of each network, one without and
@@ -108,7 +101,12 @@ def inference_network(request):
 
 
 @pytest.fixture(
-    params=["typical_point_inference_network", "coupling_flow_subnet", "flow_matching_subnet", "free_form_flow_subnet"],
+    params=[
+        "typical_point_inference_network_subnet",
+        "coupling_flow_subnet",
+        "flow_matching_subnet",
+        "free_form_flow_subnet",
+    ],
     scope="function",
 )
 def inference_network_subnet(request):
@@ -120,23 +118,29 @@ def generative_inference_network(request):
     return request.getfixturevalue(request.param)
 
 
-@pytest.fixture()
-def lst_net():
+@pytest.fixture(scope="function")
+def lst_net(summary_dim):
     from bayesflow.networks import LSTNet
 
-    return LSTNet()
+    return LSTNet(summary_dim=summary_dim)
 
 
-@pytest.fixture()
-def set_transformer():
+@pytest.fixture(scope="function")
+def set_transformer(summary_dim):
     from bayesflow.networks import SetTransformer
 
-    return SetTransformer()
+    return SetTransformer(summary_dim=summary_dim)
 
 
-@pytest.fixture(params=[None, "deep_set", "lst_net", "set_transformer"])
-def summary_network(request):
+@pytest.fixture(scope="function")
+def deep_set(summary_dim):
+    from bayesflow.networks import DeepSet
+
+    return DeepSet(summary_dim=summary_dim)
+
+
+@pytest.fixture(params=[None, "lst_net", "set_transformer", "deep_set"], scope="function")
+def summary_network(request, summary_dim):
     if request.param is None:
         return None
-
     return request.getfixturevalue(request.param)

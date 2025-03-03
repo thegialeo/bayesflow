@@ -10,3 +10,7 @@ from .mlp import MLP
 from .lstnet import LSTNet
 from .summary_network import SummaryNetwork
 from .transformers import SetTransformer, TimeSeriesTransformer, FusionTransformer
+
+from ..utils._docs import _add_imports_to_all
+
+_add_imports_to_all(include_modules=[])

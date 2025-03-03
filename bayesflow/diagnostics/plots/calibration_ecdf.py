@@ -143,9 +143,10 @@ def calibration_ecdf(
 
     # Plot individual ecdf of parameters
     for j in range(ranks.shape[-1]):
-        ecdf_single = np.sort(ranks[:, j])
-        xx = ecdf_single
-        yy = np.arange(1, xx.shape[-1] + 1) / float(xx.shape[-1])
+        xx = np.repeat(np.sort(ranks[:, j]), 2)
+        xx = np.pad(xx, (1, 1), constant_values=(0, 1))
+        yy = np.linspace(0, 1, num=xx.shape[-1] // 2)
+        yy = np.repeat(yy, 2)
 
         # Difference, if specified
         if difference:
