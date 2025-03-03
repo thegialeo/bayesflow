@@ -87,7 +87,7 @@ def typical_point_inference_network_subnet(subnet):
             mean=MeanScore(subnets=dict(value=subnet)),
             median=MedianScore(subnets=dict(value=subnet)),
             quantiles=QuantileScore(subnets=dict(value=subnet)),
-            mvn=MultivariateNormalScore(subnets=dict(mean=subnet), covariance=subnet),
+            mvn=MultivariateNormalScore(subnets=dict(mean=subnet, covariance=subnet)),
         ),
         subnet=subnet,
     )
