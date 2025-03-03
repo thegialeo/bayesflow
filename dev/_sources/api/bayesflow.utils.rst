@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    convert_kwargs
-    simultaneous_ecdf_bands
-    pad
-    tile_axis
-    find_permutation
+    format_bytes
     jacobian
-    batched_call
-    pickle_load
-    split_arrays
-    find_summary_network
-    concatenate
-    expand
+    find_recurrent_net
     serialize_value_or_type
-    prettify_subplots
-    split_tensors
-    find_memory_budget
-    expand_right
     parse_bytes
+    batched_call
+    expand_left_to
+    tree_stack
+    size_of
+    expand_left_as
     prepare_plot_data
+    optimal_transport
+    convert_kwargs
+    jvp
+    expand_right_as
+    add_metric
+    find_batch_size
+    expand_as
+    detailed_loss_callback
+    add_titles_and_labels
+    tile_axis
+    pad
     check_lengths_same
     integrate
-    format_bytes
-    filter_kwargs
-    vjp
-    tree_stack
-    optimal_transport
-    jacobian_trace
-    add_titles_and_labels
-    deserialize_value_or_type
-    expand_left
-    check_estimates_prior_shapes
-    find_recurrent_net
-    find_pooling
-    find_batch_size
-    expand_right_to
-    expand_left_to
-    convert_args
-    expand_as
-    size_of
-    searchsorted
-    expand_tile
     tree_concatenate
-    detailed_loss_callback
-    jvp
-    add_metric
-    devices
-    make_quadratic
-    find_inference_network
-    find_distribution
+    find_pooling
+    expand_right_to
     find_network
-    expand_right_as
-    expand_left_as
-    expand_to
+    split_tensors
+    vjp
+    expand
+    find_memory_budget
+    find_inference_network
+    check_estimates_prior_shapes
+    prettify_subplots
+    find_summary_network
+    make_quadratic
+    convert_args
+    pickle_load
+    simultaneous_ecdf_bands
+    split_arrays
+    filter_kwargs
+    concatenate
+    jacobian_trace
+    find_permutation
+    deserialize_value_or_type
+    devices
     keras_kwargs
+    expand_left
+    expand_right
+    expand_tile
+    expand_to
+    searchsorted
+    find_distribution
   
   
 
@@ -88,8 +88,8 @@
     :recursive:
   
     keras_utils
-    logging
     numpy_utils
+    logging
 
   
   
