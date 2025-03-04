@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    expand_to
-    tree_stack
-    detailed_loss_callback
+    expand_as
+    find_distribution
+    find_batch_size
+    prettify_subplots
+    tile_axis
+    filter_kwargs
+    pad
+    find_memory_budget
+    size_of
+    integrate
+    format_bytes
+    expand_right_as
+    find_permutation
+    keras_kwargs
+    expand_right
     make_quadratic
-    check_estimates_prior_shapes
-    jacobian
-    convert_kwargs
     searchsorted
-    find_network
-    parse_bytes
+    pickle_load
+    simultaneous_ecdf_bands
+    expand_left_to
+    vjp
+    convert_args
+    batched_call
+    add_titles_and_labels
     jacobian_trace
     expand_left_as
-    expand_right
-    batched_call
-    find_summary_network
-    pad
-    prepare_plot_data
-    expand_left
-    find_batch_size
-    size_of
-    convert_args
-    find_memory_budget
-    tile_axis
-    expand
-    add_metric
-    check_lengths_same
-    simultaneous_ecdf_bands
-    find_recurrent_net
-    find_pooling
-    concatenate
+    find_network
+    detailed_loss_callback
     tree_concatenate
-    pickle_load
-    find_distribution
+    convert_kwargs
+    tree_stack
     expand_right_to
-    prettify_subplots
-    keras_kwargs
+    check_lengths_same
     deserialize_value_or_type
-    split_tensors
-    expand_tile
-    serialize_value_or_type
-    format_bytes
+    add_metric
+    find_recurrent_net
     optimal_transport
-    vjp
-    integrate
-    expand_left_to
-    filter_kwargs
+    expand_to
     find_inference_network
-    expand_right_as
-    jvp
+    parse_bytes
     split_arrays
-    add_titles_and_labels
-    find_permutation
+    jvp
+    expand_tile
+    split_tensors
+    jacobian
+    find_pooling
+    expand_left
+    expand
+    check_estimates_prior_shapes
+    serialize_value_or_type
+    concatenate
+    prepare_plot_data
     devices
-    expand_as
+    find_summary_network
   
   
 
