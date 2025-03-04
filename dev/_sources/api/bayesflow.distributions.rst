@@ -17,9 +17,9 @@
 
   .. autosummary::
   
-    Distribution
-    DiagonalNormal
     DiagonalStudentT
+    DiagonalNormal
+    Distribution
   
   
 
