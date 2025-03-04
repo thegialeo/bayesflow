@@ -1,5 +1,5 @@
 from collections.abc import Sequence
-
+from pydantic import BaseModel, Field
 import keras
 from keras.saving import register_keras_serializable as serializable
 
@@ -27,30 +27,27 @@ class FlowMatching(InferenceNetwork):
     [3] Optimal Transport Flow Matching: arXiv:2302.00482
     """
 
-    MLP_DEFAULT_CONFIG = {
-        "widths": (256, 256, 256, 256, 256),
-        "activation": "mish",
-        "kernel_initializer": "he_normal",
-        "residual": True,
-        "dropout": 0.05,
-        "spectral_normalization": False,
-    }
+    class MLPConfig(BaseModel):
+        widths: Sequence[int] = (256,) * 5  #
+        activation: str = "mish"
+        kernel_initializer: str = "he_normal"
+        residual: bool = True
+        dropout: float = Field(default=0.05, le=0.5, ge=0.0)
+        spectral_normalization: bool = False
 
-    OPTIMAL_TRANSPORT_DEFAULT_CONFIG = {
-        "method": "sinkhorn",
-        "cost": "euclidean",
-        "regularization": 0.1,
-        "max_steps": 100,
-        "tolerance": 1e-4,
-    }
+    class OptimalTransportConfig(BaseModel):
+        method: str = "sinkhorn"
+        cost: str = "euclidean"
+        regularization: float = Field(default=0.1, gt=0.0)
+        max_steps: int = Field(default=100, gt=0)
+        tolerance: float = Field(default=1e-4, gt=0.0)
 
-    INTEGRATE_DEFAULT_CONFIG = {
-        "method": "rk45",
-        "steps": "adaptive",
-        "tolerance": 1e-3,
-        "min_steps": 10,
-        "max_steps": 100,
-    }
+    class IntegrationConfig(BaseModel):
+        method: str = "rk45"
+        steps: str | int = "adaptive"
+        tolerance: float = Field(default=1e-3, gt=0.0)
+        min_steps: int = Field(default=10, gt=0)
+        max_steps: int = Field(default=100, gt=0)
 
     def __init__(
         self,
@@ -66,8 +63,8 @@ class FlowMatching(InferenceNetwork):
 
         self.use_optimal_transport = use_optimal_transport
 
-        self.integrate_kwargs = integrate_kwargs or FlowMatching.INTEGRATE_DEFAULT_CONFIG.copy()
-        self.optimal_transport_kwargs = optimal_transport_kwargs or FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG.copy()
+        self.integrate_kwargs = FlowMatching.MLPConfig(**(integrate_kwargs or {}))
+        self.optimal_transport_kwargs = FlowMatching.OptimalTransportConfig(**(optimal_transport_kwargs or {}))
 
         self.loss_fn = keras.losses.get(loss_fn)
 
