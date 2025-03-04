@@ -1,6 +1,6 @@
 import asyncio
 from asyncio.subprocess import PIPE
-from logging import getLogger
+import logging
 from subprocess import CalledProcessError
 import os
 from pathlib import Path
@@ -22,7 +22,9 @@ from typing import (
     cast,
 )
 
-logger = getLogger(__name__)
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 #: Whether to build the docs in parallel
 PARALLEL_BUILDS = os.environ.get("BF_DOCS_SEQUENTIAL_BUILDS", "0") != "1"
@@ -209,6 +211,7 @@ class DynamicPip(VirtualPythonEnvironment):
 
         self.logger.debug("Installation output:\n %s", out)
         if process.returncode != 0:
+            logger.error(err)
             raise BuildError from CalledProcessError(cast(int, process.returncode), " ".join(cmd), out, err)
         return self
 

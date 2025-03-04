@@ -3,9 +3,6 @@
 name: multiversion-docs
 
 on:
-  pull_request:
-    branches:
-      - dev
   workflow_dispatch:
   push:
     branches:
