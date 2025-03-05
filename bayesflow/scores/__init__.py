@@ -1,3 +1,5 @@
+"""Scoring rules for point estimation."""
+
 from .scores import (
     ScoringRule,
     ParametricDistributionRule,

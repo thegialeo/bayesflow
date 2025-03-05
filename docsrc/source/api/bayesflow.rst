@@ -13,9 +13,11 @@
     bayesflow.diagnostics
     bayesflow.distributions
     bayesflow.experimental
+    bayesflow.links
     bayesflow.metrics
     bayesflow.networks
     bayesflow.simulators
+    bayesflow.scores
     bayesflow.types
     bayesflow.utils
     bayesflow.workflows

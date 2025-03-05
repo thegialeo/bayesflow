@@ -12,6 +12,16 @@ import math
 
 
 class ScoringRule:
+    """Base class for scoring rules.
+
+    Scoring rules evaluate the quality of statistical predictions based on the values that materialize
+    when sampling from the true distribution. By minimizing an expected score, estimates with
+    different properties can be obtained.
+
+    To define a custom ``ScoringRule``, inherit from this class and overwrite the score method.
+    For proper serialization, any new constructor arguments must be taken care of in a `get_config` method.
+    """
+
     def __init__(
         self,
         subnets: dict[str, str | type] = None,
@@ -87,6 +97,11 @@ class ScoringRule:
 
 
 class NormedDifferenceScore(ScoringRule):
+    r""":math:`S(\hat \theta, \theta; k) = | \hat \theta - \theta |^k`
+
+    Scores a point estimate with the k-norm of the error.
+    """
+
     def __init__(
         self,
         k: int,
@@ -118,18 +133,35 @@ class NormedDifferenceScore(ScoringRule):
 
 
 class MedianScore(NormedDifferenceScore):
+    r""":math:`S(\hat \theta, \theta) = | \hat \theta - \theta |`
+
+    Scores a predicted median with the absolute error score.
+    """
+
     def __init__(self, **kwargs):
         super().__init__(k=1, **kwargs)
         self.config = {}
 
 
 class MeanScore(NormedDifferenceScore):
+    r""":math:`S(\hat \theta, \theta) = | \hat \theta - \theta |^2`
+
+    Scores a predicted mean with the squared error score.
+    """
+
     def __init__(self, **kwargs):
         super().__init__(k=2, **kwargs)
         self.config = {}
 
 
 class QuantileScore(ScoringRule):
+    r""":math:`S(\hat \theta_i, \theta; \tau_i)
+    = (\hat \theta_i - \theta)(\mathbf{1}_{\hat \theta - \theta > 0} - \tau_i)`
+
+    Scores predicted quantiles :math:`\hat \theta_i` with the quantile score
+    to match the quantile levels :math:`\hat \tau_i`.
+    """
+
     def __init__(self, q: Sequence[float] = None, links=None, **kwargs):
         super().__init__(links=links, **kwargs)
         if q is None:
@@ -165,8 +197,10 @@ class QuantileScore(ScoringRule):
 
 
 class ParametricDistributionRule(ScoringRule):
-    """
-    TODO
+    r""":math:`S(\hat p_\phi, \theta; k) = \log(\hat p_\phi(\theta))`
+
+    Scores a predicted parametric probability distribution with the log-score
+    of the probability of the materialized value.
     """
 
     def __init__(self, **kwargs):
@@ -186,6 +220,11 @@ class ParametricDistributionRule(ScoringRule):
 
 
 class MultivariateNormalScore(ParametricDistributionRule):
+    r""":math:`S(\hat p_{\mu, \Sigma}, \theta; k) = \log( \mathcal N (\theta; \mu, \Sigma))`
+
+    Scores a predicted mean and covariance matrix with the log-score of the probability of the materialized value.
+    """
+
     def __init__(self, D: int = None, links=None, **kwargs):
         super().__init__(links=links, **kwargs)
         self.D = D
