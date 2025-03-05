@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bayesflow.networks.cif.cif &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>bayesflow.experimental.cif.cif &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -43,9 +43,9 @@
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bayesflow/networks/cif/cif';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bayesflow/experimental/cif/cif';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="canonical" href="https://www.bayesflow.org/_modules/bayesflow/networks/cif/cif.html" />
+    <link rel="canonical" href="https://www.bayesflow.org/_modules/bayesflow/experimental/cif/cif.html" />
     <link rel="icon" href="../../../../_static/bayesflow_hex.ico"/>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -184,6 +184,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/bayesflow.distributions.html">bayesflow.distributions</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../api/bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
 </ul>
 </details></li>
@@ -195,9 +200,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/bayesflow.simulators.html">bayesflow.simulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/bayesflow.types.html">bayesflow.types</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../api/bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/bayesflow.workflows.html">bayesflow.workflows</a></li>
@@ -219,7 +224,7 @@
    
   <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
   <ul>
-      <li><a href="/dev/_modules/bayesflow/networks/cif/cif.html" class="current">dev</a></li>
+      <li><a href="/dev/_modules/bayesflow/experimental/cif/cif.html" class="current">dev</a></li>
   </ul>
   
 </div>
@@ -291,7 +296,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/issues/new?title=Issue%20on%20page%20%2F_modules/bayesflow/networks/cif/cif.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/issues/new?title=Issue%20on%20page%20%2F_modules/bayesflow/experimental/cif/cif.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,20 +374,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for bayesflow.networks.cif.cif</h1><div class="highlight"><pre>
+  <h1>Source code for bayesflow.experimental.cif.cif</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">keras.saving</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_keras_serializable</span> <span class="k">as</span> <span class="n">serializable</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shape</span><span class="p">,</span> <span class="n">Tensor</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..inference_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceNetwork</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..coupling_flow</span><span class="w"> </span><span class="kn">import</span> <span class="n">CouplingFlow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks.inference_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks.coupling_flow</span><span class="w"> </span><span class="kn">import</span> <span class="n">CouplingFlow</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.conditional_gaussian</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConditionalGaussian</span>
 
 
 <div class="viewcode-block" id="CIF">
-<a class="viewcode-back" href="../../../../api/bayesflow.networks.html#bayesflow.networks.CIF">[docs]</a>
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.CIF">[docs]</a>
 <span class="nd">@serializable</span><span class="p">(</span><span class="n">package</span><span class="o">=</span><span class="s2">&quot;bayesflow.networks&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">CIF</span><span class="p">(</span><span class="n">InferenceNetwork</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a continuously indexed flow (CIF) with a `CouplingFlow`</span>
@@ -417,7 +422,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">q_dist</span> <span class="o">=</span> <span class="n">ConditionalGaussian</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">pq_depth</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">pq_width</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">pq_activation</span><span class="p">)</span>
 
 <div class="viewcode-block" id="CIF.build">
-<a class="viewcode-back" href="../../../../api/bayesflow.networks.html#bayesflow.networks.CIF.build">[docs]</a>
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.CIF.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xz_shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">,</span> <span class="n">conditions_shape</span><span class="p">:</span> <span class="n">Shape</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bijection</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">,</span> <span class="n">conditions_shape</span><span class="o">=</span><span class="n">conditions_shape</span><span class="p">)</span>
@@ -426,7 +431,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="CIF.call">
-<a class="viewcode-back" href="../../../../api/bayesflow.networks.html#bayesflow.networks.CIF.call">[docs]</a>
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.CIF.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">xz</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
@@ -476,7 +481,7 @@ document.write(`
         <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">log_pu</span>
 
 <div class="viewcode-block" id="CIF.compute_metrics">
-<a class="viewcode-back" href="../../../../api/bayesflow.networks.html#bayesflow.networks.CIF.compute_metrics">[docs]</a>
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.CIF.compute_metrics">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">compute_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="n">base_metrics</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 

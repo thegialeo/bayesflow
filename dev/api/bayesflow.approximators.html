@@ -185,6 +185,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
 </ul>
 </details></li>
@@ -196,9 +201,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
@@ -480,11 +485,11 @@ document.write(`
 <p class="rubric">Classes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.approximators.ContinuousApproximator" title="bayesflow.approximators.ContinuousApproximator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousApproximator</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Defines a workflow for performing fast posterior or likelihood inference.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.approximators.Approximator" title="bayesflow.approximators.Approximator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Approximator</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.approximators.Approximator" title="bayesflow.approximators.Approximator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Approximator</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.approximators.ContinuousApproximator" title="bayesflow.approximators.ContinuousApproximator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousApproximator</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Defines a workflow for performing fast posterior or likelihood inference.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.approximators.ModelComparisonApproximator" title="bayesflow.approximators.ModelComparisonApproximator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelComparisonApproximator</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Defines an approximator for model (simulator) comparison, where the (discrete) posterior model probabilities are learned with a classifier.</p></td>
@@ -519,187 +524,61 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.Approximator.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyDataset</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/approximator.html#Approximator.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.Approximator.fit" title="Link to this definition">#</a></dt>
-<dd><p>Trains the model for a fixed number of epochs (dataset iterations).</p>
-<dl>
-<dt>Args:</dt><dd><dl>
-<dt>x: Input data. It can be:</dt><dd><ul class="simple">
-<li><p>A NumPy array (or array-like), or a list of arrays</p></li>
-</ul>
-<p>(in case the model has multiple inputs).
-- A backend-native tensor, or a list of tensors
-(in case the model has multiple inputs).
-- A dict mapping input names to the corresponding array/tensors,
-if the model has named inputs.
-- A <cite>keras.utils.PyDataset</cite> returning <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>tf.data.Dataset</cite> yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite>
-or <cite>(inputs, targets, sample_weights)</cite>.
-- A Python generator function yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dd><p>Trains the approximator on the provided dataset or on-demand data generated from the given simulator.
+If <cite>dataset</cite> is not provided, a dataset is built from the <cite>simulator</cite>.
+If the model has not been built, it will be built using a batch from the dataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataset</strong><span class="classifier">keras.utils.PyDataset, optional</span></dt><dd><p>A dataset containing simulations for training. If provided, <cite>simulator</cite> must be None.</p>
 </dd>
-<dt>y: Target data. Like the input data <cite>x</cite>, it can be either NumPy</dt><dd><p>array(s) or backend-native tensor(s). If <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or a Python generator function,
-<cite>y</cite> should not be specified since targets will be obtained from
-<cite>x</cite>.</p>
+<dt><strong>simulator</strong><span class="classifier">Simulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
 </dd>
-<dt>batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per gradient update.
-If unspecified, <cite>batch_size</cite> will default to 32.
-Do not specify the <cite>batch_size</cite> if your input data <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):
+batch_size : int or None, default=’auto’</p>
+<blockquote>
+<div><p>Number of samples per gradient update. Do not specify if <cite>dataset</cite> is provided as a
+<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>, <cite>torch.utils.data.DataLoader</cite>, or a generator function.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>epochs<span class="classifier">int, default=1</span></dt><dd><p>Number of epochs to train the model.</p>
 </dd>
-<dt>epochs: Integer. Number of epochs to train the model.</dt><dd><p>An epoch is an iteration over the entire <cite>x</cite> and <cite>y</cite>
-data provided
-(unless the <cite>steps_per_epoch</cite> flag is set to
-something other than None).
-Note that in conjunction with <cite>initial_epoch</cite>,
-<cite>epochs</cite> is to be understood as “final epoch”.
-The model is not trained for a number of iterations
-given by <cite>epochs</cite>, but merely until the epoch
-of index <cite>epochs</cite> is reached.</p>
+<dt>verbose<span class="classifier">{“auto”, 0, 1, 2}, default=”auto”</span></dt><dd><p>Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.</p>
 </dd>
-<dt>verbose: <cite>“auto”</cite>, 0, 1, or 2. Verbosity mode.</dt><dd><p>0 = silent, 1 = progress bar, 2 = one line per epoch.
-“auto” becomes 1 for most cases.
-Note that the progress bar is not
-particularly useful when logged to a file,
-so <cite>verbose=2</cite> is recommended when not running interactively
-(e.g., in a production environment). Defaults to <cite>“auto”</cite>.</p>
+<dt>callbacks<span class="classifier">list of keras.callbacks.Callback, optional</span></dt><dd><p>List of callbacks to apply during training.</p>
 </dd>
-<dt>callbacks: List of <cite>keras.callbacks.Callback</cite> instances.</dt><dd><p>List of callbacks to apply during training.
-See <cite>keras.callbacks</cite>. Note
-<cite>keras.callbacks.ProgbarLogger</cite> and
-<cite>keras.callbacks.History</cite> callbacks are created
-automatically and need not be passed to <cite>model.fit()</cite>.
-<cite>keras.callbacks.ProgbarLogger</cite> is created
-or not based on the <cite>verbose</cite> argument in <cite>model.fit()</cite>.</p>
+<dt>validation_split<span class="classifier">float, optional</span></dt><dd><p>Fraction of training data to use for validation (only supported if <cite>dataset</cite> consists of NumPy arrays
+or tensors).</p>
 </dd>
-<dt>validation_split: Float between 0 and 1.</dt><dd><p>Fraction of the training data to be used as validation data.
-The model will set apart this fraction of the training data,
-will not train on it, and will evaluate the loss and any model
-metrics on this data at the end of each epoch. The validation
-data is selected from the last samples in the <cite>x</cite> and <cite>y</cite> data
-provided, before shuffling.
-This argument is only supported when <cite>x</cite> and <cite>y</cite> are made of
-NumPy arrays or tensors.
-If both <cite>validation_data</cite> and <cite>validation_split</cite> are provided,
-<cite>validation_data</cite> will override <cite>validation_split</cite>.</p>
+<dt>validation_data<span class="classifier">tuple or dataset, optional</span></dt><dd><p>Data for validation, overriding <cite>validation_split</cite>.</p>
 </dd>
-<dt>validation_data: Data on which to evaluate</dt><dd><p>the loss and any model metrics at the end of each epoch.
-The model will not be trained on this data. Thus, note the fact
-that the validation loss of data provided using
-<cite>validation_split</cite> or <cite>validation_data</cite> is not affected by
-regularization layers like noise and dropout.
-<cite>validation_data</cite> will override <cite>validation_split</cite>.
-It can be:
-- A tuple <cite>(x_val, y_val)</cite> of NumPy arrays or tensors.
-- A tuple <cite>(x_val, y_val, val_sample_weights)</cite> of NumPy
-arrays.
-- A <cite>keras.utils.PyDataset</cite>, a <cite>tf.data.Dataset</cite>, a
-<cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite> or a
-Python generator function yielding <cite>(x_val, y_val)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dt>shuffle<span class="classifier">bool, default=True</span></dt><dd><p>Whether to shuffle the training data before each epoch (ignored for dataset generators).</p>
 </dd>
-<dt>shuffle: Boolean, whether to shuffle the training data before each</dt><dd><p>epoch. This argument is ignored when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.</p>
+<dt>initial_epoch<span class="classifier">int, default=0</span></dt><dd><p>Epoch at which to start training (useful for resuming training).</p>
 </dd>
-<dt>class_weight: Optional dictionary mapping class indices (integers)</dt><dd><p>to a weight (float) value, used for weighting the loss function
-(during training only).
-This can be useful to tell the model to
-“pay more attention” to samples from
-an under-represented class. When <cite>class_weight</cite> is specified
-and targets have a rank of 2 or greater, either <cite>y</cite> must be
-one-hot encoded, or an explicit final dimension of <cite>1</cite> must
-be included for sparse class labels.</p>
+<dt>steps_per_epoch<span class="classifier">int or None, optional</span></dt><dd><p>Number of steps (batches) before declaring an epoch finished.</p>
 </dd>
-<dt>sample_weight: Optional NumPy array or tensor of weights for</dt><dd><p>the training samples, used for weighting the loss function
-(during training only). You can either pass a flat (1D)
-NumPy array or tensor with the same length as the input samples
-(1:1 mapping between weights and samples), or in the case of
-temporal data, you can pass a 2D NumPy array or tensor with
-shape <cite>(samples, sequence_length)</cite> to apply a different weight
-to every timestep of every sample.
-This argument is not supported when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.
-Instead, provide <cite>sample_weights</cite> as the third element of <cite>x</cite>.
-Note that sample weighting does not apply to metrics specified
-via the <cite>metrics</cite> argument in <cite>compile()</cite>. To apply sample
-weighting to your metrics, you can specify them via the
-<cite>weighted_metrics</cite> in <cite>compile()</cite> instead.</p>
+<dt>validation_steps<span class="classifier">int or None, optional</span></dt><dd><p>Number of validation steps per validation epoch.</p>
 </dd>
-<dt>initial_epoch: Integer.</dt><dd><p>Epoch at which to start training
-(useful for resuming a previous training run).</p>
+<dt>validation_batch_size<span class="classifier">int or None, optional</span></dt><dd><p>Number of samples per validation batch (defaults to <cite>batch_size</cite>).</p>
 </dd>
-<dt>steps_per_epoch: Integer or <cite>None</cite>.</dt><dd><p>Total number of steps (batches of samples) before declaring one
-epoch finished and starting the next epoch. When training with
-input tensors or NumPy arrays, the default <cite>None</cite> means that the
-value used is the number of samples in your dataset divided by
-the batch size, or 1 if that cannot be determined.
-If <cite>x</cite> is a <cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function, the
-epoch will run until the input dataset is exhausted. When
-passing an infinitely repeating dataset, you must specify the
-<cite>steps_per_epoch</cite> argument, otherwise the training will run
-indefinitely.</p>
-</dd>
-<dt>validation_steps: Integer or <cite>None</cite>.</dt><dd><p>Only relevant if <cite>validation_data</cite> is provided.
-Total number of steps (batches of samples) to draw before
-stopping when performing validation at the end of every epoch.
-If <cite>validation_steps</cite> is <cite>None</cite>, validation will run until the
-<cite>validation_data</cite> dataset is exhausted. In the case of an
-infinitely repeating dataset, it will run indefinitely. If
-<cite>validation_steps</cite> is specified and only part of the dataset
-is consumed, the evaluation will start from the beginning of the
-dataset at each epoch. This ensures that the same validation
-samples are used every time.</p>
-</dd>
-<dt>validation_batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per validation batch.
-If unspecified, will default to <cite>batch_size</cite>.
-Do not specify the <cite>validation_batch_size</cite> if your data is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
-</dd>
-<dt>validation_freq: Only relevant if validation data is provided.</dt><dd><p>Specifies how many training epochs to run
-before a new validation run is performed,
-e.g. <cite>validation_freq=2</cite> runs validation every 2 epochs.</p>
+<dt>validation_freq<span class="classifier">int, default=1</span></dt><dd><p>Specifies how many training epochs to run before performing validation.</p>
 </dd>
 </dl>
 </dd>
-<dt>Unpacking behavior for iterator-like inputs:</dt><dd><p>A common pattern is to pass an iterator like object such as a
-<cite>tf.data.Dataset</cite> or a <cite>keras.utils.PyDataset</cite> to <cite>fit()</cite>,
-which will in fact yield not only features (<cite>x</cite>)
-but optionally targets (<cite>y</cite>) and sample weights (<cite>sample_weight</cite>).
-Keras requires that the output of such iterator-likes be
-unambiguous. The iterator should return a tuple
-of length 1, 2, or 3, where the optional second and third elements
-will be used for <cite>y</cite> and <cite>sample_weight</cite> respectively.
-Any other type provided will be wrapped in
-a length-one tuple, effectively treating everything as <cite>x</cite>. When
-yielding dicts, they should still adhere to the top-level tuple
-structure,
-e.g. <cite>({“x0”: x0, “x1”: x1}, y)</cite>. Keras will not attempt to separate
-features, targets, and weights from the keys of a single dict.
-A notable unsupported data type is the <cite>namedtuple</cite>. The reason is
-that it behaves like both an ordered datatype (tuple) and a mapping
-datatype (dict). So given a namedtuple of the form:
-<cite>namedtuple(“example_tuple”, [“y”, “x”])</cite>
-it is ambiguous whether to reverse the order of the elements when
-interpreting the value. Even worse is a tuple of the form:
-<cite>namedtuple(“other_tuple”, [“x”, “y”, “z”])</cite>
-where it is unclear if the tuple was intended to be unpacked
-into <cite>x</cite>, <cite>y</cite>, and <cite>sample_weight</cite> or passed through
-as a single element to <cite>x</cite>.</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>A <cite>History</cite> object. Its <cite>History.history</cite> attribute is
-a record of training loss values and metrics values
-at successive epochs, as well as validation loss values
-and validation metrics values (if applicable).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>keras.callbacks.History</dt><dd><p>A history object containing the training loss and metrics values.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If both <cite>dataset</cite> and <cite>simulator</cite> are provided or neither is provided.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -856,187 +735,61 @@ Example: <cite>{‘loss’: 0.2, ‘accuracy’: 0.7}</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/continuous_approximator.html#ContinuousApproximator.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.fit" title="Link to this definition">#</a></dt>
-<dd><p>Trains the model for a fixed number of epochs (dataset iterations).</p>
-<dl>
-<dt>Args:</dt><dd><dl>
-<dt>x: Input data. It can be:</dt><dd><ul class="simple">
-<li><p>A NumPy array (or array-like), or a list of arrays</p></li>
-</ul>
-<p>(in case the model has multiple inputs).
-- A backend-native tensor, or a list of tensors
-(in case the model has multiple inputs).
-- A dict mapping input names to the corresponding array/tensors,
-if the model has named inputs.
-- A <cite>keras.utils.PyDataset</cite> returning <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>tf.data.Dataset</cite> yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite>
-or <cite>(inputs, targets, sample_weights)</cite>.
-- A Python generator function yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dd><p>Trains the approximator on the provided dataset or on-demand data generated from the given simulator.
+If <cite>dataset</cite> is not provided, a dataset is built from the <cite>simulator</cite>.
+If the model has not been built, it will be built using a batch from the dataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataset</strong><span class="classifier">keras.utils.PyDataset, optional</span></dt><dd><p>A dataset containing simulations for training. If provided, <cite>simulator</cite> must be None.</p>
 </dd>
-<dt>y: Target data. Like the input data <cite>x</cite>, it can be either NumPy</dt><dd><p>array(s) or backend-native tensor(s). If <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or a Python generator function,
-<cite>y</cite> should not be specified since targets will be obtained from
-<cite>x</cite>.</p>
+<dt><strong>simulator</strong><span class="classifier">Simulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
 </dd>
-<dt>batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per gradient update.
-If unspecified, <cite>batch_size</cite> will default to 32.
-Do not specify the <cite>batch_size</cite> if your input data <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):
+batch_size : int or None, default=’auto’</p>
+<blockquote>
+<div><p>Number of samples per gradient update. Do not specify if <cite>dataset</cite> is provided as a
+<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>, <cite>torch.utils.data.DataLoader</cite>, or a generator function.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>epochs<span class="classifier">int, default=1</span></dt><dd><p>Number of epochs to train the model.</p>
 </dd>
-<dt>epochs: Integer. Number of epochs to train the model.</dt><dd><p>An epoch is an iteration over the entire <cite>x</cite> and <cite>y</cite>
-data provided
-(unless the <cite>steps_per_epoch</cite> flag is set to
-something other than None).
-Note that in conjunction with <cite>initial_epoch</cite>,
-<cite>epochs</cite> is to be understood as “final epoch”.
-The model is not trained for a number of iterations
-given by <cite>epochs</cite>, but merely until the epoch
-of index <cite>epochs</cite> is reached.</p>
+<dt>verbose<span class="classifier">{“auto”, 0, 1, 2}, default=”auto”</span></dt><dd><p>Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.</p>
 </dd>
-<dt>verbose: <cite>“auto”</cite>, 0, 1, or 2. Verbosity mode.</dt><dd><p>0 = silent, 1 = progress bar, 2 = one line per epoch.
-“auto” becomes 1 for most cases.
-Note that the progress bar is not
-particularly useful when logged to a file,
-so <cite>verbose=2</cite> is recommended when not running interactively
-(e.g., in a production environment). Defaults to <cite>“auto”</cite>.</p>
+<dt>callbacks<span class="classifier">list of keras.callbacks.Callback, optional</span></dt><dd><p>List of callbacks to apply during training.</p>
 </dd>
-<dt>callbacks: List of <cite>keras.callbacks.Callback</cite> instances.</dt><dd><p>List of callbacks to apply during training.
-See <cite>keras.callbacks</cite>. Note
-<cite>keras.callbacks.ProgbarLogger</cite> and
-<cite>keras.callbacks.History</cite> callbacks are created
-automatically and need not be passed to <cite>model.fit()</cite>.
-<cite>keras.callbacks.ProgbarLogger</cite> is created
-or not based on the <cite>verbose</cite> argument in <cite>model.fit()</cite>.</p>
+<dt>validation_split<span class="classifier">float, optional</span></dt><dd><p>Fraction of training data to use for validation (only supported if <cite>dataset</cite> consists of NumPy arrays
+or tensors).</p>
 </dd>
-<dt>validation_split: Float between 0 and 1.</dt><dd><p>Fraction of the training data to be used as validation data.
-The model will set apart this fraction of the training data,
-will not train on it, and will evaluate the loss and any model
-metrics on this data at the end of each epoch. The validation
-data is selected from the last samples in the <cite>x</cite> and <cite>y</cite> data
-provided, before shuffling.
-This argument is only supported when <cite>x</cite> and <cite>y</cite> are made of
-NumPy arrays or tensors.
-If both <cite>validation_data</cite> and <cite>validation_split</cite> are provided,
-<cite>validation_data</cite> will override <cite>validation_split</cite>.</p>
+<dt>validation_data<span class="classifier">tuple or dataset, optional</span></dt><dd><p>Data for validation, overriding <cite>validation_split</cite>.</p>
 </dd>
-<dt>validation_data: Data on which to evaluate</dt><dd><p>the loss and any model metrics at the end of each epoch.
-The model will not be trained on this data. Thus, note the fact
-that the validation loss of data provided using
-<cite>validation_split</cite> or <cite>validation_data</cite> is not affected by
-regularization layers like noise and dropout.
-<cite>validation_data</cite> will override <cite>validation_split</cite>.
-It can be:
-- A tuple <cite>(x_val, y_val)</cite> of NumPy arrays or tensors.
-- A tuple <cite>(x_val, y_val, val_sample_weights)</cite> of NumPy
-arrays.
-- A <cite>keras.utils.PyDataset</cite>, a <cite>tf.data.Dataset</cite>, a
-<cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite> or a
-Python generator function yielding <cite>(x_val, y_val)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dt>shuffle<span class="classifier">bool, default=True</span></dt><dd><p>Whether to shuffle the training data before each epoch (ignored for dataset generators).</p>
 </dd>
-<dt>shuffle: Boolean, whether to shuffle the training data before each</dt><dd><p>epoch. This argument is ignored when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.</p>
+<dt>initial_epoch<span class="classifier">int, default=0</span></dt><dd><p>Epoch at which to start training (useful for resuming training).</p>
 </dd>
-<dt>class_weight: Optional dictionary mapping class indices (integers)</dt><dd><p>to a weight (float) value, used for weighting the loss function
-(during training only).
-This can be useful to tell the model to
-“pay more attention” to samples from
-an under-represented class. When <cite>class_weight</cite> is specified
-and targets have a rank of 2 or greater, either <cite>y</cite> must be
-one-hot encoded, or an explicit final dimension of <cite>1</cite> must
-be included for sparse class labels.</p>
+<dt>steps_per_epoch<span class="classifier">int or None, optional</span></dt><dd><p>Number of steps (batches) before declaring an epoch finished.</p>
 </dd>
-<dt>sample_weight: Optional NumPy array or tensor of weights for</dt><dd><p>the training samples, used for weighting the loss function
-(during training only). You can either pass a flat (1D)
-NumPy array or tensor with the same length as the input samples
-(1:1 mapping between weights and samples), or in the case of
-temporal data, you can pass a 2D NumPy array or tensor with
-shape <cite>(samples, sequence_length)</cite> to apply a different weight
-to every timestep of every sample.
-This argument is not supported when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.
-Instead, provide <cite>sample_weights</cite> as the third element of <cite>x</cite>.
-Note that sample weighting does not apply to metrics specified
-via the <cite>metrics</cite> argument in <cite>compile()</cite>. To apply sample
-weighting to your metrics, you can specify them via the
-<cite>weighted_metrics</cite> in <cite>compile()</cite> instead.</p>
+<dt>validation_steps<span class="classifier">int or None, optional</span></dt><dd><p>Number of validation steps per validation epoch.</p>
 </dd>
-<dt>initial_epoch: Integer.</dt><dd><p>Epoch at which to start training
-(useful for resuming a previous training run).</p>
+<dt>validation_batch_size<span class="classifier">int or None, optional</span></dt><dd><p>Number of samples per validation batch (defaults to <cite>batch_size</cite>).</p>
 </dd>
-<dt>steps_per_epoch: Integer or <cite>None</cite>.</dt><dd><p>Total number of steps (batches of samples) before declaring one
-epoch finished and starting the next epoch. When training with
-input tensors or NumPy arrays, the default <cite>None</cite> means that the
-value used is the number of samples in your dataset divided by
-the batch size, or 1 if that cannot be determined.
-If <cite>x</cite> is a <cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function, the
-epoch will run until the input dataset is exhausted. When
-passing an infinitely repeating dataset, you must specify the
-<cite>steps_per_epoch</cite> argument, otherwise the training will run
-indefinitely.</p>
-</dd>
-<dt>validation_steps: Integer or <cite>None</cite>.</dt><dd><p>Only relevant if <cite>validation_data</cite> is provided.
-Total number of steps (batches of samples) to draw before
-stopping when performing validation at the end of every epoch.
-If <cite>validation_steps</cite> is <cite>None</cite>, validation will run until the
-<cite>validation_data</cite> dataset is exhausted. In the case of an
-infinitely repeating dataset, it will run indefinitely. If
-<cite>validation_steps</cite> is specified and only part of the dataset
-is consumed, the evaluation will start from the beginning of the
-dataset at each epoch. This ensures that the same validation
-samples are used every time.</p>
-</dd>
-<dt>validation_batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per validation batch.
-If unspecified, will default to <cite>batch_size</cite>.
-Do not specify the <cite>validation_batch_size</cite> if your data is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
-</dd>
-<dt>validation_freq: Only relevant if validation data is provided.</dt><dd><p>Specifies how many training epochs to run
-before a new validation run is performed,
-e.g. <cite>validation_freq=2</cite> runs validation every 2 epochs.</p>
+<dt>validation_freq<span class="classifier">int, default=1</span></dt><dd><p>Specifies how many training epochs to run before performing validation.</p>
 </dd>
 </dl>
 </dd>
-<dt>Unpacking behavior for iterator-like inputs:</dt><dd><p>A common pattern is to pass an iterator like object such as a
-<cite>tf.data.Dataset</cite> or a <cite>keras.utils.PyDataset</cite> to <cite>fit()</cite>,
-which will in fact yield not only features (<cite>x</cite>)
-but optionally targets (<cite>y</cite>) and sample weights (<cite>sample_weight</cite>).
-Keras requires that the output of such iterator-likes be
-unambiguous. The iterator should return a tuple
-of length 1, 2, or 3, where the optional second and third elements
-will be used for <cite>y</cite> and <cite>sample_weight</cite> respectively.
-Any other type provided will be wrapped in
-a length-one tuple, effectively treating everything as <cite>x</cite>. When
-yielding dicts, they should still adhere to the top-level tuple
-structure,
-e.g. <cite>({“x0”: x0, “x1”: x1}, y)</cite>. Keras will not attempt to separate
-features, targets, and weights from the keys of a single dict.
-A notable unsupported data type is the <cite>namedtuple</cite>. The reason is
-that it behaves like both an ordered datatype (tuple) and a mapping
-datatype (dict). So given a namedtuple of the form:
-<cite>namedtuple(“example_tuple”, [“y”, “x”])</cite>
-it is ambiguous whether to reverse the order of the elements when
-interpreting the value. Even worse is a tuple of the form:
-<cite>namedtuple(“other_tuple”, [“x”, “y”, “z”])</cite>
-where it is unclear if the tuple was intended to be unpacked
-into <cite>x</cite>, <cite>y</cite>, and <cite>sample_weight</cite> or passed through
-as a single element to <cite>x</cite>.</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>A <cite>History</cite> object. Its <cite>History.history</cite> attribute is
-a record of training loss values and metrics values
-at successive epochs, as well as validation loss values
-and validation metrics values (if applicable).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>keras.callbacks.History</dt><dd><p>A history object containing the training loss and metrics values.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If both <cite>dataset</cite> and <cite>simulator</cite> are provided or neither is provided.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1072,12 +825,53 @@ containing the information needed to re-instantiate it.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.log_prob">
 <span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/bayesflow/approximators/continuous_approximator.html#ContinuousApproximator.log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.log_prob" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Computes the log-probability of given data under the model. The <cite>data</cite> dictionary is preprocessed using the
+<cite>adapter</cite>. Log-probabilities are returned as NumPy arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">dict[str, np.ndarray]</span></dt><dd><p>Dictionary of observed data as NumPy arrays.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments for the adapter and log-probability computation.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>Log-probabilities of the distribution <cite>p(inference_variables | inference_conditions, h(summary_conditions))</cite></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.sample">
 <span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/approximators/continuous_approximator.html#ContinuousApproximator.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.sample" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Generates samples from the approximator given input conditions. The <cite>conditions</cite> dictionary is preprocessed
+using the <cite>adapter</cite>. Samples are converted to NumPy arrays after inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>num_samples</strong><span class="classifier">int</span></dt><dd><p>Number of samples to generate.</p>
+</dd>
+<dt><strong>conditions</strong><span class="classifier">dict[str, np.ndarray]</span></dt><dd><p>Dictionary of conditioning variables as NumPy arrays.</p>
+</dd>
+<dt><strong>split</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to split the output arrays along the last axis and return one column vector per target variable
+samples.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments for the adapter and sampling process.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict[str, np.ndarray]</dt><dd><p>Dictionary containing generated samples with the same keys as <cite>conditions</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1241,187 +1035,61 @@ Example: <cite>{‘loss’: 0.2, ‘accuracy’: 0.7}</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ModelComparisonApproximator.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyDataset</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.html#bayesflow.simulators.ModelComparisonSimulator" title="bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator"><span class="pre">ModelComparisonSimulator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="bayesflow.simulators.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/model_comparison_approximator.html#ModelComparisonApproximator.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ModelComparisonApproximator.fit" title="Link to this definition">#</a></dt>
-<dd><p>Trains the model for a fixed number of epochs (dataset iterations).</p>
-<dl>
-<dt>Args:</dt><dd><dl>
-<dt>x: Input data. It can be:</dt><dd><ul class="simple">
-<li><p>A NumPy array (or array-like), or a list of arrays</p></li>
-</ul>
-<p>(in case the model has multiple inputs).
-- A backend-native tensor, or a list of tensors
-(in case the model has multiple inputs).
-- A dict mapping input names to the corresponding array/tensors,
-if the model has named inputs.
-- A <cite>keras.utils.PyDataset</cite> returning <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>tf.data.Dataset</cite> yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.
-- A <cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite>
-or <cite>(inputs, targets, sample_weights)</cite>.
-- A Python generator function yielding <cite>(inputs, targets)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dd><p>Trains the approximator on the provided dataset or on-demand data generated from the given simulator.
+If <cite>dataset</cite> is not provided, a dataset is built from the <cite>simulator</cite>.
+If the model has not been built, it will be built using a batch from the dataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataset</strong><span class="classifier">keras.utils.PyDataset, optional</span></dt><dd><p>A dataset containing simulations for training. If provided, <cite>simulator</cite> must be None.</p>
 </dd>
-<dt>y: Target data. Like the input data <cite>x</cite>, it can be either NumPy</dt><dd><p>array(s) or backend-native tensor(s). If <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or a Python generator function,
-<cite>y</cite> should not be specified since targets will be obtained from
-<cite>x</cite>.</p>
+<dt><strong>simulator</strong><span class="classifier">Simulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
 </dd>
-<dt>batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per gradient update.
-If unspecified, <cite>batch_size</cite> will default to 32.
-Do not specify the <cite>batch_size</cite> if your input data <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):
+batch_size : int or None, default=’auto’</p>
+<blockquote>
+<div><p>Number of samples per gradient update. Do not specify if <cite>dataset</cite> is provided as a
+<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>, <cite>torch.utils.data.DataLoader</cite>, or a generator function.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>epochs<span class="classifier">int, default=1</span></dt><dd><p>Number of epochs to train the model.</p>
 </dd>
-<dt>epochs: Integer. Number of epochs to train the model.</dt><dd><p>An epoch is an iteration over the entire <cite>x</cite> and <cite>y</cite>
-data provided
-(unless the <cite>steps_per_epoch</cite> flag is set to
-something other than None).
-Note that in conjunction with <cite>initial_epoch</cite>,
-<cite>epochs</cite> is to be understood as “final epoch”.
-The model is not trained for a number of iterations
-given by <cite>epochs</cite>, but merely until the epoch
-of index <cite>epochs</cite> is reached.</p>
+<dt>verbose<span class="classifier">{“auto”, 0, 1, 2}, default=”auto”</span></dt><dd><p>Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.</p>
 </dd>
-<dt>verbose: <cite>“auto”</cite>, 0, 1, or 2. Verbosity mode.</dt><dd><p>0 = silent, 1 = progress bar, 2 = one line per epoch.
-“auto” becomes 1 for most cases.
-Note that the progress bar is not
-particularly useful when logged to a file,
-so <cite>verbose=2</cite> is recommended when not running interactively
-(e.g., in a production environment). Defaults to <cite>“auto”</cite>.</p>
+<dt>callbacks<span class="classifier">list of keras.callbacks.Callback, optional</span></dt><dd><p>List of callbacks to apply during training.</p>
 </dd>
-<dt>callbacks: List of <cite>keras.callbacks.Callback</cite> instances.</dt><dd><p>List of callbacks to apply during training.
-See <cite>keras.callbacks</cite>. Note
-<cite>keras.callbacks.ProgbarLogger</cite> and
-<cite>keras.callbacks.History</cite> callbacks are created
-automatically and need not be passed to <cite>model.fit()</cite>.
-<cite>keras.callbacks.ProgbarLogger</cite> is created
-or not based on the <cite>verbose</cite> argument in <cite>model.fit()</cite>.</p>
+<dt>validation_split<span class="classifier">float, optional</span></dt><dd><p>Fraction of training data to use for validation (only supported if <cite>dataset</cite> consists of NumPy arrays
+or tensors).</p>
 </dd>
-<dt>validation_split: Float between 0 and 1.</dt><dd><p>Fraction of the training data to be used as validation data.
-The model will set apart this fraction of the training data,
-will not train on it, and will evaluate the loss and any model
-metrics on this data at the end of each epoch. The validation
-data is selected from the last samples in the <cite>x</cite> and <cite>y</cite> data
-provided, before shuffling.
-This argument is only supported when <cite>x</cite> and <cite>y</cite> are made of
-NumPy arrays or tensors.
-If both <cite>validation_data</cite> and <cite>validation_split</cite> are provided,
-<cite>validation_data</cite> will override <cite>validation_split</cite>.</p>
+<dt>validation_data<span class="classifier">tuple or dataset, optional</span></dt><dd><p>Data for validation, overriding <cite>validation_split</cite>.</p>
 </dd>
-<dt>validation_data: Data on which to evaluate</dt><dd><p>the loss and any model metrics at the end of each epoch.
-The model will not be trained on this data. Thus, note the fact
-that the validation loss of data provided using
-<cite>validation_split</cite> or <cite>validation_data</cite> is not affected by
-regularization layers like noise and dropout.
-<cite>validation_data</cite> will override <cite>validation_split</cite>.
-It can be:
-- A tuple <cite>(x_val, y_val)</cite> of NumPy arrays or tensors.
-- A tuple <cite>(x_val, y_val, val_sample_weights)</cite> of NumPy
-arrays.
-- A <cite>keras.utils.PyDataset</cite>, a <cite>tf.data.Dataset</cite>, a
-<cite>torch.utils.data.DataLoader</cite> yielding <cite>(inputs, targets)</cite> or a
-Python generator function yielding <cite>(x_val, y_val)</cite> or
-<cite>(inputs, targets, sample_weights)</cite>.</p>
+<dt>shuffle<span class="classifier">bool, default=True</span></dt><dd><p>Whether to shuffle the training data before each epoch (ignored for dataset generators).</p>
 </dd>
-<dt>shuffle: Boolean, whether to shuffle the training data before each</dt><dd><p>epoch. This argument is ignored when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.</p>
+<dt>initial_epoch<span class="classifier">int, default=0</span></dt><dd><p>Epoch at which to start training (useful for resuming training).</p>
 </dd>
-<dt>class_weight: Optional dictionary mapping class indices (integers)</dt><dd><p>to a weight (float) value, used for weighting the loss function
-(during training only).
-This can be useful to tell the model to
-“pay more attention” to samples from
-an under-represented class. When <cite>class_weight</cite> is specified
-and targets have a rank of 2 or greater, either <cite>y</cite> must be
-one-hot encoded, or an explicit final dimension of <cite>1</cite> must
-be included for sparse class labels.</p>
+<dt>steps_per_epoch<span class="classifier">int or None, optional</span></dt><dd><p>Number of steps (batches) before declaring an epoch finished.</p>
 </dd>
-<dt>sample_weight: Optional NumPy array or tensor of weights for</dt><dd><p>the training samples, used for weighting the loss function
-(during training only). You can either pass a flat (1D)
-NumPy array or tensor with the same length as the input samples
-(1:1 mapping between weights and samples), or in the case of
-temporal data, you can pass a 2D NumPy array or tensor with
-shape <cite>(samples, sequence_length)</cite> to apply a different weight
-to every timestep of every sample.
-This argument is not supported when <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function.
-Instead, provide <cite>sample_weights</cite> as the third element of <cite>x</cite>.
-Note that sample weighting does not apply to metrics specified
-via the <cite>metrics</cite> argument in <cite>compile()</cite>. To apply sample
-weighting to your metrics, you can specify them via the
-<cite>weighted_metrics</cite> in <cite>compile()</cite> instead.</p>
+<dt>validation_steps<span class="classifier">int or None, optional</span></dt><dd><p>Number of validation steps per validation epoch.</p>
 </dd>
-<dt>initial_epoch: Integer.</dt><dd><p>Epoch at which to start training
-(useful for resuming a previous training run).</p>
+<dt>validation_batch_size<span class="classifier">int or None, optional</span></dt><dd><p>Number of samples per validation batch (defaults to <cite>batch_size</cite>).</p>
 </dd>
-<dt>steps_per_epoch: Integer or <cite>None</cite>.</dt><dd><p>Total number of steps (batches of samples) before declaring one
-epoch finished and starting the next epoch. When training with
-input tensors or NumPy arrays, the default <cite>None</cite> means that the
-value used is the number of samples in your dataset divided by
-the batch size, or 1 if that cannot be determined.
-If <cite>x</cite> is a <cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function, the
-epoch will run until the input dataset is exhausted. When
-passing an infinitely repeating dataset, you must specify the
-<cite>steps_per_epoch</cite> argument, otherwise the training will run
-indefinitely.</p>
-</dd>
-<dt>validation_steps: Integer or <cite>None</cite>.</dt><dd><p>Only relevant if <cite>validation_data</cite> is provided.
-Total number of steps (batches of samples) to draw before
-stopping when performing validation at the end of every epoch.
-If <cite>validation_steps</cite> is <cite>None</cite>, validation will run until the
-<cite>validation_data</cite> dataset is exhausted. In the case of an
-infinitely repeating dataset, it will run indefinitely. If
-<cite>validation_steps</cite> is specified and only part of the dataset
-is consumed, the evaluation will start from the beginning of the
-dataset at each epoch. This ensures that the same validation
-samples are used every time.</p>
-</dd>
-<dt>validation_batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per validation batch.
-If unspecified, will default to <cite>batch_size</cite>.
-Do not specify the <cite>validation_batch_size</cite> if your data is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
-</dd>
-<dt>validation_freq: Only relevant if validation data is provided.</dt><dd><p>Specifies how many training epochs to run
-before a new validation run is performed,
-e.g. <cite>validation_freq=2</cite> runs validation every 2 epochs.</p>
+<dt>validation_freq<span class="classifier">int, default=1</span></dt><dd><p>Specifies how many training epochs to run before performing validation.</p>
 </dd>
 </dl>
 </dd>
-<dt>Unpacking behavior for iterator-like inputs:</dt><dd><p>A common pattern is to pass an iterator like object such as a
-<cite>tf.data.Dataset</cite> or a <cite>keras.utils.PyDataset</cite> to <cite>fit()</cite>,
-which will in fact yield not only features (<cite>x</cite>)
-but optionally targets (<cite>y</cite>) and sample weights (<cite>sample_weight</cite>).
-Keras requires that the output of such iterator-likes be
-unambiguous. The iterator should return a tuple
-of length 1, 2, or 3, where the optional second and third elements
-will be used for <cite>y</cite> and <cite>sample_weight</cite> respectively.
-Any other type provided will be wrapped in
-a length-one tuple, effectively treating everything as <cite>x</cite>. When
-yielding dicts, they should still adhere to the top-level tuple
-structure,
-e.g. <cite>({“x0”: x0, “x1”: x1}, y)</cite>. Keras will not attempt to separate
-features, targets, and weights from the keys of a single dict.
-A notable unsupported data type is the <cite>namedtuple</cite>. The reason is
-that it behaves like both an ordered datatype (tuple) and a mapping
-datatype (dict). So given a namedtuple of the form:
-<cite>namedtuple(“example_tuple”, [“y”, “x”])</cite>
-it is ambiguous whether to reverse the order of the elements when
-interpreting the value. Even worse is a tuple of the form:
-<cite>namedtuple(“other_tuple”, [“x”, “y”, “z”])</cite>
-where it is unclear if the tuple was intended to be unpacked
-into <cite>x</cite>, <cite>y</cite>, and <cite>sample_weight</cite> or passed through
-as a single element to <cite>x</cite>.</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>A <cite>History</cite> object. Its <cite>History.history</cite> attribute is
-a record of training loss values and metrics values
-at successive epochs, as well as validation loss values
-and validation metrics values (if applicable).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>keras.callbacks.History</dt><dd><p>A history object containing the training loss and metrics values.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If both <cite>dataset</cite> and <cite>simulator</cite> are provided or neither is provided.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
