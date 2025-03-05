@@ -110,7 +110,7 @@ def z_score_contraction(
     prior_vars = targets.var(axis=0, keepdims=True, ddof=1)
 
     # Compute contraction and z-score
-    contraction = 1 - (post_vars / prior_vars)
+    contraction = np.clip(1 - (post_vars / prior_vars), 0, 1)
     z_score = (post_means - targets) / post_stds
 
     # Loop and plot
