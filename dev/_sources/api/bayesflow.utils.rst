@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    filter_kwargs
     searchsorted
-    check_lengths_same
-    split_arrays
-    jvp
-    prettify_subplots
-    jacobian_trace
-    expand_right_to
-    expand_left
-    concatenate
-    tree_concatenate
-    add_titles_and_labels
-    find_memory_budget
-    split_tensors
-    integrate
-    detailed_loss_callback
     expand
-    expand_right_as
-    vjp
-    expand_tile
-    find_batch_size
-    convert_kwargs
-    find_network
-    make_quadratic
-    format_bytes
+    expand_right_to
     find_pooling
-    convert_args
-    find_recurrent_net
-    pickle_load
-    serialize_value_or_type
-    optimal_transport
-    expand_as
-    expand_left_as
-    find_summary_network
-    check_estimates_prior_shapes
-    simultaneous_ecdf_bands
-    parse_bytes
-    prepare_plot_data
-    pad
-    deserialize_value_or_type
     batched_call
-    size_of
-    add_metric
-    expand_left_to
-    find_distribution
-    find_inference_network
-    find_permutation
-    expand_to
-    jacobian
-    devices
+    detailed_loss_callback
     tile_axis
+    deserialize_value_or_type
+    pad
+    find_permutation
+    format_bytes
+    parse_bytes
+    add_metric
+    jacobian_trace
+    convert_args
     expand_right
+    expand_left_to
+    make_quadratic
+    find_network
+    find_batch_size
+    prepare_plot_data
+    expand_right_as
+    concatenate
+    split_arrays
+    split_tensors
+    simultaneous_ecdf_bands
+    find_memory_budget
+    size_of
+    find_summary_network
+    expand_to
     tree_stack
+    convert_kwargs
+    check_estimates_prior_shapes
+    prettify_subplots
+    find_distribution
+    jacobian
+    check_lengths_same
+    expand_left
+    tree_concatenate
+    pickle_load
+    expand_as
+    filter_kwargs
+    find_inference_network
+    expand_tile
     keras_kwargs
+    serialize_value_or_type
+    integrate
+    vjp
+    optimal_transport
+    find_recurrent_net
+    jvp
+    devices
+    add_titles_and_labels
+    expand_left_as
   
   
 
@@ -87,8 +87,8 @@
     :template: custom-module-template.rst
     :recursive:
   
-    numpy_utils
     keras_utils
+    numpy_utils
     logging
 
   
