@@ -111,6 +111,56 @@ class ContinuousApproximator(Approximator):
         return metrics
 
     def fit(self, *args, **kwargs):
+        """
+        Trains the approximator on the provided dataset or on-demand data generated from the given simulator.
+        If `dataset` is not provided, a dataset is built from the `simulator`.
+        If the model has not been built, it will be built using a batch from the dataset.
+
+        Parameters
+        ----------
+        dataset : keras.utils.PyDataset, optional
+            A dataset containing simulations for training. If provided, `simulator` must be None.
+        simulator : Simulator, optional
+            A simulator used to generate a dataset. If provided, `dataset` must be None.
+        **kwargs : dict
+            Additional keyword arguments passed to `keras.Model.fit()`, including (see also `build_dataset`):
+            batch_size : int or None, default='auto'
+                Number of samples per gradient update. Do not specify if `dataset` is provided as a
+                `keras.utils.PyDataset`, `tf.data.Dataset`, `torch.utils.data.DataLoader`, or a generator function.
+            epochs : int, default=1
+                Number of epochs to train the model.
+            verbose : {"auto", 0, 1, 2}, default="auto"
+                Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.
+            callbacks : list of keras.callbacks.Callback, optional
+                List of callbacks to apply during training.
+            validation_split : float, optional
+                Fraction of training data to use for validation (only supported if `dataset` consists of NumPy arrays
+                or tensors).
+            validation_data : tuple or dataset, optional
+                Data for validation, overriding `validation_split`.
+            shuffle : bool, default=True
+                Whether to shuffle the training data before each epoch (ignored for dataset generators).
+            initial_epoch : int, default=0
+                Epoch at which to start training (useful for resuming training).
+            steps_per_epoch : int or None, optional
+                Number of steps (batches) before declaring an epoch finished.
+            validation_steps : int or None, optional
+                Number of validation steps per validation epoch.
+            validation_batch_size : int or None, optional
+                Number of samples per validation batch (defaults to `batch_size`).
+            validation_freq : int, default=1
+                Specifies how many training epochs to run before performing validation.
+
+        Returns
+        -------
+        keras.callbacks.History
+            A history object containing the training loss and metrics values.
+
+        Raises
+        ------
+        ValueError
+            If both `dataset` and `simulator` are provided or neither is provided.
+        """
         return super().fit(*args, **kwargs, adapter=self.adapter)
 
     @classmethod
@@ -139,6 +189,27 @@ class ContinuousApproximator(Approximator):
         split: bool = False,
         **kwargs,
     ) -> dict[str, np.ndarray]:
+        """
+        Generates samples from the approximator given input conditions. The `conditions` dictionary is preprocessed
+        using the `adapter`. Samples are converted to NumPy arrays after inference.
+
+        Parameters
+        ----------
+        num_samples : int
+            Number of samples to generate.
+        conditions : dict[str, np.ndarray]
+            Dictionary of conditioning variables as NumPy arrays.
+        split : bool, default=False
+            Whether to split the output arrays along the last axis and return one column vector per target variable
+            samples.
+        **kwargs : dict
+            Additional keyword arguments for the adapter and sampling process.
+
+        Returns
+        -------
+        dict[str, np.ndarray]
+            Dictionary containing generated samples with the same keys as `conditions`.
+        """
         conditions = self.adapter(conditions, strict=False, stage="inference", **kwargs)
         # at inference time, inference_variables are estimated by the networks and thus ignored in conditions
         conditions.pop("inference_variables", None)
@@ -192,6 +263,22 @@ class ContinuousApproximator(Approximator):
         )
 
     def log_prob(self, data: dict[str, np.ndarray], **kwargs) -> np.ndarray:
+        """
+        Computes the log-probability of given data under the model. The `data` dictionary is preprocessed using the
+        `adapter`. Log-probabilities are returned as NumPy arrays.
+
+        Parameters
+        ----------
+        data : dict[str, np.ndarray]
+            Dictionary of observed data as NumPy arrays.
+        **kwargs : dict
+            Additional keyword arguments for the adapter and log-probability computation.
+
+        Returns
+        -------
+        np.ndarray
+            Log-probabilities of the distribution `p(inference_variables | inference_conditions, h(summary_conditions))`
+        """
         data = self.adapter(data, strict=False, stage="inference", **kwargs)
         data = keras.tree.map_structure(keras.ops.convert_to_tensor, data)
         log_prob = self._log_prob(**data, **kwargs)
