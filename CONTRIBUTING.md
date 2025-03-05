@@ -145,6 +145,7 @@ pip install .[docs]
 ```
 
 The overall *structure* of the documentation is manually designed, but the API documentation is auto-generated.
+New top-level modules (i.e., `bayesflow.mynewmodule`) have to be manually added to the list in `docsrc/source/api/bayesflow.rst` to be included.
 
 You can re-build the current documentation with
 
