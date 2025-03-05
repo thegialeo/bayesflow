@@ -17,24 +17,24 @@ bayesflow.adapters.transforms
 
   .. autosummary::
   
-    Drop
-    ToArray
-    Rename
-    ElementwiseTransform
-    Standardize
-    ConvertDType
-    Broadcast
-    AsSet
     FilterTransform
+    ConvertDType
+    Transform
+    Constrain
     LambdaTransform
     MapTransform
-    Constrain
-    Keep
+    Broadcast
     OneHot
+    ElementwiseTransform
     ExpandDims
-    Transform
-    AsTimeSeries
+    AsSet
+    ToArray
+    Rename
     Concatenate
+    Drop
+    Standardize
+    Keep
+    AsTimeSeries
   
   
 

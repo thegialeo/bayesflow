@@ -17,10 +17,10 @@
 
   .. autosummary::
   
-    OfflineDataset
     OnlineDataset
-    RoundsDataset
     DiskDataset
+    OfflineDataset
+    RoundsDataset
   
   
 

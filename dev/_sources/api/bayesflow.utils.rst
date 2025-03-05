@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    find_recurrent_net
-    make_quadratic
-    expand_left_as
-    convert_args
-    add_titles_and_labels
-    find_inference_network
-    find_pooling
-    jacobian
-    prepare_plot_data
-    size_of
-    integrate
-    find_memory_budget
-    add_metric
-    filter_kwargs
-    expand
-    jvp
-    check_lengths_same
-    simultaneous_ecdf_bands
-    batched_call
-    pad
-    deserialize_value_or_type
-    parse_bytes
-    check_estimates_prior_shapes
-    expand_right_to
-    expand_left
-    jacobian_trace
-    pickle_load
-    keras_kwargs
-    expand_tile
-    tile_axis
-    tree_concatenate
-    expand_as
-    find_summary_network
-    find_permutation
-    expand_right_as
-    find_distribution
-    expand_to
-    find_network
-    concatenate
     detailed_loss_callback
-    expand_right
-    convert_kwargs
-    optimal_transport
-    searchsorted
-    expand_left_to
-    serialize_value_or_type
-    find_batch_size
-    split_arrays
-    tree_stack
     format_bytes
-    devices
+    find_recurrent_net
+    concatenate
+    batched_call
+    optimal_transport
+    expand
+    prepare_plot_data
+    expand_tile
+    searchsorted
+    deserialize_value_or_type
+    find_distribution
+    parse_bytes
+    find_network
+    integrate
     split_tensors
-    prettify_subplots
+    convert_kwargs
+    filter_kwargs
     vjp
+    convert_args
+    find_batch_size
+    expand_left
+    jvp
+    expand_to
+    add_metric
+    keras_kwargs
+    prettify_subplots
+    expand_as
+    split_arrays
+    pad
+    make_quadratic
+    tree_stack
+    expand_right_to
+    expand_right
+    tree_concatenate
+    serialize_value_or_type
+    expand_left_as
+    expand_right_as
+    check_lengths_same
+    size_of
+    find_inference_network
+    expand_left_to
+    find_pooling
+    jacobian_trace
+    find_memory_budget
+    pickle_load
+    devices
+    add_titles_and_labels
+    check_estimates_prior_shapes
+    simultaneous_ecdf_bands
+    find_summary_network
+    jacobian
+    find_permutation
+    tile_axis
   
   
 
@@ -87,9 +87,9 @@
     :template: custom-module-template.rst
     :recursive:
   
-    keras_utils
-    logging
     numpy_utils
+    logging
+    keras_utils
 
   
   
