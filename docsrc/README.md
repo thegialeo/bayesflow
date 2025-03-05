@@ -6,8 +6,8 @@ To install the necessary dependencies, please run `pip install -e .[docs]`.
 You can then do the following:
 
 1. `make dev`: Generate the docs for the current version
-2. `make github`: Build the docs for tagged versions, `master` and `dev` in a sequential fashion
-3. `make parallel`: As `make github`, but builds occur in parallel (see below for details)
+2. `make docs`: Build the docs for branches and tags specified in `poly.py` in sequential fashion. Virtual environments are cached (run `make clean-all` to delete)
+3. `make github`: As `make docs`, but versions are built sequentially, and the build environment is deleted after each build (see below for details)
 
 The docs will be copied to `../docs`.
 
@@ -48,6 +48,7 @@ Important locations are the following:
     This enables a unified look and avoids having to add commits to old versions.
 - `polyversion/`: Polyversion-specific files, currently only redirect template.
 - `Makefile`/`make.bat`: Define commands to build different configurations.
+- `source/api/bayesflow.rst`: Specify the submodules that should be included in the docs.
 
 ### Building
 

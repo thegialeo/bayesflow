@@ -50,7 +50,7 @@ xcopy /y /s _build_polyversion\ ..\docs
 xcopy /y .nojekyll ..\docs\.nojekyll
 goto end
 
-:parallel
+:docs
 set BF_DOCS_SEQUENTIAL_BUILDS=0
 sphinx-polyversion poly.py
 xcopy /y /s _build_polyversion\ ..\docs
