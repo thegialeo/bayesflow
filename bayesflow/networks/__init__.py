@@ -1,4 +1,3 @@
-from .cif import CIF
 from .consistency_models import ConsistencyModel
 from .coupling_flow import CouplingFlow
 from .deep_set import DeepSet

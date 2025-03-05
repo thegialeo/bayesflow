@@ -3,8 +3,8 @@ from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Shape, Tensor
 
-from ..inference_network import InferenceNetwork
-from ..coupling_flow import CouplingFlow
+from bayesflow.networks.inference_network import InferenceNetwork
+from bayesflow.networks.coupling_flow import CouplingFlow
 
 from .conditional_gaussian import ConditionalGaussian
 

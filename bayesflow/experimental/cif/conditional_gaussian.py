@@ -1,7 +1,7 @@
 import keras
 from keras.saving import register_keras_serializable
 import numpy as np
-from ..mlp import MLP
+from bayesflow.networks.mlp import MLP
 
 from bayesflow.types import Shape, Tensor
 from bayesflow.utils import keras_kwargs
