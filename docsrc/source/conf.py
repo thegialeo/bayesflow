@@ -24,11 +24,15 @@ except ImportError:
 
 sys.path.insert(0, os.path.abspath("../.."))
 
+# might set copyright end to wrong year -> remove
+if "SOURCE_DATE_EPOCH" in os.environ:
+    del os.environ["SOURCE_DATE_EPOCH"]
+
 # -- Project information -----------------------------------------------------
 
 project = "BayesFlow"
 author = "The BayesFlow authors"
-copyright = "2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev)"
+copyright = "2023-%Y, BayesFlow authors (lead maintainer: Stefan T. Radev)"
 
 
 # -- General configuration ---------------------------------------------------

@@ -6,7 +6,7 @@ projects/
 */bayesflow.egg-info
 docsrc/_build/
 docsrc/_build_polyversion
-docsrc/.bf_doc_gen_venv
+docsrc/.docs_venvs
 docsrc/source/api
 docsrc/source/_examples
 docsrc/source/contributing.md

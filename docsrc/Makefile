@@ -25,14 +25,23 @@ dev:
 	@cp .nojekyll ../docs/.nojekyll
 
 github:
-	@BF_DOCS_SEQUENTIAL_BUILDS=1 sphinx-polyversion poly.py
+	@sphinx-polyversion --sequential poly.py
 	@echo 'Copying docs to ../docs'
+	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
 
 docs:
-	@BF_DOCS_SEQUENTIAL_BUILDS=0 sphinx-polyversion poly.py
+	@sphinx-polyversion poly.py
 	@echo 'Copying docs to ../docs'
+	@rm -rf ../docs/*
+	@cp -a _build_polyversion/. ../docs
+	@cp .nojekyll ../docs/.nojekyll
+
+local:
+	@sphinx-polyversion --local poly.py
+	@echo 'Copying docs to ../docs'
+	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
 
@@ -46,7 +55,7 @@ clean:
 
 clean-all:
 	@make clean
-	@rm -rf .bf_doc_gen_venv
+	@rm -rf .docs_venvs .bf_doc_gen_venv
 	@find source/api -type f ! -name 'bayesflow.rst' -exec rm -f {} +
 
 .PHONY: help Makefile
