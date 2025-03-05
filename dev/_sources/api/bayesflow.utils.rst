@@ -13,60 +13,60 @@
 
   .. autosummary::
   
-    expand_as
-    find_distribution
-    find_batch_size
-    prettify_subplots
-    tile_axis
-    filter_kwargs
-    pad
-    find_memory_budget
+    find_recurrent_net
+    make_quadratic
+    expand_left_as
+    convert_args
+    add_titles_and_labels
+    find_inference_network
+    find_pooling
+    jacobian
+    prepare_plot_data
     size_of
     integrate
-    format_bytes
-    expand_right_as
-    find_permutation
-    keras_kwargs
-    expand_right
-    make_quadratic
-    searchsorted
-    pickle_load
-    simultaneous_ecdf_bands
-    expand_left_to
-    vjp
-    convert_args
-    batched_call
-    add_titles_and_labels
-    jacobian_trace
-    expand_left_as
-    find_network
-    detailed_loss_callback
-    tree_concatenate
-    convert_kwargs
-    tree_stack
-    expand_right_to
-    check_lengths_same
-    deserialize_value_or_type
+    find_memory_budget
     add_metric
-    find_recurrent_net
-    optimal_transport
-    expand_to
-    find_inference_network
-    parse_bytes
-    split_arrays
-    jvp
-    expand_tile
-    split_tensors
-    jacobian
-    find_pooling
-    expand_left
+    filter_kwargs
     expand
+    jvp
+    check_lengths_same
+    simultaneous_ecdf_bands
+    batched_call
+    pad
+    deserialize_value_or_type
+    parse_bytes
     check_estimates_prior_shapes
-    serialize_value_or_type
-    concatenate
-    prepare_plot_data
-    devices
+    expand_right_to
+    expand_left
+    jacobian_trace
+    pickle_load
+    keras_kwargs
+    expand_tile
+    tile_axis
+    tree_concatenate
+    expand_as
     find_summary_network
+    find_permutation
+    expand_right_as
+    find_distribution
+    expand_to
+    find_network
+    concatenate
+    detailed_loss_callback
+    expand_right
+    convert_kwargs
+    optimal_transport
+    searchsorted
+    expand_left_to
+    serialize_value_or_type
+    find_batch_size
+    split_arrays
+    tree_stack
+    format_bytes
+    devices
+    split_tensors
+    prettify_subplots
+    vjp
   
   
 
@@ -88,8 +88,8 @@
     :recursive:
   
     keras_utils
-    numpy_utils
     logging
+    numpy_utils
 
   
   
