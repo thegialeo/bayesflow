@@ -5,6 +5,7 @@ docs-sequential:
 	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
+	@rm -rf _build_polyversion
 
 .PHONY: docs
 docs:
@@ -13,6 +14,7 @@ docs:
 	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
+	@rm -rf _build_polyversion
 
 .PHONY: local
 local:
@@ -21,6 +23,7 @@ local:
 	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
+	@rm -rf _build_polyversion
 
 .PHONY: clean
 clean:

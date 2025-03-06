@@ -25,6 +25,7 @@ echo.Copying docs to ../docs
 del /q /s ..\docs\*
 xcopy /y /s _build_polyversion\ ..\docs
 xcopy /y .nojekyll ..\docs\.nojekyll
+del /q /s _build_polyversion
 goto end
 
 :docssequential
@@ -33,6 +34,7 @@ echo.Copying docs to ../docs
 del /q /s ..\docs\*
 xcopy /y /s _build_polyversion\ ..\docs
 xcopy /y .nojekyll ..\docs\.nojekyll
+del /q /s _build_polyversion
 goto end
 
 :docs
@@ -41,6 +43,7 @@ echo.Copying docs to ../docs
 del /q /s ..\docs\*
 xcopy /y /s _build_polyversion\ ..\docs
 xcopy /y .nojekyll ..\docs\.nojekyll
+del /q /s _build_polyversion
 goto end
 
 :viewdocs
