@@ -1,36 +1,12 @@
-# Minimal makefile for Sphinx documentation
-#
-
-# You can set these variables from the command line, and also
-# from the environment for the first two.
-SPHINXOPTS    ?=
-SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = _build
-
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-# from https://github.com/acerbilab/pyvbmc/blob/main/docsrc/Makefile
-# copy example notebooks to source folder
-# render docs
-# copy rendered docs and .nojekyll (for github.io) to docs folder
-# remove example notebooks from source folder
-dev:
-	@python pre-build.py source
-	@make html
-	@echo 'Copying docs to ../docs'
-	@cp -a _build/html/. ../docs
-	@cp .nojekyll ../docs/.nojekyll
-
-github:
+.PHONY: docs-sequential
+docs-sequential:
 	@sphinx-polyversion --sequential poly.py
 	@echo 'Copying docs to ../docs'
 	@rm -rf ../docs/*
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
 
+.PHONY: docs
 docs:
 	@sphinx-polyversion poly.py
 	@echo 'Copying docs to ../docs'
@@ -38,6 +14,7 @@ docs:
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
 
+.PHONY: local
 local:
 	@sphinx-polyversion --local poly.py
 	@echo 'Copying docs to ../docs'
@@ -45,6 +22,7 @@ local:
 	@cp -a _build_polyversion/. ../docs
 	@cp .nojekyll ../docs/.nojekyll
 
+.PHONY: clean
 clean:
 	@rm -rf ../docs/*
 	@rm -rf _build
@@ -53,14 +31,16 @@ clean:
 	@rm -f source/installation.rst
 	@rm -f source/contributing.md
 
+.PHONY: clean-all
 clean-all:
 	@make clean
 	@rm -rf .docs_venvs .bf_doc_gen_venv
 	@find source/api -type f ! -name 'bayesflow.rst' -exec rm -f {} +
 
-.PHONY: help Makefile
+.PHONY: view-docs
+view-docs:
+	@echo "Serving the contents of '../docs'... (open the link below to view)."
+	@echo "Interrupt with Ctrl+C."
+	@python -m http.server -d ../docs -b 127.0.0.1 8090
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+.PHONY: help Makefile

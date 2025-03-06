@@ -45,7 +45,7 @@ jobs:
         run: |
           cd ./dev/docsrc
           make clean
-          make github
+          make docs-sequential
       - name: Commit changes to docs
         run: |
           cd ./gh-pages-dev
