@@ -21,8 +21,8 @@ root = Git.root(Path(__file__).parent)
 BRANCH_REGEX = r"^(dev)$"
 
 #: Regex matching the tags to build docs for
-# TAG_REGEX = r"^v(1\.1\.6|(?!1\.)[\.0-9]*)$"
-TAG_REGEX = r""
+TAG_REGEX = r"^v(1\.1\.6|(?!1\.)[\.0-9]*)$"
+# TAG_REGEX = r""
 
 #: Output dir relative to project root
 OUTPUT_DIR = "_build_polyversion"

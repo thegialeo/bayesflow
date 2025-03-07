@@ -50,26 +50,28 @@ def patch_conf(sourcedir):
         root = Git.root(Path(__file__).parent)
     else:
         root = str(Path(os.path.abspath(sourcedir)).parent.parent)
-    cursrc = os.path.join(root, "docsrc", "source")
+    sourcedir = Path(sourcedir)
+    cursrc = Path(root) / "docsrc" / "source"
     if os.path.abspath(cursrc) == os.path.abspath(sourcedir):
         return
     # copy the configuration file: shared for all versions
-    conf_src = os.path.join(cursrc, "conf.py")
-    conf_dst = os.path.join(sourcedir, "conf.py")
-    if os.path.exists(conf_src):
+    conf_src = Path(cursrc) / "conf.py"
+    conf_dst = Path(sourcedir) / "conf.py"
+    if conf_src.exists():
         logger.info("Overwriting old conf.py with current conf.py")
         shutil.copy2(conf_src, conf_dst)
     # copy HTML and CSS for versioning sidebar
-    versioning_src = os.path.join(cursrc, "_templates", "versioning.html")
-    versioning_dst = os.path.join(sourcedir, "_templates", "versioning.html")
-    if os.path.exists(versioning_src):
-        os.makedirs(os.path.join(sourcedir, "_templates"), exist_ok=True)
-        shutil.copy2(versioning_src, versioning_dst)
-    css_src = os.path.join(cursrc, "_static", "custom.css")
-    css_dst = os.path.join(sourcedir, "_static", "custom.css")
-    if os.path.exists(css_src):
-        os.makedirs(os.path.join(sourcedir, "_static"), exist_ok=True)
-        shutil.copy2(css_src, css_dst)
+    copy_rel_paths = [
+        "_static/bayesflow_hor_dark.png",
+        "_static/bayesflow_hor.png",
+        "_static/custom.css",
+    ]
+    for path in copy_rel_paths:
+        srcfile = cursrc / path
+        dstfile = sourcedir / path
+        if srcfile.exists():
+            os.makedirs(dstfile.parent, exist_ok=True)
+            shutil.copy2(srcfile, dstfile)
 
 
 if __name__ == "__main__":
