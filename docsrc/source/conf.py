@@ -122,7 +122,7 @@ html_theme_options = {
     "use_download_button": True,
     "logo": {"alt-text": "BayesFlow"},
 }
-html_logo = "_static/bayesflow_hex.png"
+html_logo = "_static/bayesflow_hor.png"
 html_favicon = "_static/bayesflow_hex.ico"
 html_baseurl = "https://www.bayesflow.org/"
 html_js_files = ["https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"]
