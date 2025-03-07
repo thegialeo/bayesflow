@@ -175,6 +175,7 @@ cd docsrc
 make view-docs
 ```
 
+See `docsrc/README.md` for more details.
 
 Note that undocumented changes will likely be rejected.
 

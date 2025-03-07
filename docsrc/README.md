@@ -2,8 +2,8 @@
 
 ## Overview
 
-To install the necessary dependencies, please run `pip install -e .[docs]`.
-You can then do the following:
+To install the necessary dependencies, please run `pip install -e .[docs]` in the root directory.
+You can then do the following (inside the `docsrc` directory):
 
 1. `make local`: Generate the docs for the current local state
 2. `make docs`: Build the docs for branches and tags specified in `poly.py` in sequential fashion. Virtual environments are cached (run `make clean-all` to delete)
