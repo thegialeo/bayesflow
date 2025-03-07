@@ -1,5 +1,4 @@
-{{ objname | escape | underline}}
-
+{{ objname | escape | underline(line="=") }}
 
 {% if objtype == "function" -%}
 
@@ -13,8 +12,8 @@
 
 .. autoclass:: {{ objname }}
    :members:
-   :undoc-members:
-   :no-inherited-members:
+   :inherited-members:
+   :show-inheritance:
    :special-members: __call__
    :member-order: bysource
 
