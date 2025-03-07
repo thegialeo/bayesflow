@@ -1,1 +1,1 @@
-[{"__jsonclass__": ["sphinx_polyversion.git.GitRef", ["dev", "4c531385113a4386a74b05784c6bcea199ca7896", "refs/heads/dev", {"__jsonclass__": ["sphinx_polyversion.git.GitRefType", "BRANCH"]}, {"__jsonhook__": ["sphinx_polyversion.json.std_hook", ".datetime", "2025-03-07T10:47:20-05:00"]}, null]]}]
+[{"name": "dev", "version": "dev", "url": "/dev"}, {"name": "v1.1.6", "version": "v1.1.6", "url": "/v1.1.6"}]
