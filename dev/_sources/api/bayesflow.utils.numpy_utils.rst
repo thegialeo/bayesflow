@@ -2,6 +2,11 @@ numpy\_utils
 ============
 
 .. automodule:: bayesflow.utils.numpy_utils
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -12,6 +17,8 @@ numpy\_utils
   .. rubric:: Functions
 
   .. autosummary::
+    :toctree:
+    :template: base.rst
   
     inverse_shifted_softplus
     inverse_sigmoid
@@ -30,25 +37,6 @@ numpy\_utils
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
-  
-
-  .. rubric:: Functions
-
-  
-  .. autofunction:: inverse_shifted_softplus
-  .. autofunction:: inverse_sigmoid
-  .. autofunction:: inverse_softplus
-  .. autofunction:: one_hot
-  .. autofunction:: shifted_softplus
-  .. autofunction:: softplus
   
   

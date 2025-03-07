@@ -2,30 +2,7 @@
 ========
 
 .. automodule:: bayesflow.adapters
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  .. rubric:: Classes
-
-  .. autosummary::
-    :toctree:
-    :template: custom-class-template.rst
-  
-    Adapter
-  
-  
-
-  
-  
-  
+  :member-order: alphabetical
 
   
   
@@ -41,10 +18,30 @@
   
   
 
- 
+  
   
   
 
   
+  
+  
+
+  
+  
+  .. rubric:: Classes
+
+  .. autosummary::
+    :toctree:
+    :template: base.rst
+  
+    Adapter
+  
+  
+
+  
+  
+  
+
+ 
   
   

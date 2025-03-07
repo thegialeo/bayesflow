@@ -1,12 +1,11 @@
 AsSet
 =====
 
-
 .. currentmodule:: bayesflow.adapters.transforms
 
 .. autoclass:: AsSet
    :members:
-   :undoc-members:
-   :no-inherited-members:
+   :inherited-members:
+   :show-inheritance:
    :special-members: __call__
    :member-order: bysource

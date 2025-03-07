@@ -2,6 +2,11 @@
 ========
 
 .. automodule:: bayesflow.datasets
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,16 +22,12 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    RoundsDataset
     DiskDataset
     OfflineDataset
     OnlineDataset
-  
-  
-
-  
+    RoundsDataset
   
   
 
@@ -35,9 +36,5 @@
   
 
  
-  
-  
-
-  
   
   

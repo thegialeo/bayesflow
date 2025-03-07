@@ -2,6 +2,11 @@
 ==========
 
 .. automodule:: bayesflow.benchmarks
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,14 +22,10 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    TwoMoons
     LotkaVolterra
-  
-  
-
-  
+    TwoMoons
   
   
 
@@ -33,9 +34,5 @@
   
 
  
-  
-  
-
-  
   
   

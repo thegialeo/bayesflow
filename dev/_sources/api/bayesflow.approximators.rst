@@ -2,6 +2,11 @@
 =============
 
 .. automodule:: bayesflow.approximators
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,7 +22,7 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
     Approximator
     ContinuousApproximator
@@ -29,14 +34,6 @@
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
   
   

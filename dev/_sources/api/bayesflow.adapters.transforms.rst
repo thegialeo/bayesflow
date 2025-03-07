@@ -2,6 +2,11 @@ transforms
 ==========
 
 .. automodule:: bayesflow.adapters.transforms
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,30 +22,26 @@ transforms
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    Constrain
-    Drop
-    Rename
-    Keep
     AsSet
-    ElementwiseTransform
-    ToArray
-    Standardize
-    LambdaTransform
     AsTimeSeries
     Broadcast
     Concatenate
+    Constrain
+    ConvertDType
+    Drop
+    ElementwiseTransform
     ExpandDims
+    FilterTransform
+    Keep
+    LambdaTransform
     MapTransform
     OneHot
+    Rename
+    Standardize
+    ToArray
     Transform
-    FilterTransform
-    ConvertDType
-  
-  
-
-  
   
   
 
@@ -49,9 +50,5 @@ transforms
   
 
  
-  
-  
-
-  
   
   

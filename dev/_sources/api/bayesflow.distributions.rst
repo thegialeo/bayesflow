@@ -2,6 +2,11 @@
 =============
 
 .. automodule:: bayesflow.distributions
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,10 +22,10 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    DiagonalStudentT
     DiagonalNormal
+    DiagonalStudentT
     Distribution
   
   
@@ -29,14 +34,6 @@
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
   
   

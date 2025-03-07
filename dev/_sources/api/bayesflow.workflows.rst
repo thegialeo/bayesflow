@@ -2,6 +2,11 @@
 =========
 
 .. automodule:: bayesflow.workflows
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,7 +22,7 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
     BasicWorkflow
   
@@ -27,14 +32,6 @@
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
   
   

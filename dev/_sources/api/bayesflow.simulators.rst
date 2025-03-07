@@ -2,6 +2,11 @@
 ==========
 
 .. automodule:: bayesflow.simulators
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -12,6 +17,8 @@
   .. rubric:: Functions
 
   .. autosummary::
+    :toctree:
+    :template: base.rst
   
     make_simulator
   
@@ -23,18 +30,14 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    SequentialSimulator
     HierarchicalSimulator
-    ModelComparisonSimulator
     LambdaSimulator
-    TwoMoons
+    ModelComparisonSimulator
+    SequentialSimulator
     Simulator
-  
-  
-
-  
+    TwoMoons
   
   
 
@@ -43,15 +46,5 @@
   
 
  
-  
-  
-
-  
-  
-
-  .. rubric:: Functions
-
-  
-  .. autofunction:: make_simulator
   
   

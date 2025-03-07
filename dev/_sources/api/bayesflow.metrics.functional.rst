@@ -2,6 +2,11 @@ functional
 ==========
 
 .. automodule:: bayesflow.metrics.functional
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -12,6 +17,8 @@ functional
   .. rubric:: Functions
 
   .. autosummary::
+    :toctree:
+    :template: base.rst
   
     maximum_mean_discrepancy
     root_mean_squared_error
@@ -26,21 +33,6 @@ functional
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
-  
-
-  .. rubric:: Functions
-
-  
-  .. autofunction:: maximum_mean_discrepancy
-  .. autofunction:: root_mean_squared_error
   
   

@@ -2,31 +2,7 @@
 =======
 
 .. automodule:: bayesflow.metrics
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  .. rubric:: Classes
-
-  .. autosummary::
-    :toctree:
-    :template: custom-class-template.rst
-  
-    MaximumMeanDiscrepancy
-    RootMeanSquaredError
-  
-  
-
-  
-  
-  
+  :member-order: alphabetical
 
   
   
@@ -42,10 +18,31 @@
   
   
 
- 
+  
   
   
 
   
+  
+  
+
+  
+  
+  .. rubric:: Classes
+
+  .. autosummary::
+    :toctree:
+    :template: base.rst
+  
+    MaximumMeanDiscrepancy
+    RootMeanSquaredError
+  
+  
+
+  
+  
+  
+
+ 
   
   

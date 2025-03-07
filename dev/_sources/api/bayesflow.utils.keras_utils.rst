@@ -2,6 +2,11 @@ keras\_utils
 ============
 
 .. automodule:: bayesflow.utils.keras_utils
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -12,6 +17,8 @@ keras\_utils
   .. rubric:: Functions
 
   .. autosummary::
+    :toctree:
+    :template: base.rst
   
     inverse_shifted_softplus
     inverse_softplus
@@ -27,22 +34,6 @@ keras\_utils
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
-  
-
-  .. rubric:: Functions
-
-  
-  .. autofunction:: inverse_shifted_softplus
-  .. autofunction:: inverse_softplus
-  .. autofunction:: shifted_softplus
   
   

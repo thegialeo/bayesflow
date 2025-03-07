@@ -2,6 +2,11 @@ logging
 =======
 
 .. automodule:: bayesflow.utils.logging
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -12,6 +17,8 @@ logging
   .. rubric:: Functions
 
   .. autosummary::
+    :toctree:
+    :template: base.rst
   
     critical
     debug
@@ -32,27 +39,6 @@ logging
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
-  
-
-  .. rubric:: Functions
-
-  
-  .. autofunction:: critical
-  .. autofunction:: debug
-  .. autofunction:: error
-  .. autofunction:: exception
-  .. autofunction:: info
-  .. autofunction:: log
-  .. autofunction:: warn_once
-  .. autofunction:: warning
   
   

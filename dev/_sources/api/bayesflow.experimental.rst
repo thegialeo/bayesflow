@@ -2,6 +2,11 @@
 ============
 
 .. automodule:: bayesflow.experimental
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,7 +22,7 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
     CIF
     ContinuousTimeConsistencyModel
@@ -28,14 +33,6 @@
   
   
 
-  
-  
-  
-
  
-  
-  
-
-  
   
   

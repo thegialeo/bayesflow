@@ -2,6 +2,11 @@
 ========
 
 .. automodule:: bayesflow.networks
+  :member-order: alphabetical
+
+  
+  
+  
 
   
   
@@ -17,24 +22,20 @@
 
   .. autosummary::
     :toctree:
-    :template: custom-class-template.rst
+    :template: base.rst
   
-    FreeFormFlow
-    FusionTransformer
-    LSTNet
-    TimeSeriesTransformer
+    ConsistencyModel
+    CouplingFlow
     DeepSet
     FlowMatching
-    MLP
-    ConsistencyModel
-    SetTransformer
+    FreeFormFlow
+    FusionTransformer
     InferenceNetwork
+    LSTNet
+    MLP
+    SetTransformer
     SummaryNetwork
-    CouplingFlow
-  
-  
-
-  
+    TimeSeriesTransformer
   
   
 
@@ -43,9 +44,5 @@
   
 
  
-  
-  
-
-  
   
   
