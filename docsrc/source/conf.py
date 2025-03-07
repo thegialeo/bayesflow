@@ -18,9 +18,12 @@ try:
     from sphinx_polyversion.api import LoadError
 
     USE_POLYVERSION = True
+    data = load(globals())
+    current = data["current"].name
 except ImportError:
     USE_POLYVERSION = False
     print("sphinx_polyversion not installed, building single version")
+    current = "local"
 
 sys.path.insert(0, os.path.abspath("../.."))
 
@@ -77,7 +80,7 @@ myst_url_schemes = ["http", "https", "mailto"]
 
 # Define shorthand for external links:
 extlinks = {
-    "mainbranch": ("https://github.com/bayesflow-org/bayesflow/blob/master/%s", None),
+    "mainbranch": (f"https://github.com/bayesflow-org/bayesflow/blob/{current}/%s", None),
 }
 
 coverage_show_missing_items = True
@@ -114,7 +117,7 @@ html_css_files = ["custom.css"]
 html_show_sourcelink = False
 html_theme_options = {
     "repository_url": "https://github.com/bayesflow-org/bayesflow",
-    "repository_branch": "master",
+    "repository_branch": current,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
