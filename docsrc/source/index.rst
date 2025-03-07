@@ -117,7 +117,6 @@ Indices
     :titlesonly:
     :hidden:
 
-    self
     examples
     api/bayesflow
     about
@@ -126,6 +125,7 @@ Indices
 .. toctree::
     :maxdepth: 1
     :caption: Development
+    :hidden:
 
-    contributing
-    development/index
+    Contributing <contributing>
+    Developer docs <development/index>

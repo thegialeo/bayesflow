@@ -1,7 +1,7 @@
 from datetime import datetime
 import logging
 from pathlib import Path
-from docsrc.polyversion_patches import DynamicPip, CustomDriver
+from docsrc.polyversion_patches import DynamicPip, CustomDriver, PyDataVersionEncoder
 
 from sphinx_polyversion.api import apply_overrides
 from sphinx_polyversion.git import Git, GitRef, GitRefType, file_predicate, refs_by_type
@@ -50,7 +50,7 @@ SPHINX_DEPS = [
     "numpydoc",
     "myst-nb",
     "sphinx_design",
-    "sphinx-book-theme",
+    "pydata-sphinx-theme",
     "sphinxcontrib-bibtex",
     "sphinx-polyversion==1.1.0",
 ]
@@ -162,6 +162,7 @@ CustomDriver(
         pre_cmd=["python", root / src / "pre-build.py", Placeholder.SOURCE_DIR],
     ),
     env=ENVIRONMENT,
+    encoder=PyDataVersionEncoder(),
     selector=selector,
     template_dir=root / src / "polyversion/templates",
     static_dir=root / src / "polyversion/static",

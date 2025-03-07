@@ -58,7 +58,7 @@ extensions = [
 ]
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/{.major}".format(sys.version_info), None),
+    "python": ("https://docs.python.org/3", None),
     "numpy": ("https://numpy.org/doc/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "matplotlib": ("https://matplotlib.org/", None),
@@ -106,7 +106,7 @@ autoclass_content = "both"
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_book_theme"
+html_theme = "pydata_sphinx_theme"
 html_title = "BayesFlow: Amortized Bayesian Inference"
 
 # Add any paths that contain custom _static files (such as style sheets) here,
@@ -116,27 +116,29 @@ html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_show_sourcelink = False
 html_theme_options = {
-    "repository_url": "https://github.com/bayesflow-org/bayesflow",
-    "repository_branch": current,
     "use_edit_page_button": True,
-    "use_issues_button": True,
-    "use_repository_button": True,
-    "use_download_button": True,
-    "logo": {"alt-text": "BayesFlow"},
+    "logo": {
+        "alt-text": "BayesFlow",
+        "image_light": "_static/bayesflow_hor.png",
+        "image_dark": "_static/bayesflow_hor_dark.png",
+    },
+    "navbar_center": ["version-switcher", "navbar-nav"],
+    "switcher": {
+        "json_url": "/versions.json",
+        "version_match": current,
+    },
+    "check_switcher": False,
+}
+html_context = {
+    "github_url": "https://github.com",  # or your GitHub Enterprise site
+    "github_user": "bayesflow-org",
+    "github_repo": "bayesflow",
+    "github_version": current,
+    "doc_path": "docsrc",
 }
 html_logo = "_static/bayesflow_hor.png"
 html_favicon = "_static/bayesflow_hex.ico"
 html_baseurl = "https://www.bayesflow.org/"
-html_js_files = ["https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"]
-html_sidebars = {
-    "**": [
-        "navbar-logo.html",
-        "icon-links.html",
-        "search-button-field.html",
-        "sbt-sidebar-nav.html",
-        "versioning.html",
-    ],
-}
 
 todo_include_todos = True
 

@@ -39,7 +39,7 @@ docs = [
   "numpydoc",
   "myst-nb",
   "sphinx_design",
-  "sphinx-book-theme",
+  "pydata-sphinx-theme",
   "sphinxcontrib-bibtex",
   "sphinx-polyversion==1.1.0",
 ]

@@ -1,4 +1,5 @@
 import asyncio
+import json
 import logging
 import os
 from pathlib import Path
@@ -8,6 +9,9 @@ from subprocess import PIPE, CalledProcessError
 from sphinx_polyversion.builder import BuildError
 from sphinx_polyversion.driver import DefaultDriver
 from sphinx_polyversion.pyvenv import Pip
+from sphinx_polyversion.json import JSONable
+
+from typing import Iterator
 
 import tempfile
 
@@ -64,6 +68,35 @@ class DynamicPip(Pip):
         return self
 
 
+class PyDataVersionEncoder(json.JSONEncoder):
+    """Encoder to turn list of built GitRefs into a version.json consumable by Sphinx."""
+
+    def transform(self, o: JSONable):
+        output = []
+        processed_names = []
+        for ref in o:
+            if ref.name in processed_names:
+                continue
+            output.append(
+                {
+                    "name": ref.name,
+                    "version": ref.name,
+                    "url": f"/{ref.name}",
+                }
+            )
+            processed_names.append(ref.name)
+        # do not use cast for performance reasons
+        return output
+
+    def __call__(self, o: JSONable):
+        return self.transform(o)
+
+    def iterencode(self, o: JSONable, _one_shot: bool = False) -> Iterator[str]:
+        """Encode an object."""
+        # called for every top level object to encode
+        return super().iterencode(self.transform(o), _one_shot)
+
+
 class CustomDriver(DefaultDriver):
     """DefaultDriver which does not copy venvs for local builds.
 
@@ -101,9 +134,10 @@ class CustomDriver(DefaultDriver):
                 for filename in files:
                     source = self.root / filename
                     target = path / filename
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    if not target.exists():
-                        shutil.copy2(source, target, follow_symlinks=False)
+                    if source.exists():
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        if not target.exists():
+                            shutil.copy2(source, target, follow_symlinks=False)
             except CalledProcessError:
                 logger.warning("Could not list un-ignored files using git. Copying full working directory...")
                 shutil.copytree(self.root, path, symlinks=True, dirs_exist_ok=True)
