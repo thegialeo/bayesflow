@@ -1,0 +1,10 @@
+{% extends "sphinx_book_theme/layout.html" %}
+
+{% block docs_body %}
+{# This is empty and only shows up if text has been highlighted by the URL #}
+  {% include "components/searchbox.html" %}
+  <article class="bd-article">
+{% include "pydata_sphinx_theme/components/breadcrumbs.html" %}
+    {% block body %}{% endblock %}
+  </article>
+{% endblock docs_body %}
