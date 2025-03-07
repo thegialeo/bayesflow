@@ -83,12 +83,12 @@ exclude_patterns = []
 
 # Options for autodoc and autosummary
 autodoc_default_options = {
-    "members": True,
-    "undoc-members": True,
-    "imported-members": True,
-    "inherited-members": False,
-    "show-inheritance": True,
-    "special-members": "__call__",
+    # "members": True,
+    # "undoc-members": True,
+    # "imported-members": True,
+    # "inherited-members": False,
+    # "show-inheritance": True,
+    # "special-members": "__call__",
     "memberorder": "bysource",
 }
 # do not ignore __all__, use it to determine public members

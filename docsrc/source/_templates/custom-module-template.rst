@@ -1,4 +1,4 @@
-{{ fullname | escape | underline}}
+{{ objname | escape | underline}}
 
 .. automodule:: {{ fullname }}
 
@@ -29,6 +29,8 @@
   .. rubric:: {{ _('Classes') }}
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   {% for item in classes %}
     {{ item }}
   {%- endfor %}
@@ -40,6 +42,8 @@
   .. rubric:: {{ _('Exceptions') }}
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   {% for item in exceptions %}
     {{ item }}
   {%- endfor %}
@@ -58,5 +62,28 @@
     {{ item }}
   {%- endfor %}
 
+  {% endif %}
+  {% endblock %}
+
+ {% block attributes_def %}
+  {% if attributes %}
+  .. rubric:: Module Attributes
+
+  .. autoattribute::
+  {% for item in attributes %}
+    {{ item }}
+  {%- endfor %}
+  {% endif %}
+  {% endblock %}
+
+  {% block functions_def %}
+  {% if functions %}
+
+  .. rubric:: {{ _('Functions') }}
+
+  {% for item in functions %}
+  .. autofunction:: {{ item }}
+
+  {%- endfor %}
   {% endif %}
   {% endblock %}
