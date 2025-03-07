@@ -1,5 +1,5 @@
-bayesflow.utils.numpy\_utils
-============================
+numpy\_utils
+============
 
 .. automodule:: bayesflow.utils.numpy_utils
 
@@ -31,5 +31,24 @@ bayesflow.utils.numpy\_utils
   
 
   
+  
+  
+
+ 
+  
+  
+
+  
+  
+
+  .. rubric:: Functions
+
+  
+  .. autofunction:: inverse_shifted_softplus
+  .. autofunction:: inverse_sigmoid
+  .. autofunction:: inverse_softplus
+  .. autofunction:: one_hot
+  .. autofunction:: shifted_softplus
+  .. autofunction:: softplus
   
   

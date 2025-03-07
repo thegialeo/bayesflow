@@ -1,5 +1,5 @@
-﻿bayesflow.types
-===============
+﻿types
+=====
 
 .. automodule:: bayesflow.types
 
@@ -16,6 +16,14 @@
   
 
   
+  
+  
+
+  
+  
+  
+
+ 
   
   
 

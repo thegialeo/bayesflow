@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>bayesflow.adapters &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>adapters &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -51,8 +51,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bayesflow.adapters.transforms" href="bayesflow.adapters.transforms.html" />
-    <link rel="prev" title="Public API: bayesflow package" href="bayesflow.html" />
+    <link rel="next" title="Adapter" href="bayesflow.adapters.Adapter.html" />
+    <link rel="prev" title="API Reference" href="bayesflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,39 +174,103 @@
 <li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">bayesflow.adapters</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">adapters</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.html">bayesflow.benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.html">bayesflow.datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.html">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
@@ -415,9 +479,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -427,62 +489,35 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>bayesflow.adapters</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.__call__"><code class="docutils literal notranslate"><span class="pre">Adapter.__call__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.add_transform"><code class="docutils literal notranslate"><span class="pre">Adapter.add_transform()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.append"><code class="docutils literal notranslate"><span class="pre">Adapter.append()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.apply"><code class="docutils literal notranslate"><span class="pre">Adapter.apply()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.as_set"><code class="docutils literal notranslate"><span class="pre">Adapter.as_set()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.as_time_series"><code class="docutils literal notranslate"><span class="pre">Adapter.as_time_series()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.broadcast"><code class="docutils literal notranslate"><span class="pre">Adapter.broadcast()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.clear"><code class="docutils literal notranslate"><span class="pre">Adapter.clear()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.concatenate"><code class="docutils literal notranslate"><span class="pre">Adapter.concatenate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.constrain"><code class="docutils literal notranslate"><span class="pre">Adapter.constrain()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.convert_dtype"><code class="docutils literal notranslate"><span class="pre">Adapter.convert_dtype()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.create_default"><code class="docutils literal notranslate"><span class="pre">Adapter.create_default()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.drop"><code class="docutils literal notranslate"><span class="pre">Adapter.drop()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.expand_dims"><code class="docutils literal notranslate"><span class="pre">Adapter.expand_dims()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.extend"><code class="docutils literal notranslate"><span class="pre">Adapter.extend()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.forward"><code class="docutils literal notranslate"><span class="pre">Adapter.forward()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.from_config"><code class="docutils literal notranslate"><span class="pre">Adapter.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.get_config"><code class="docutils literal notranslate"><span class="pre">Adapter.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.insert"><code class="docutils literal notranslate"><span class="pre">Adapter.insert()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.inverse"><code class="docutils literal notranslate"><span class="pre">Adapter.inverse()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.keep"><code class="docutils literal notranslate"><span class="pre">Adapter.keep()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.one_hot"><code class="docutils literal notranslate"><span class="pre">Adapter.one_hot()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.rename"><code class="docutils literal notranslate"><span class="pre">Adapter.rename()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.standardize"><code class="docutils literal notranslate"><span class="pre">Adapter.standardize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.to_array"><code class="docutils literal notranslate"><span class="pre">Adapter.to_array()</span></code></a></li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">adapters</li>
+  </ul>
+</nav>
+
+    
   <section id="module-bayesflow.adapters">
-<span id="bayesflow-adapters"></span><h1>bayesflow.adapters<a class="headerlink" href="#module-bayesflow.adapters" title="Link to this heading">#</a></h1>
+<span id="adapters"></span><h1>adapters<a class="headerlink" href="#module-bayesflow.adapters" title="Link to this heading">#</a></h1>
 <p class="rubric">Classes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.Adapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Adapter</span></code></a>([transforms])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.Adapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Adapter</span></code></a>([transforms])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -497,147 +532,10 @@ document.write(`
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.</span></span><span class="sig-name descname"><span class="pre">Adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transforms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MutableSequence</span></code>[<a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a>]</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.__call__" title="Link to this definition">#</a></dt>
-<dd><p>Call self as a function.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.add_transform">
-<span class="sig-name descname"><span class="pre">add_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="headerlink" href="#bayesflow.adapters.Adapter.add_transform" title="Link to this definition">#</a></dt>
-<dd><p>S.append(value) – append value to the end of the sequence</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.append" title="Link to this definition">#</a></dt>
-<dd><p>S.append(value) – append value to the end of the sequence</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Predicate</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.apply" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.as_set">
-<span class="sig-name descname"><span class="pre">as_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.as_set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.as_set" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.as_time_series">
-<span class="sig-name descname"><span class="pre">as_time_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.as_time_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.as_time_series" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.broadcast">
-<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.broadcast" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.clear" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.concatenate">
-<span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">into</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.concatenate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.concatenate" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.constrain">
-<span class="sig-name descname"><span class="pre">constrain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclusive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.constrain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.constrain" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.convert_dtype">
-<span class="sig-name descname"><span class="pre">convert_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Predicate</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.convert_dtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.convert_dtype" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.create_default">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inference_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.create_default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.create_default" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.drop">
-<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.drop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.drop" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.expand_dims">
-<span class="sig-name descname"><span class="pre">expand_dims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.expand_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.expand_dims" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.extend" title="Link to this definition">#</a></dt>
-<dd><p>S.extend(iterable) – extend sequence by appending elements from the iterable</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.forward" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.from_config">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.from_config" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.get_config" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.insert">
-<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><span class="pre">Transform</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.insert" title="Link to this definition">#</a></dt>
-<dd><p>S.insert(index, value) – insert value before index</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.inverse">
-<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.inverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.inverse" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.keep">
-<span class="sig-name descname"><span class="pre">keep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.keep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.keep" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.one_hot">
-<span class="sig-name descname"><span class="pre">one_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.one_hot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.one_hot" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.rename">
-<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.rename" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.standardize">
-<span class="sig-name descname"><span class="pre">standardize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Predicate</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.standardize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.standardize" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.to_array">
-<span class="sig-name descname"><span class="pre">to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Predicate</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.to_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.to_array" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </section>
 
 
-                </article>
-              
+  </article>
 
               
               
@@ -652,15 +550,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Public API: bayesflow package</p>
+        <p class="prev-next-title">API Reference</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesflow.adapters.transforms.html"
+       href="bayesflow.adapters.Adapter.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesflow.adapters.transforms</p>
+        <p class="prev-next-title">Adapter</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -670,48 +568,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.__call__"><code class="docutils literal notranslate"><span class="pre">Adapter.__call__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.add_transform"><code class="docutils literal notranslate"><span class="pre">Adapter.add_transform()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.append"><code class="docutils literal notranslate"><span class="pre">Adapter.append()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.apply"><code class="docutils literal notranslate"><span class="pre">Adapter.apply()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.as_set"><code class="docutils literal notranslate"><span class="pre">Adapter.as_set()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.as_time_series"><code class="docutils literal notranslate"><span class="pre">Adapter.as_time_series()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.broadcast"><code class="docutils literal notranslate"><span class="pre">Adapter.broadcast()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.clear"><code class="docutils literal notranslate"><span class="pre">Adapter.clear()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.concatenate"><code class="docutils literal notranslate"><span class="pre">Adapter.concatenate()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.constrain"><code class="docutils literal notranslate"><span class="pre">Adapter.constrain()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.convert_dtype"><code class="docutils literal notranslate"><span class="pre">Adapter.convert_dtype()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.create_default"><code class="docutils literal notranslate"><span class="pre">Adapter.create_default()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.drop"><code class="docutils literal notranslate"><span class="pre">Adapter.drop()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.expand_dims"><code class="docutils literal notranslate"><span class="pre">Adapter.expand_dims()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.extend"><code class="docutils literal notranslate"><span class="pre">Adapter.extend()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.forward"><code class="docutils literal notranslate"><span class="pre">Adapter.forward()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.from_config"><code class="docutils literal notranslate"><span class="pre">Adapter.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.get_config"><code class="docutils literal notranslate"><span class="pre">Adapter.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.insert"><code class="docutils literal notranslate"><span class="pre">Adapter.insert()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.inverse"><code class="docutils literal notranslate"><span class="pre">Adapter.inverse()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.keep"><code class="docutils literal notranslate"><span class="pre">Adapter.keep()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.one_hot"><code class="docutils literal notranslate"><span class="pre">Adapter.one_hot()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.rename"><code class="docutils literal notranslate"><span class="pre">Adapter.rename()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.standardize"><code class="docutils literal notranslate"><span class="pre">Adapter.standardize()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.to_array"><code class="docutils literal notranslate"><span class="pre">Adapter.to_array()</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

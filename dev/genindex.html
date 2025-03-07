@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -173,39 +173,103 @@
 <li class="toctree-l2"><a class="reference internal" href="_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api/bayesflow.html">Public API: bayesflow package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.adapters.html">bayesflow.adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/bayesflow.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.benchmarks.html">bayesflow.benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.datasets.html">bayesflow.datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.networks.html">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="api/bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About us</a></li>
@@ -359,21 +423,26 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Index</li>
+  </ul>
+</nav>
+
+    
 
 <h1 id="index">Index</h1>
 
@@ -407,12 +476,12 @@ document.write(`
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.__call__">__call__() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.__call__">__call__() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform.__call__">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform.__call__">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.__call__">(bayesflow.adapters.transforms.Transform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.__call__">(bayesflow.adapters.transforms.Transform method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -421,29 +490,29 @@ document.write(`
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter">Adapter (class in bayesflow.adapters)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter">Adapter (class in bayesflow.adapters)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.add_metric">add_metric() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.add_titles_and_labels">add_titles_and_labels() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.add_transform">add_transform() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.add_transform">add_transform() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.append">append() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.append">append() (bayesflow.adapters.Adapter method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.apply">apply() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.apply">apply() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator">Approximator (class in bayesflow.approximators)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator">Approximator (class in bayesflow.approximators)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.as_set">as_set() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.as_set">as_set() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.as_time_series">as_time_series() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.as_time_series">as_time_series() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsSet">AsSet (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet">AsSet (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsTimeSeries">AsTimeSeries (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries">AsTimeSeries (class in bayesflow.adapters.transforms)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -451,7 +520,7 @@ document.write(`
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow">BasicWorkflow (class in bayesflow.workflows)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow">BasicWorkflow (class in bayesflow.workflows)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.batched_call">batched_call() (in module bayesflow.utils)</a>
 </li>
@@ -512,34 +581,6 @@ document.write(`
 </li>
       </ul></li>
       <li>
-    bayesflow.experimental.cif
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.cif.html#module-bayesflow.experimental.cif">module</a>
-</li>
-      </ul></li>
-      <li>
-    bayesflow.experimental.cif.cif
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#module-bayesflow.experimental.cif.cif">module</a>
-</li>
-      </ul></li>
-      <li>
-    bayesflow.experimental.cif.conditional_gaussian
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#module-bayesflow.experimental.cif.conditional_gaussian">module</a>
-</li>
-      </ul></li>
-      <li>
-    bayesflow.experimental.continuous_time_consistency_model
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#module-bayesflow.experimental.continuous_time_consistency_model">module</a>
-</li>
-      </ul></li>
-      <li>
     bayesflow.metrics
 
       <ul>
@@ -581,8 +622,6 @@ document.write(`
         <li><a href="api/bayesflow.utils.html#module-bayesflow.utils">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     bayesflow.utils.keras_utils
 
@@ -590,6 +629,8 @@ document.write(`
         <li><a href="api/bayesflow.utils.keras_utils.html#module-bayesflow.utils.keras_utils">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     bayesflow.utils.logging
 
@@ -611,73 +652,59 @@ document.write(`
         <li><a href="api/bayesflow.workflows.html#module-bayesflow.workflows">module</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Broadcast">Broadcast (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Broadcast.html#bayesflow.adapters.transforms.Broadcast">Broadcast (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.broadcast">broadcast() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.broadcast">broadcast() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.build">build() (bayesflow.approximators.Approximator method)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build">build() (bayesflow.approximators.Approximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.build">(bayesflow.approximators.ModelComparisonApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build">(bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalNormal.build">(bayesflow.distributions.DiagonalNormal method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalNormal.html#bayesflow.distributions.DiagonalNormal.build">(bayesflow.distributions.DiagonalNormal method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalStudentT.build">(bayesflow.distributions.DiagonalStudentT method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalStudentT.html#bayesflow.distributions.DiagonalStudentT.build">(bayesflow.distributions.DiagonalStudentT method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.html#bayesflow.experimental.cif.CIF.build">(bayesflow.experimental.cif.CIF method)</a>
+        <li><a href="api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.build">(bayesflow.experimental.CIF method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CIF.build">(bayesflow.experimental.cif.cif.CIF method)</a>
+        <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.build">(bayesflow.experimental.ContinuousTimeConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.ConditionalGaussian.build">(bayesflow.experimental.cif.cif.ConditionalGaussian method)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.build">(bayesflow.networks.ConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CouplingFlow.build">(bayesflow.experimental.cif.cif.CouplingFlow method)</a>
+        <li><a href="api/bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow.build">(bayesflow.networks.CouplingFlow method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.build">(bayesflow.experimental.cif.cif.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.networks.DeepSet.html#bayesflow.networks.DeepSet.build">(bayesflow.networks.DeepSet method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian.build">(bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian method)</a>
+        <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.build">(bayesflow.networks.FlowMatching method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.MLP.build">(bayesflow.experimental.cif.conditional_gaussian.MLP method)</a>
+        <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.build">(bayesflow.networks.FreeFormFlow method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.build">(bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.build">(bayesflow.networks.InferenceNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.build">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet.build">(bayesflow.networks.LSTNet method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.build">(bayesflow.networks.ConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.MLP.html#bayesflow.networks.MLP.build">(bayesflow.networks.MLP method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow.build">(bayesflow.networks.CouplingFlow method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.DeepSet.build">(bayesflow.networks.DeepSet method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.build">(bayesflow.networks.FlowMatching method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.build">(bayesflow.networks.FreeFormFlow method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.build">(bayesflow.networks.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.LSTNet.build">(bayesflow.networks.LSTNet method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.MLP.build">(bayesflow.networks.MLP method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.SummaryNetwork.build">(bayesflow.networks.SummaryNetwork method)</a>
+        <li><a href="api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.build">(bayesflow.networks.SummaryNetwork method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.build_adapter">build_adapter() (bayesflow.approximators.Approximator class method)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_adapter">build_adapter() (bayesflow.approximators.Approximator class method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.build_adapter">(bayesflow.approximators.ContinuousApproximator class method)</a>
+        <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.build_adapter">(bayesflow.approximators.ContinuousApproximator class method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.build_adapter">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build_adapter">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.build_dataset">build_dataset() (bayesflow.approximators.Approximator class method)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_dataset">build_dataset() (bayesflow.approximators.Approximator class method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.build_dataset">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build_dataset">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.build_from_data">build_from_data() (bayesflow.approximators.Approximator method)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_from_data">build_from_data() (bayesflow.approximators.Approximator method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.build_optimizer">build_optimizer() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.build_optimizer">build_optimizer() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -691,151 +718,113 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.calibration_histogram">calibration_histogram() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.Distribution.call">call() (bayesflow.distributions.Distribution method)</a>
+      <li><a href="api/bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution.call">call() (bayesflow.distributions.Distribution method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.experimental.cif.html#bayesflow.experimental.cif.CIF.call">(bayesflow.experimental.cif.CIF method)</a>
+        <li><a href="api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.call">(bayesflow.experimental.CIF method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CIF.call">(bayesflow.experimental.cif.cif.CIF method)</a>
+        <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.call">(bayesflow.experimental.ContinuousTimeConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.call">(bayesflow.experimental.cif.cif.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.call">(bayesflow.networks.ConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.MLP.call">(bayesflow.experimental.cif.conditional_gaussian.MLP method)</a>
+        <li><a href="api/bayesflow.networks.DeepSet.html#bayesflow.networks.DeepSet.call">(bayesflow.networks.DeepSet method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.call">(bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.FusionTransformer.html#bayesflow.networks.FusionTransformer.call">(bayesflow.networks.FusionTransformer method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.FourierEmbedding.call">(bayesflow.experimental.continuous_time_consistency_model.FourierEmbedding method)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.call">(bayesflow.networks.InferenceNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.call">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet.call">(bayesflow.networks.LSTNet method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.call">(bayesflow.networks.ConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.MLP.html#bayesflow.networks.MLP.call">(bayesflow.networks.MLP method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.DeepSet.call">(bayesflow.networks.DeepSet method)</a>
+        <li><a href="api/bayesflow.networks.SetTransformer.html#bayesflow.networks.SetTransformer.call">(bayesflow.networks.SetTransformer method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FusionTransformer.call">(bayesflow.networks.FusionTransformer method)</a>
+        <li><a href="api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.call">(bayesflow.networks.SummaryNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.call">(bayesflow.networks.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.LSTNet.call">(bayesflow.networks.LSTNet method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.MLP.call">(bayesflow.networks.MLP method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.SetTransformer.call">(bayesflow.networks.SetTransformer method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.SummaryNetwork.call">(bayesflow.networks.SummaryNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.TimeSeriesTransformer.call">(bayesflow.networks.TimeSeriesTransformer method)</a>
+        <li><a href="api/bayesflow.networks.TimeSeriesTransformer.html#bayesflow.networks.TimeSeriesTransformer.call">(bayesflow.networks.TimeSeriesTransformer method)</a>
 </li>
       </ul></li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.check_estimates_prior_shapes">check_estimates_prior_shapes() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.check_lengths_same">check_lengths_same() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.cif.html#bayesflow.experimental.cif.CIF">CIF (class in bayesflow.experimental.cif)</a>
+      <li><a href="api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF">CIF (class in bayesflow.experimental)</a>
+</li>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.clear">clear() (bayesflow.adapters.Adapter method)</a>
+</li>
+      <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.compile">compile() (bayesflow.approximators.ContinuousApproximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CIF">(class in bayesflow.experimental.cif.cif)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.compile">(bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.clear">clear() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.compute_custom_diagnostics">compute_custom_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.compile">compile() (bayesflow.approximators.ContinuousApproximator method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.compute_default_diagnostics">compute_default_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+</li>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.compute_diagnostics">compute_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+</li>
+      <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.compute_metrics">compute_metrics() (bayesflow.approximators.ContinuousApproximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.compile">(bayesflow.approximators.ModelComparisonApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.compute_metrics">(bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
-      </ul></li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.compute_custom_diagnostics">compute_custom_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+        <li><a href="api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.compute_metrics">(bayesflow.experimental.CIF method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.compute_default_diagnostics">compute_default_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+        <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.compute_metrics">(bayesflow.experimental.ContinuousTimeConsistencyModel method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.compute_diagnostics">compute_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.compute_metrics">(bayesflow.networks.ConsistencyModel method)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.compute_metrics">compute_metrics() (bayesflow.approximators.ContinuousApproximator method)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.compute_metrics">(bayesflow.approximators.ModelComparisonApproximator method)</a>
+        <li><a href="api/bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow.compute_metrics">(bayesflow.networks.CouplingFlow method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.html#bayesflow.experimental.cif.CIF.compute_metrics">(bayesflow.experimental.cif.CIF method)</a>
+        <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.compute_metrics">(bayesflow.networks.FlowMatching method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CIF.compute_metrics">(bayesflow.experimental.cif.cif.CIF method)</a>
+        <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.compute_metrics">(bayesflow.networks.FreeFormFlow method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CouplingFlow.compute_metrics">(bayesflow.experimental.cif.cif.CouplingFlow method)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.compute_metrics">(bayesflow.networks.InferenceNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.compute_metrics">(bayesflow.experimental.cif.cif.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.compute_metrics">(bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel method)</a>
-</li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.compute_metrics">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.compute_metrics">(bayesflow.networks.ConsistencyModel method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow.compute_metrics">(bayesflow.networks.CouplingFlow method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.compute_metrics">(bayesflow.networks.FlowMatching method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.compute_metrics">(bayesflow.networks.FreeFormFlow method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.compute_metrics">(bayesflow.networks.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.SummaryNetwork.compute_metrics">(bayesflow.networks.SummaryNetwork method)</a>
+        <li><a href="api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.compute_metrics">(bayesflow.networks.SummaryNetwork method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.MLP.compute_output_shape">compute_output_shape() (bayesflow.experimental.cif.conditional_gaussian.MLP method)</a>
+      <li><a href="api/bayesflow.networks.MLP.html#bayesflow.networks.MLP.compute_output_shape">compute_output_shape() (bayesflow.networks.MLP method)</a>
+</li>
+      <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate">Concatenate (class in bayesflow.adapters.transforms)</a>
+</li>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.concatenate">concatenate() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.MLP.compute_output_shape">(bayesflow.networks.MLP method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate">Concatenate (class in bayesflow.adapters.transforms)</a>
-</li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.concatenate">concatenate() (bayesflow.adapters.Adapter method)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.concatenate">(in module bayesflow.experimental.continuous_time_consistency_model)</a>
-</li>
         <li><a href="api/bayesflow.utils.html#bayesflow.utils.concatenate">(in module bayesflow.utils)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.ConditionalGaussian">ConditionalGaussian (class in bayesflow.experimental.cif.cif)</a>
+      <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.consistency_function">consistency_function() (bayesflow.experimental.ContinuousTimeConsistencyModel method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian">(class in bayesflow.experimental.cif.conditional_gaussian)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.consistency_function">(bayesflow.networks.ConsistencyModel method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.consistency_function">consistency_function() (bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel method)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.consistency_function">(bayesflow.networks.ConsistencyModel method)</a>
+      <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel">ConsistencyModel (class in bayesflow.networks)</a>
 </li>
-      </ul></li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel">ConsistencyModel (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain">Constrain (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Constrain">Constrain (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.constrain">constrain() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.constrain">constrain() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator">ContinuousApproximator (class in bayesflow.approximators)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator">ContinuousApproximator (class in bayesflow.approximators)</a>
-</li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel">ContinuousTimeConsistencyModel (class in bayesflow.experimental.continuous_time_consistency_model)</a>
+      <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel">ContinuousTimeConsistencyModel (class in bayesflow.experimental)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.convert_args">convert_args() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.convert_dtype">convert_dtype() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.convert_dtype">convert_dtype() (bayesflow.adapters.Adapter method)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.convert_kwargs">convert_kwargs() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ConvertDType">ConvertDType (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.ConvertDType.html#bayesflow.adapters.transforms.ConvertDType">ConvertDType (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CouplingFlow">CouplingFlow (class in bayesflow.experimental.cif.cif)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow">(class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow">CouplingFlow (class in bayesflow.networks)</a>
 </li>
-      </ul></li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.create_default">create_default() (bayesflow.adapters.Adapter static method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.create_default">create_default() (bayesflow.adapters.Adapter static method)</a>
 </li>
       <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.critical">critical() (in module bayesflow.utils.logging)</a>
 </li>
@@ -847,37 +836,33 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.debug">debug() (in module bayesflow.utils.logging)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.decode">decode() (bayesflow.networks.FreeFormFlow method)</a>
+      <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.decode">decode() (bayesflow.networks.FreeFormFlow method)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">DECODER_MLP_DEFAULT_CONFIG (bayesflow.networks.FreeFormFlow attribute)</a>
+      <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">DECODER_MLP_DEFAULT_CONFIG (bayesflow.networks.FreeFormFlow attribute)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.DeepSet">DeepSet (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.DeepSet.html#bayesflow.networks.DeepSet">DeepSet (class in bayesflow.networks)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.default_adapter">default_adapter() (bayesflow.workflows.BasicWorkflow static method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.default_adapter">default_adapter() (bayesflow.workflows.BasicWorkflow static method)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.deserialize_value_or_type">deserialize_value_or_type() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.deserialize_value_or_type">(in module bayesflow.utils)</a>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.deserialize_value_or_type">deserialize_value_or_type() (in module bayesflow.utils)</a>
 </li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.detailed_loss_callback">detailed_loss_callback() (in module bayesflow.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.devices">devices() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalNormal">DiagonalNormal (class in bayesflow.distributions)</a>
+      <li><a href="api/bayesflow.distributions.DiagonalNormal.html#bayesflow.distributions.DiagonalNormal">DiagonalNormal (class in bayesflow.distributions)</a>
 </li>
-      <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalStudentT">DiagonalStudentT (class in bayesflow.distributions)</a>
+      <li><a href="api/bayesflow.distributions.DiagonalStudentT.html#bayesflow.distributions.DiagonalStudentT">DiagonalStudentT (class in bayesflow.distributions)</a>
 </li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.DiskDataset">DiskDataset (class in bayesflow.datasets)</a>
+      <li><a href="api/bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset">DiskDataset (class in bayesflow.datasets)</a>
 </li>
-      <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.Distribution">Distribution (class in bayesflow.distributions)</a>
+      <li><a href="api/bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution">Distribution (class in bayesflow.distributions)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop">Drop (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop">Drop (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.drop">drop() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.drop">drop() (bayesflow.adapters.Adapter method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -885,11 +870,11 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform">ElementwiseTransform (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform">ElementwiseTransform (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.encode">encode() (bayesflow.networks.FreeFormFlow method)</a>
+      <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.encode">encode() (bayesflow.networks.FreeFormFlow method)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">ENCODER_MLP_DEFAULT_CONFIG (bayesflow.networks.FreeFormFlow attribute)</a>
+      <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">ENCODER_MLP_DEFAULT_CONFIG (bayesflow.networks.FreeFormFlow attribute)</a>
 </li>
       <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.error">error() (in module bayesflow.utils.logging)</a>
 </li>
@@ -899,7 +884,7 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_as">expand_as() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.expand_dims">expand_dims() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.expand_dims">expand_dims() (bayesflow.adapters.Adapter method)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_left">expand_left() (in module bayesflow.utils)</a>
 </li>
@@ -909,40 +894,32 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_right">expand_right() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.expand_right_as">expand_right_as() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_right_as">(in module bayesflow.utils)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.expand_right_to">expand_right_to() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_right_to">(in module bayesflow.utils)</a>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_right_as">expand_right_as() (in module bayesflow.utils)</a>
 </li>
-      </ul></li>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_right_to">expand_right_to() (in module bayesflow.utils)</a>
+</li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_tile">expand_tile() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.expand_to">expand_to() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ExpandDims">ExpandDims (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims">ExpandDims (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.extend">extend() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.extend">extend() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate.extra_repr">extra_repr() (bayesflow.adapters.transforms.Concatenate method)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate.extra_repr">extra_repr() (bayesflow.adapters.transforms.Concatenate method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop.extra_repr">(bayesflow.adapters.transforms.Drop method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop.extra_repr">(bayesflow.adapters.transforms.Drop method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform.extra_repr">(bayesflow.adapters.transforms.FilterTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.extra_repr">(bayesflow.adapters.transforms.FilterTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep.extra_repr">(bayesflow.adapters.transforms.Keep method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep.extra_repr">(bayesflow.adapters.transforms.Keep method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename.extra_repr">(bayesflow.adapters.transforms.Rename method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.extra_repr">(bayesflow.adapters.transforms.Rename method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.extra_repr">(bayesflow.adapters.transforms.Transform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.extra_repr">(bayesflow.adapters.transforms.Transform method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -953,7 +930,7 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.filter_kwargs">filter_kwargs() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform">FilterTransform (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform">FilterTransform (class in bayesflow.adapters.transforms)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_batch_size">find_batch_size() (in module bayesflow.utils)</a>
 </li>
@@ -963,12 +940,8 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_memory_budget">find_memory_budget() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.find_network">find_network() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_network">(in module bayesflow.utils)</a>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_network">find_network() (in module bayesflow.utils)</a>
 </li>
-      </ul></li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_permutation">find_permutation() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_pooling">find_pooling() (in module bayesflow.utils)</a>
@@ -977,127 +950,123 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.find_summary_network">find_summary_network() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.Approximator.fit">fit() (bayesflow.approximators.Approximator method)</a>
+      <li><a href="api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.fit">fit() (bayesflow.approximators.Approximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.fit">(bayesflow.approximators.ContinuousApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.fit">(bayesflow.approximators.ContinuousApproximator method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.fit">(bayesflow.approximators.ModelComparisonApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.fit">(bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.fit_disk">fit_disk() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.fit_disk">fit_disk() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.fit_offline">fit_offline() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.fit_offline">fit_offline() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.fit_online">fit_online() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.fit_online">fit_online() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching">FlowMatching (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching">FlowMatching (class in bayesflow.networks)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.format_bytes">format_bytes() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.forward">forward() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.forward">forward() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsSet.forward">(bayesflow.adapters.transforms.AsSet method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet.forward">(bayesflow.adapters.transforms.AsSet method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsTimeSeries.forward">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries.forward">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Broadcast.forward">(bayesflow.adapters.transforms.Broadcast method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Broadcast.html#bayesflow.adapters.transforms.Broadcast.forward">(bayesflow.adapters.transforms.Broadcast method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate.forward">(bayesflow.adapters.transforms.Concatenate method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate.forward">(bayesflow.adapters.transforms.Concatenate method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Constrain.forward">(bayesflow.adapters.transforms.Constrain method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.forward">(bayesflow.adapters.transforms.Constrain method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ConvertDType.forward">(bayesflow.adapters.transforms.ConvertDType method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ConvertDType.html#bayesflow.adapters.transforms.ConvertDType.forward">(bayesflow.adapters.transforms.ConvertDType method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop.forward">(bayesflow.adapters.transforms.Drop method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop.forward">(bayesflow.adapters.transforms.Drop method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform.forward">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform.forward">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ExpandDims.forward">(bayesflow.adapters.transforms.ExpandDims method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims.forward">(bayesflow.adapters.transforms.ExpandDims method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform.forward">(bayesflow.adapters.transforms.FilterTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.forward">(bayesflow.adapters.transforms.FilterTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep.forward">(bayesflow.adapters.transforms.Keep method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep.forward">(bayesflow.adapters.transforms.Keep method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.LambdaTransform.forward">(bayesflow.adapters.transforms.LambdaTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.forward">(bayesflow.adapters.transforms.LambdaTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.MapTransform.forward">(bayesflow.adapters.transforms.MapTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform.forward">(bayesflow.adapters.transforms.MapTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.OneHot.forward">(bayesflow.adapters.transforms.OneHot method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot.forward">(bayesflow.adapters.transforms.OneHot method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename.forward">(bayesflow.adapters.transforms.Rename method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.forward">(bayesflow.adapters.transforms.Rename method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Standardize.forward">(bayesflow.adapters.transforms.Standardize method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.forward">(bayesflow.adapters.transforms.Standardize method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ToArray.forward">(bayesflow.adapters.transforms.ToArray method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.forward">(bayesflow.adapters.transforms.ToArray method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.forward">(bayesflow.adapters.transforms.Transform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.forward">(bayesflow.adapters.transforms.Transform method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.FourierEmbedding">FourierEmbedding (class in bayesflow.experimental.continuous_time_consistency_model)</a>
+      <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow">FreeFormFlow (class in bayesflow.networks)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow">FreeFormFlow (class in bayesflow.networks)</a>
-</li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.from_config">from_config() (bayesflow.adapters.Adapter class method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.from_config">from_config() (bayesflow.adapters.Adapter class method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsSet.from_config">(bayesflow.adapters.transforms.AsSet class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet.from_config">(bayesflow.adapters.transforms.AsSet class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsTimeSeries.from_config">(bayesflow.adapters.transforms.AsTimeSeries class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries.from_config">(bayesflow.adapters.transforms.AsTimeSeries class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Broadcast.from_config">(bayesflow.adapters.transforms.Broadcast class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Broadcast.html#bayesflow.adapters.transforms.Broadcast.from_config">(bayesflow.adapters.transforms.Broadcast class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate.from_config">(bayesflow.adapters.transforms.Concatenate class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate.from_config">(bayesflow.adapters.transforms.Concatenate class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Constrain.from_config">(bayesflow.adapters.transforms.Constrain class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.from_config">(bayesflow.adapters.transforms.Constrain class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ConvertDType.from_config">(bayesflow.adapters.transforms.ConvertDType class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ConvertDType.html#bayesflow.adapters.transforms.ConvertDType.from_config">(bayesflow.adapters.transforms.ConvertDType class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop.from_config">(bayesflow.adapters.transforms.Drop class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop.from_config">(bayesflow.adapters.transforms.Drop class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform.from_config">(bayesflow.adapters.transforms.ElementwiseTransform class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform.from_config">(bayesflow.adapters.transforms.ElementwiseTransform class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ExpandDims.from_config">(bayesflow.adapters.transforms.ExpandDims class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims.from_config">(bayesflow.adapters.transforms.ExpandDims class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform.from_config">(bayesflow.adapters.transforms.FilterTransform class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.from_config">(bayesflow.adapters.transforms.FilterTransform class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep.from_config">(bayesflow.adapters.transforms.Keep class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep.from_config">(bayesflow.adapters.transforms.Keep class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.LambdaTransform.from_config">(bayesflow.adapters.transforms.LambdaTransform class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.from_config">(bayesflow.adapters.transforms.LambdaTransform class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.MapTransform.from_config">(bayesflow.adapters.transforms.MapTransform class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform.from_config">(bayesflow.adapters.transforms.MapTransform class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.OneHot.from_config">(bayesflow.adapters.transforms.OneHot class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot.from_config">(bayesflow.adapters.transforms.OneHot class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename.from_config">(bayesflow.adapters.transforms.Rename class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.from_config">(bayesflow.adapters.transforms.Rename class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Standardize.from_config">(bayesflow.adapters.transforms.Standardize class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.from_config">(bayesflow.adapters.transforms.Standardize class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ToArray.from_config">(bayesflow.adapters.transforms.ToArray class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.from_config">(bayesflow.adapters.transforms.ToArray class method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.from_config">(bayesflow.adapters.transforms.Transform class method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.from_config">(bayesflow.adapters.transforms.Transform class method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.from_config">(bayesflow.approximators.ContinuousApproximator class method)</a>
+        <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.from_config">(bayesflow.approximators.ContinuousApproximator class method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.from_config">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.from_config">(bayesflow.approximators.ModelComparisonApproximator class method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CouplingFlow.from_config">(bayesflow.experimental.cif.cif.CouplingFlow class method)</a>
+        <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.from_config">(bayesflow.experimental.ContinuousTimeConsistencyModel class method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.from_config">(bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel class method)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.from_config">(bayesflow.networks.ConsistencyModel class method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.from_config">(bayesflow.networks.ConsistencyModel class method)</a>
+        <li><a href="api/bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow.from_config">(bayesflow.networks.CouplingFlow class method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow.from_config">(bayesflow.networks.CouplingFlow class method)</a>
+        <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.from_config">(bayesflow.networks.FlowMatching class method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.from_config">(bayesflow.networks.FlowMatching class method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.from_config">(bayesflow.networks.FreeFormFlow class method)</a>
+        <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.from_config">(bayesflow.networks.FreeFormFlow class method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FusionTransformer">FusionTransformer (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.FusionTransformer.html#bayesflow.networks.FusionTransformer">FusionTransformer (class in bayesflow.networks)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1105,60 +1074,58 @@ document.write(`
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.get_config">get_config() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.get_config">get_config() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsSet.get_config">(bayesflow.adapters.transforms.AsSet method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet.get_config">(bayesflow.adapters.transforms.AsSet method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsTimeSeries.get_config">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries.get_config">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Broadcast.get_config">(bayesflow.adapters.transforms.Broadcast method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Broadcast.html#bayesflow.adapters.transforms.Broadcast.get_config">(bayesflow.adapters.transforms.Broadcast method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate.get_config">(bayesflow.adapters.transforms.Concatenate method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate.get_config">(bayesflow.adapters.transforms.Concatenate method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Constrain.get_config">(bayesflow.adapters.transforms.Constrain method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.get_config">(bayesflow.adapters.transforms.Constrain method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ConvertDType.get_config">(bayesflow.adapters.transforms.ConvertDType method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ConvertDType.html#bayesflow.adapters.transforms.ConvertDType.get_config">(bayesflow.adapters.transforms.ConvertDType method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop.get_config">(bayesflow.adapters.transforms.Drop method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop.get_config">(bayesflow.adapters.transforms.Drop method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform.get_config">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform.get_config">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ExpandDims.get_config">(bayesflow.adapters.transforms.ExpandDims method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims.get_config">(bayesflow.adapters.transforms.ExpandDims method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform.get_config">(bayesflow.adapters.transforms.FilterTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.get_config">(bayesflow.adapters.transforms.FilterTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep.get_config">(bayesflow.adapters.transforms.Keep method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep.get_config">(bayesflow.adapters.transforms.Keep method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.LambdaTransform.get_config">(bayesflow.adapters.transforms.LambdaTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.get_config">(bayesflow.adapters.transforms.LambdaTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.MapTransform.get_config">(bayesflow.adapters.transforms.MapTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform.get_config">(bayesflow.adapters.transforms.MapTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.OneHot.get_config">(bayesflow.adapters.transforms.OneHot method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot.get_config">(bayesflow.adapters.transforms.OneHot method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename.get_config">(bayesflow.adapters.transforms.Rename method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.get_config">(bayesflow.adapters.transforms.Rename method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Standardize.get_config">(bayesflow.adapters.transforms.Standardize method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.get_config">(bayesflow.adapters.transforms.Standardize method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ToArray.get_config">(bayesflow.adapters.transforms.ToArray method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.get_config">(bayesflow.adapters.transforms.ToArray method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.get_config">(bayesflow.adapters.transforms.Transform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.get_config">(bayesflow.adapters.transforms.Transform method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.get_config">(bayesflow.approximators.ContinuousApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.get_config">(bayesflow.approximators.ContinuousApproximator method)</a>
 </li>
-        <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.get_config">(bayesflow.approximators.ModelComparisonApproximator method)</a>
+        <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.get_config">(bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.CouplingFlow.get_config">(bayesflow.experimental.cif.cif.CouplingFlow method)</a>
+        <li><a href="api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.get_config">(bayesflow.experimental.ContinuousTimeConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel.get_config">(bayesflow.experimental.continuous_time_consistency_model.ContinuousTimeConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.get_config">(bayesflow.networks.ConsistencyModel method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.get_config">(bayesflow.networks.ConsistencyModel method)</a>
+        <li><a href="api/bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow.get_config">(bayesflow.networks.CouplingFlow method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.CouplingFlow.get_config">(bayesflow.networks.CouplingFlow method)</a>
+        <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.get_config">(bayesflow.networks.FlowMatching method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.get_config">(bayesflow.networks.FlowMatching method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FreeFormFlow.get_config">(bayesflow.networks.FreeFormFlow method)</a>
+        <li><a href="api/bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow.get_config">(bayesflow.networks.FreeFormFlow method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1167,7 +1134,7 @@ document.write(`
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.HierarchicalSimulator">HierarchicalSimulator (class in bayesflow.simulators)</a>
+      <li><a href="api/bayesflow.simulators.HierarchicalSimulator.html#bayesflow.simulators.HierarchicalSimulator">HierarchicalSimulator (class in bayesflow.simulators)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1175,60 +1142,54 @@ document.write(`
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork">InferenceNetwork (class in bayesflow.experimental.cif.cif)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork">(class in bayesflow.experimental.continuous_time_consistency_model)</a>
+      <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork">InferenceNetwork (class in bayesflow.networks)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork">(class in bayesflow.networks)</a>
-</li>
-      </ul></li>
       <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.info">info() (in module bayesflow.utils.logging)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.insert">insert() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.insert">insert() (bayesflow.adapters.Adapter method)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.integrate">integrate() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG">INTEGRATE_DEFAULT_CONFIG (bayesflow.networks.FlowMatching attribute)</a>
+      <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG">INTEGRATE_DEFAULT_CONFIG (bayesflow.networks.FlowMatching attribute)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.inverse">inverse() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.inverse">inverse() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsSet.inverse">(bayesflow.adapters.transforms.AsSet method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet.inverse">(bayesflow.adapters.transforms.AsSet method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.AsTimeSeries.inverse">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries.inverse">(bayesflow.adapters.transforms.AsTimeSeries method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Broadcast.inverse">(bayesflow.adapters.transforms.Broadcast method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Broadcast.html#bayesflow.adapters.transforms.Broadcast.inverse">(bayesflow.adapters.transforms.Broadcast method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Concatenate.inverse">(bayesflow.adapters.transforms.Concatenate method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Concatenate.html#bayesflow.adapters.transforms.Concatenate.inverse">(bayesflow.adapters.transforms.Concatenate method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Constrain.inverse">(bayesflow.adapters.transforms.Constrain method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.inverse">(bayesflow.adapters.transforms.Constrain method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ConvertDType.inverse">(bayesflow.adapters.transforms.ConvertDType method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ConvertDType.html#bayesflow.adapters.transforms.ConvertDType.inverse">(bayesflow.adapters.transforms.ConvertDType method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Drop.inverse">(bayesflow.adapters.transforms.Drop method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Drop.html#bayesflow.adapters.transforms.Drop.inverse">(bayesflow.adapters.transforms.Drop method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ElementwiseTransform.inverse">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform.inverse">(bayesflow.adapters.transforms.ElementwiseTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ExpandDims.inverse">(bayesflow.adapters.transforms.ExpandDims method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims.inverse">(bayesflow.adapters.transforms.ExpandDims method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.FilterTransform.inverse">(bayesflow.adapters.transforms.FilterTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.inverse">(bayesflow.adapters.transforms.FilterTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep.inverse">(bayesflow.adapters.transforms.Keep method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep.inverse">(bayesflow.adapters.transforms.Keep method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.LambdaTransform.inverse">(bayesflow.adapters.transforms.LambdaTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.inverse">(bayesflow.adapters.transforms.LambdaTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.MapTransform.inverse">(bayesflow.adapters.transforms.MapTransform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform.inverse">(bayesflow.adapters.transforms.MapTransform method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.OneHot.inverse">(bayesflow.adapters.transforms.OneHot method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot.inverse">(bayesflow.adapters.transforms.OneHot method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename.inverse">(bayesflow.adapters.transforms.Rename method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.inverse">(bayesflow.adapters.transforms.Rename method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Standardize.inverse">(bayesflow.adapters.transforms.Standardize method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.inverse">(bayesflow.adapters.transforms.Standardize method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ToArray.inverse">(bayesflow.adapters.transforms.ToArray method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.inverse">(bayesflow.adapters.transforms.ToArray method)</a>
 </li>
-        <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform.inverse">(bayesflow.adapters.transforms.Transform method)</a>
+        <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform.inverse">(bayesflow.adapters.transforms.Transform method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1255,79 +1216,59 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.jacobian">jacobian() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.utils.html#bayesflow.utils.jacobian_trace">jacobian_trace() (in module bayesflow.utils)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.jvp">jvp() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.jvp">(in module bayesflow.utils)</a>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.jacobian_trace">jacobian_trace() (in module bayesflow.utils)</a>
 </li>
-      </ul></li>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.jvp">jvp() (in module bayesflow.utils)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Keep">Keep (class in bayesflow.adapters.transforms)</a>
-</li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.keep">keep() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Keep.html#bayesflow.adapters.transforms.Keep">Keep (class in bayesflow.adapters.transforms)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.keras_kwargs">keras_kwargs() (in module bayesflow.experimental.cif.conditional_gaussian)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.keras_kwargs">(in module bayesflow.experimental.continuous_time_consistency_model)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.keep">keep() (bayesflow.adapters.Adapter method)</a>
 </li>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.keras_kwargs">(in module bayesflow.utils)</a>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.keras_kwargs">keras_kwargs() (in module bayesflow.utils)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.LambdaSimulator">LambdaSimulator (class in bayesflow.simulators)</a>
+      <li><a href="api/bayesflow.simulators.LambdaSimulator.html#bayesflow.simulators.LambdaSimulator">LambdaSimulator (class in bayesflow.simulators)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.LambdaTransform">LambdaTransform (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform">LambdaTransform (class in bayesflow.adapters.transforms)</a>
 </li>
       <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.log">log() (in module bayesflow.utils.logging)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.log_prob">log_prob() (bayesflow.approximators.ContinuousApproximator method)</a>
+      <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.log_prob">log_prob() (bayesflow.approximators.ContinuousApproximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalNormal.log_prob">(bayesflow.distributions.DiagonalNormal method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalNormal.html#bayesflow.distributions.DiagonalNormal.log_prob">(bayesflow.distributions.DiagonalNormal method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalStudentT.log_prob">(bayesflow.distributions.DiagonalStudentT method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalStudentT.html#bayesflow.distributions.DiagonalStudentT.log_prob">(bayesflow.distributions.DiagonalStudentT method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.Distribution.log_prob">(bayesflow.distributions.Distribution method)</a>
+        <li><a href="api/bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution.log_prob">(bayesflow.distributions.Distribution method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.ConditionalGaussian.log_prob">(bayesflow.experimental.cif.cif.ConditionalGaussian method)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.log_prob">(bayesflow.networks.InferenceNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.log_prob">(bayesflow.experimental.cif.cif.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian.log_prob">(bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian method)</a>
-</li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.log_prob">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.log_prob">(bayesflow.networks.InferenceNetwork method)</a>
-</li>
-        <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.log_prob">(bayesflow.workflows.BasicWorkflow method)</a>
+        <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.log_prob">(bayesflow.workflows.BasicWorkflow method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.loss">loss() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.LotkaVolterra">LotkaVolterra (class in bayesflow.benchmarks)</a>
+      <li><a href="api/bayesflow.benchmarks.LotkaVolterra.html#bayesflow.benchmarks.LotkaVolterra">LotkaVolterra (class in bayesflow.benchmarks)</a>
 </li>
-      <li><a href="api/bayesflow.utils.logging.html#bayesflow.utils.logging.lru_cache">lru_cache() (in module bayesflow.utils.logging)</a>
-</li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.LSTNet">LSTNet (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet">LSTNet (class in bayesflow.networks)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1339,39 +1280,31 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.make_simulator">make_simulator() (in module bayesflow.simulators)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.MapTransform">MapTransform (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform">MapTransform (class in bayesflow.adapters.transforms)</a>
 </li>
       <li><a href="api/bayesflow.metrics.functional.html#bayesflow.metrics.functional.maximum_mean_discrepancy">maximum_mean_discrepancy() (in module bayesflow.metrics.functional)</a>
 </li>
-      <li><a href="api/bayesflow.metrics.html#bayesflow.metrics.MaximumMeanDiscrepancy">MaximumMeanDiscrepancy (class in bayesflow.metrics)</a>
+      <li><a href="api/bayesflow.metrics.MaximumMeanDiscrepancy.html#bayesflow.metrics.MaximumMeanDiscrepancy">MaximumMeanDiscrepancy (class in bayesflow.metrics)</a>
 </li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.mc_calibration">mc_calibration() (in module bayesflow.diagnostics)</a>
 </li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.mc_confusion_matrix">mc_confusion_matrix() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.MLP">MLP (class in bayesflow.experimental.cif.conditional_gaussian)</a>
+      <li><a href="api/bayesflow.networks.MLP.html#bayesflow.networks.MLP">MLP (class in bayesflow.networks)</a>
+</li>
+      <li><a href="api/bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG">MLP_DEFAULT_CONFIG (bayesflow.networks.ConsistencyModel attribute)</a>
 
       <ul>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.MLP">(class in bayesflow.networks)</a>
+        <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG">(bayesflow.networks.FlowMatching attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.MLP_DEFAULT_CONFIG">MLP_DEFAULT_CONFIG (bayesflow.experimental.cif.cif.InferenceNetwork attribute)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork attribute)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG">(bayesflow.networks.ConsistencyModel attribute)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG">(bayesflow.networks.FlowMatching attribute)</a>
-</li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.InferenceNetwork attribute)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG">(bayesflow.networks.InferenceNetwork attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.mmd_hypothesis_test">mmd_hypothesis_test() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator">ModelComparisonApproximator (class in bayesflow.approximators)</a>
+      <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator">ModelComparisonApproximator (class in bayesflow.approximators)</a>
 </li>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.ModelComparisonSimulator">ModelComparisonSimulator (class in bayesflow.simulators)</a>
+      <li><a href="api/bayesflow.simulators.ModelComparisonSimulator.html#bayesflow.simulators.ModelComparisonSimulator">ModelComparisonSimulator (class in bayesflow.simulators)</a>
 </li>
       <li>
     module
@@ -1392,14 +1325,6 @@ document.write(`
         <li><a href="api/bayesflow.distributions.html#module-bayesflow.distributions">bayesflow.distributions</a>
 </li>
         <li><a href="api/bayesflow.experimental.html#module-bayesflow.experimental">bayesflow.experimental</a>
-</li>
-        <li><a href="api/bayesflow.experimental.cif.html#module-bayesflow.experimental.cif">bayesflow.experimental.cif</a>
-</li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#module-bayesflow.experimental.cif.cif">bayesflow.experimental.cif.cif</a>
-</li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#module-bayesflow.experimental.cif.conditional_gaussian">bayesflow.experimental.cif.conditional_gaussian</a>
-</li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#module-bayesflow.experimental.continuous_time_consistency_model">bayesflow.experimental.continuous_time_consistency_model</a>
 </li>
         <li><a href="api/bayesflow.metrics.html#module-bayesflow.metrics">bayesflow.metrics</a>
 </li>
@@ -1428,14 +1353,14 @@ document.write(`
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.DiskDataset.num_batches">num_batches (bayesflow.datasets.DiskDataset property)</a>
+      <li><a href="api/bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset.num_batches">num_batches (bayesflow.datasets.DiskDataset property)</a>
 
       <ul>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OfflineDataset.num_batches">(bayesflow.datasets.OfflineDataset property)</a>
+        <li><a href="api/bayesflow.datasets.OfflineDataset.html#bayesflow.datasets.OfflineDataset.num_batches">(bayesflow.datasets.OfflineDataset property)</a>
 </li>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OnlineDataset.num_batches">(bayesflow.datasets.OnlineDataset property)</a>
+        <li><a href="api/bayesflow.datasets.OnlineDataset.html#bayesflow.datasets.OnlineDataset.num_batches">(bayesflow.datasets.OnlineDataset property)</a>
 </li>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.RoundsDataset.num_batches">(bayesflow.datasets.RoundsDataset property)</a>
+        <li><a href="api/bayesflow.datasets.RoundsDataset.html#bayesflow.datasets.RoundsDataset.num_batches">(bayesflow.datasets.RoundsDataset property)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1444,37 +1369,37 @@ document.write(`
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.LotkaVolterra.observation_model">observation_model() (bayesflow.benchmarks.LotkaVolterra method)</a>
+      <li><a href="api/bayesflow.benchmarks.LotkaVolterra.html#bayesflow.benchmarks.LotkaVolterra.observation_model">observation_model() (bayesflow.benchmarks.LotkaVolterra method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.TwoMoons.observation_model">(bayesflow.benchmarks.TwoMoons method)</a>
+        <li><a href="api/bayesflow.benchmarks.TwoMoons.html#bayesflow.benchmarks.TwoMoons.observation_model">(bayesflow.benchmarks.TwoMoons method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OfflineDataset">OfflineDataset (class in bayesflow.datasets)</a>
+      <li><a href="api/bayesflow.datasets.OfflineDataset.html#bayesflow.datasets.OfflineDataset">OfflineDataset (class in bayesflow.datasets)</a>
 </li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.DiskDataset.on_epoch_end">on_epoch_end() (bayesflow.datasets.DiskDataset method)</a>
+      <li><a href="api/bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset.on_epoch_end">on_epoch_end() (bayesflow.datasets.DiskDataset method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OfflineDataset.on_epoch_end">(bayesflow.datasets.OfflineDataset method)</a>
+        <li><a href="api/bayesflow.datasets.OfflineDataset.html#bayesflow.datasets.OfflineDataset.on_epoch_end">(bayesflow.datasets.OfflineDataset method)</a>
 </li>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.RoundsDataset.on_epoch_end">(bayesflow.datasets.RoundsDataset method)</a>
+        <li><a href="api/bayesflow.datasets.RoundsDataset.html#bayesflow.datasets.RoundsDataset.on_epoch_end">(bayesflow.datasets.RoundsDataset method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.one_hot">one_hot() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.one_hot">one_hot() (bayesflow.adapters.Adapter method)</a>
 
       <ul>
         <li><a href="api/bayesflow.utils.numpy_utils.html#bayesflow.utils.numpy_utils.one_hot">(in module bayesflow.utils.numpy_utils)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.OneHot">OneHot (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot">OneHot (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OnlineDataset">OnlineDataset (class in bayesflow.datasets)</a>
+      <li><a href="api/bayesflow.datasets.OnlineDataset.html#bayesflow.datasets.OnlineDataset">OnlineDataset (class in bayesflow.datasets)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.optimal_transport">optimal_transport() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">OPTIMAL_TRANSPORT_DEFAULT_CONFIG (bayesflow.networks.FlowMatching attribute)</a>
+      <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">OPTIMAL_TRANSPORT_DEFAULT_CONFIG (bayesflow.networks.FlowMatching attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1492,26 +1417,26 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.pickle_load">pickle_load() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.plot_custom_diagnostics">plot_custom_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.plot_custom_diagnostics">plot_custom_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.plot_default_diagnostics">plot_default_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.plot_default_diagnostics">plot_default_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.plot_diagnostics">plot_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.plot_diagnostics">plot_diagnostics() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.posterior_contraction">posterior_contraction() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ModelComparisonApproximator.predict">predict() (bayesflow.approximators.ModelComparisonApproximator method)</a>
+      <li><a href="api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.predict">predict() (bayesflow.approximators.ModelComparisonApproximator method)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.prepare_plot_data">prepare_plot_data() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.prettify_subplots">prettify_subplots() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.LotkaVolterra.prior">prior() (bayesflow.benchmarks.LotkaVolterra method)</a>
+      <li><a href="api/bayesflow.benchmarks.LotkaVolterra.html#bayesflow.benchmarks.LotkaVolterra.prior">prior() (bayesflow.benchmarks.LotkaVolterra method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.TwoMoons.prior">(bayesflow.benchmarks.TwoMoons method)</a>
+        <li><a href="api/bayesflow.benchmarks.TwoMoons.html#bayesflow.benchmarks.TwoMoons.prior">(bayesflow.benchmarks.TwoMoons method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1522,23 +1447,17 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.recovery">recovery() (in module bayesflow.diagnostics)</a>
 </li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.RoundsDataset.regenerate">regenerate() (bayesflow.datasets.RoundsDataset method)</a>
+      <li><a href="api/bayesflow.datasets.RoundsDataset.html#bayesflow.datasets.RoundsDataset.regenerate">regenerate() (bayesflow.datasets.RoundsDataset method)</a>
 </li>
-      <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.register_keras_serializable">register_keras_serializable() (in module bayesflow.experimental.cif.conditional_gaussian)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.register_keras_serializable">(in module bayesflow.experimental.continuous_time_consistency_model)</a>
+      <li><a href="api/bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator.rejection_sample">rejection_sample() (bayesflow.simulators.Simulator method)</a>
 </li>
-      </ul></li>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.Simulator.rejection_sample">rejection_sample() (bayesflow.simulators.Simulator method)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename">Rename (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Rename">Rename (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.rename">rename() (bayesflow.adapters.Adapter method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.rename">rename() (bayesflow.adapters.Adapter method)</a>
-</li>
-      <li><a href="api/bayesflow.metrics.html#bayesflow.metrics.MaximumMeanDiscrepancy.result">result() (bayesflow.metrics.MaximumMeanDiscrepancy method)</a>
+      <li><a href="api/bayesflow.metrics.MaximumMeanDiscrepancy.html#bayesflow.metrics.MaximumMeanDiscrepancy.result">result() (bayesflow.metrics.MaximumMeanDiscrepancy method)</a>
 </li>
       <li><a href="api/bayesflow.diagnostics.html#bayesflow.diagnostics.root_mean_squared_error">root_mean_squared_error() (in module bayesflow.diagnostics)</a>
 
@@ -1546,9 +1465,9 @@ document.write(`
         <li><a href="api/bayesflow.metrics.functional.html#bayesflow.metrics.functional.root_mean_squared_error">(in module bayesflow.metrics.functional)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.metrics.html#bayesflow.metrics.RootMeanSquaredError">RootMeanSquaredError (class in bayesflow.metrics)</a>
+      <li><a href="api/bayesflow.metrics.RootMeanSquaredError.html#bayesflow.metrics.RootMeanSquaredError">RootMeanSquaredError (class in bayesflow.metrics)</a>
 </li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.RoundsDataset">RoundsDataset (class in bayesflow.datasets)</a>
+      <li><a href="api/bayesflow.datasets.RoundsDataset.html#bayesflow.datasets.RoundsDataset">RoundsDataset (class in bayesflow.datasets)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1556,57 +1475,43 @@ document.write(`
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.approximators.html#bayesflow.approximators.ContinuousApproximator.sample">sample() (bayesflow.approximators.ContinuousApproximator method)</a>
+      <li><a href="api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.sample">sample() (bayesflow.approximators.ContinuousApproximator method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalNormal.sample">(bayesflow.distributions.DiagonalNormal method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalNormal.html#bayesflow.distributions.DiagonalNormal.sample">(bayesflow.distributions.DiagonalNormal method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.DiagonalStudentT.sample">(bayesflow.distributions.DiagonalStudentT method)</a>
+        <li><a href="api/bayesflow.distributions.DiagonalStudentT.html#bayesflow.distributions.DiagonalStudentT.sample">(bayesflow.distributions.DiagonalStudentT method)</a>
 </li>
-        <li><a href="api/bayesflow.distributions.html#bayesflow.distributions.Distribution.sample">(bayesflow.distributions.Distribution method)</a>
+        <li><a href="api/bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution.sample">(bayesflow.distributions.Distribution method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.ConditionalGaussian.sample">(bayesflow.experimental.cif.cif.ConditionalGaussian method)</a>
+        <li><a href="api/bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork.sample">(bayesflow.networks.InferenceNetwork method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.InferenceNetwork.sample">(bayesflow.experimental.cif.cif.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.simulators.HierarchicalSimulator.html#bayesflow.simulators.HierarchicalSimulator.sample">(bayesflow.simulators.HierarchicalSimulator method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.cif.conditional_gaussian.html#bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian.sample">(bayesflow.experimental.cif.conditional_gaussian.ConditionalGaussian method)</a>
+        <li><a href="api/bayesflow.simulators.LambdaSimulator.html#bayesflow.simulators.LambdaSimulator.sample">(bayesflow.simulators.LambdaSimulator method)</a>
 </li>
-        <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork.sample">(bayesflow.experimental.continuous_time_consistency_model.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.simulators.ModelComparisonSimulator.html#bayesflow.simulators.ModelComparisonSimulator.sample">(bayesflow.simulators.ModelComparisonSimulator method)</a>
 </li>
-        <li><a href="api/bayesflow.networks.html#bayesflow.networks.InferenceNetwork.sample">(bayesflow.networks.InferenceNetwork method)</a>
+        <li><a href="api/bayesflow.simulators.SequentialSimulator.html#bayesflow.simulators.SequentialSimulator.sample">(bayesflow.simulators.SequentialSimulator method)</a>
 </li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.HierarchicalSimulator.sample">(bayesflow.simulators.HierarchicalSimulator method)</a>
+        <li><a href="api/bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator.sample">(bayesflow.simulators.Simulator method)</a>
 </li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.LambdaSimulator.sample">(bayesflow.simulators.LambdaSimulator method)</a>
+        <li><a href="api/bayesflow.simulators.TwoMoons.html#bayesflow.simulators.TwoMoons.sample">(bayesflow.simulators.TwoMoons method)</a>
 </li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.ModelComparisonSimulator.sample">(bayesflow.simulators.ModelComparisonSimulator method)</a>
-</li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.SequentialSimulator.sample">(bayesflow.simulators.SequentialSimulator method)</a>
-</li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.Simulator.sample">(bayesflow.simulators.Simulator method)</a>
-</li>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.TwoMoons.sample">(bayesflow.simulators.TwoMoons method)</a>
-</li>
-        <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.sample">(bayesflow.workflows.BasicWorkflow method)</a>
+        <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.sample">(bayesflow.workflows.BasicWorkflow method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.samples_to_data_frame">samples_to_data_frame() (bayesflow.workflows.BasicWorkflow static method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.samples_to_data_frame">samples_to_data_frame() (bayesflow.workflows.BasicWorkflow static method)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.searchsorted">searchsorted() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.SequentialSimulator">SequentialSimulator (class in bayesflow.simulators)</a>
+      <li><a href="api/bayesflow.simulators.SequentialSimulator.html#bayesflow.simulators.SequentialSimulator">SequentialSimulator (class in bayesflow.simulators)</a>
+</li>
+      <li><a href="api/bayesflow.utils.html#bayesflow.utils.serialize_value_or_type">serialize_value_or_type() (in module bayesflow.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.experimental.cif.cif.html#bayesflow.experimental.cif.cif.serializable">serializable() (in module bayesflow.experimental.cif.cif)</a>
-</li>
-      <li><a href="api/bayesflow.experimental.continuous_time_consistency_model.html#bayesflow.experimental.continuous_time_consistency_model.serialize_value_or_type">serialize_value_or_type() (in module bayesflow.experimental.continuous_time_consistency_model)</a>
-
-      <ul>
-        <li><a href="api/bayesflow.utils.html#bayesflow.utils.serialize_value_or_type">(in module bayesflow.utils)</a>
-</li>
-      </ul></li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.SetTransformer">SetTransformer (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.SetTransformer.html#bayesflow.networks.SetTransformer">SetTransformer (class in bayesflow.networks)</a>
 </li>
       <li><a href="api/bayesflow.utils.keras_utils.html#bayesflow.utils.keras_utils.shifted_softplus">shifted_softplus() (in module bayesflow.utils.keras_utils)</a>
 
@@ -1614,23 +1519,21 @@ document.write(`
         <li><a href="api/bayesflow.utils.numpy_utils.html#bayesflow.utils.numpy_utils.shifted_softplus">(in module bayesflow.utils.numpy_utils)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.DiskDataset.shuffle">shuffle() (bayesflow.datasets.DiskDataset method)</a>
+      <li><a href="api/bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset.shuffle">shuffle() (bayesflow.datasets.DiskDataset method)</a>
 
       <ul>
-        <li><a href="api/bayesflow.datasets.html#bayesflow.datasets.OfflineDataset.shuffle">(bayesflow.datasets.OfflineDataset method)</a>
+        <li><a href="api/bayesflow.datasets.OfflineDataset.html#bayesflow.datasets.OfflineDataset.shuffle">(bayesflow.datasets.OfflineDataset method)</a>
 </li>
       </ul></li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.simulate">simulate() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.simulate">simulate() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.workflows.html#bayesflow.workflows.BasicWorkflow.simulate_adapted">simulate_adapted() (bayesflow.workflows.BasicWorkflow method)</a>
+      <li><a href="api/bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow.simulate_adapted">simulate_adapted() (bayesflow.workflows.BasicWorkflow method)</a>
 </li>
-      <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.Simulator">Simulator (class in bayesflow.simulators)</a>
+      <li><a href="api/bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator">Simulator (class in bayesflow.simulators)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.simultaneous_ecdf_bands">simultaneous_ecdf_bands() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.size_of">size_of() (in module bayesflow.utils)</a>
-</li>
-      <li><a href="api/bayesflow.utils.numpy_utils.html#bayesflow.utils.numpy_utils.softmax">softmax() (in module bayesflow.utils.numpy_utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.numpy_utils.html#bayesflow.utils.numpy_utils.softplus">softplus() (in module bayesflow.utils.numpy_utils)</a>
 </li>
@@ -1638,11 +1541,11 @@ document.write(`
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.split_tensors">split_tensors() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Standardize">Standardize (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize">Standardize (class in bayesflow.adapters.transforms)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.standardize">standardize() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.standardize">standardize() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.SummaryNetwork">SummaryNetwork (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork">SummaryNetwork (class in bayesflow.networks)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1652,24 +1555,24 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.tile_axis">tile_axis() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.TimeSeriesTransformer">TimeSeriesTransformer (class in bayesflow.networks)</a>
+      <li><a href="api/bayesflow.networks.TimeSeriesTransformer.html#bayesflow.networks.TimeSeriesTransformer">TimeSeriesTransformer (class in bayesflow.networks)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.html#bayesflow.adapters.Adapter.to_array">to_array() (bayesflow.adapters.Adapter method)</a>
+      <li><a href="api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.to_array">to_array() (bayesflow.adapters.Adapter method)</a>
 </li>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.ToArray">ToArray (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray">ToArray (class in bayesflow.adapters.transforms)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.adapters.transforms.html#bayesflow.adapters.transforms.Transform">Transform (class in bayesflow.adapters.transforms)</a>
+      <li><a href="api/bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform">Transform (class in bayesflow.adapters.transforms)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.tree_concatenate">tree_concatenate() (in module bayesflow.utils)</a>
 </li>
       <li><a href="api/bayesflow.utils.html#bayesflow.utils.tree_stack">tree_stack() (in module bayesflow.utils)</a>
 </li>
-      <li><a href="api/bayesflow.benchmarks.html#bayesflow.benchmarks.TwoMoons">TwoMoons (class in bayesflow.benchmarks)</a>
+      <li><a href="api/bayesflow.benchmarks.TwoMoons.html#bayesflow.benchmarks.TwoMoons">TwoMoons (class in bayesflow.benchmarks)</a>
 
       <ul>
-        <li><a href="api/bayesflow.simulators.html#bayesflow.simulators.TwoMoons">(class in bayesflow.simulators)</a>
+        <li><a href="api/bayesflow.simulators.TwoMoons.html#bayesflow.simulators.TwoMoons">(class in bayesflow.simulators)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1678,7 +1581,7 @@ document.write(`
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.metrics.html#bayesflow.metrics.MaximumMeanDiscrepancy.update_state">update_state() (bayesflow.metrics.MaximumMeanDiscrepancy method)</a>
+      <li><a href="api/bayesflow.metrics.MaximumMeanDiscrepancy.html#bayesflow.metrics.MaximumMeanDiscrepancy.update_state">update_state() (bayesflow.metrics.MaximumMeanDiscrepancy method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1686,7 +1589,7 @@ document.write(`
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/bayesflow.networks.html#bayesflow.networks.FlowMatching.velocity">velocity() (bayesflow.networks.FlowMatching method)</a>
+      <li><a href="api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching.velocity">velocity() (bayesflow.networks.FlowMatching method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1717,8 +1620,7 @@ document.write(`
 
 
 
-                </article>
-              
+  </article>
 
               
               

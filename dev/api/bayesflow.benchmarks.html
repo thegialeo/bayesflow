@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>bayesflow.benchmarks &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>benchmarks &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -51,8 +51,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bayesflow.datasets" href="bayesflow.datasets.html" />
-    <link rel="prev" title="bayesflow.approximators" href="bayesflow.approximators.html" />
+    <link rel="next" title="TwoMoons" href="bayesflow.benchmarks.TwoMoons.html" />
+    <link rel="prev" title="ModelComparisonApproximator" href="bayesflow.approximators.ModelComparisonApproximator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,39 +174,103 @@
 <li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">bayesflow.adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesflow.benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.html">bayesflow.datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">benchmarks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.html">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
@@ -415,9 +479,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -427,179 +489,47 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>bayesflow.benchmarks</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra.observation_model"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra.observation_model()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra.prior"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra.prior()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons"><code class="docutils literal notranslate"><span class="pre">TwoMoons</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons.observation_model"><code class="docutils literal notranslate"><span class="pre">TwoMoons.observation_model()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons.prior"><code class="docutils literal notranslate"><span class="pre">TwoMoons.prior()</span></code></a></li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">benchmarks</li>
+  </ul>
+</nav>
+
+    
   <section id="module-bayesflow.benchmarks">
-<span id="bayesflow-benchmarks"></span><h1>bayesflow.benchmarks<a class="headerlink" href="#module-bayesflow.benchmarks" title="Link to this heading">#</a></h1>
+<span id="benchmarks"></span><h1>benchmarks<a class="headerlink" href="#module-bayesflow.benchmarks" title="Link to this heading">#</a></h1>
 <p class="rubric">Classes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.benchmarks.TwoMoons" title="bayesflow.benchmarks.TwoMoons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TwoMoons</span></code></a>([lower_bound, upper_bound, rng])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html#bayesflow.benchmarks.TwoMoons" title="bayesflow.benchmarks.TwoMoons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TwoMoons</span></code></a>([lower_bound, upper_bound, rng])</p></td>
 <td><p>Two moons simulated benchmark.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.benchmarks.LotkaVolterra" title="bayesflow.benchmarks.LotkaVolterra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a>([X0, Y0, T, subsample, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html#bayesflow.benchmarks.LotkaVolterra" title="bayesflow.benchmarks.LotkaVolterra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a>([X0, Y0, T, subsample, ...])</p></td>
 <td><p>Lotka Volterra simulated benchmark.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.LotkaVolterra">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.benchmarks.</span></span><span class="sig-name descname"><span class="pre">LotkaVolterra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Generator</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/lotka_volterra.html#LotkaVolterra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.LotkaVolterra" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSimulator</span></code></p>
-<p>Lotka Volterra simulated benchmark.
-See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">https://arxiv.org/pdf/2101.04653.pdf</a>, Task T.10</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X0: int, optional, default: 30</strong></dt><dd><p>Initial number of prey species.</p>
-</dd>
-<dt><strong>Y0: int, optional, default: 1</strong></dt><dd><p>Initial number of predator species.</p>
-</dd>
-<dt><strong>T: int, optional, default: 20</strong></dt><dd><p>The duration (time horizon) of the simulation.</p>
-</dd>
-<dt><strong>subsample: int or None, optional, default: 10</strong></dt><dd><p>The number of evenly spaced time points to return.
-If None, no subsampling will be performed and all T timepoints will be returned.</p>
-</dd>
-<dt><strong>flatten: bool, optional, default: True</strong></dt><dd><p>A flag to indicate whether a 1D (<cite>flatten=True</cite>) or 2D (<cite>flatten=False</cite>)
-representation of the simulated data is returned.</p>
-</dd>
-<dt><strong>obs_noise: float, optional, default: 0.1</strong></dt><dd><p>The standard deviation of the log-normal likelihood.</p>
-</dd>
-<dt><strong>rng: np.random.Generator or None, optional, default: None</strong></dt><dd><p>An optional random number generator to use.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.LotkaVolterra.observation_model">
-<span class="sig-name descname"><span class="pre">observation_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/lotka_volterra.html#LotkaVolterra.observation_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.LotkaVolterra.observation_model" title="Link to this definition">#</a></dt>
-<dd><p>Runs a Lotka-Volterra simulation for T time steps and returns <cite>subsample</cite> evenly spaced
-points from the simulated trajectory, given contact parameters <cite>params</cite>.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">np.ndarray of shape (2,)</span></dt><dd><p>The 2-dimensional vector of disease parameters.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>x</strong><span class="classifier">np.ndarray of shape (subsample, 2) or (subsample*2,) if <cite>subsample is not None</cite>,</span></dt><dd><p>otherwise shape (T, 2) or (T*2,) if <cite>subsample is None</cite>.
-The time series of simulated predator and pray populations</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.LotkaVolterra.prior">
-<span class="sig-name descname"><span class="pre">prior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/lotka_volterra.html#LotkaVolterra.prior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.LotkaVolterra.prior" title="Link to this definition">#</a></dt>
-<dd><p>Generates a random draw from a 4-dimensional (independent) lognormal prior
-which represents the four contact parameters of the Lotka-Volterra model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">np.ndarray of shape (4, )</span></dt><dd><p>A single draw from the 4-dimensional prior.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.TwoMoons">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.benchmarks.</span></span><span class="sig-name descname"><span class="pre">TwoMoons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Generator</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/two_moons.html#TwoMoons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.TwoMoons" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSimulator</span></code></p>
-<p>Two moons simulated benchmark.
-See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">https://arxiv.org/pdf/2101.04653.pdf</a>, Task T.8</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>lower_bound: float, optional, default: -1.0</strong></dt><dd><p>The lower bound of the uniform prior</p>
-</dd>
-<dt><strong>upper_bound: float, optional, default:  1.0</strong></dt><dd><p>The upper bound of the uniform prior</p>
-</dd>
-<dt><strong>rng: np.random.Generator or None, optional, default: None</strong></dt><dd><p>An option random number generator to use</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.TwoMoons.observation_model">
-<span class="sig-name descname"><span class="pre">observation_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/two_moons.html#TwoMoons.observation_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.TwoMoons.observation_model" title="Link to this definition">#</a></dt>
-<dd><p>Implements data generation from the two-moons model with a bimodal posterior.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>params: np.ndarray of shape (2, )</strong></dt><dd><p>The vector of two model parameters.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>observables: np.ndarray of shape (2, )</dt><dd><p>The 2D vector generated from the two moons simulator.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.benchmarks.TwoMoons.prior">
-<span class="sig-name descname"><span class="pre">prior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/benchmarks/simulators/two_moons.html#TwoMoons.prior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.benchmarks.TwoMoons.prior" title="Link to this definition">#</a></dt>
-<dd><p>Generates a random draw from a 2-dimensional uniform prior bounded between
-<cite>lower_bound</cite> and <cite>upper_bound</cite> which represents the two parameters of the two moons simulator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>params: np.ndarray of shape (2, )</dt><dd><p>A single draw from the 2-dimensional uniform prior.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 
-                </article>
-              
+  </article>
 
               
               
@@ -609,20 +539,20 @@ See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">h
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesflow.approximators.html"
+       href="bayesflow.approximators.ModelComparisonApproximator.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.approximators</p>
+        <p class="prev-next-title">ModelComparisonApproximator</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesflow.datasets.html"
+       href="bayesflow.benchmarks.TwoMoons.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesflow.datasets</p>
+        <p class="prev-next-title">TwoMoons</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -632,30 +562,6 @@ See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">h
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra.observation_model"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra.observation_model()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.LotkaVolterra.prior"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra.prior()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons"><code class="docutils literal notranslate"><span class="pre">TwoMoons</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons.observation_model"><code class="docutils literal notranslate"><span class="pre">TwoMoons.observation_model()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.benchmarks.TwoMoons.prior"><code class="docutils literal notranslate"><span class="pre">TwoMoons.prior()</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

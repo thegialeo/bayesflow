@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ContinuousTimeConsistencyModel &#8212; BayesFlow: Amortized Bayesian Inference</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/bayesflow.experimental.ContinuousTimeConsistencyModel';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://www.bayesflow.org/api/bayesflow.experimental.ContinuousTimeConsistencyModel.html" />
+    <link rel="icon" href="../_static/bayesflow_hex.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="metrics" href="bayesflow.metrics.html" />
+    <link rel="prev" title="CIF" href="bayesflow.experimental.CIF.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/bayesflow_hex.png" class="logo__image only-light" alt="BayesFlow: Amortized Bayesian Inference - Home"/>
+    <script>document.write(`<img src="../_static/bayesflow_hex.png" class="logo__image only-dark" alt="BayesFlow: Amortized Bayesian Inference - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">BayesFlow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Linear_Regression_Starter.html">1. Amortized Posterior Estimation for Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Two_Moons_Starter.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/SIR_Posterior_Estimation.html">3. Posterior Estimation for SIR-like Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Hyperparameter_Optimization.html">4. Hyperparameter Optimization Using Optuna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/Bayesian_Experimental_Design.html">5. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/From_ABC_to_BayesFlow.html">6. From pyABC to BayesFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Patterns &amp; Caveats</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item">
+<div class="rst-versions">
+  
+   
+  <p class="caption" aria-level="2" role="heading"><span class="caption-text">Branches</span></p>
+  <ul>
+      <li><a href="/dev/api/bayesflow.experimental.ContinuousTimeConsistencyModel.html" class="current">dev</a></li>
+  </ul>
+  
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/bayesflow-org/bayesflow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.experimental.ContinuousTimeConsistencyModel.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bayesflow-org/bayesflow/issues/new?title=Issue%20on%20page%20%2Fapi/bayesflow.experimental.ContinuousTimeConsistencyModel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/bayesflow.experimental.ContinuousTimeConsistencyModel.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+  
+<div id="searchbox"></div>
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="bayesflow.experimental.html" class="nav-link">experimental</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">ContinuousTi...</li>
+  </ul>
+</nav>
+
+    
+  <section id="continuoustimeconsistencymodel">
+<h1>ContinuousTimeConsistencyModel<a class="headerlink" href="#continuoustimeconsistencymodel" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.experimental.</span></span><span class="sig-name descname"><span class="pre">ContinuousTimeConsistencyModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel" title="Link to this definition">#</a></dt>
+<dd><p>Implements an sCM (simple, stable, and scalable Consistency Model)
+with continous-time Consistency Training (CT) as described in [1].
+The sampling procedure is taken from [2].</p>
+<p>[1] Lu, C., &amp; Song, Y. (2024).
+Simplifying, Stabilizing and Scaling Continuous-Time Consistency Models
+arXiv preprint arXiv:2410.11081</p>
+<p>[2] Song, Y., Dhariwal, P., Chen, M. &amp; Sutskever, I. (2023).
+Consistency Models.
+arXiv preprint arXiv:2303.01469</p>
+<p>Creates an instance of an sCM to be used for consistency training (CT).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.get_config">
+<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.get_config" title="Link to this definition">#</a></dt>
+<dd><p>Returns the config of the object.</p>
+<p>An object config is a Python dictionary (serializable)
+containing the information needed to re-instantiate it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.from_config">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.from_config" title="Link to this definition">#</a></dt>
+<dd><p>Creates an operation from its config.</p>
+<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
+same operation from the config dictionary.</p>
+<p>Note: If you override this method, you might receive a serialized dtype
+config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">policy</span> <span class="o">=</span> <span class="n">dtype_policies</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An operation instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.consistency_function">
+<span class="sig-name descname"><span class="pre">consistency_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.consistency_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.consistency_function" title="Link to this definition">#</a></dt>
+<dd><p>Compute consistency function at time t.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Input vector</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">Tensor</span></dt><dd><p>Vector of time samples in [0, pi/2]</p>
+</dd>
+<dt><strong>conditions</strong><span class="classifier">Tensor</span></dt><dd><p>The conditioning vector</p>
+</dd>
+<dt><strong>training</strong><span class="classifier">bool</span></dt><dd><p>Flag to control whether the inner network operates in training or test mode</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments passed to the inner network.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.compute_metrics">
+<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.compute_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+  </article>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bayesflow.experimental.CIF.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CIF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bayesflow.metrics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">metrics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.get_config"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.get_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.from_config"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.build"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.call"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.consistency_function"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.consistency_function()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.compute_metrics"><code class="docutils literal notranslate"><span class="pre">ContinuousTimeConsistencyModel.compute_metrics()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The BayesFlow authors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023-2025, BayesFlow authors (lead maintainer: Stefan T. Radev).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

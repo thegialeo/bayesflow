@@ -1,5 +1,5 @@
-﻿bayesflow.adapters
-==================
+﻿adapters
+========
 
 .. automodule:: bayesflow.adapters
 
@@ -16,6 +16,8 @@
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
     Adapter
   
@@ -36,5 +38,13 @@
   
     transforms
 
+  
+  
+
+ 
+  
+  
+
+  
   
   

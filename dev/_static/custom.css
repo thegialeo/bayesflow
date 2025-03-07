@@ -20,3 +20,8 @@
 .bd-sidebar-primary div#rtd-footer-container {
   margin: 0;
 }
+
+ul.bd-breadcrumbs {
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}

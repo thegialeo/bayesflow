@@ -1,5 +1,5 @@
-﻿bayesflow.datasets
-==================
+﻿datasets
+========
 
 .. automodule:: bayesflow.datasets
 
@@ -16,15 +16,25 @@
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
-    OnlineDataset
-    DiskDataset
     RoundsDataset
+    DiskDataset
     OfflineDataset
+    OnlineDataset
   
   
 
   
+  
+  
+
+  
+  
+  
+
+ 
   
   
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>bayesflow.diagnostics &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>diagnostics &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -51,8 +51,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bayesflow.distributions" href="bayesflow.distributions.html" />
-    <link rel="prev" title="bayesflow.datasets" href="bayesflow.datasets.html" />
+    <link rel="next" title="distributions" href="bayesflow.distributions.html" />
+    <link rel="prev" title="OnlineDataset" href="bayesflow.datasets.OnlineDataset.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,39 +174,103 @@
 <li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">bayesflow.adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.html">bayesflow.benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.html">bayesflow.datasets</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.html">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
@@ -427,51 +491,63 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>bayesflow.diagnostics</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_ecdf"><code class="docutils literal notranslate"><span class="pre">calibration_ecdf()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_error"><code class="docutils literal notranslate"><span class="pre">calibration_error()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_histogram"><code class="docutils literal notranslate"><span class="pre">calibration_histogram()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.loss"><code class="docutils literal notranslate"><span class="pre">loss()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_calibration"><code class="docutils literal notranslate"><span class="pre">mc_calibration()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_confusion_matrix"><code class="docutils literal notranslate"><span class="pre">mc_confusion_matrix()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mmd_hypothesis_test"><code class="docutils literal notranslate"><span class="pre">mmd_hypothesis_test()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_posterior"><code class="docutils literal notranslate"><span class="pre">pairs_posterior()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_samples"><code class="docutils literal notranslate"><span class="pre">pairs_samples()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.posterior_contraction"><code class="docutils literal notranslate"><span class="pre">posterior_contraction()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.recovery"><code class="docutils literal notranslate"><span class="pre">recovery()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.root_mean_squared_error"><code class="docutils literal notranslate"><span class="pre">root_mean_squared_error()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.z_score_contraction"><code class="docutils literal notranslate"><span class="pre">z_score_contraction()</span></code></a></li>
-</ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">diagnostics</li>
+  </ul>
+</nav>
+
+    
   <section id="module-bayesflow.diagnostics">
-<span id="bayesflow-diagnostics"></span><h1>bayesflow.diagnostics<a class="headerlink" href="#module-bayesflow.diagnostics" title="Link to this heading">#</a></h1>
+<span id="diagnostics"></span><h1>diagnostics<a class="headerlink" href="#module-bayesflow.diagnostics" title="Link to this heading">#</a></h1>
 <p class="rubric">Functions</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.mc_calibration" title="bayesflow.diagnostics.mc_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mc_calibration</span></code></a>(pred_models, true_models[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.recovery" title="bayesflow.diagnostics.recovery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recovery</span></code></a>(estimates, targets[, ...])</p></td>
+<td><p>Creates and plots publication-ready recovery plot with true estimate vs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.mc_calibration" title="bayesflow.diagnostics.mc_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mc_calibration</span></code></a>(pred_models, true_models[, ...])</p></td>
 <td><p>Plots the calibration curves, the ECEs and the marginal histograms of predicted posterior model probabilities for a model comparison problem.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.mc_confusion_matrix" title="bayesflow.diagnostics.mc_confusion_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mc_confusion_matrix</span></code></a>(pred_models, true_models)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.root_mean_squared_error" title="bayesflow.diagnostics.root_mean_squared_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root_mean_squared_error</span></code></a>(estimates, targets)</p></td>
+<td><p>Computes the (Normalized) Root Mean Squared Error (RMSE/NRMSE) for the given posterior and prior samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.pairs_posterior" title="bayesflow.diagnostics.pairs_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs_posterior</span></code></a>(estimates[, targets, ...])</p></td>
+<td><p>Generates a bivariate pair plot given posterior draws and optional prior or prior draws.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.calibration_ecdf" title="bayesflow.diagnostics.calibration_ecdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_ecdf</span></code></a>(estimates, targets[, ...])</p></td>
+<td><p>Creates the empirical CDFs for each marginal rank distribution and plots it against a uniform ECDF.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.pairs_samples" title="bayesflow.diagnostics.pairs_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs_samples</span></code></a>([samples, variable_keys, ...])</p></td>
+<td><p>A more flexible pair plot function for multiple distributions based upon collected samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.mc_confusion_matrix" title="bayesflow.diagnostics.mc_confusion_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mc_confusion_matrix</span></code></a>(pred_models, true_models)</p></td>
 <td><p>Plots a confusion matrix for validating a neural network trained for Bayesian model comparison.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.z_score_contraction" title="bayesflow.diagnostics.z_score_contraction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z_score_contraction</span></code></a>(estimates, targets[, ...])</p></td>
+<td><p>Implements a graphical check for global model sensitivity by plotting the posterior z-score over the posterior contraction for each set of posterior samples in <code class="docutils literal notranslate"><span class="pre">estimates</span></code> according to [1].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.posterior_contraction" title="bayesflow.diagnostics.posterior_contraction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">posterior_contraction</span></code></a>(estimates, targets[, ...])</p></td>
+<td><p>Computes the posterior contraction (PC) from prior to posterior for the given samples.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.calibration_histogram" title="bayesflow.diagnostics.calibration_histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_histogram</span></code></a>(estimates, targets[, ...])</p></td>
+<td><p>Creates and plots publication-ready histograms of rank statistics for simulation-based calibration (SBC) checks according to [1].</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.loss" title="bayesflow.diagnostics.loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loss</span></code></a>(history[, train_key, val_key, ...])</p></td>
 <td><p>A generic helper function to plot the losses of a series of training epochs and runs.</p></td>
@@ -479,36 +555,226 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.mmd_hypothesis_test" title="bayesflow.diagnostics.mmd_hypothesis_test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mmd_hypothesis_test</span></code></a>(mmd_null[, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.calibration_histogram" title="bayesflow.diagnostics.calibration_histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_histogram</span></code></a>(estimates, targets[, ...])</p></td>
-<td><p>Creates and plots publication-ready histograms of rank statistics for simulation-based calibration (SBC) checks according to [1].</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.z_score_contraction" title="bayesflow.diagnostics.z_score_contraction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z_score_contraction</span></code></a>(estimates, targets[, ...])</p></td>
-<td><p>Implements a graphical check for global model sensitivity by plotting the posterior z-score over the posterior contraction for each set of posterior samples in <code class="docutils literal notranslate"><span class="pre">estimates</span></code> according to [1].</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.calibration_error" title="bayesflow.diagnostics.calibration_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_error</span></code></a>(estimates, targets[, ...])</p></td>
 <td><p>Computes an aggregate score for the marginal calibration error over an ensemble of approximate posteriors.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.calibration_ecdf" title="bayesflow.diagnostics.calibration_ecdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calibration_ecdf</span></code></a>(estimates, targets[, ...])</p></td>
-<td><p>Creates the empirical CDFs for each marginal rank distribution and plots it against a uniform ECDF.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.pairs_posterior" title="bayesflow.diagnostics.pairs_posterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs_posterior</span></code></a>(estimates[, targets, ...])</p></td>
-<td><p>Generates a bivariate pair plot given posterior draws and optional prior or prior draws.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.pairs_samples" title="bayesflow.diagnostics.pairs_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairs_samples</span></code></a>([samples, variable_keys, ...])</p></td>
-<td><p>A more flexible pair plot function for multiple distributions based upon collected samples.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.root_mean_squared_error" title="bayesflow.diagnostics.root_mean_squared_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root_mean_squared_error</span></code></a>(estimates, targets)</p></td>
-<td><p>Computes the (Normalized) Root Mean Squared Error (RMSE/NRMSE) for the given posterior and prior samples.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.diagnostics.posterior_contraction" title="bayesflow.diagnostics.posterior_contraction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">posterior_contraction</span></code></a>(estimates, targets[, ...])</p></td>
-<td><p>Computes the posterior contraction (PC) from prior to posterior for the given samples.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.diagnostics.recovery" title="bayesflow.diagnostics.recovery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recovery</span></code></a>(estimates, targets[, ...])</p></td>
-<td><p>Creates and plots publication-ready recovery plot with true estimate vs.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.recovery">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">recovery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_agg=&lt;function</span> <span class="pre">median&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty_agg=&lt;function</span> <span class="pre">median_abs_deviation&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_corr:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize:</span> <span class="pre">~typing.Sequence[int]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Ground</span> <span class="pre">truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Estimate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/recovery.html#recovery"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.recovery" title="Link to this definition">#</a></dt>
+<dd><p>Creates and plots publication-ready recovery plot with true estimate
+vs. point estimate + uncertainty.
+The point estimate can be controlled with the <code class="docutils literal notranslate"><span class="pre">point_agg</span></code> argument,
+and the uncertainty estimate can be controlled with the
+<code class="docutils literal notranslate"><span class="pre">uncertainty_agg</span></code> argument.</p>
+<p>This plot yields similar information as the “posterior z-score”,
+but allows for generic point and uncertainty estimates:</p>
+<p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html</a></p>
+<p>Important:
+Posterior aggregates play no special role in Bayesian inference and should only be used heuristically.
+For instance, in the case of multi-modal posteriors, common point estimates, such as mean, (geometric) median,
+or maximum a posteriori (MAP) mean nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_datasets</p>
+</dd>
+<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_params)</span></dt><dd><p>The prior draws (true parameters) used for generating the num_datasets</p>
+</dd>
+<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
+By default, select all keys.</p>
+</dd>
+<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The individual parameter names for nice plot titles. Inferred if None</p>
+</dd>
+<dt><strong>point_agg</strong><span class="classifier">function to compute point estimates. Default: median</span></dt><dd></dd>
+<dt><strong>uncertainty_agg</strong><span class="classifier">function to compute uncertainty estimates. Default: MAD</span></dt><dd></dd>
+<dt><strong>add_corr</strong><span class="classifier">boolean, default: True</span></dt><dd><p>Should correlations between estimates and ground truth values be shown?</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default</span><span class="classifier">None</span></dt><dd><p>The figure size passed to the matplotlib constructor. Inferred if None.</p>
+</dd>
+<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label text.</p>
+</dd>
+<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text.</p>
+</dd>
+<dt><strong>metric_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the metrics shown as text.</p>
+</dd>
+<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color for the true vs. estimated scatter points and error bars.</p>
+</dd>
+<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
+</dd>
+<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
+</dd>
+<dt><strong>xlabel:</strong></dt><dd></dd>
+<dt><strong>ylabel:</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ShapeError</dt><dd><p>If there is a deviation from the expected shapes of <code class="docutils literal notranslate"><span class="pre">estimates</span></code> and <code class="docutils literal notranslate"><span class="pre">targets</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.mc_calibration">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">mc_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/mc_calibration.html#mc_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.mc_calibration" title="Link to this definition">#</a></dt>
+<dd><p>Plots the calibration curves, the ECEs and the marginal histograms of predicted posterior model probabilities
+for a model comparison problem. The marginal histograms inform about the fraction of predictions in each bin.
+Depends on the <code class="docutils literal notranslate"><span class="pre">expected_calibration_error</span></code> function for computing the ECE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pred_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The predicted posterior model probabilities (PMPs) per data set.</p>
+</dd>
+<dt><strong>true_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The one-hot-encoded true model indices per data set.</p>
+</dd>
+<dt><strong>model_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The model names for nice plot titles. Inferred if None.</p>
+</dd>
+<dt><strong>n_bins</strong><span class="classifier">int, optional, default: 10</span></dt><dd><p>The number of bins to use for the calibration curves (and marginal histograms).</p>
+</dd>
+<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label and y-label texts</p>
+</dd>
+<dt><strong>legend_fontsize</strong><span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the legend text (ECE value)</p>
+</dd>
+<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text. Only relevant if <cite>stacked=False</cite></p>
+</dd>
+<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
+</dd>
+<dt><strong>epsilon</strong><span class="classifier">float, optional, default: 0.02</span></dt><dd><p>A small amount to pad the [0, 1]-bounded axes from both side.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default: None</span></dt><dd><p>The figure size passed to the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> constructor. Inferred if <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color of the calibration curves</p>
+</dd>
+<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
+</dd>
+<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fig</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.root_mean_squared_error">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">root_mean_squared_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/root_mean_squared_error.html#root_mean_squared_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.root_mean_squared_error" title="Link to this definition">#</a></dt>
+<dd><p>Computes the (Normalized) Root Mean Squared Error (RMSE/NRMSE) for the given posterior and prior samples.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws_post, num_variables)</span></dt><dd><p>Posterior samples, comprising <cite>num_draws_post</cite> random draws from the posterior distribution
+for each data set from <cite>num_datasets</cite>.</p>
+</dd>
+<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>Prior samples, comprising <cite>num_datasets</cite> ground truths.</p>
+</dd>
+<dt><strong>variable_keys</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
+By default, select all keys.</p>
+</dd>
+<dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Optional variable names to show in the output.</p>
+</dd>
+<dt><strong>normalize</strong><span class="classifier">bool, optional (default = True)</span></dt><dd><p>Whether to normalize the RMSE using the range of the prior samples.</p>
+</dd>
+<dt><strong>aggregation</strong><span class="classifier">callable, optional (default = np.median)</span></dt><dd><p>Function to aggregate the RMSE across draws. Typically <cite>np.mean</cite> or <cite>np.median</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:
+- “values” : np.ndarray</p>
+<blockquote>
+<div><p>The aggregated (N)RMSE for each variable.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“RMSE” or “NRMSE”).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“variable_names”<span class="classifier">str</span></dt><dd><p>The (inferred) variable names.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Aggregation is performed after computing the RMSE for each posterior draw, instead of first aggregating
+the posterior draws and then computing the RMSE between aggregates and ground truths.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.pairs_posterior">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">pairs_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gray'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PairGrid</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/pairs_posterior.html#pairs_posterior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.pairs_posterior" title="Link to this definition">#</a></dt>
+<dd><p>Generates a bivariate pair plot given posterior draws and optional prior or prior draws.</p>
+<dl class="simple">
+<dt>estimates<span class="classifier">np.ndarray of shape (n_post_draws, n_params)</span></dt><dd><p>The posterior draws obtained for a SINGLE observed data set.</p>
+</dd>
+<dt>targets<span class="classifier">np.ndarray of shape (n_params,) or None, optional, default: None</span></dt><dd><p>Optional true parameter values that have generated the observed dataset.</p>
+</dd>
+<dt>priors<span class="classifier">np.ndarray of shape (n_prior_draws, n_params) or None, optional (default: None)</span></dt><dd><p>Optional prior samples obtained from the prior.</p>
+</dd>
+<dt>dataset_id: Optional ID of the dataset for whose posterior the pairs plot shall be generated.</dt><dd><p>Should only be specified if estimates contains posterior draws from multiple datasets.</p>
+</dd>
+<dt>variable_keys<span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionary provided in samples.
+By default, select all keys.</p>
+</dd>
+<dt>variable_names<span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
+</dd>
+<dt>height<span class="classifier">float, optional, default: 3</span></dt><dd><p>The height of the pairplot</p>
+</dd>
+<dt>label_fontsize<span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the x and y-label texts (parameter names)</p>
+</dd>
+<dt>tick_fontsize<span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
+</dd>
+<dt>legend_fontsize<span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the legend text</p>
+</dd>
+<dt>post_color<span class="classifier">str, optional, default: ‘#132a70’</span></dt><dd><p>The color for the posterior histograms and KDEs</p>
+</dd>
+<dt>priors_color<span class="classifier">str, optional, default: gray</span></dt><dd><p>The color for the optional prior histograms and KDEs</p>
+</dd>
+<dt>post_alpha<span class="classifier">float in [0, 1], optional, default: 0.9</span></dt><dd><p>The opacity of the posterior plots</p>
+</dd>
+<dt>prior_alpha<span class="classifier">float in [0, 1], optional, default: 0.7</span></dt><dd><p>The opacity of the prior plots</p>
+</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">dict, optional, default: {}</span></dt><dd><p>Further optional keyword arguments propagated to <cite>_pairs_samples</cite></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>AssertionError</dt><dd><p>If the shape of posterior_draws is not 2-dimensional.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.diagnostics.calibration_ecdf">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">calibration_ecdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fractional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank_ecdf_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'grey'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/calibration_ecdf.html#calibration_ecdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.calibration_ecdf" title="Link to this definition">#</a></dt>
@@ -607,32 +873,172 @@ and <cite>targets</cite>.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.calibration_error">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">calibration_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_quantile:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_quantile:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.995</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/calibration_error.html#calibration_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.calibration_error" title="Link to this definition">#</a></dt>
-<dd><p>Computes an aggregate score for the marginal calibration error over an ensemble of approximate
-posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation
-between an alpha-CI and the relative number of inliers from <code class="docutils literal notranslate"><span class="pre">estimates</span></code> over multiple alphas in
-(0, 1).</p>
+<dt class="sig sig-object py" id="bayesflow.diagnostics.pairs_samples">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">pairs_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PairGrid</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/pairs_samples.html#pairs_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.pairs_samples" title="Link to this definition">#</a></dt>
+<dd><p>A more flexible pair plot function for multiple distributions based upon
+collected samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>samples</strong><span class="classifier">dict[str, Tensor], default: None</span></dt><dd><p>Sample draws from any dataset</p>
+</dd>
+<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionary provided in samples.
+By default, select all keys.</p>
+</dd>
+<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
+</dd>
+<dt><strong>height</strong><span class="classifier">float, optional, default: 2.5</span></dt><dd><p>The height of the pair plot</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">str, optional, default</span><span class="classifier">‘#8f2727’</span></dt><dd><p>The color of the plot</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float in [0, 1], optional, default: 0.9</span></dt><dd><p>The opacity of the plot</p>
+</dd>
+<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the x and y-label texts (parameter names)</p>
+</dd>
+<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to the sns.PairGrid constructor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.mc_confusion_matrix">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">mc_confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtick_rotation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytick_rotation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Colormap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/mc_confusion_matrix.html#mc_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.mc_confusion_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Plots a confusion matrix for validating a neural network trained for Bayesian model comparison.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pred_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The predicted posterior model probabilities (PMPs) per data set.</p>
+</dd>
+<dt><strong>true_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The one-hot-encoded true model indices per data set.</p>
+</dd>
+<dt><strong>model_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The model names for nice plot titles. Inferred if None.</p>
+</dd>
+<dt><strong>fig_size</strong><span class="classifier">tuple or None, optional, default: (5, 5)</span></dt><dd><p>The figure size passed to the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> constructor. Inferred if <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label and y-label texts</p>
+</dd>
+<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text.</p>
+</dd>
+<dt><strong>value_fontsize</strong><span class="classifier">int, optional, default: 10</span></dt><dd><p>The font size of the text annotations and the colorbar tick labels.</p>
+</dd>
+<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis label and model name texts.</p>
+</dd>
+<dt><strong>xtick_rotation: int, optional, default: None</strong></dt><dd><p>Rotation of x-axis tick labels (helps with long model names).</p>
+</dd>
+<dt><strong>ytick_rotation: int, optional, default: None</strong></dt><dd><p>Rotation of y-axis tick labels (helps with long model names).</p>
+</dd>
+<dt><strong>normalize</strong><span class="classifier">{‘true’, ‘pred’, ‘all’}, default=None</span></dt><dd><p>Passed to sklearn.metrics.confusion_matrix.
+Normalizes confusion matrix over the true (rows), predicted (columns)
+conditions or all the population. If None, confusion matrix will not be
+normalized.</p>
+</dd>
+<dt><strong>cmap</strong><span class="classifier">matplotlib.colors.Colormap or str, optional, default: None</span></dt><dd><p>Colormap to be used for the cells. If a str, it should be the name of a registered colormap,
+e.g., ‘viridis’. Default colormap matches the BayesFlow defaults by ranging from white to red.</p>
+</dd>
+<dt><strong>title</strong><span class="classifier">bool, optional, default True</span></dt><dd><p>A flag for adding ‘Confusion Matrix’ above the matrix.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fig</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.z_score_contraction">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">z_score_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/z_score_contraction.html#z_score_contraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.z_score_contraction" title="Link to this definition">#</a></dt>
+<dd><p>Implements a graphical check for global model sensitivity by plotting the
+posterior z-score over the posterior contraction for each set of posterior
+samples in <code class="docutils literal notranslate"><span class="pre">estimates</span></code> according to [1].</p>
+<ul class="simple">
+<li><p>The definition of the posterior z-score is:</p></li>
+</ul>
+<p>post_z_score = (posterior_mean - true_parameters) / posterior_std</p>
+<p>And the score is adequate if it centers around zero and spreads roughly
+in the interval [-3, 3]</p>
+<ul class="simple">
+<li><p>The definition of posterior contraction is:</p></li>
+</ul>
+<p>post_contraction = 1 - (posterior_variance / prior_variance)</p>
+<p>In other words, the posterior contraction is a proxy for the reduction in
+uncertainty gained by replacing the prior with the posterior.
+The ideal posterior contraction tends to 1.
+Contraction near zero indicates that the posterior variance is almost
+identical to the prior variance for the particular marginal parameter
+distribution.</p>
+<p>Note:
+Means and variances will be estimated via their sample-based estimators.</p>
+<p>[1] Schad, D. J., Betancourt, M., &amp; Vasishth, S. (2021).
+Toward a principled Bayesian workflow in cognitive science.
+Psychological methods, 26(1), 103.</p>
+<p>Paper also available at <a class="reference external" href="https://arxiv.org/abs/1904.12765">https://arxiv.org/abs/1904.12765</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_datasets</p>
+</dd>
+<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_params)</span></dt><dd><p>The prior draws (true parameters) used for generating the num_datasets</p>
+</dd>
+<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
+By default, select all keys.</p>
+</dd>
+<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default</span><span class="classifier">None</span></dt><dd><p>The figure size passed to the matplotlib constructor. Inferred if None.</p>
+</dd>
+<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label text</p>
+</dd>
+<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text</p>
+</dd>
+<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color for the true vs. estimated scatter points and error bars</p>
+</dd>
+<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
+</dd>
+<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ShapeError</dt><dd><p>If there is a deviation from the expected shapes of <code class="docutils literal notranslate"><span class="pre">estimates</span></code> and <code class="docutils literal notranslate"><span class="pre">targets</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.diagnostics.posterior_contraction">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">posterior_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/posterior_contraction.html#posterior_contraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.posterior_contraction" title="Link to this definition">#</a></dt>
+<dd><p>Computes the posterior contraction (PC) from prior to posterior for the given samples.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws, num_variables)</span></dt><dd><p>The random draws from the approximate posteriors over <code class="docutils literal notranslate"><span class="pre">num_datasets</span></code></p>
+<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws_post, num_variables)</span></dt><dd><p>Posterior samples, comprising <cite>num_draws_post</cite> random draws from the posterior distribution
+for each data set from <cite>num_datasets</cite>.</p>
 </dd>
-<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>The corresponding ground-truth values sampled from the prior</p>
+<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>Prior samples, comprising <cite>num_datasets</cite> ground truths.</p>
 </dd>
 <dt><strong>variable_keys</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
 By default, select all keys.</p>
 </dd>
 <dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Optional variable names to show in the output.</p>
 </dd>
-<dt><strong>resolution</strong><span class="classifier">int, optional, default: 20</span></dt><dd><p>The number of credibility intervals (CIs) to consider</p>
-</dd>
-<dt><strong>aggregation</strong><span class="classifier">callable or None, optional, default: np.median</span></dt><dd><p>The function used to aggregate the marginal calibration errors.
-If <code class="docutils literal notranslate"><span class="pre">None</span></code> provided, the per-alpha calibration errors will be returned.</p>
-</dd>
-<dt><strong>min_quantile</strong><span class="classifier">float in (0, 1), optional, default: 0.005</span></dt><dd><p>The minimum posterior quantile to consider.</p>
-</dd>
-<dt><strong>max_quantile</strong><span class="classifier">float in (0, 1), optional, default: 0.995</span></dt><dd><p>The maximum posterior quantile to consider.</p>
+<dt><strong>aggregation</strong><span class="classifier">callable, optional (default = np.median)</span></dt><dd><p>Function to aggregate the PC across draws. Typically <cite>np.mean</cite> or <cite>np.median</cite>.</p>
 </dd>
 </dl>
 </dd>
@@ -641,11 +1047,11 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 <dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:
 - “values” : float or np.ndarray</p>
 <blockquote>
-<div><p>The aggregated calibration error per variable</p>
+<div><p>The aggregated posterior contraction per variable</p>
 </div></blockquote>
 <ul class="simple">
 <li><dl class="simple">
-<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“Calibration Error”).</p>
+<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“Posterior Contraction”).</p>
 </dd>
 </dl>
 </li>
@@ -659,6 +1065,10 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Posterior contraction measures the reduction in uncertainty from the prior to the posterior.
+Values close to 1 indicate strong contraction (high reduction in uncertainty), while values close to 0
+indicate low contraction.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -772,98 +1182,6 @@ number of columns in <code class="docutils literal notranslate"><span class="pre
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.mc_calibration">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">mc_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/mc_calibration.html#mc_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.mc_calibration" title="Link to this definition">#</a></dt>
-<dd><p>Plots the calibration curves, the ECEs and the marginal histograms of predicted posterior model probabilities
-for a model comparison problem. The marginal histograms inform about the fraction of predictions in each bin.
-Depends on the <code class="docutils literal notranslate"><span class="pre">expected_calibration_error</span></code> function for computing the ECE.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>pred_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The predicted posterior model probabilities (PMPs) per data set.</p>
-</dd>
-<dt><strong>true_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The one-hot-encoded true model indices per data set.</p>
-</dd>
-<dt><strong>model_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The model names for nice plot titles. Inferred if None.</p>
-</dd>
-<dt><strong>n_bins</strong><span class="classifier">int, optional, default: 10</span></dt><dd><p>The number of bins to use for the calibration curves (and marginal histograms).</p>
-</dd>
-<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label and y-label texts</p>
-</dd>
-<dt><strong>legend_fontsize</strong><span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the legend text (ECE value)</p>
-</dd>
-<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text. Only relevant if <cite>stacked=False</cite></p>
-</dd>
-<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
-</dd>
-<dt><strong>epsilon</strong><span class="classifier">float, optional, default: 0.02</span></dt><dd><p>A small amount to pad the [0, 1]-bounded axes from both side.</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default: None</span></dt><dd><p>The figure size passed to the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> constructor. Inferred if <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color of the calibration curves</p>
-</dd>
-<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
-</dd>
-<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>fig</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.mc_confusion_matrix">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">mc_confusion_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(5,</span> <span class="pre">5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtick_rotation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ytick_rotation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Colormap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/mc_confusion_matrix.html#mc_confusion_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.mc_confusion_matrix" title="Link to this definition">#</a></dt>
-<dd><p>Plots a confusion matrix for validating a neural network trained for Bayesian model comparison.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>pred_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The predicted posterior model probabilities (PMPs) per data set.</p>
-</dd>
-<dt><strong>true_models</strong><span class="classifier">np.ndarray of shape (num_data_sets, num_models)</span></dt><dd><p>The one-hot-encoded true model indices per data set.</p>
-</dd>
-<dt><strong>model_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The model names for nice plot titles. Inferred if None.</p>
-</dd>
-<dt><strong>fig_size</strong><span class="classifier">tuple or None, optional, default: (5, 5)</span></dt><dd><p>The figure size passed to the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> constructor. Inferred if <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label and y-label texts</p>
-</dd>
-<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text.</p>
-</dd>
-<dt><strong>value_fontsize</strong><span class="classifier">int, optional, default: 10</span></dt><dd><p>The font size of the text annotations and the colorbar tick labels.</p>
-</dd>
-<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis label and model name texts.</p>
-</dd>
-<dt><strong>xtick_rotation: int, optional, default: None</strong></dt><dd><p>Rotation of x-axis tick labels (helps with long model names).</p>
-</dd>
-<dt><strong>ytick_rotation: int, optional, default: None</strong></dt><dd><p>Rotation of y-axis tick labels (helps with long model names).</p>
-</dd>
-<dt><strong>normalize</strong><span class="classifier">{‘true’, ‘pred’, ‘all’}, default=None</span></dt><dd><p>Passed to sklearn.metrics.confusion_matrix.
-Normalizes confusion matrix over the true (rows), predicted (columns)
-conditions or all the population. If None, confusion matrix will not be
-normalized.</p>
-</dd>
-<dt><strong>cmap</strong><span class="classifier">matplotlib.colors.Colormap or str, optional, default: None</span></dt><dd><p>Colormap to be used for the cells. If a str, it should be the name of a registered colormap,
-e.g., ‘viridis’. Default colormap matches the BayesFlow defaults by ranging from white to red.</p>
-</dd>
-<dt><strong>title</strong><span class="classifier">bool, optional, default True</span></dt><dd><p>A flag for adding ‘Confusion Matrix’ above the matrix.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>fig</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.diagnostics.mmd_hypothesis_test">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">mmd_hypothesis_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mmd_null</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmd_observed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observed_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'orange'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_v_lines_at_kde</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/mmd_hypothesis_test.html#mmd_hypothesis_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.mmd_hypothesis_test" title="Link to this definition">#</a></dt>
 <dd><dl class="field-list simple">
@@ -901,107 +1219,32 @@ false: continue kde lines across the plot</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.pairs_posterior">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">pairs_posterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gray'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PairGrid</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/pairs_posterior.html#pairs_posterior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.pairs_posterior" title="Link to this definition">#</a></dt>
-<dd><p>Generates a bivariate pair plot given posterior draws and optional prior or prior draws.</p>
-<dl class="simple">
-<dt>estimates<span class="classifier">np.ndarray of shape (n_post_draws, n_params)</span></dt><dd><p>The posterior draws obtained for a SINGLE observed data set.</p>
-</dd>
-<dt>targets<span class="classifier">np.ndarray of shape (n_params,) or None, optional, default: None</span></dt><dd><p>Optional true parameter values that have generated the observed dataset.</p>
-</dd>
-<dt>priors<span class="classifier">np.ndarray of shape (n_prior_draws, n_params) or None, optional (default: None)</span></dt><dd><p>Optional prior samples obtained from the prior.</p>
-</dd>
-<dt>dataset_id: Optional ID of the dataset for whose posterior the pairs plot shall be generated.</dt><dd><p>Should only be specified if estimates contains posterior draws from multiple datasets.</p>
-</dd>
-<dt>variable_keys<span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionary provided in samples.
-By default, select all keys.</p>
-</dd>
-<dt>variable_names<span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
-</dd>
-<dt>height<span class="classifier">float, optional, default: 3</span></dt><dd><p>The height of the pairplot</p>
-</dd>
-<dt>label_fontsize<span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the x and y-label texts (parameter names)</p>
-</dd>
-<dt>tick_fontsize<span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
-</dd>
-<dt>legend_fontsize<span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the legend text</p>
-</dd>
-<dt>post_color<span class="classifier">str, optional, default: ‘#132a70’</span></dt><dd><p>The color for the posterior histograms and KDEs</p>
-</dd>
-<dt>priors_color<span class="classifier">str, optional, default: gray</span></dt><dd><p>The color for the optional prior histograms and KDEs</p>
-</dd>
-<dt>post_alpha<span class="classifier">float in [0, 1], optional, default: 0.9</span></dt><dd><p>The opacity of the posterior plots</p>
-</dd>
-<dt>prior_alpha<span class="classifier">float in [0, 1], optional, default: 0.7</span></dt><dd><p>The opacity of the prior plots</p>
-</dd>
-<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">dict, optional, default: {}</span></dt><dd><p>Further optional keyword arguments propagated to <cite>_pairs_samples</cite></p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
-</dl>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>AssertionError</dt><dd><p>If the shape of posterior_draws is not 2-dimensional.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.pairs_samples">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">pairs_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PairGrid</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/pairs_samples.html#pairs_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.pairs_samples" title="Link to this definition">#</a></dt>
-<dd><p>A more flexible pair plot function for multiple distributions based upon
-collected samples.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>samples</strong><span class="classifier">dict[str, Tensor], default: None</span></dt><dd><p>Sample draws from any dataset</p>
-</dd>
-<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionary provided in samples.
-By default, select all keys.</p>
-</dd>
-<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
-</dd>
-<dt><strong>height</strong><span class="classifier">float, optional, default: 2.5</span></dt><dd><p>The height of the pair plot</p>
-</dd>
-<dt><strong>color</strong><span class="classifier">str, optional, default</span><span class="classifier">‘#8f2727’</span></dt><dd><p>The color of the plot</p>
-</dd>
-<dt><strong>alpha</strong><span class="classifier">float in [0, 1], optional, default: 0.9</span></dt><dd><p>The opacity of the plot</p>
-</dd>
-<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 14</span></dt><dd><p>The font size of the x and y-label texts (parameter names)</p>
-</dd>
-<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to the sns.PairGrid constructor</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.posterior_contraction">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">posterior_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/posterior_contraction.html#posterior_contraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.posterior_contraction" title="Link to this definition">#</a></dt>
-<dd><p>Computes the posterior contraction (PC) from prior to posterior for the given samples.</p>
+<dt class="sig sig-object py" id="bayesflow.diagnostics.calibration_error">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">calibration_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_quantile:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_quantile:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.995</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/calibration_error.html#calibration_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.calibration_error" title="Link to this definition">#</a></dt>
+<dd><p>Computes an aggregate score for the marginal calibration error over an ensemble of approximate
+posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation
+between an alpha-CI and the relative number of inliers from <code class="docutils literal notranslate"><span class="pre">estimates</span></code> over multiple alphas in
+(0, 1).</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws_post, num_variables)</span></dt><dd><p>Posterior samples, comprising <cite>num_draws_post</cite> random draws from the posterior distribution
-for each data set from <cite>num_datasets</cite>.</p>
+<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws, num_variables)</span></dt><dd><p>The random draws from the approximate posteriors over <code class="docutils literal notranslate"><span class="pre">num_datasets</span></code></p>
 </dd>
-<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>Prior samples, comprising <cite>num_datasets</cite> ground truths.</p>
+<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>The corresponding ground-truth values sampled from the prior</p>
 </dd>
 <dt><strong>variable_keys</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
 By default, select all keys.</p>
 </dd>
 <dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Optional variable names to show in the output.</p>
 </dd>
-<dt><strong>aggregation</strong><span class="classifier">callable, optional (default = np.median)</span></dt><dd><p>Function to aggregate the PC across draws. Typically <cite>np.mean</cite> or <cite>np.median</cite>.</p>
+<dt><strong>resolution</strong><span class="classifier">int, optional, default: 20</span></dt><dd><p>The number of credibility intervals (CIs) to consider</p>
+</dd>
+<dt><strong>aggregation</strong><span class="classifier">callable or None, optional, default: np.median</span></dt><dd><p>The function used to aggregate the marginal calibration errors.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> provided, the per-alpha calibration errors will be returned.</p>
+</dd>
+<dt><strong>min_quantile</strong><span class="classifier">float in (0, 1), optional, default: 0.005</span></dt><dd><p>The minimum posterior quantile to consider.</p>
+</dd>
+<dt><strong>max_quantile</strong><span class="classifier">float in (0, 1), optional, default: 0.995</span></dt><dd><p>The maximum posterior quantile to consider.</p>
 </dd>
 </dl>
 </dd>
@@ -1010,11 +1253,11 @@ By default, select all keys.</p>
 <dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:
 - “values” : float or np.ndarray</p>
 <blockquote>
-<div><p>The aggregated posterior contraction per variable</p>
+<div><p>The aggregated calibration error per variable</p>
 </div></blockquote>
 <ul class="simple">
 <li><dl class="simple">
-<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“Posterior Contraction”).</p>
+<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“Calibration Error”).</p>
 </dd>
 </dl>
 </li>
@@ -1024,196 +1267,6 @@ By default, select all keys.</p>
 </dl>
 </li>
 </ul>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Posterior contraction measures the reduction in uncertainty from the prior to the posterior.
-Values close to 1 indicate strong contraction (high reduction in uncertainty), while values close to 0
-indicate low contraction.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.recovery">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">recovery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_agg=&lt;function</span> <span class="pre">median&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty_agg=&lt;function</span> <span class="pre">median_abs_deviation&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_corr:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize:</span> <span class="pre">~typing.Sequence[int]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Ground</span> <span class="pre">truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'Estimate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/recovery.html#recovery"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.recovery" title="Link to this definition">#</a></dt>
-<dd><p>Creates and plots publication-ready recovery plot with true estimate
-vs. point estimate + uncertainty.
-The point estimate can be controlled with the <code class="docutils literal notranslate"><span class="pre">point_agg</span></code> argument,
-and the uncertainty estimate can be controlled with the
-<code class="docutils literal notranslate"><span class="pre">uncertainty_agg</span></code> argument.</p>
-<p>This plot yields similar information as the “posterior z-score”,
-but allows for generic point and uncertainty estimates:</p>
-<p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html</a></p>
-<p>Important:
-Posterior aggregates play no special role in Bayesian inference and should only be used heuristically.
-For instance, in the case of multi-modal posteriors, common point estimates, such as mean, (geometric) median,
-or maximum a posteriori (MAP) mean nothing.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_datasets</p>
-</dd>
-<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_params)</span></dt><dd><p>The prior draws (true parameters) used for generating the num_datasets</p>
-</dd>
-<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
-By default, select all keys.</p>
-</dd>
-<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The individual parameter names for nice plot titles. Inferred if None</p>
-</dd>
-<dt><strong>point_agg</strong><span class="classifier">function to compute point estimates. Default: median</span></dt><dd></dd>
-<dt><strong>uncertainty_agg</strong><span class="classifier">function to compute uncertainty estimates. Default: MAD</span></dt><dd></dd>
-<dt><strong>add_corr</strong><span class="classifier">boolean, default: True</span></dt><dd><p>Should correlations between estimates and ground truth values be shown?</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default</span><span class="classifier">None</span></dt><dd><p>The figure size passed to the matplotlib constructor. Inferred if None.</p>
-</dd>
-<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label text.</p>
-</dd>
-<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text.</p>
-</dd>
-<dt><strong>metric_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the metrics shown as text.</p>
-</dd>
-<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels.</p>
-</dd>
-<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color for the true vs. estimated scatter points and error bars.</p>
-</dd>
-<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
-</dd>
-<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
-</dd>
-<dt><strong>xlabel:</strong></dt><dd></dd>
-<dt><strong>ylabel:</strong></dt><dd></dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
-</dl>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>ShapeError</dt><dd><p>If there is a deviation from the expected shapes of <code class="docutils literal notranslate"><span class="pre">estimates</span></code> and <code class="docutils literal notranslate"><span class="pre">targets</span></code>.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.root_mean_squared_error">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">root_mean_squared_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets:</span> <span class="pre">~typing.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~numpy.ndarray]</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names:</span> <span class="pre">~typing.Sequence[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation:</span> <span class="pre">~typing.Callable</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">median&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/metrics/root_mean_squared_error.html#root_mean_squared_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.root_mean_squared_error" title="Link to this definition">#</a></dt>
-<dd><p>Computes the (Normalized) Root Mean Squared Error (RMSE/NRMSE) for the given posterior and prior samples.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws_post, num_variables)</span></dt><dd><p>Posterior samples, comprising <cite>num_draws_post</cite> random draws from the posterior distribution
-for each data set from <cite>num_datasets</cite>.</p>
-</dd>
-<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_variables)</span></dt><dd><p>Prior samples, comprising <cite>num_datasets</cite> ground truths.</p>
-</dd>
-<dt><strong>variable_keys</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
-By default, select all keys.</p>
-</dd>
-<dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional (default = None)</span></dt><dd><p>Optional variable names to show in the output.</p>
-</dd>
-<dt><strong>normalize</strong><span class="classifier">bool, optional (default = True)</span></dt><dd><p>Whether to normalize the RMSE using the range of the prior samples.</p>
-</dd>
-<dt><strong>aggregation</strong><span class="classifier">callable, optional (default = np.median)</span></dt><dd><p>Function to aggregate the RMSE across draws. Typically <cite>np.mean</cite> or <cite>np.median</cite>.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:
-- “values” : np.ndarray</p>
-<blockquote>
-<div><p>The aggregated (N)RMSE for each variable.</p>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“RMSE” or “NRMSE”).</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>“variable_names”<span class="classifier">str</span></dt><dd><p>The (inferred) variable names.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Aggregation is performed after computing the RMSE for each posterior draw, instead of first aggregating
-the posterior draws and then computing the RMSE between aggregates and ground truths.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.diagnostics.z_score_contraction">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.diagnostics.</span></span><span class="sig-name descname"><span class="pre">z_score_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tick_fontsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#132a70'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/bayesflow/diagnostics/plots/z_score_contraction.html#z_score_contraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.diagnostics.z_score_contraction" title="Link to this definition">#</a></dt>
-<dd><p>Implements a graphical check for global model sensitivity by plotting the
-posterior z-score over the posterior contraction for each set of posterior
-samples in <code class="docutils literal notranslate"><span class="pre">estimates</span></code> according to [1].</p>
-<ul class="simple">
-<li><p>The definition of the posterior z-score is:</p></li>
-</ul>
-<p>post_z_score = (posterior_mean - true_parameters) / posterior_std</p>
-<p>And the score is adequate if it centers around zero and spreads roughly
-in the interval [-3, 3]</p>
-<ul class="simple">
-<li><p>The definition of posterior contraction is:</p></li>
-</ul>
-<p>post_contraction = 1 - (posterior_variance / prior_variance)</p>
-<p>In other words, the posterior contraction is a proxy for the reduction in
-uncertainty gained by replacing the prior with the posterior.
-The ideal posterior contraction tends to 1.
-Contraction near zero indicates that the posterior variance is almost
-identical to the prior variance for the particular marginal parameter
-distribution.</p>
-<p>Note:
-Means and variances will be estimated via their sample-based estimators.</p>
-<p>[1] Schad, D. J., Betancourt, M., &amp; Vasishth, S. (2021).
-Toward a principled Bayesian workflow in cognitive science.
-Psychological methods, 26(1), 103.</p>
-<p>Paper also available at <a class="reference external" href="https://arxiv.org/abs/1904.12765">https://arxiv.org/abs/1904.12765</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_post_draws, num_params)</span></dt><dd><p>The posterior draws obtained from num_datasets</p>
-</dd>
-<dt><strong>targets</strong><span class="classifier">np.ndarray of shape (num_datasets, num_params)</span></dt><dd><p>The prior draws (true parameters) used for generating the num_datasets</p>
-</dd>
-<dt><strong>variable_keys</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>Select keys from the dictionaries provided in estimates and targets.
-By default, select all keys.</p>
-</dd>
-<dt><strong>variable_names</strong><span class="classifier">list or None, optional, default: None</span></dt><dd><p>The parameter names for nice plot titles. Inferred if None</p>
-</dd>
-<dt><strong>figsize</strong><span class="classifier">tuple or None, optional, default</span><span class="classifier">None</span></dt><dd><p>The figure size passed to the matplotlib constructor. Inferred if None.</p>
-</dd>
-<dt><strong>label_fontsize</strong><span class="classifier">int, optional, default: 16</span></dt><dd><p>The font size of the y-label text</p>
-</dd>
-<dt><strong>title_fontsize</strong><span class="classifier">int, optional, default: 18</span></dt><dd><p>The font size of the title text</p>
-</dd>
-<dt><strong>tick_fontsize</strong><span class="classifier">int, optional, default: 12</span></dt><dd><p>The font size of the axis ticklabels</p>
-</dd>
-<dt><strong>color</strong><span class="classifier">str, optional, default: ‘#8f2727’</span></dt><dd><p>The color for the true vs. estimated scatter points and error bars</p>
-</dd>
-<dt><strong>num_row</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of rows for the subplots. Dynamically determined if None.</p>
-</dd>
-<dt><strong>num_col</strong><span class="classifier">int, optional, default: None</span></dt><dd><p>The number of columns for the subplots. Dynamically determined if None.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>f</strong><span class="classifier">plt.Figure - the figure instance for optional saving</span></dt><dd></dd>
-</dl>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>ShapeError</dt><dd><p>If there is a deviation from the expected shapes of <code class="docutils literal notranslate"><span class="pre">estimates</span></code> and <code class="docutils literal notranslate"><span class="pre">targets</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -1223,8 +1276,7 @@ By default, select all keys.</p>
 </section>
 
 
-                </article>
-              
+  </article>
 
               
               
@@ -1234,12 +1286,12 @@ By default, select all keys.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesflow.datasets.html"
+       href="bayesflow.datasets.OnlineDataset.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.datasets</p>
+        <p class="prev-next-title">OnlineDataset</p>
       </div>
     </a>
     <a class="right-next"
@@ -1247,7 +1299,7 @@ By default, select all keys.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesflow.distributions</p>
+        <p class="prev-next-title">distributions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1267,19 +1319,19 @@ By default, select all keys.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.recovery"><code class="docutils literal notranslate"><span class="pre">recovery()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_calibration"><code class="docutils literal notranslate"><span class="pre">mc_calibration()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.root_mean_squared_error"><code class="docutils literal notranslate"><span class="pre">root_mean_squared_error()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_posterior"><code class="docutils literal notranslate"><span class="pre">pairs_posterior()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_ecdf"><code class="docutils literal notranslate"><span class="pre">calibration_ecdf()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_error"><code class="docutils literal notranslate"><span class="pre">calibration_error()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_samples"><code class="docutils literal notranslate"><span class="pre">pairs_samples()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_confusion_matrix"><code class="docutils literal notranslate"><span class="pre">mc_confusion_matrix()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.z_score_contraction"><code class="docutils literal notranslate"><span class="pre">z_score_contraction()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.posterior_contraction"><code class="docutils literal notranslate"><span class="pre">posterior_contraction()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_histogram"><code class="docutils literal notranslate"><span class="pre">calibration_histogram()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.loss"><code class="docutils literal notranslate"><span class="pre">loss()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_calibration"><code class="docutils literal notranslate"><span class="pre">mc_calibration()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mc_confusion_matrix"><code class="docutils literal notranslate"><span class="pre">mc_confusion_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.mmd_hypothesis_test"><code class="docutils literal notranslate"><span class="pre">mmd_hypothesis_test()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_posterior"><code class="docutils literal notranslate"><span class="pre">pairs_posterior()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.pairs_samples"><code class="docutils literal notranslate"><span class="pre">pairs_samples()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.posterior_contraction"><code class="docutils literal notranslate"><span class="pre">posterior_contraction()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.recovery"><code class="docutils literal notranslate"><span class="pre">recovery()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.root_mean_squared_error"><code class="docutils literal notranslate"><span class="pre">root_mean_squared_error()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.z_score_contraction"><code class="docutils literal notranslate"><span class="pre">z_score_contraction()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.diagnostics.calibration_error"><code class="docutils literal notranslate"><span class="pre">calibration_error()</span></code></a></li>
 </ul>
   </nav></div>
 

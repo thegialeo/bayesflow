@@ -1,5 +1,5 @@
-﻿bayesflow.experimental
-======================
+﻿experimental
+============
 
 .. automodule:: bayesflow.experimental
 
@@ -13,23 +13,29 @@
 
   
   
-  
-
-  
-  
-  
-
-  
-  
-  .. rubric:: Modules
+  .. rubric:: Classes
 
   .. autosummary::
     :toctree:
-    :template: custom-module-template.rst
-    :recursive:
+    :template: custom-class-template.rst
   
-    cif
-    continuous_time_consistency_model
+    CIF
+    ContinuousTimeConsistencyModel
+  
+  
 
+  
+  
+  
+
+  
+  
+  
+
+ 
+  
+  
+
+  
   
   

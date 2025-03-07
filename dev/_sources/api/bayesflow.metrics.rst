@@ -1,5 +1,5 @@
-﻿bayesflow.metrics
-=================
+﻿metrics
+=======
 
 .. automodule:: bayesflow.metrics
 
@@ -16,9 +16,11 @@
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
-    RootMeanSquaredError
     MaximumMeanDiscrepancy
+    RootMeanSquaredError
   
   
 
@@ -37,5 +39,13 @@
   
     functional
 
+  
+  
+
+ 
+  
+  
+
+  
   
   

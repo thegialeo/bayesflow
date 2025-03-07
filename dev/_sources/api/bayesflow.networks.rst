@@ -1,5 +1,5 @@
-﻿bayesflow.networks
-==================
+﻿networks
+========
 
 .. automodule:: bayesflow.networks
 
@@ -16,23 +16,33 @@
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
-    DeepSet
-    ConsistencyModel
-    SummaryNetwork
-    MLP
     FreeFormFlow
-    FlowMatching
-    SetTransformer
-    InferenceNetwork
+    FusionTransformer
     LSTNet
     TimeSeriesTransformer
+    DeepSet
+    FlowMatching
+    MLP
+    ConsistencyModel
+    SetTransformer
+    InferenceNetwork
+    SummaryNetwork
     CouplingFlow
-    FusionTransformer
   
   
 
   
+  
+  
+
+  
+  
+  
+
+ 
   
   
 

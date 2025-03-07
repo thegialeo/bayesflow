@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>bayesflow.datasets &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>datasets &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -51,8 +51,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bayesflow.diagnostics" href="bayesflow.diagnostics.html" />
-    <link rel="prev" title="bayesflow.benchmarks" href="bayesflow.benchmarks.html" />
+    <link rel="next" title="RoundsDataset" href="bayesflow.datasets.RoundsDataset.html" />
+    <link rel="prev" title="LotkaVolterra" href="bayesflow.benchmarks.LotkaVolterra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,39 +174,103 @@
 <li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">bayesflow.adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.html">bayesflow.benchmarks</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesflow.datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.html">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">datasets</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.networks.html">networks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
@@ -415,9 +479,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -427,193 +489,53 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>bayesflow.datasets</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset"><code class="docutils literal notranslate"><span class="pre">DiskDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">DiskDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">DiskDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.shuffle"><code class="docutils literal notranslate"><span class="pre">DiskDataset.shuffle()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset"><code class="docutils literal notranslate"><span class="pre">OfflineDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.shuffle"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.shuffle()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OnlineDataset"><code class="docutils literal notranslate"><span class="pre">OnlineDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OnlineDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">OnlineDataset.num_batches</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset"><code class="docutils literal notranslate"><span class="pre">RoundsDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.regenerate"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.regenerate()</span></code></a></li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">datasets</li>
+  </ul>
+</nav>
+
+    
   <section id="module-bayesflow.datasets">
-<span id="bayesflow-datasets"></span><h1>bayesflow.datasets<a class="headerlink" href="#module-bayesflow.datasets" title="Link to this heading">#</a></h1>
+<span id="datasets"></span><h1>datasets<a class="headerlink" href="#module-bayesflow.datasets" title="Link to this heading">#</a></h1>
 <p class="rubric">Classes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.datasets.OnlineDataset" title="bayesflow.datasets.OnlineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OnlineDataset</span></code></a>(simulator, batch_size, ...)</p></td>
-<td><p>A dataset that is generated on-the-fly.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.datasets.DiskDataset" title="bayesflow.datasets.DiskDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiskDataset</span></code></a>(root, *[, pattern, load_fn])</p></td>
-<td><p>A dataset used to load pre-simulated files from disk.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.datasets.RoundsDataset" title="bayesflow.datasets.RoundsDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RoundsDataset</span></code></a>(simulator, batch_size, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html#bayesflow.datasets.RoundsDataset" title="bayesflow.datasets.RoundsDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RoundsDataset</span></code></a>(simulator, batch_size, ...)</p></td>
 <td><p>A dataset that is generated on-the-fly at the beginning of every n-th epoch.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.datasets.OfflineDataset" title="bayesflow.datasets.OfflineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OfflineDataset</span></code></a>(data, batch_size, adapter, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset" title="bayesflow.datasets.DiskDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiskDataset</span></code></a>(root, *[, pattern, load_fn])</p></td>
+<td><p>A dataset used to load pre-simulated files from disk.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html#bayesflow.datasets.OfflineDataset" title="bayesflow.datasets.OfflineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OfflineDataset</span></code></a>(data, batch_size, adapter, ...)</p></td>
 <td><p>A dataset that is pre-simulated and stored in memory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html#bayesflow.datasets.OnlineDataset" title="bayesflow.datasets.OnlineDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OnlineDataset</span></code></a>(simulator, batch_size, ...)</p></td>
+<td><p>A dataset that is generated on-the-fly.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.datasets.DiskDataset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.datasets.</span></span><span class="sig-name descname"><span class="pre">DiskDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*.pkl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/disk_dataset.html#DiskDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.DiskDataset" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyDataset</span></code></p>
-<p>A dataset used to load pre-simulated files from disk.
-The training strategy will be offline.</p>
-<p>By default, the expected file structure is as follows:
-root
-├── …
-├── sample_1.[ext]
-├── …
-└── sample_n.[ext]</p>
-<p>where each file contains a complete sample (e.g., a dictionary of numpy arrays) or
-is converted into a complete sample using a custom loader function.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.datasets.DiskDataset.num_batches">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_batches</span></span><a class="headerlink" href="#bayesflow.datasets.DiskDataset.num_batches" title="Link to this definition">#</a></dt>
-<dd><p>Number of batches in the PyDataset.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The number of batches in the PyDataset or <cite>None</cite> to indicate that
-the dataset is infinite.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.DiskDataset.on_epoch_end">
-<span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/disk_dataset.html#DiskDataset.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.DiskDataset.on_epoch_end" title="Link to this definition">#</a></dt>
-<dd><p>Method called at the end of every epoch.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.DiskDataset.shuffle">
-<span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/disk_dataset.html#DiskDataset.shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.DiskDataset.shuffle" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.datasets.</span></span><span class="sig-name descname"><span class="pre">OfflineDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/offline_dataset.html#OfflineDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.OfflineDataset" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyDataset</span></code></p>
-<p>A dataset that is pre-simulated and stored in memory. When storing and loading data from disk, it is recommended to
-save any pre-simulated data in raw form and create the <cite>OfflineDataset</cite> object only after loading in the raw data.
-See the <cite>DiskDataset</cite> class for handling large datasets that are split into multiple smaller files.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset.num_batches">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_batches</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#bayesflow.datasets.OfflineDataset.num_batches" title="Link to this definition">#</a></dt>
-<dd><p>Number of batches in the PyDataset.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The number of batches in the PyDataset or <cite>None</cite> to indicate that
-the dataset is infinite.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset.on_epoch_end">
-<span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/datasets/offline_dataset.html#OfflineDataset.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.OfflineDataset.on_epoch_end" title="Link to this definition">#</a></dt>
-<dd><p>Method called at the end of every epoch.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.OfflineDataset.shuffle">
-<span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/datasets/offline_dataset.html#OfflineDataset.shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.OfflineDataset.shuffle" title="Link to this definition">#</a></dt>
-<dd><p>Shuffle the dataset in-place.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.datasets.OnlineDataset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.datasets.</span></span><span class="sig-name descname"><span class="pre">OnlineDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/online_dataset.html#OnlineDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.OnlineDataset" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyDataset</span></code></p>
-<p>A dataset that is generated on-the-fly.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.datasets.OnlineDataset.num_batches">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_batches</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#bayesflow.datasets.OnlineDataset.num_batches" title="Link to this definition">#</a></dt>
-<dd><p>Number of batches in the PyDataset.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The number of batches in the PyDataset or <cite>None</cite> to indicate that
-the dataset is infinite.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.datasets.RoundsDataset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.datasets.</span></span><span class="sig-name descname"><span class="pre">RoundsDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs_per_round</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/datasets/rounds_dataset.html#RoundsDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.RoundsDataset" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyDataset</span></code></p>
-<p>A dataset that is generated on-the-fly at the beginning of every n-th epoch.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="bayesflow.datasets.RoundsDataset.num_batches">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_batches</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#bayesflow.datasets.RoundsDataset.num_batches" title="Link to this definition">#</a></dt>
-<dd><p>Number of batches in the PyDataset.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The number of batches in the PyDataset or <cite>None</cite> to indicate that
-the dataset is infinite.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.RoundsDataset.on_epoch_end">
-<span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/datasets/rounds_dataset.html#RoundsDataset.on_epoch_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.RoundsDataset.on_epoch_end" title="Link to this definition">#</a></dt>
-<dd><p>Method called at the end of every epoch.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.datasets.RoundsDataset.regenerate">
-<span class="sig-name descname"><span class="pre">regenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/datasets/rounds_dataset.html#RoundsDataset.regenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.datasets.RoundsDataset.regenerate" title="Link to this definition">#</a></dt>
-<dd><p>Sample new batches of data from the joint distribution unconditionally</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 
-                </article>
-              
+  </article>
 
               
               
@@ -623,20 +545,20 @@ the dataset is infinite.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesflow.benchmarks.html"
+       href="bayesflow.benchmarks.LotkaVolterra.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.benchmarks</p>
+        <p class="prev-next-title">LotkaVolterra</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesflow.diagnostics.html"
+       href="bayesflow.datasets.RoundsDataset.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesflow.diagnostics</p>
+        <p class="prev-next-title">RoundsDataset</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -646,42 +568,6 @@ the dataset is infinite.</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset"><code class="docutils literal notranslate"><span class="pre">DiskDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">DiskDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">DiskDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.DiskDataset.shuffle"><code class="docutils literal notranslate"><span class="pre">DiskDataset.shuffle()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset"><code class="docutils literal notranslate"><span class="pre">OfflineDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OfflineDataset.shuffle"><code class="docutils literal notranslate"><span class="pre">OfflineDataset.shuffle()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OnlineDataset"><code class="docutils literal notranslate"><span class="pre">OnlineDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.OnlineDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">OnlineDataset.num_batches</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset"><code class="docutils literal notranslate"><span class="pre">RoundsDataset</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.num_batches"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.num_batches</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.on_epoch_end"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.on_epoch_end()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.datasets.RoundsDataset.regenerate"><code class="docutils literal notranslate"><span class="pre">RoundsDataset.regenerate()</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -1,5 +1,5 @@
-bayesflow.metrics.functional
-============================
+functional
+==========
 
 .. automodule:: bayesflow.metrics.functional
 
@@ -27,5 +27,20 @@ bayesflow.metrics.functional
   
 
   
+  
+  
+
+ 
+  
+  
+
+  
+  
+
+  .. rubric:: Functions
+
+  
+  .. autofunction:: maximum_mean_discrepancy
+  .. autofunction:: root_mean_squared_error
   
   

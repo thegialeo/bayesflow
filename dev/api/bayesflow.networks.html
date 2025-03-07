@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>bayesflow.networks &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>networks &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8fec244e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d6fb7fc6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -51,8 +51,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bayesflow.simulators" href="bayesflow.simulators.html" />
-    <link rel="prev" title="bayesflow.metrics.functional" href="bayesflow.metrics.functional.html" />
+    <link rel="next" title="FreeFormFlow" href="bayesflow.networks.FreeFormFlow.html" />
+    <link rel="prev" title="functional" href="bayesflow.metrics.functional.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,39 +174,103 @@
 <li class="toctree-l2"><a class="reference internal" href="../_examples/One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">Public API: bayesflow package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">bayesflow.adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.html">bayesflow.adapters.transforms</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.adapters.html">adapters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.Adapter.html">Adapter</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.adapters.transforms.html">transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Constrain.html">Constrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Drop.html">Drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsSet.html">AsSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html">ElementwiseTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.AsTimeSeries.html">AsTimeSeries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Broadcast.html">Broadcast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Concatenate.html">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html">ExpandDims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bayesflow.adapters.transforms.ConvertDType.html">ConvertDType</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.html">bayesflow.approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.html">bayesflow.benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.html">bayesflow.datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">bayesflow.diagnostics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.distributions.html">bayesflow.distributions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">bayesflow.experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="bayesflow.experimental.cif.html">bayesflow.experimental.cif</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.cif.html">bayesflow.experimental.cif.cif</a></li>
-<li class="toctree-l4"><a class="reference internal" href="bayesflow.experimental.cif.conditional_gaussian.html">bayesflow.experimental.cif.conditional_gaussian</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.continuous_time_consistency_model.html">bayesflow.experimental.continuous_time_consistency_model</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.approximators.html">approximators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.Approximator.html">Approximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ContinuousApproximator.html">ContinuousApproximator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.approximators.ModelComparisonApproximator.html">ModelComparisonApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">bayesflow.metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">bayesflow.metrics.functional</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">bayesflow.networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.html">bayesflow.simulators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">bayesflow.types</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">bayesflow.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">bayesflow.utils.numpy_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">bayesflow.utils.logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">bayesflow.utils.keras_utils</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.RoundsDataset.html">RoundsDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html">OnlineDataset</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.workflows.html">bayesflow.workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.diagnostics.html">diagnostics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.distributions.html">distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalStudentT.html">DiagonalStudentT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.DiagonalNormal.html">DiagonalNormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.distributions.Distribution.html">Distribution</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.experimental.html">experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.CIF.html">CIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.experimental.ContinuousTimeConsistencyModel.html">ContinuousTimeConsistencyModel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.metrics.html">metrics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.MaximumMeanDiscrepancy.html">MaximumMeanDiscrepancy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.RootMeanSquaredError.html">RootMeanSquaredError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.metrics.functional.html">functional</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">networks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html">FreeFormFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.DeepSet.html">DeepSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html">ConsistencyModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.networks.CouplingFlow.html">CouplingFlow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.types.html">types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.utils.html">utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.numpy_utils.html">numpy_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.keras_utils.html">keras_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.utils.logging.html">logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bayesflow.workflows.html">workflows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html">BasicWorkflow</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About us</a></li>
@@ -415,9 +479,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -427,832 +489,77 @@ document.write(`
               
               
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>bayesflow.networks</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.build"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.call"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.compute_metrics"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.consistency_function"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.consistency_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.from_config"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.get_config"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.build"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.compute_metrics"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.from_config"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.get_config"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet"><code class="docutils literal notranslate"><span class="pre">DeepSet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet.build"><code class="docutils literal notranslate"><span class="pre">DeepSet.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet.call"><code class="docutils literal notranslate"><span class="pre">DeepSet.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching"><code class="docutils literal notranslate"><span class="pre">FlowMatching</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.INTEGRATE_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.build"><code class="docutils literal notranslate"><span class="pre">FlowMatching.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.compute_metrics"><code class="docutils literal notranslate"><span class="pre">FlowMatching.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.from_config"><code class="docutils literal notranslate"><span class="pre">FlowMatching.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.get_config"><code class="docutils literal notranslate"><span class="pre">FlowMatching.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.velocity"><code class="docutils literal notranslate"><span class="pre">FlowMatching.velocity()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.build"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.compute_metrics"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.decode"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.decode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.encode"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.encode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.from_config"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.get_config"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer"><code class="docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.call"><code class="docutils literal notranslate"><span class="pre">FusionTransformer.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.build"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.call"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.compute_metrics"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.log_prob"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.sample"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.sample()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet"><code class="docutils literal notranslate"><span class="pre">LSTNet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet.build"><code class="docutils literal notranslate"><span class="pre">LSTNet.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet.call"><code class="docutils literal notranslate"><span class="pre">LSTNet.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.build"><code class="docutils literal notranslate"><span class="pre">MLP.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.call"><code class="docutils literal notranslate"><span class="pre">MLP.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">MLP.compute_output_shape()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer"><code class="docutils literal notranslate"><span class="pre">SetTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.call"><code class="docutils literal notranslate"><span class="pre">SetTransformer.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.build"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.call"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.compute_metrics"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.compute_metrics()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer"><code class="docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.call"><code class="docutils literal notranslate"><span class="pre">TimeSeriesTransformer.call()</span></code></a></li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-              
-                
+  
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
+  <article class="bd-article">
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">networks</li>
+  </ul>
+</nav>
+
+    
   <section id="module-bayesflow.networks">
-<span id="bayesflow-networks"></span><h1>bayesflow.networks<a class="headerlink" href="#module-bayesflow.networks" title="Link to this heading">#</a></h1>
+<span id="networks"></span><h1>networks<a class="headerlink" href="#module-bayesflow.networks" title="Link to this heading">#</a></h1>
 <p class="rubric">Classes</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.DeepSet" title="bayesflow.networks.DeepSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeepSet</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a deep set encoder introduced in [1].</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.ConsistencyModel" title="bayesflow.networks.ConsistencyModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a Consistency Model with Consistency Training (CT) as described in [1-2].</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a simple configurable MLP with optional residual connections and dropout.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.FreeFormFlow" title="bayesflow.networks.FreeFormFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.FreeFormFlow.html#bayesflow.networks.FreeFormFlow" title="bayesflow.networks.FreeFormFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a dimensionality-preserving Free-form Flow.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.FlowMatching" title="bayesflow.networks.FlowMatching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlowMatching</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow, with ideas incorporated from [1-3].</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.FusionTransformer.html#bayesflow.networks.FusionTransformer" title="bayesflow.networks.FusionTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a more flexible version of the TimeSeriesTransformer that applies a series of self-attention layers followed by cross-attention between the representation and a learnable template summarized via a recurrent net.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements the set transformer architecture from [1] which ultimately represents a learnable permutation-invariant function.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.LSTNet" title="bayesflow.networks.LSTNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSTNet</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet" title="bayesflow.networks.LSTNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSTNet</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a LSTNet Architecture as described in [1]</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.TimeSeriesTransformer" title="bayesflow.networks.TimeSeriesTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html#bayesflow.networks.TimeSeriesTransformer" title="bayesflow.networks.TimeSeriesTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Creates a regular transformer coupled with Time2Vec embeddings of time used to flexibly compress time series.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bayesflow.networks.CouplingFlow" title="bayesflow.networks.CouplingFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a coupling flow as a sequence of dual couplings with permutations and activation normalization.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.DeepSet.html#bayesflow.networks.DeepSet" title="bayesflow.networks.DeepSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeepSet</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a deep set encoder introduced in [1].</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bayesflow.networks.FusionTransformer" title="bayesflow.networks.FusionTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a more flexible version of the TimeSeriesTransformer that applies a series of self-attention layers followed by cross-attention between the representation and a learnable template summarized via a recurrent net.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching" title="bayesflow.networks.FlowMatching"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlowMatching</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow, with ideas incorporated from [1-3].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.MLP.html#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a simple configurable MLP with optional residual connections and dropout.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.ConsistencyModel.html#bayesflow.networks.ConsistencyModel" title="bayesflow.networks.ConsistencyModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a Consistency Model with Consistency Training (CT) as described in [1-2].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.SetTransformer.html#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements the set transformer architecture from [1] which ultimately represents a learnable permutation-invariant function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.CouplingFlow.html#bayesflow.networks.CouplingFlow" title="bayesflow.networks.CouplingFlow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a coupling flow as a sequence of dual couplings with permutations and activation normalization.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">ConsistencyModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements a Consistency Model with Consistency Training (CT) as
-described in [1-2]. The adaptations to CT described in [2] were taken
-into account in this implementation.</p>
-<p>[1] Song, Y., Dhariwal, P., Chen, M. &amp; Sutskever, I. (2023).
-Consistency Models.
-arXiv preprint arXiv:2303.01469</p>
-<p>[2] Song, Y., &amp; Dhariwal, P. (2023).
-Improved Techniques for Training Consistency Models:
-arXiv preprint arXiv:2310.14189
-Discussion: https://openreview.net/forum?id=WNzy9bRDvG</p>
-<p>Creates an instance of a consistency model (CM) to be used
-for standalone consistency training (CT).</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.consistency_function">
-<span class="sig-name descname"><span class="pre">consistency_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.consistency_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.consistency_function" title="Link to this definition">#</a></dt>
-<dd><p>Compute consistency function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Input vector</p>
-</dd>
-<dt><strong>t</strong><span class="classifier">Tensor</span></dt><dd><p>Vector of time samples in [eps, T]</p>
-</dd>
-<dt><strong>conditions</strong><span class="classifier">Tensor</span></dt><dd><p>The conditioning vector</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments passed to the network.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.from_config">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.from_config" title="Link to this definition">#</a></dt>
-<dd><p>Creates an operation from its config.</p>
-<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
-same operation from the config dictionary.</p>
-<p>Note: If you override this method, you might receive a serialized dtype
-config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="n">policy</span> <span class="o">=</span> <span class="n">dtype_policies</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><p>An operation instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.get_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config of the object.</p>
-<p>An object config is a Python dictionary (serializable)
-containing the information needed to re-instantiate it.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">CouplingFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements a coupling flow as a sequence of dual couplings with permutations and activation
-normalization. Incorporates ideas from [1-5].</p>
-<p>[1] Kingma, D. P., &amp; Dhariwal, P. (2018).
-Glow: Generative flow with invertible 1x1 convolutions.
-Advances in Neural Information Processing Systems, 31.</p>
-<p>[2] Durkan, C., Bekasov, A., Murray, I., &amp; Papamakarios, G. (2019).
-Neural spline flows. Advances in Neural Information Processing Systems, 32.</p>
-<p>[3] Ardizzone, L., Kruse, J., Lüth, C., Bracher, N., Rother, C., &amp; Köthe, U. (2020).
-Conditional invertible neural networks for diverse image-to-image translation.
-In DAGM German Conference on Pattern Recognition (pp. 373-387). Springer, Cham.</p>
-<p>[4] Radev, S. T., Mertens, U. K., Voss, A., Ardizzone, L., &amp; Köthe, U. (2020).
-BayesFlow: Learning complex stochastic simulators with invertible neural networks.
-IEEE Transactions on Neural Networks and Learning Systems.</p>
-<p>[5] Alexanderson, S., &amp; Henter, G. E. (2020).
-Robust model training and generalisation with Studentising flows.
-arXiv preprint arXiv:2006.06599.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.from_config">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow.from_config" title="Link to this definition">#</a></dt>
-<dd><p>Creates an operation from its config.</p>
-<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
-same operation from the config dictionary.</p>
-<p>Note: If you override this method, you might receive a serialized dtype
-config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="n">policy</span> <span class="o">=</span> <span class="n">dtype_policies</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><p>An operation instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow.get_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config of the object.</p>
-<p>An object config is a Python dictionary (serializable)
-containing the information needed to re-instantiate it.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.DeepSet">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">DeepSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/deep_set/deep_set.html#DeepSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.DeepSet" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.summary_network.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a></p>
-<p>Implements a deep set encoder introduced in [1]. This module performs the computation:</p>
-<dl class="simple">
-<dt>..math:</dt><dd><p>f(X = { x_i mid i=1, ldots, n }) = rho left( sigma(tau(x_1), ldots, tau(x_n)) right)</p>
-</dd>
-</dl>
-<p>where $sigma must be a permutation-invariant function, such as the mean.
-$rho$ and $tau$ can be any functions, such as neural networks.</p>
-<p>[1] Deep Set: arXiv:1703.06114</p>
-<p>#TODO</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.DeepSet.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/deep_set/deep_set.html#DeepSet.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.DeepSet.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.DeepSet.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/deep_set/deep_set.html#DeepSet.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.DeepSet.call" title="Link to this definition">#</a></dt>
-<dd><p>Performs the forward pass of a learnable deep invariant transformation consisting of
-a sequence of equivariant transforms followed by an invariant transform.</p>
-<p>#TODO</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">FlowMatching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow,
-with ideas incorporated from [1-3].</p>
-<p>[1] Rectified Flow: arXiv:2209.03003
-[2] Flow Matching: arXiv:2210.02747
-[3] Optimal Transport Flow Matching: arXiv:2302.00482</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">INTEGRATE_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'max_steps':</span> <span class="pre">100,</span> <span class="pre">'method':</span> <span class="pre">'rk45',</span> <span class="pre">'min_steps':</span> <span class="pre">10,</span> <span class="pre">'steps':</span> <span class="pre">'adaptive',</span> <span class="pre">'tolerance':</span> <span class="pre">0.001}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cost':</span> <span class="pre">'euclidean',</span> <span class="pre">'max_steps':</span> <span class="pre">100,</span> <span class="pre">'method':</span> <span class="pre">'sinkhorn',</span> <span class="pre">'regularization':</span> <span class="pre">0.1,</span> <span class="pre">'tolerance':</span> <span class="pre">0.0001}</span></em><a class="headerlink" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.from_config">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.from_config" title="Link to this definition">#</a></dt>
-<dd><p>Creates an operation from its config.</p>
-<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
-same operation from the config dictionary.</p>
-<p>Note: If you override this method, you might receive a serialized dtype
-config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="n">policy</span> <span class="o">=</span> <span class="n">dtype_policies</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><p>An operation instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.get_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config of the object.</p>
-<p>An object config is a Python dictionary (serializable)
-containing the information needed to re-instantiate it.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.velocity">
-<span class="sig-name descname"><span class="pre">velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.velocity" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">FreeFormFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements a dimensionality-preserving Free-form Flow.
-Incorporates ideas from [1-2].</p>
-<p>[1] Draxler, F., Sorrenson, P., Zimmermann, L., Rousselot, A., &amp; Köthe, U. (2024).F
-ree-form flows: Make Any Architecture a Normalizing Flow.
-In International Conference on Artificial Intelligence and Statistics.</p>
-<p>[2] Sorrenson, P., Draxler, F., Rousselot, A., Hummerich, S., Zimmermann, L., &amp;
-Köthe, U. (2024). Lifting Architectural Constraints of Injective Flows.
-In International Conference on Learning Representations.</p>
-<p>Creates an instance of a Free-form Flow.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">DECODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">ENCODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.decode">
-<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.decode" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.encode">
-<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.encode" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.from_config">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.from_config" title="Link to this definition">#</a></dt>
-<dd><p>Creates an operation from its config.</p>
-<p>This method is the reverse of <cite>get_config</cite>, capable of instantiating the
-same operation from the config dictionary.</p>
-<p>Note: If you override this method, you might receive a serialized dtype
-config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="n">policy</span> <span class="o">=</span> <span class="n">dtype_policies</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt>Args:</dt><dd><p>config: A Python dictionary, typically the output of <cite>get_config</cite>.</p>
-</dd>
-<dt>Returns:</dt><dd><p>An operation instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FreeFormFlow.get_config">
-<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/free_form_flow/free_form_flow.html#FreeFormFlow.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FreeFormFlow.get_config" title="Link to this definition">#</a></dt>
-<dd><p>Returns the config of the object.</p>
-<p>An object config is a Python dictionary (serializable)
-containing the information needed to re-instantiate it.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">FusionTransformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/fusion_transformer.html#FusionTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FusionTransformer" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.summary_network.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a></p>
-<p>Implements a more flexible version of the TimeSeriesTransformer that applies a series of self-attention layers
-followed by cross-attention between the representation and a learnable template summarized via a recurrent net.</p>
-<p>Creates a fusion transformer used to flexibly compress time series and learn additional time embeddings
-using a recurrent neural network. If the time intervals vary across batches, it is highly recommended that
-your simulator also returns a “time” vector appended to the simulator outputs.</p>
-<p>Important: This network needs at least 2 transformer blocks and will generally be slower than the
-corresponding TimeSeriesTransformer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>summary_dim</strong><span class="classifier">int, optional (default - 16)</span></dt><dd><p>Dimensionality of the final summary output.</p>
-</dd>
-<dt><strong>embed_dims</strong><span class="classifier">tuple of int, optional (default - (64, 64))</span></dt><dd><p>Dimensions of the keys, values, and queries for each attention block.</p>
-</dd>
-<dt><strong>num_heads</strong><span class="classifier">tuple of int, optional (default - (4, 4))</span></dt><dd><p>Number of attention heads for each embedding dimension.</p>
-</dd>
-<dt><strong>mlp_depths</strong><span class="classifier">tuple of int, optional (default - (2, 2))</span></dt><dd><p>Depth of the multi-layer perceptron (MLP) blocks for each component.</p>
-</dd>
-<dt><strong>mlp_widths</strong><span class="classifier">tuple of int, optional (default - (128, 128))</span></dt><dd><p>Width of each MLP layer in each block for each component.</p>
-</dd>
-<dt><strong>dropout</strong><span class="classifier">float, optional (default - 0.05)</span></dt><dd><p>Dropout rate applied to the attention and MLP layers. If set to None, no dropout is applied.</p>
-</dd>
-<dt><strong>mlp_activation</strong><span class="classifier">str, optional (default - ‘gelu’)</span></dt><dd><p>Activation function used in the dense layers. Common choices include “relu”, “elu”, and “gelu”.</p>
-</dd>
-<dt><strong>kernel_initializer</strong><span class="classifier">str, optional (default - ‘he_normal’)</span></dt><dd><p>Initializer for the kernel weights matrix. Common choices include “glorot_uniform”, “he_normal”, etc.</p>
-</dd>
-<dt><strong>use_bias</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to include a bias term in the dense layers.</p>
-</dd>
-<dt><strong>layer_norm</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to apply layer normalization after the attention and MLP layers.</p>
-</dd>
-<dt><strong>t2v_embed_dim</strong><span class="classifier">int, optional (default - 8)</span></dt><dd><p>The dimensionality of the Time2Vec embedding.</p>
-</dd>
-<dt><strong>template_type</strong><span class="classifier">str or callable, optional, default: ‘lstm’</span></dt><dd><p>The many-to-one (learnable) transformation of the time series.
-if <code class="docutils literal notranslate"><span class="pre">lstm</span></code>, an LSTM network will be used.
-if <code class="docutils literal notranslate"><span class="pre">gru</span></code>, a GRU unit will be used.</p>
-</dd>
-<dt><strong>bidirectional</strong><span class="classifier">bool, optional (default - False)</span></dt><dd><p>Indicates whether the involved recurrent template network is bidirectional (i.e., forward
-and backward in time) or unidirectional (forward in time). Defaults to False, but may
-increase performance in some applications.</p>
-</dd>
-<dt><strong>template_dim</strong><span class="classifier">int, optional (default - 128)</span></dt><dd><p>Only used if <code class="docutils literal notranslate"><span class="pre">template_type</span></code> in [‘lstm’, ‘gru’]. The number of hidden
-units (equiv. output dimensions) of the recurrent network.</p>
-</dd>
-<dt><strong>time_axis</strong><span class="classifier">int, optional (default - None)</span></dt><dd><p>The time axis (e.g., -1 for last axis) from which to grab the time vector that goes into t2v.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to the base layer.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/fusion_transformer.html#FusionTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FusionTransformer.call" title="Link to this definition">#</a></dt>
-<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
-layers to distinguish between train and test time behavior.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
-such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">InferenceNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG">
-<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.log_prob">
-<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork.log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.log_prob" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.InferenceNetwork.sample">
-<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/inference_network.html#InferenceNetwork.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.InferenceNetwork.sample" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.LSTNet">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">LSTNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/lstnet/lstnet.html#LSTNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.LSTNet" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.summary_network.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a></p>
-<p>Implements a LSTNet Architecture as described in [1]</p>
-<p>[1] Y. Zhang and L. Mikelsons, Solving Stochastic Inverse Problems with Stochastic BayesFlow,
-2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM),
-Seattle, WA, USA, 2023, pp. 966-972, doi: 10.1109/AIM46323.2023.10196190.</p>
-<p>TODO: Add proper docstring</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.LSTNet.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/lstnet/lstnet.html#LSTNet.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.LSTNet.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.LSTNet.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/lstnet/lstnet.html#LSTNet.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.LSTNet.call" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – Tensor of shape (batch_size, set_size, input_dim)</p></li>
-<li><p><strong>kwargs</strong> – Additional keyword arguments.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tensor of shape (batch_size, output_dim)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.MLP">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/mlp/mlp.html#MLP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.MLP" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></p>
-<p>Implements a simple configurable MLP with optional residual connections and dropout.</p>
-<p>If used in conjunction with a coupling net, a diffusion model, or a flow matching model, it assumes
-that the input and conditions are already concatenated (i.e., this is a single-input model).</p>
-<p>Creates an instance of a flexible and simple MLP with optional residual connections and dropout.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.MLP.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/mlp/mlp.html#MLP.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.MLP.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.MLP.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/mlp/mlp.html#MLP.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.MLP.call" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.MLP.compute_output_shape">
-<span class="sig-name descname"><span class="pre">compute_output_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/mlp/mlp.html#MLP.compute_output_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.MLP.compute_output_shape" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.SetTransformer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">SetTransformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/set_transformer.html#SetTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SetTransformer" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.summary_network.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a></p>
-<p>Implements the set transformer architecture from [1] which ultimately represents
-a learnable permutation-invariant function. Designed to naturally model interactions in
-the input set, which may be hard to capture with the simpler <code class="docutils literal notranslate"><span class="pre">DeepSet</span></code> architecture.</p>
-<dl class="simple">
-<dt>[1] Lee, J., Lee, Y., Kim, J., Kosiorek, A., Choi, S., &amp; Teh, Y. W. (2019).</dt><dd><p>Set transformer: A framework for attention-based permutation-invariant neural networks.
-In International conference on machine learning (pp. 3744-3753). PMLR.</p>
-</dd>
-</dl>
-<p>Note: Currently works only on 3D inputs but can easily be expanded by changing
-the internals slightly or using <code class="docutils literal notranslate"><span class="pre">keras.layers.TimeDistributed</span></code>.</p>
-<p>Creates a many-to-one permutation-invariant encoder, typically used as a summary net
-for compressing exchangeable sequences. The number of multi-head attention block is
-inferred from the length of <cite>embed_dims</cite> tuple.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>summary_dim</strong><span class="classifier">int, optional (default - 16)</span></dt><dd><p>Dimensionality of the final summary output.</p>
-</dd>
-<dt><strong>embed_dims</strong><span class="classifier">tuple of int, optional (default - (64, 64))</span></dt><dd><p>Dimensions of the keys, values, and queries for each attention block.</p>
-</dd>
-<dt><strong>num_heads</strong><span class="classifier">tuple of int, optional (default - (4, 4))</span></dt><dd><p>Number of attention heads for each embedding dimension.</p>
-</dd>
-<dt><strong>mlp_depths</strong><span class="classifier">tuple of int, optional (default - (2, 2))</span></dt><dd><p>Depth of the multi-layer perceptron (MLP) blocks for each component.</p>
-</dd>
-<dt><strong>mlp_widths</strong><span class="classifier">tuple of int, optional (default - (128, 128))</span></dt><dd><p>Width of each MLP layer in each block for each component.</p>
-</dd>
-<dt><strong>num_seeds</strong><span class="classifier">int, optional (default - 1)</span></dt><dd><p>Number of seeds to use for embedding.</p>
-</dd>
-<dt><strong>dropout</strong><span class="classifier">float, optional (default - 0.05)</span></dt><dd><p>Dropout rate applied to the attention and MLP layers. If set to None, no dropout is applied.</p>
-</dd>
-<dt><strong>mlp_activation</strong><span class="classifier">str, optional (default - ‘gelu’)</span></dt><dd><p>Activation function used in the dense layers. Common choices include “relu”, “elu”, and “gelu”.</p>
-</dd>
-<dt><strong>kernel_initializer</strong><span class="classifier">str, optional (default - ‘he_normal’)</span></dt><dd><p>Initializer for the kernel weights matrix. Common choices include “glorot_uniform”, “he_normal”, etc.</p>
-</dd>
-<dt><strong>use_bias</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to include a bias term in the dense layers.</p>
-</dd>
-<dt><strong>layer_norm</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to apply layer normalization after the attention and MLP layers.</p>
-</dd>
-<dt><strong>num_inducing_points</strong><span class="classifier">int or None, optional (default - None)</span></dt><dd><p>Number of inducing points used, if applicable. If set to None, this option is disabled.</p>
-</dd>
-<dt><strong>seed_dim</strong><span class="classifier">int or None, optional (default - None)</span></dt><dd><p>Dimensionality of the seed embeddings. If None, it defaults to <cite>summary_dim</cite>.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to the base layer.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.SetTransformer.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/set_transformer.html#SetTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SetTransformer.call" title="Link to this definition">#</a></dt>
-<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>input_set</strong><span class="classifier">Tensor (e.g., np.ndarray, tf.Tensor, …)</span></dt><dd><p>Input of shape (batch_size, set_size, input_dim)</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
-layers to distinguish between train and test time behavior.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
-such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.SummaryNetwork">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">SummaryNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/summary_network.html#SummaryNetwork"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SummaryNetwork" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.SummaryNetwork.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/summary_network.html#SummaryNetwork.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.SummaryNetwork.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/summary_network.html#SummaryNetwork.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.call" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – Tensor of shape (batch_size, set_size, input_dim)</p></li>
-<li><p><strong>kwargs</strong> – Additional keyword arguments.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tensor of shape (batch_size, output_dim)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.SummaryNetwork.compute_metrics">
-<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/summary_network.html#SummaryNetwork.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.SummaryNetwork.compute_metrics" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">TimeSeriesTransformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/time_series_transformer.html#TimeSeriesTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.summary_network.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a></p>
-<p>Creates a regular transformer coupled with Time2Vec embeddings of time used to flexibly compress time series.
-If the time intervals vary across batches, it is highly recommended that your simulator also returns a “time”
-vector appended to the simulator outputs and specified via the “time_axis” argument.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>summary_dim</strong><span class="classifier">int, optional (default - 16)</span></dt><dd><p>Dimensionality of the final summary output.</p>
-</dd>
-<dt><strong>embed_dims</strong><span class="classifier">tuple of int, optional (default - (64, 64))</span></dt><dd><p>Dimensions of the keys, values, and queries for each attention block.</p>
-</dd>
-<dt><strong>num_heads</strong><span class="classifier">tuple of int, optional (default - (4, 4))</span></dt><dd><p>Number of attention heads for each embedding dimension.</p>
-</dd>
-<dt><strong>mlp_depths</strong><span class="classifier">tuple of int, optional (default - (2, 2))</span></dt><dd><p>Depth of the multi-layer perceptron (MLP) blocks for each component.</p>
-</dd>
-<dt><strong>mlp_widths</strong><span class="classifier">tuple of int, optional (default - (128, 128))</span></dt><dd><p>Width of each MLP layer in each block for each component.</p>
-</dd>
-<dt><strong>dropout</strong><span class="classifier">float, optional (default - 0.05)</span></dt><dd><p>Dropout rate applied to the attention and MLP layers. If set to None, no dropout is applied.</p>
-</dd>
-<dt><strong>mlp_activation</strong><span class="classifier">str, optional (default - ‘gelu’)</span></dt><dd><p>Activation function used in the dense layers. Common choices include “relu”, “elu”, and “gelu”.</p>
-</dd>
-<dt><strong>kernel_initializer</strong><span class="classifier">str, optional (default - ‘he_normal’)</span></dt><dd><p>Initializer for the kernel weights matrix. Common choices include “glorot_uniform”, “he_normal”, etc.</p>
-</dd>
-<dt><strong>use_bias</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to include a bias term in the dense layers.</p>
-</dd>
-<dt><strong>layer_norm</strong><span class="classifier">bool, optional (default - True)</span></dt><dd><p>Whether to apply layer normalization after the attention and MLP layers.</p>
-</dd>
-<dt><strong>time_embedding</strong><span class="classifier">str, optional (default - “time2vec”)</span></dt><dd><p>The type of embedding to use. Must be in [“time2vec”, “lstm”, “gru”]</p>
-</dd>
-<dt><strong>time_embed_dim</strong><span class="classifier">int, optional (default - 8)</span></dt><dd><p>The dimensionality of the Time2Vec or recurrent embedding.</p>
-</dd>
-<dt><strong>time_axis</strong><span class="classifier">int, optional (default - None)</span></dt><dd><p>The time axis (e.g., -1 for last axis) from which to grab the time vector that goes into the embedding.
-If an embedding is provided and time_axis is None, a uniform time interval between [0, sequence_len]
-will be assumed.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to the base layer.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/time_series_transformer.html#TimeSeriesTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.call" title="Link to this definition">#</a></dt>
-<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
-layers to distinguish between train and test time behavior.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
-such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 
-                </article>
-              
+  </article>
 
               
               
@@ -1267,15 +574,15 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">bayesflow.metrics.functional</p>
+        <p class="prev-next-title">functional</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesflow.simulators.html"
+       href="bayesflow.networks.FreeFormFlow.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bayesflow.simulators</p>
+        <p class="prev-next-title">FreeFormFlow</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1285,102 +592,6 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.build"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.call"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.compute_metrics"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.consistency_function"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.consistency_function()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.from_config"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.ConsistencyModel.get_config"><code class="docutils literal notranslate"><span class="pre">ConsistencyModel.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow"><code class="docutils literal notranslate"><span class="pre">CouplingFlow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.build"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.compute_metrics"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.from_config"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.CouplingFlow.get_config"><code class="docutils literal notranslate"><span class="pre">CouplingFlow.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet"><code class="docutils literal notranslate"><span class="pre">DeepSet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet.build"><code class="docutils literal notranslate"><span class="pre">DeepSet.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.DeepSet.call"><code class="docutils literal notranslate"><span class="pre">DeepSet.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching"><code class="docutils literal notranslate"><span class="pre">FlowMatching</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.INTEGRATE_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.INTEGRATE_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FlowMatching.OPTIMAL_TRANSPORT_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.build"><code class="docutils literal notranslate"><span class="pre">FlowMatching.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.compute_metrics"><code class="docutils literal notranslate"><span class="pre">FlowMatching.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.from_config"><code class="docutils literal notranslate"><span class="pre">FlowMatching.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.get_config"><code class="docutils literal notranslate"><span class="pre">FlowMatching.get_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FlowMatching.velocity"><code class="docutils literal notranslate"><span class="pre">FlowMatching.velocity()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.build"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.compute_metrics"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.decode"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.decode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.encode"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.encode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.from_config"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FreeFormFlow.get_config"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow.get_config()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer"><code class="docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.call"><code class="docutils literal notranslate"><span class="pre">FusionTransformer.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.MLP_DEFAULT_CONFIG</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.build"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.call"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.compute_metrics"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.compute_metrics()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.log_prob"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.log_prob()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.InferenceNetwork.sample"><code class="docutils literal notranslate"><span class="pre">InferenceNetwork.sample()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet"><code class="docutils literal notranslate"><span class="pre">LSTNet</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet.build"><code class="docutils literal notranslate"><span class="pre">LSTNet.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.LSTNet.call"><code class="docutils literal notranslate"><span class="pre">LSTNet.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP"><code class="docutils literal notranslate"><span class="pre">MLP</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.build"><code class="docutils literal notranslate"><span class="pre">MLP.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.call"><code class="docutils literal notranslate"><span class="pre">MLP.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.MLP.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">MLP.compute_output_shape()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer"><code class="docutils literal notranslate"><span class="pre">SetTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.call"><code class="docutils literal notranslate"><span class="pre">SetTransformer.call()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.build"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.build()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.call"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.call()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SummaryNetwork.compute_metrics"><code class="docutils literal notranslate"><span class="pre">SummaryNetwork.compute_metrics()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer"><code class="docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.call"><code class="docutils literal notranslate"><span class="pre">TimeSeriesTransformer.call()</span></code></a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

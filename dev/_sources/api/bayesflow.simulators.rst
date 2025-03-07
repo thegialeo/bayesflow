@@ -1,5 +1,5 @@
-﻿bayesflow.simulators
-====================
+﻿simulators
+==========
 
 .. automodule:: bayesflow.simulators
 
@@ -22,12 +22,14 @@
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
     SequentialSimulator
     HierarchicalSimulator
     ModelComparisonSimulator
-    TwoMoons
     LambdaSimulator
+    TwoMoons
     Simulator
   
   
@@ -37,5 +39,19 @@
   
 
   
+  
+  
+
+ 
+  
+  
+
+  
+  
+
+  .. rubric:: Functions
+
+  
+  .. autofunction:: make_simulator
   
   

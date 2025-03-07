@@ -1,5 +1,5 @@
-bayesflow.utils.logging
-=======================
+logging
+=======
 
 .. automodule:: bayesflow.utils.logging
 
@@ -33,5 +33,26 @@ bayesflow.utils.logging
   
 
   
+  
+  
+
+ 
+  
+  
+
+  
+  
+
+  .. rubric:: Functions
+
+  
+  .. autofunction:: critical
+  .. autofunction:: debug
+  .. autofunction:: error
+  .. autofunction:: exception
+  .. autofunction:: info
+  .. autofunction:: log
+  .. autofunction:: warn_once
+  .. autofunction:: warning
   
   

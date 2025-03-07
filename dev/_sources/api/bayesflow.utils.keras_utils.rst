@@ -1,5 +1,5 @@
-bayesflow.utils.keras\_utils
-============================
+keras\_utils
+============
 
 .. automodule:: bayesflow.utils.keras_utils
 
@@ -28,5 +28,21 @@ bayesflow.utils.keras\_utils
   
 
   
+  
+  
+
+ 
+  
+  
+
+  
+  
+
+  .. rubric:: Functions
+
+  
+  .. autofunction:: inverse_shifted_softplus
+  .. autofunction:: inverse_softplus
+  .. autofunction:: shifted_softplus
   
   

@@ -1,5 +1,5 @@
-bayesflow.adapters.transforms
-=============================
+transforms
+==========
 
 .. automodule:: bayesflow.adapters.transforms
 
@@ -16,29 +16,39 @@ bayesflow.adapters.transforms
   .. rubric:: Classes
 
   .. autosummary::
+    :toctree:
+    :template: custom-class-template.rst
   
-    Keep
     Constrain
-    OneHot
-    FilterTransform
-    MapTransform
+    Drop
+    Rename
+    Keep
+    AsSet
+    ElementwiseTransform
+    ToArray
     Standardize
-    ConvertDType
     LambdaTransform
+    AsTimeSeries
+    Broadcast
     Concatenate
     ExpandDims
-    AsSet
+    MapTransform
+    OneHot
     Transform
-    ElementwiseTransform
-    Rename
-    Broadcast
-    AsTimeSeries
-    Drop
-    ToArray
+    FilterTransform
+    ConvertDType
   
   
 
   
+  
+  
+
+  
+  
+  
+
+ 
   
   
 
