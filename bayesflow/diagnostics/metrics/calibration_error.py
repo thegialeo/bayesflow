@@ -15,7 +15,8 @@ def calibration_error(
     min_quantile: float = 0.005,
     max_quantile: float = 0.995,
 ) -> Mapping[str, Any]:
-    """Computes an aggregate score for the marginal calibration error over an ensemble of approximate
+    """
+    Computes an aggregate score for the marginal calibration error over an ensemble of approximate
     posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation
     between an alpha-CI and the relative number of inliers from ``estimates`` over multiple alphas in
     (0, 1).

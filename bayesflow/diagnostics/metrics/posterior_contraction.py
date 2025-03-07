@@ -12,7 +12,8 @@ def posterior_contraction(
     variable_names: Sequence[str] = None,
     aggregation: Callable = np.median,
 ) -> Mapping[str, Any]:
-    """Computes the posterior contraction (PC) from prior to posterior for the given samples.
+    """
+    Computes the posterior contraction (PC) from prior to posterior for the given samples.
 
     Parameters
     ----------

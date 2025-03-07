@@ -7,7 +7,7 @@ from bayesflow.utils import expand_tile
 
 @serializable(package="bayesflow.networks")
 class RecurrentEmbedding(keras.Layer):
-    """Implements a recurrent network for embedding time."""
+    """Implements a recurrent network for flexibly embedding time vectors."""
 
     def __init__(self, embed_dim: int = 8, embedding: str = "lstm"):
         super().__init__()
