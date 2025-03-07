@@ -54,6 +54,15 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/{.major}".format(sys.version_info), None),
+    "numpy": ("https://numpy.org/doc/stable", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/", None),
+    "matplotlib": ("https://matplotlib.org/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
+    "seaborn": ("https://seaborn.pydata.org/", None),
+}
+
 bibtex_bibfiles = ["references.bib"]
 
 numpydoc_show_class_members = False
@@ -82,22 +91,12 @@ templates_path = ["_templates"]
 exclude_patterns = []
 
 # Options for autodoc and autosummary
-autodoc_default_options = {
-    # "members": True,
-    # "undoc-members": True,
-    # "imported-members": True,
-    # "inherited-members": False,
-    # "show-inheritance": True,
-    # "special-members": "__call__",
-    "memberorder": "bysource",
-}
 # do not ignore __all__, use it to determine public members
 autosummary_ignore_module_all = False
 # include imported members in autosummary
 autosummary_imported_members = False
 # selects content to insert into the main body of an autoclass directive.
 autoclass_content = "both"
-
 
 # -- Options for HTML output -------------------------------------------------
 
