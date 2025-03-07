@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.networks.LSTNet.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.networks.LSTNet.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -624,19 +624,74 @@ document.write(`
 <p>[1] Y. Zhang and L. Mikelsons, Solving Stochastic Inverse Problems with Stochastic BayesFlow,
 2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM),
 Seattle, WA, USA, 2023, pp. 966-972, doi: 10.1109/AIM46323.2023.10196190.</p>
-<p>TODO: Add proper docstring</p>
+<p>Initializes a hybrid convolutional-recurrent network for summarizing multivariate time series.</p>
+<p>This model combines a convolutional backbone with a recurrent module to efficiently process sequential data.</p>
+<p>The convolutional layers extract local features, which are then processed by a recurrent network for capturing
+long-range dependencies. The model supports various activation functions, kernel initializations, and
+bidirectional recurrence for enhanced representation learning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>summary_dim</strong><span class="classifier">int, optional</span></dt><dd><p>Dimensionality of the final summary representation. Default is 16.</p>
+</dd>
+<dt><strong>filters</strong><span class="classifier">int, list, or tuple, optional</span></dt><dd><p>Number of filters in each convolutional layer. If an integer is provided,
+all layers will have the same number of filters. Default is 32.</p>
+</dd>
+<dt><strong>kernel_sizes</strong><span class="classifier">int, list, or tuple, optional</span></dt><dd><p>Size of the convolutional kernels. If an integer is provided, all layers
+will have the same kernel size. Default is 3.</p>
+</dd>
+<dt><strong>strides</strong><span class="classifier">int, list, or tuple, optional</span></dt><dd><p>Stride length for convolutional layers. If an integer is provided, all layers
+will have the same stride. Default is 1.</p>
+</dd>
+<dt><strong>activation</strong><span class="classifier">str, optional</span></dt><dd><p>Activation function applied in the convolutional layers. Default is “mish”.</p>
+</dd>
+<dt><strong>kernel_initializer</strong><span class="classifier">str, optional</span></dt><dd><p>Initialization strategy for convolutional kernels, such as “glorot_uniform”.
+Default is “glorot_uniform”.</p>
+</dd>
+<dt><strong>groups</strong><span class="classifier">int, optional</span></dt><dd><p>Number of groups for group normalization applied after each convolutional layer.
+Default is 8.</p>
+</dd>
+<dt><strong>recurrent_type</strong><span class="classifier">str, optional</span></dt><dd><p>Type of recurrent layer used for sequence modeling, such as “gru” or “lstm”.
+Default is “gru”.</p>
+</dd>
+<dt><strong>recurrent_dim</strong><span class="classifier">int, optional</span></dt><dd><p>Number of hidden units in the recurrent layer. Default is 128.</p>
+</dd>
+<dt><strong>bidirectional</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use a bidirectional recurrent network. Default is True.</p>
+</dd>
+<dt><strong>dropout</strong><span class="classifier">float, optional</span></dt><dd><p>Dropout rate applied in the recurrent module. Default is 0.05.</p>
+</dd>
+<dt><strong>skip_steps</strong><span class="classifier">int, optional</span></dt><dd><p>Number of steps to skip in the recurrent network for efficiency. Default is 4.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the parent class.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.LSTNet.call">
 <span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/lstnet/lstnet.html#LSTNet.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.LSTNet.call" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Performs the forward pass of the hybrid convolutional-recurrent network.</p>
+<p>This function applies a sequence of convolutional layers followed by a recurrent module to extract spatial
+and temporal features from the input tensor.</p>
+<p>The final output is projected into a lower-dimensional summary representation using a dense layer.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – Tensor of shape (batch_size, set_size, input_dim)</p></li>
-<li><p><strong>kwargs</strong> – Additional keyword arguments.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Input tensor representing the sequence data.</p>
+</dd>
+<dt><strong>training</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether the model is in training mode, affecting layers like dropout and
+batch normalization. Default is False.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the layers.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tensor of shape (batch_size, output_dim)</p>
+<dd class="field-even"><dl class="simple">
+<dt>output: Tensor</dt><dd><p>Transformed tensor representing the summarized feature representation
+of the input sequence.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

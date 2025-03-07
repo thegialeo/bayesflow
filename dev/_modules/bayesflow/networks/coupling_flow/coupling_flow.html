@@ -592,6 +592,44 @@ document.write(`
         <span class="n">base_distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes an invertible flow-based model with a sequence of transformations.</span>
+
+<span class="sd">        This model constructs a deep invertible architecture composed of multiple</span>
+<span class="sd">        layers, including ActNorm, learned permutations, and coupling layers.</span>
+
+<span class="sd">        The specific transformation applied in the coupling layers is determined by</span>
+<span class="sd">        `transform`, while the subnet type can be either an MLP or another callable</span>
+<span class="sd">        architecture specified by `subnet`. If `use_actnorm` is set to True, an</span>
+<span class="sd">        ActNorm layer is applied before each coupling layer.</span>
+
+<span class="sd">        The model can be initialized with a base distribution, such as a standard normal, for</span>
+<span class="sd">        density estimation. It can also use more flexible distributions, e.g., GMMs for</span>
+<span class="sd">        highly multimodal, low-dimensional distributions or Multivariate Student-t for</span>
+<span class="sd">        heavy-tailed distributions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        depth : int, optional</span>
+<span class="sd">            The number of invertible layers in the model. Default is 6.</span>
+<span class="sd">        subnet : str or type, optional</span>
+<span class="sd">            The architecture type used within the coupling layers. Can be a string</span>
+<span class="sd">            identifier like &quot;mlp&quot; or a callable type. Default is &quot;mlp&quot;.</span>
+<span class="sd">        transform : str, optional</span>
+<span class="sd">            The type of transformation used in the coupling layers, such as &quot;affine&quot;.</span>
+<span class="sd">            Default is &quot;affine&quot;.</span>
+<span class="sd">        permutation : str or None, optional</span>
+<span class="sd">            The type of permutation applied between layers. Can be &quot;random&quot; or None</span>
+<span class="sd">            (no permutation). Default is &quot;random&quot;.</span>
+<span class="sd">        use_actnorm : bool, optional</span>
+<span class="sd">            Whether to apply ActNorm before each coupling layer. Default is True.</span>
+<span class="sd">        base_distribution : str, optional</span>
+<span class="sd">            The base probability distribution from which samples are drawn, such as</span>
+<span class="sd">            &quot;normal&quot;. Default is &quot;normal&quot;.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the ActNorm, permutation, and</span>
+<span class="sd">            coupling layers for customization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_distribution</span><span class="o">=</span><span class="n">base_distribution</span><span class="p">,</span> <span class="o">**</span><span class="n">keras_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>

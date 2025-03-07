@@ -567,8 +567,8 @@ document.write(`
 <a class="viewcode-back" href="../../../../api/bayesflow.networks.FlowMatching.html#bayesflow.networks.FlowMatching">[docs]</a>
 <span class="nd">@serializable</span><span class="p">(</span><span class="n">package</span><span class="o">=</span><span class="s2">&quot;bayesflow.networks&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">FlowMatching</span><span class="p">(</span><span class="n">InferenceNetwork</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow,</span>
-<span class="sd">    with ideas incorporated from [1-3].</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow, with ideas incorporated</span>
+<span class="sd">    from [1-3].</span>
 
 <span class="sd">    [1] Rectified Flow: arXiv:2209.03003</span>
 <span class="sd">    [2] Flow Matching: arXiv:2210.02747</span>
@@ -610,6 +610,37 @@ document.write(`
         <span class="n">optimal_transport_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a flow-based model with configurable subnet architecture, loss function, and optional optimal</span>
+<span class="sd">        transport integration.</span>
+
+<span class="sd">        This model learns a transformation from a base distribution to a target distribution using a specified subnet</span>
+<span class="sd">        type, which can be an MLP or a custom network. It supports flow matching with optional optimal transport for</span>
+<span class="sd">        improved sample efficiency.</span>
+
+<span class="sd">        The integration and transport steps can be customized with additional parameters available in the respective</span>
+<span class="sd">        configuration dictionaries.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        subnet : str or type, optional</span>
+<span class="sd">            The architecture used for the transformation network. Can be &quot;mlp&quot; or a custom</span>
+<span class="sd">            callable network. Default is &quot;mlp&quot;.</span>
+<span class="sd">        base_distribution : str, optional</span>
+<span class="sd">            The base probability distribution from which samples are drawn, such as &quot;normal&quot;.</span>
+<span class="sd">            Default is &quot;normal&quot;.</span>
+<span class="sd">        use_optimal_transport : bool, optional</span>
+<span class="sd">            Whether to apply optimal transport for improved training stability. Default is False.</span>
+<span class="sd">        loss_fn : str, optional</span>
+<span class="sd">            The loss function used for training, such as &quot;mse&quot;. Default is &quot;mse&quot;.</span>
+<span class="sd">        integrate_kwargs : dict[str, any], optional</span>
+<span class="sd">            Additional keyword arguments for the integration process. Default is None.</span>
+<span class="sd">        optimal_transport_kwargs : dict[str, any], optional</span>
+<span class="sd">            Additional keyword arguments for configuring optimal transport. Default is None.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the subnet and other components.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_distribution</span><span class="o">=</span><span class="n">base_distribution</span><span class="p">,</span> <span class="o">**</span><span class="n">keras_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">use_optimal_transport</span> <span class="o">=</span> <span class="n">use_optimal_transport</span>

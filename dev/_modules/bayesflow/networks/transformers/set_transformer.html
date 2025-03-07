@@ -569,8 +569,7 @@ document.write(`
 <span class="sd">        Set transformer: A framework for attention-based permutation-invariant neural networks.</span>
 <span class="sd">        In International conference on machine learning (pp. 3744-3753). PMLR.</span>
 
-<span class="sd">    Note: Currently works only on 3D inputs but can easily be expanded by changing</span>
-<span class="sd">    the internals slightly or using ``keras.layers.TimeDistributed``.</span>
+<span class="sd">    Note: Currently works only on 3D inputs but can easily be expanded by using ``keras.layers.TimeDistributed``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -591,9 +590,10 @@ document.write(`
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a many-to-one permutation-invariant encoder, typically used as a summary net</span>
-<span class="sd">        for compressing exchangeable sequences. The number of multi-head attention block is</span>
-<span class="sd">        inferred from the length of `embed_dims` tuple.</span>
+<span class="sd">        Creates a many-to-one permutation-invariant encoder, typically used as a summary net for embedding set-based,</span>
+<span class="sd">        (i.e., exchangeable or IID) data. Use a TimeSeriesTransformer or a FusionTransformer for non-IID data.</span>
+
+<span class="sd">        The number of multi-head attention block is inferred from the length of `embed_dims` tuple.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

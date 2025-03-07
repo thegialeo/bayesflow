@@ -563,9 +563,6 @@ document.write(`
 <span class="sd">    [1] Y. Zhang and L. Mikelsons, Solving Stochastic Inverse Problems with Stochastic BayesFlow,</span>
 <span class="sd">    2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM),</span>
 <span class="sd">    Seattle, WA, USA, 2023, pp. 966-972, doi: 10.1109/AIM46323.2023.10196190.</span>
-
-<span class="sd">    TODO: Add proper docstring</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -584,6 +581,51 @@ document.write(`
         <span class="n">skip_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a hybrid convolutional-recurrent network for summarizing multivariate time series.</span>
+
+<span class="sd">        This model combines a convolutional backbone with a recurrent module to efficiently process sequential data.</span>
+
+<span class="sd">        The convolutional layers extract local features, which are then processed by a recurrent network for capturing</span>
+<span class="sd">        long-range dependencies. The model supports various activation functions, kernel initializations, and</span>
+<span class="sd">        bidirectional recurrence for enhanced representation learning.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        summary_dim : int, optional</span>
+<span class="sd">            Dimensionality of the final summary representation. Default is 16.</span>
+<span class="sd">        filters : int, list, or tuple, optional</span>
+<span class="sd">            Number of filters in each convolutional layer. If an integer is provided,</span>
+<span class="sd">            all layers will have the same number of filters. Default is 32.</span>
+<span class="sd">        kernel_sizes : int, list, or tuple, optional</span>
+<span class="sd">            Size of the convolutional kernels. If an integer is provided, all layers</span>
+<span class="sd">            will have the same kernel size. Default is 3.</span>
+<span class="sd">        strides : int, list, or tuple, optional</span>
+<span class="sd">            Stride length for convolutional layers. If an integer is provided, all layers</span>
+<span class="sd">            will have the same stride. Default is 1.</span>
+<span class="sd">        activation : str, optional</span>
+<span class="sd">            Activation function applied in the convolutional layers. Default is &quot;mish&quot;.</span>
+<span class="sd">        kernel_initializer : str, optional</span>
+<span class="sd">            Initialization strategy for convolutional kernels, such as &quot;glorot_uniform&quot;.</span>
+<span class="sd">            Default is &quot;glorot_uniform&quot;.</span>
+<span class="sd">        groups : int, optional</span>
+<span class="sd">            Number of groups for group normalization applied after each convolutional layer.</span>
+<span class="sd">            Default is 8.</span>
+<span class="sd">        recurrent_type : str, optional</span>
+<span class="sd">            Type of recurrent layer used for sequence modeling, such as &quot;gru&quot; or &quot;lstm&quot;.</span>
+<span class="sd">            Default is &quot;gru&quot;.</span>
+<span class="sd">        recurrent_dim : int, optional</span>
+<span class="sd">            Number of hidden units in the recurrent layer. Default is 128.</span>
+<span class="sd">        bidirectional : bool, optional</span>
+<span class="sd">            Whether to use a bidirectional recurrent network. Default is True.</span>
+<span class="sd">        dropout : float, optional</span>
+<span class="sd">            Dropout rate applied in the recurrent module. Default is 0.05.</span>
+<span class="sd">        skip_steps : int, optional</span>
+<span class="sd">            Number of steps to skip in the recurrent network for efficiency. Default is 4.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the parent class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># Convolutional backbone -&gt; can be extended with inception-like structure</span>
@@ -622,6 +664,31 @@ document.write(`
 <div class="viewcode-block" id="LSTNet.call">
 <a class="viewcode-back" href="../../../../api/bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs the forward pass of the hybrid convolutional-recurrent network.</span>
+
+<span class="sd">        This function applies a sequence of convolutional layers followed by a recurrent module to extract spatial</span>
+<span class="sd">        and temporal features from the input tensor.</span>
+
+<span class="sd">        The final output is projected into a lower-dimensional summary representation using a dense layer.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor</span>
+<span class="sd">            Input tensor representing the sequence data.</span>
+<span class="sd">        training : bool, optional</span>
+<span class="sd">            Whether the model is in training mode, affecting layers like dropout and</span>
+<span class="sd">            batch normalization. Default is False.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the layers.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output: Tensor</span>
+<span class="sd">            Transformed tensor representing the summarized feature representation</span>
+<span class="sd">            of the input sequence.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_blocks</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="n">training</span><span class="p">)</span>
 

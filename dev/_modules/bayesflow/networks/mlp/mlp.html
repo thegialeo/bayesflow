@@ -580,23 +580,48 @@ document.write(`
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates an instance of a flexible and simple MLP with optional residual connections and dropout.</span>
+<span class="sd">        Implements a flexible multi-layer perceptron (MLP) with optional residual connections, dropout, and</span>
+<span class="sd">        spectral normalization.</span>
 
-<span class="sd">        Parameters:</span>
-<span class="sd">        -----------</span>
-<span class="sd">        widths           : tuple, optional, default: (512, 512)</span>
-<span class="sd">            The number of hidden units for each (residual) hidden layer.</span>
-<span class="sd">            Note: The depth of the network is inferred from len(widths)</span>
-<span class="sd">        activation       : string, optional, default: &#39;gelu&#39;</span>
-<span class="sd">            The activation function of the dense layers</span>
-<span class="sd">        residual         : bool, optional, default: True</span>
-<span class="sd">            Use residual connections in the internal layers.</span>
-<span class="sd">        spectral_normalization    : bool, optional, default: False</span>
-<span class="sd">            Use spectral normalization for the network weights, which can make</span>
-<span class="sd">            the learned function smoother and hence more robust to perturbations.</span>
-<span class="sd">        dropout          : float, optional, default: 0.05</span>
-<span class="sd">            Dropout rate for the hidden layers in the internal layers.</span>
+<span class="sd">        This MLP can be used as a general-purpose feature extractor or function approximator,supporting configurable</span>
+<span class="sd">        depth, width, activation functions, and weight initializations.</span>
+
+<span class="sd">        If `residual` is enabled, each layer includes a skip connection for improved gradient flow. The model also</span>
+<span class="sd">        supports dropout for regularization and spectral normalization for stability in learning smooth functions.</span>
+
+<span class="sd">        The architecture can be specified either via an explicit sequence of layer widths (`widths`) or by defining a</span>
+<span class="sd">        fixed depth and width (`depth` and `width`).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        depth : int, optional</span>
+<span class="sd">            Number of layers in the MLP when `widths` is not explicitly provided. Must be</span>
+<span class="sd">            used together with `width`. Default is 2.</span>
+<span class="sd">        width : int, optional</span>
+<span class="sd">            Number of units per layer when `widths` is not explicitly provided. Must be used</span>
+<span class="sd">            together with `depth`. Default is 256.</span>
+<span class="sd">        widths : Sequence[int], optional</span>
+<span class="sd">            Explicitly defines the number of hidden units per layer. If provided, `depth` and</span>
+<span class="sd">            `width` should not be specified. Default is None.</span>
+<span class="sd">        activation : str, optional</span>
+<span class="sd">            Activation function applied in the hidden layers, such as &quot;mish&quot;. Default is &quot;mish&quot;.</span>
+<span class="sd">        kernel_initializer : str, optional</span>
+<span class="sd">            Initialization strategy for kernel weights, such as &quot;he_normal&quot;. Default is &quot;he_normal&quot;.</span>
+<span class="sd">        residual : bool, optional</span>
+<span class="sd">            Whether to use residual connections for improved training stability. Default is False.</span>
+<span class="sd">        dropout : float or None, optional</span>
+<span class="sd">            Dropout rate applied within the MLP layers for regularization. Default is 0.05.</span>
+<span class="sd">        spectral_normalization : bool, optional</span>
+<span class="sd">            Whether to apply spectral normalization to stabilize training. Default is False.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the Keras layer initialization.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If both `widths` and (`depth`, `width`) are provided</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">keras_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">widths</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>

@@ -563,7 +563,8 @@ document.write(`
     <span class="n">min_quantile</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.005</span><span class="p">,</span>
     <span class="n">max_quantile</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.995</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes an aggregate score for the marginal calibration error over an ensemble of approximate</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes an aggregate score for the marginal calibration error over an ensemble of approximate</span>
 <span class="sd">    posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation</span>
 <span class="sd">    between an alpha-CI and the relative number of inliers from ``estimates`` over multiple alphas in</span>
 <span class="sd">    (0, 1).</span>

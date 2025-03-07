@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.networks.ConsistencyModel.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.networks.ConsistencyModel.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -620,18 +620,14 @@ document.write(`
 <dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">ConsistencyModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements a Consistency Model with Consistency Training (CT) as
-described in [1-2]. The adaptations to CT described in [2] were taken
-into account in this implementation.</p>
-<p>[1] Song, Y., Dhariwal, P., Chen, M. &amp; Sutskever, I. (2023).
-Consistency Models.
-arXiv preprint arXiv:2303.01469</p>
-<p>[2] Song, Y., &amp; Dhariwal, P. (2023).
-Improved Techniques for Training Consistency Models:
-arXiv preprint arXiv:2310.14189
-Discussion: https://openreview.net/forum?id=WNzy9bRDvG</p>
-<p>Creates an instance of a consistency model (CM) to be used
-for standalone consistency training (CT).</p>
+<p>Implements a Consistency Model with Consistency Training (CT) a described in [1-2]. The adaptations to CT
+described in [2] were taken into account in our implementation for ABI [3].</p>
+<p>[1] Song, Y., Dhariwal, P., Chen, M. &amp; Sutskever, I. (2023). Consistency Models. arXiv preprint arXiv:2303.01469</p>
+<p>[2] Song, Y., &amp; Dhariwal, P. (2023). Improved Techniques for Training Consistency Models.
+arXiv preprint arXiv:2310.14189. Discussion: https://openreview.net/forum?id=WNzy9bRDvG</p>
+<p>[3] Schmitt, M., Pratz, V., Köthe, U., Bürkner, P. C., &amp; Radev, S. T. (2023). Consistency models for scalable and
+fast simulation-based inference. arXiv preprint arXiv:2312.05440.</p>
+<p>Creates an instance of a consistency model (CM) to be used for standalone consistency training (CT).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.get_config" title="Link to this definition">#</a></dt>

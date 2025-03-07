@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.networks.MLP.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.networks.MLP.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -623,7 +623,47 @@ document.write(`
 <p>Implements a simple configurable MLP with optional residual connections and dropout.</p>
 <p>If used in conjunction with a coupling net, a diffusion model, or a flow matching model, it assumes
 that the input and conditions are already concatenated (i.e., this is a single-input model).</p>
-<p>Creates an instance of a flexible and simple MLP with optional residual connections and dropout.</p>
+<p>Implements a flexible multi-layer perceptron (MLP) with optional residual connections, dropout, and
+spectral normalization.</p>
+<p>This MLP can be used as a general-purpose feature extractor or function approximator,supporting configurable
+depth, width, activation functions, and weight initializations.</p>
+<p>If <cite>residual</cite> is enabled, each layer includes a skip connection for improved gradient flow. The model also
+supports dropout for regularization and spectral normalization for stability in learning smooth functions.</p>
+<p>The architecture can be specified either via an explicit sequence of layer widths (<cite>widths</cite>) or by defining a
+fixed depth and width (<cite>depth</cite> and <cite>width</cite>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>depth</strong><span class="classifier">int, optional</span></dt><dd><p>Number of layers in the MLP when <cite>widths</cite> is not explicitly provided. Must be
+used together with <cite>width</cite>. Default is 2.</p>
+</dd>
+<dt><strong>width</strong><span class="classifier">int, optional</span></dt><dd><p>Number of units per layer when <cite>widths</cite> is not explicitly provided. Must be used
+together with <cite>depth</cite>. Default is 256.</p>
+</dd>
+<dt><strong>widths</strong><span class="classifier">Sequence[int], optional</span></dt><dd><p>Explicitly defines the number of hidden units per layer. If provided, <cite>depth</cite> and
+<cite>width</cite> should not be specified. Default is None.</p>
+</dd>
+<dt><strong>activation</strong><span class="classifier">str, optional</span></dt><dd><p>Activation function applied in the hidden layers, such as “mish”. Default is “mish”.</p>
+</dd>
+<dt><strong>kernel_initializer</strong><span class="classifier">str, optional</span></dt><dd><p>Initialization strategy for kernel weights, such as “he_normal”. Default is “he_normal”.</p>
+</dd>
+<dt><strong>residual</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to use residual connections for improved training stability. Default is False.</p>
+</dd>
+<dt><strong>dropout</strong><span class="classifier">float or None, optional</span></dt><dd><p>Dropout rate applied within the MLP layers for regularization. Default is 0.05.</p>
+</dd>
+<dt><strong>spectral_normalization</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to apply spectral normalization to stabilize training. Default is False.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the Keras layer initialization.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>ValueError</dt><dd><p>If both <cite>widths</cite> and (<cite>depth</cite>, <cite>width</cite>) are provided</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.MLP.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.MLP.__call__" title="Link to this definition">#</a></dt>

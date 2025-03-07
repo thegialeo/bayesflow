@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.networks.FlowMatching.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.networks.FlowMatching.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -620,11 +620,40 @@ document.write(`
 <dt class="sig sig-object py" id="bayesflow.networks.FlowMatching">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.networks.</span></span><span class="sig-name descname"><span class="pre">FlowMatching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.inference_network.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a></p>
-<p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow,
-with ideas incorporated from [1-3].</p>
+<p>Implements Optimal Transport Flow Matching, originally introduced as Rectified Flow, with ideas incorporated
+from [1-3].</p>
 <p>[1] Rectified Flow: arXiv:2209.03003
 [2] Flow Matching: arXiv:2210.02747
 [3] Optimal Transport Flow Matching: arXiv:2302.00482</p>
+<p>Initializes a flow-based model with configurable subnet architecture, loss function, and optional optimal
+transport integration.</p>
+<p>This model learns a transformation from a base distribution to a target distribution using a specified subnet
+type, which can be an MLP or a custom network. It supports flow matching with optional optimal transport for
+improved sample efficiency.</p>
+<p>The integration and transport steps can be customized with additional parameters available in the respective
+configuration dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subnet</strong><span class="classifier">str or type, optional</span></dt><dd><p>The architecture used for the transformation network. Can be “mlp” or a custom
+callable network. Default is “mlp”.</p>
+</dd>
+<dt><strong>base_distribution</strong><span class="classifier">str, optional</span></dt><dd><p>The base probability distribution from which samples are drawn, such as “normal”.
+Default is “normal”.</p>
+</dd>
+<dt><strong>use_optimal_transport</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to apply optimal transport for improved training stability. Default is False.</p>
+</dd>
+<dt><strong>loss_fn</strong><span class="classifier">str, optional</span></dt><dd><p>The loss function used for training, such as “mse”. Default is “mse”.</p>
+</dd>
+<dt><strong>integrate_kwargs</strong><span class="classifier">dict[str, any], optional</span></dt><dd><p>Additional keyword arguments for the integration process. Default is None.</p>
+</dd>
+<dt><strong>optimal_transport_kwargs</strong><span class="classifier">dict[str, any], optional</span></dt><dd><p>Additional keyword arguments for configuring optimal transport. Default is None.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the subnet and other components.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.FlowMatching.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/flow_matching/flow_matching.html#FlowMatching.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FlowMatching.get_config" title="Link to this definition">#</a></dt>

@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.networks.CouplingFlow.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.networks.CouplingFlow.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -636,6 +636,42 @@ IEEE Transactions on Neural Networks and Learning Systems.</p>
 <p>[5] Alexanderson, S., &amp; Henter, G. E. (2020).
 Robust model training and generalisation with Studentising flows.
 arXiv preprint arXiv:2006.06599.</p>
+<p>Initializes an invertible flow-based model with a sequence of transformations.</p>
+<p>This model constructs a deep invertible architecture composed of multiple
+layers, including ActNorm, learned permutations, and coupling layers.</p>
+<p>The specific transformation applied in the coupling layers is determined by
+<cite>transform</cite>, while the subnet type can be either an MLP or another callable
+architecture specified by <cite>subnet</cite>. If <cite>use_actnorm</cite> is set to True, an
+ActNorm layer is applied before each coupling layer.</p>
+<p>The model can be initialized with a base distribution, such as a standard normal, for
+density estimation. It can also use more flexible distributions, e.g., GMMs for
+highly multimodal, low-dimensional distributions or Multivariate Student-t for
+heavy-tailed distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>depth</strong><span class="classifier">int, optional</span></dt><dd><p>The number of invertible layers in the model. Default is 6.</p>
+</dd>
+<dt><strong>subnet</strong><span class="classifier">str or type, optional</span></dt><dd><p>The architecture type used within the coupling layers. Can be a string
+identifier like “mlp” or a callable type. Default is “mlp”.</p>
+</dd>
+<dt><strong>transform</strong><span class="classifier">str, optional</span></dt><dd><p>The type of transformation used in the coupling layers, such as “affine”.
+Default is “affine”.</p>
+</dd>
+<dt><strong>permutation</strong><span class="classifier">str or None, optional</span></dt><dd><p>The type of permutation applied between layers. Can be “random” or None
+(no permutation). Default is “random”.</p>
+</dd>
+<dt><strong>use_actnorm</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to apply ActNorm before each coupling layer. Default is True.</p>
+</dd>
+<dt><strong>base_distribution</strong><span class="classifier">str, optional</span></dt><dd><p>The base probability distribution from which samples are drawn, such as
+“normal”. Default is “normal”.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the ActNorm, permutation, and
+coupling layers for customization.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.CouplingFlow.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/coupling_flow/coupling_flow.html#CouplingFlow.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.CouplingFlow.get_config" title="Link to this definition">#</a></dt>

@@ -458,7 +458,7 @@
       
       
       
-      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/master/api/bayesflow.distributions.DiagonalNormal.rst" target="_blank"
+      <li><a href="https://github.com/bayesflow-org/bayesflow/edit/dev/api/bayesflow.distributions.DiagonalNormal.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -621,6 +621,29 @@ document.write(`
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.distributions.</span></span><span class="sig-name descname"><span class="pre">DiagonalNormal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/distributions/diagonal_normal.html#DiagonalNormal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.distributions.DiagonalNormal" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution" title="bayesflow.distributions.distribution.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a></p>
 <p>Implements a backend-agnostic diagonal Gaussian distribution.</p>
+<p>Initializes a backend-agnostic diagonal Gaussian distribution with optional learnable parameters.</p>
+<p>This class represents a Gaussian distribution with a diagonal covariance matrix, allowing for efficient
+sampling and density evaluation.</p>
+<p>The mean and standard deviation can be specified as fixed values or learned during training. The class also
+supports random number generation with an optional seed for reproducibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mean</strong><span class="classifier">int, float, np.ndarray, or Tensor, optional</span></dt><dd><p>The mean of the Gaussian distribution. Can be a scalar or a tensor. Default is 0.0.</p>
+</dd>
+<dt><strong>std</strong><span class="classifier">int, float, np.ndarray, or Tensor, optional</span></dt><dd><p>The standard deviation of the Gaussian distribution. Can be a scalar or a tensor.
+Default is 1.0.</p>
+</dd>
+<dt><strong>use_learnable_parameters</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to treat the mean and standard deviation as learnable parameters. Default is False.</p>
+</dd>
+<dt><strong>seed_generator</strong><span class="classifier">keras.random.SeedGenerator, optional</span></dt><dd><p>A Keras seed generator for reproducible random sampling. If None, a new seed
+generator is created. Default is None.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments passed to the base <cite>Distribution</cite> class.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.distributions.DiagonalNormal.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.distributions.DiagonalNormal.__call__" title="Link to this definition">#</a></dt>

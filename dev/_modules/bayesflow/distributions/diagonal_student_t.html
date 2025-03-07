@@ -573,6 +573,33 @@ document.write(`
         <span class="n">seed_generator</span><span class="p">:</span> <span class="n">keras</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">SeedGenerator</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a backend-agnostic Student&#39;s t-distribution with optional learnable parameters.</span>
+
+<span class="sd">        This class represents a Student&#39;s t-distribution, which is useful for modeling heavy-tailed data.</span>
+<span class="sd">        The distribution is parameterized by degrees of freedom (`df`), location (`loc`), and scale (`scale`).</span>
+<span class="sd">        These parameters can either be fixed or learned during training.</span>
+
+<span class="sd">        The class also supports random number generation with an optional seed for reproducibility.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df : int or float</span>
+<span class="sd">            Degrees of freedom for the Student&#39;s t-distribution. Lower values result in</span>
+<span class="sd">            heavier tails, making it more robust to outliers.</span>
+<span class="sd">        loc : int, float, np.ndarray, or Tensor, optional</span>
+<span class="sd">            The location parameter (mean) of the distribution. Default is 0.0.</span>
+<span class="sd">        scale : int, float, np.ndarray, or Tensor, optional</span>
+<span class="sd">            The scale parameter (standard deviation) of the distribution. Default is 1.0.</span>
+<span class="sd">        use_learnable_parameters : bool, optional</span>
+<span class="sd">            Whether to treat `loc` and `scale` as learnable parameters. Default is False.</span>
+<span class="sd">        seed_generator : keras.random.SeedGenerator, optional</span>
+<span class="sd">            A Keras seed generator for reproducible random sampling. If None, a new seed</span>
+<span class="sd">            generator is created. Default is None.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to the base `Distribution` class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
