@@ -26,6 +26,7 @@ except ImportError:
     current = "local"
 
 sys.path.insert(0, os.path.abspath("../.."))
+sys.path.insert(0, os.path.abspath("../sphinxext"))
 
 # might set copyright end to wrong year -> remove
 if "SOURCE_DATE_EPOCH" in os.environ:
@@ -55,6 +56,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx_design",
     "sphinxcontrib.bibtex",
+    "override_pst_pagetoc",
 ]
 
 intersphinx_mapping = {
