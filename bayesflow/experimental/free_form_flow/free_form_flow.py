@@ -14,7 +14,7 @@ from bayesflow.utils import (
     deserialize_value_or_type,
 )
 
-from ..inference_network import InferenceNetwork
+from bayesflow.networks import InferenceNetwork
 
 
 @serializable(package="networks.free_form_flow")
