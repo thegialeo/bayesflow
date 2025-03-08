@@ -622,49 +622,49 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.</span></span><span class="sig-name descname"><span class="pre">Constrain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclusive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/constrain.html#Constrain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform" title="bayesflow.adapters.transforms.elementwise_transform.ElementwiseTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementwiseTransform</span></code></a></p>
 <p>Constrains neural network predictions of a data variable to specified bounds.</p>
-<dl>
-<dt>Parameters:</dt><dd><p>String containing the name of the data variable to be transformed e.g. “sigma”. See examples below.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>*</strong><span class="classifier">str</span></dt><dd><p>String containing the name of the data variable to be transformed e.g. “sigma”. See examples below.</p>
 </dd>
-<dt>Named Parameters:</dt><dd><p>lower: Lower bound for named data variable.
-upper: Upper bound for named data variable.
-method: Method by which to shrink the network predictions space to specified bounds. Choose from</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Double bounded methods: sigmoid, expit, (default = sigmoid)</p></li>
-<li><p>Lower bound only methods: softplus, exp, (default = softplus)</p></li>
-<li><p>Upper bound only methods: softplus, exp, (default = softplus)</p></li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt>inclusive: Indicates which bounds are inclusive (or exclusive).</dt><dd><ul class="simple">
-<li><p>“both” (default): Both lower and upper bounds are inclusive.</p></li>
-<li><p>“lower”: Lower bound is inclusive, upper bound is exclusive.</p></li>
-<li><p>“upper”: Lower bound is exclusive, upper bound is inclusive.</p></li>
-<li><p>“none”: Both lower and upper bounds are exclusive.</p></li>
-</ul>
+<dt><strong>lower: int or float or np.darray, optional</strong></dt><dd><p>Lower bound for named data variable.</p>
 </dd>
-<dt>epsilon: Small value to ensure inclusive bounds are not violated.</dt><dd><p>Current default is 1e-15 as this ensures finite outcomes
+<dt><strong>upper: int or float or np.darray, optional</strong></dt><dd><p>Upper bound for named data variable.</p>
+</dd>
+<dt><strong>method: str, optional</strong></dt><dd><p>Method by which to shrink the network predictions space to specified bounds. Choose from
+- Double bounded methods: sigmoid, expit, (default = sigmoid)
+- Lower bound only methods: softplus, exp, (default = softplus)
+- Upper bound only methods: softplus, exp, (default = softplus)</p>
+</dd>
+<dt><strong>inclusive: {‘both’, ‘lower’, ‘upper’, ‘none’}, optional</strong></dt><dd><p>Indicates which bounds are inclusive (or exclusive).
+- “both” (default): Both lower and upper bounds are inclusive.
+- “lower”: Lower bound is inclusive, upper bound is exclusive.
+- “upper”: Lower bound is exclusive, upper bound is inclusive.
+- “none”: Both lower and upper bounds are exclusive.</p>
+</dd>
+<dt><strong>epsilon: float, optional</strong></dt><dd><p>Small value to ensure inclusive bounds are not violated.
+Current default is 1e-15 as this ensures finite outcomes
 with the default transformations applied to data exactly at the boundaries.</p>
 </dd>
 </dl>
 </dd>
-<dt>Examples:</dt><dd><p>1) Let sigma be the standard deviation of a normal distribution,
-then sigma should always be greater than zero.</p>
-<p>Usage:
-adapter = (</p>
-<blockquote>
-<div><p>bf.Adapter()
-.constrain(“sigma”, lower=0)
-)</p>
-</div></blockquote>
-<p>2 ) Suppose p is the parameter for a binomial distribution where p must be in
-[0,1] then we would constrain the neural network to estimate p in the following way.</p>
-<p>Usage:
-&gt;&gt;&gt; import bayesflow as bf
-&gt;&gt;&gt; adapter = bf.Adapter()
-&gt;&gt;&gt; adapter.constrain(“p”, lower=0, upper=1, method=”sigmoid”, inclusive=”both”)</p>
-</dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>1) Let sigma be the standard deviation of a normal distribution,
+then sigma should always be greater than zero.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="p">(</span>
+<span class="go">    bf.Adapter()</span>
+<span class="go">    .constrain(&quot;sigma&quot;, lower=0)</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<p>2) Suppose p is the parameter for a binomial distribution where p must be in
+[0,1] then we would constrain the neural network to estimate p in the following way.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">Adapter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">constrain</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.__call__" title="Link to this definition">#</a></dt>

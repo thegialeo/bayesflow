@@ -622,34 +622,38 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.</span></span><span class="sig-name descname"><span class="pre">Keep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/keep.html#Keep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Keep" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a></p>
 <p>Name the data parameters that should be kept for futher calculation.</p>
-<p>Parameters:</p>
-<blockquote>
-<div><p>cls: tuple containing the names of kept data variables as strings.</p>
-</div></blockquote>
-<p>Useage:</p>
-<blockquote>
-<div><p>Two moons simulator generates data for priors alpha, r and theta as well as observation data x.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>keys: sequence of str</strong></dt><dd><p>The names of kept data variables as strings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Two moons simulator generates data for priors alpha, r and theta as well as observation data x.
 We are interested only in theta and x, to keep only theta and x we should use the following;</p>
-<dl>
-<dt>adapter = (</dt><dd><dl class="simple">
-<dt>bf.adapters.Adapter()</dt><dd><p># drop data from unneeded priors alpha, and r
-# only keep theta and x
-.keep((“theta”, “x”))</p>
-</dd>
-</dl>
-<p>)</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>Example:
-&gt;&gt;&gt; a = [1, 2, 3, 4]
-&gt;&gt;&gt; b = [[1, 2], [3, 4]]
-&gt;&gt;&gt; c = [[5, 6, 7, 8]]
-&gt;&gt;&gt; dat = dict(a=a, b=b, c=c)
-# Here we want to only keep elements b and c
-&gt;&gt;&gt; keeper = bf.adapters.transforms.Keep((“b”, “c”))
-&gt;&gt;&gt; keeper.forward(dat)
-{‘b’: [[1, 2], [3, 4]], ‘c’: [[5, 6, 7, 8]]}</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="p">(</span>
+<span class="go">    bf.adapters.Adapter()</span>
+<span class="go">        # drop data from unneeded priors alpha, and r</span>
+<span class="go">        # only keep theta and x</span>
+<span class="go">        .keep((&quot;theta&quot;, &quot;x&quot;))</span>
+<span class="go">    )</span>
+</pre></div>
+</div>
+<p>The following example shows the usage in a more general case:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dat</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we want to only keep elements b and c</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">keeper</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">adapters</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Keep</span><span class="p">((</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">keeper</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+<span class="go">{&#39;b&#39;: [[1, 2], [3, 4]], &#39;c&#39;: [[5, 6, 7, 8]]}</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.Keep.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.Keep.__call__" title="Link to this definition">#</a></dt>

@@ -418,9 +418,11 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">ToArray</span><span class="p">(</span><span class="n">ElementwiseTransform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks provided data for any non-arrays and converts them to numpy arrays.</span>
+
 <span class="sd">    This ensures all data is in a format suitable for training.</span>
 
-<span class="sd">    Example:</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; ta = bf.adapters.transforms.ToArray()</span>
 <span class="sd">    &gt;&gt;&gt; a = [1, 2, 3, 4]</span>
 <span class="sd">    &gt;&gt;&gt; ta.forward(a)</span>

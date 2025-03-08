@@ -2,7 +2,7 @@
 =============
 
 This is the reference for the public API. For a more guided introduction,
-please refer to the :ref:`examples` section.
+please refer to the :doc:`Examples <../examples>` section.
 
 .. autosummary::
     :toctree: .

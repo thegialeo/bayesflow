@@ -626,6 +626,30 @@ arXiv preprint arXiv:2310.14189. Discussion: https://openreview.net/forum?id=WNz
 <p>[3] Schmitt, M., Pratz, V., Köthe, U., Bürkner, P. C., &amp; Radev, S. T. (2023). Consistency models for scalable and
 fast simulation-based inference. arXiv preprint arXiv:2312.05440.</p>
 <p>Creates an instance of a consistency model (CM) to be used for standalone consistency training (CT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>total_steps</strong><span class="classifier">int</span></dt><dd><p>The total number of training steps, can be calculate as
+number of epochs * number of batches</p>
+</dd>
+<dt><strong>subnet</strong><span class="classifier">str or type, optional, default: “mlp”</span></dt><dd><p>A neural network type for the consistency model, will be
+instantiated using subnet_kwargs.</p>
+</dd>
+<dt><strong>max_time</strong><span class="classifier">int or float, optional, default: 200.0</span></dt><dd><p>The maximum time of the diffusion</p>
+</dd>
+<dt><strong>sigma2</strong><span class="classifier">float or Tensor of dimension (input_dim, 1), optional, default: 1.0</span></dt><dd><p>Controls the shape of the skip-function</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float, optional, default: 0.001</span></dt><dd><p>The minimum time</p>
+</dd>
+<dt><strong>s0</strong><span class="classifier">int or float, optional, default: 10</span></dt><dd><p>Initial number of discretization steps</p>
+</dd>
+<dt><strong>s1</strong><span class="classifier">int or float, optional, default: 50</span></dt><dd><p>Final number of discretization steps</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.ConsistencyModel.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/consistency_models/consistency_model.html#ConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.ConsistencyModel.get_config" title="Link to this definition">#</a></dt>

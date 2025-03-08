@@ -409,8 +409,8 @@
 <div class="viewcode-block" id="AsSet">
 <a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.AsSet.html#bayesflow.adapters.transforms.AsSet">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AsSet</span><span class="p">(</span><span class="n">ElementwiseTransform</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The `.as_set([&quot;x&quot;, &quot;y&quot;])` transform indicates that both `x` and `y` are treated as sets.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The `.as_set([&quot;x&quot;, &quot;y&quot;])` transform indicates that both `x` and `y` are treated as sets.</span>
+
 <span class="sd">    That is, their values will be treated as *exchangable* such that they will imply</span>
 <span class="sd">    the same inference regardless of the values&#39; order.</span>
 <span class="sd">    This is useful, for example, in a linear regression context where we can index</span>
@@ -422,12 +422,9 @@
 <span class="sd">    In the future, the transform will have more advanced behavior</span>
 <span class="sd">    to better ensure the correct treatment of sets.</span>
 
-<span class="sd">    Useage:</span>
-
-<span class="sd">    adapter = (</span>
-<span class="sd">        bf.Adapter()</span>
-<span class="sd">        .as_set([&quot;x&quot;, &quot;y&quot;])</span>
-<span class="sd">        )</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; adapter = bf.Adapter().as_set([&quot;x&quot;, &quot;y&quot;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>

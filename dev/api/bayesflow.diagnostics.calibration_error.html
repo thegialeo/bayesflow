@@ -621,7 +621,7 @@
 posteriors. The calibration error is given as the aggregate (e.g., median) of the absolute deviation
 between an alpha-CI and the relative number of inliers from <code class="docutils literal notranslate"><span class="pre">estimates</span></code> over multiple alphas in
 (0, 1).</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>estimates</strong><span class="classifier">np.ndarray of shape (num_datasets, num_draws, num_variables)</span></dt><dd><p>The random draws from the approximate posteriors over <code class="docutils literal notranslate"><span class="pre">num_datasets</span></code></p>
@@ -645,13 +645,14 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:
-- “values” : float or np.ndarray</p>
-<blockquote>
-<div><p>The aggregated calibration error per variable</p>
-</div></blockquote>
+<dd class="field-even"><dl class="simple">
+<dt><strong>result</strong><span class="classifier">dict</span></dt><dd><p>Dictionary containing:</p>
 <ul class="simple">
+<li><dl class="simple">
+<dt>“values”<span class="classifier">float or np.ndarray</span></dt><dd><p>The aggregated calibration error per variable</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt>“metric_name”<span class="classifier">str</span></dt><dd><p>The name of the metric (“Calibration Error”).</p>
 </dd>

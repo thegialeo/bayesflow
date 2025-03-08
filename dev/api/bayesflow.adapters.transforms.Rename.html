@@ -623,22 +623,25 @@
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.Transform.html#bayesflow.adapters.transforms.Transform" title="bayesflow.adapters.transforms.transform.Transform"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transform</span></code></a></p>
 <p>Transform to rename keys in data dictionary. Useful to rename variables to match those required by
 approximator. This transform can only rename one variable at a time.</p>
-<dl>
-<dt>Parameters:</dt><dd><ul class="simple">
-<li><p>from_key: str of variable name that should be renamed</p></li>
-<li><p>to_key: str representing new name</p></li>
-</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>from_key: str</strong></dt><dd><p>Variable name that should be renamed</p>
 </dd>
-<dt>Example:</dt><dd><dl>
-<dt>adapter = (</dt><dd><p>bf.adapters.Adapter()</p>
-<p># rename the variables to match the required approximator inputs
-.rename(“theta”, “inference_variables”)
-.rename(“x”, “inference_conditions”)</p>
+<dt><strong>to_key: str</strong></dt><dd><p>New variable name</p>
 </dd>
 </dl>
-<p>)</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="p">(</span>
+<span class="go">    bf.adapters.Adapter()</span>
+<span class="go">    # rename the variables to match the required approximator inputs</span>
+<span class="go">    .rename(&quot;theta&quot;, &quot;inference_variables&quot;)</span>
+<span class="go">    .rename(&quot;x&quot;, &quot;inference_conditions&quot;)</span>
+<span class="go">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.Rename.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.Rename.__call__" title="Link to this definition">#</a></dt>

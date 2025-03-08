@@ -629,6 +629,18 @@ arXiv:1909.13833.</p>
 <p>Creates an instance of a <cite>CIF</cite> with configurable
 <cite>ConditionalGaussian</cite> distributions p and q, each containing MLP
 networks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pq_depth: int, optional, default: 4</strong></dt><dd><p>The number of MLP hidden layers (minimum: 1)</p>
+</dd>
+<dt><strong>pq_width: int, optional, default: 128</strong></dt><dd><p>The dimensionality of the MLP hidden layers</p>
+</dd>
+<dt><strong>pq_activation: str, optional, default: ‘tanh’</strong></dt><dd><p>The MLP activation function</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.CIF.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.CIF.__call__" title="Link to this definition">#</a></dt>

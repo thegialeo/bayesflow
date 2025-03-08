@@ -631,13 +631,11 @@ If the model has not been built, it will be built using a batch from the dataset
 </dd>
 <dt><strong>simulator</strong><span class="classifier">Simulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):
-batch_size : int or None, default=’auto’</p>
-<blockquote>
-<div><p>Number of samples per gradient update. Do not specify if <cite>dataset</cite> is provided as a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>, <cite>torch.utils.data.DataLoader</cite>, or a generator function.</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):</p>
 <dl class="simple">
+<dt>batch_size<span class="classifier">int or None, default=’auto’</span></dt><dd><p>Number of samples per gradient update. Do not specify if <cite>dataset</cite> is provided as a
+<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>, <cite>torch.utils.data.DataLoader</cite>, or a generator function.</p>
+</dd>
 <dt>epochs<span class="classifier">int, default=1</span></dt><dd><p>Number of epochs to train the model.</p>
 </dd>
 <dt>verbose<span class="classifier">{“auto”, 0, 1, 2}, default=”auto”</span></dt><dd><p>Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.</p>

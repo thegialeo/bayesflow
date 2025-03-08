@@ -419,7 +419,22 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transforms a parameter using a pair of forward and inverse functions.</span>
 
-<span class="sd">    Important note: This class is only serializable if the forward and inverse functions are serializable.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    forward: callable, no lambda</span>
+<span class="sd">        Function to transform the data in the forward pass.</span>
+<span class="sd">        For the adapter to be serializable, this function has to be serializable</span>
+<span class="sd">        as well (see Notes). Therefore, only proper functions and no lambda</span>
+<span class="sd">        functions should be used here.</span>
+<span class="sd">    inverse: callable, no lambda</span>
+<span class="sd">        Function to transform the data in the inverse pass.</span>
+<span class="sd">        For the adapter to be serializable, this function has to be serializable</span>
+<span class="sd">        as well (see Notes). Therefore, only proper functions and no lambda</span>
+<span class="sd">        functions should be used here.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Important: This class is only serializable if the forward and inverse functions are serializable.</span>
 <span class="sd">    This most likely means you will have to pass the scope that the forward and inverse functions are contained in</span>
 <span class="sd">    to the `custom_objects` argument of the `deserialize` function when deserializing this class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

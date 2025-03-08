@@ -620,27 +620,30 @@
 <dd><p>Compute the Jacobian matrix of f with respect to x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to be differentiated.</p></li>
-<li><p><strong>x</strong> – Tensor of shape (…, D_in)
-The input tensor to f.</p></li>
-<li><p><strong>return_output</strong> – bool
-Whether to return the output of f(x) along with the Jacobian matrix.
-Default: False</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">callable</span></dt><dd><p>The function to be differentiated.</p>
+</dd>
+<dt><strong>x</strong><span class="classifier">Tensor of shape (…, D_in)</span></dt><dd><p>The input tensor to f.</p>
+</dd>
+<dt><strong>return_output</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the output of f(x) along with the Jacobian matrix.
+Default: False</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tensor of shape (…, D_out, D_in)
-The Jacobian matrix of f with respect to x.</p>
+<dd class="field-even"><dl class="simple">
+<dt>Tensor of shape (…, D_out, D_in)</dt><dd><p>The Jacobian matrix of f with respect to x.</p>
 </dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>2-tuple of tensors:
-1. The output of f(x) (if return_output is True)
-2. Tensor of shape (…, D_out, D_in)</p>
-<blockquote>
-<div><p>The Jacobian matrix of f with respect to x.</p>
-</div></blockquote>
-</p>
+<dt>2-tuple of tensors</dt><dd><ol class="arabic simple">
+<li><p>The output of f(x) (if return_output is True)</p></li>
+<li><dl class="simple">
+<dt>Tensor of shape (…, D_out, D_in)</dt><dd><p>The Jacobian matrix of f with respect to x.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

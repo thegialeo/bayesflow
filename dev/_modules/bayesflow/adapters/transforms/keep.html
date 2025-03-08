@@ -419,32 +419,36 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Name the data parameters that should be kept for futher calculation.</span>
 
-<span class="sd">    Parameters:</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys: sequence of str</span>
+<span class="sd">        The names of kept data variables as strings.</span>
 
-<span class="sd">        cls: tuple containing the names of kept data variables as strings.</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 
-<span class="sd">    Useage:</span>
+<span class="sd">    Two moons simulator generates data for priors alpha, r and theta as well as observation data x.</span>
+<span class="sd">    We are interested only in theta and x, to keep only theta and x we should use the following;</span>
 
-<span class="sd">        Two moons simulator generates data for priors alpha, r and theta as well as observation data x.</span>
-<span class="sd">        We are interested only in theta and x, to keep only theta and x we should use the following;</span>
+<span class="sd">    &gt;&gt;&gt; adapter = (</span>
+<span class="sd">        bf.adapters.Adapter()</span>
+<span class="sd">            # drop data from unneeded priors alpha, and r</span>
+<span class="sd">            # only keep theta and x</span>
+<span class="sd">            .keep((&quot;theta&quot;, &quot;x&quot;))</span>
+<span class="sd">        )</span>
 
-<span class="sd">        adapter = (</span>
-<span class="sd">            bf.adapters.Adapter()</span>
-<span class="sd">                # drop data from unneeded priors alpha, and r</span>
-<span class="sd">                # only keep theta and x</span>
-<span class="sd">                .keep((&quot;theta&quot;, &quot;x&quot;))</span>
-<span class="sd">            )</span>
+<span class="sd">    The following example shows the usage in a more general case:</span>
 
-<span class="sd">    Example:</span>
 <span class="sd">    &gt;&gt;&gt; a = [1, 2, 3, 4]</span>
 <span class="sd">    &gt;&gt;&gt; b = [[1, 2], [3, 4]]</span>
 <span class="sd">    &gt;&gt;&gt; c = [[5, 6, 7, 8]]</span>
 <span class="sd">    &gt;&gt;&gt; dat = dict(a=a, b=b, c=c)</span>
-<span class="sd">    # Here we want to only keep elements b and c</span>
+
+<span class="sd">    Here we want to only keep elements b and c</span>
+
 <span class="sd">    &gt;&gt;&gt; keeper = bf.adapters.transforms.Keep((&quot;b&quot;, &quot;c&quot;))</span>
 <span class="sd">    &gt;&gt;&gt; keeper.forward(dat)</span>
 <span class="sd">    {&#39;b&#39;: [[1, 2], [3, 4]], &#39;c&#39;: [[5, 6, 7, 8]]}</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>

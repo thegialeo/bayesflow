@@ -420,40 +420,50 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Broadcasts arrays or scalars to the shape of a given other array.</span>
 
-<span class="sd">    Parameters:</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys: sequence of str,</span>
+<span class="sd">        Input a list of strings, where the strings are the names of data variables.</span>
+<span class="sd">    expand: str or int or tuple, optional</span>
+<span class="sd">        Where should new dimensions be added to match the number of dimensions in `to`?</span>
+<span class="sd">        Can be &quot;left&quot;, &quot;right&quot;, or an integer or tuple containing the indices of the new dimensions.</span>
+<span class="sd">        The latter is needed if we want to include a dimension in the middle, which will be required</span>
+<span class="sd">        for more advanced cases. By default we expand left.</span>
 
-<span class="sd">    expand: Where should new dimensions be added to match the number of dimensions in `to`?</span>
-<span class="sd">    Can be &quot;left&quot;, &quot;right&quot;, or an integer or tuple containing the indices of the new dimensions.</span>
-<span class="sd">    The latter is needed if we want to include a dimension in the middle, which will be required</span>
-<span class="sd">    for more advanced cases. By default we expand left.</span>
+<span class="sd">    exclude: int or tuple, optional</span>
+<span class="sd">        Which dimensions (of the dimensions after expansion) should retain their size,</span>
+<span class="sd">        rather than being broadcasted to the corresponding dimension size of `to`?</span>
+<span class="sd">        By default we exclude the last dimension (usually the data dimension) from broadcasting the size.</span>
 
-<span class="sd">    exclude: Which dimensions (of the dimensions after expansion) should retain their size,</span>
-<span class="sd">    rather than being broadcasted to the corresponding dimension size of `to`?</span>
-<span class="sd">    By default we exclude the last dimension (usually the data dimension) from broadcasting the size.</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    shape (1, ) array:</span>
 
-<span class="sd">    Examples:</span>
-<span class="sd">        shape (1, ) array:</span>
-<span class="sd">        &gt;&gt;&gt; a = np.array((1,))</span>
-<span class="sd">        shape (2, 3) array:</span>
-<span class="sd">        &gt;&gt;&gt; b = np.array([[1, 2, 3], [4, 5, 6]])</span>
-<span class="sd">        shape (2, 2, 3) array:</span>
-<span class="sd">        &gt;&gt;&gt; c = np.array([[[1, 2, 3], [4, 5, 6]], [[4, 5, 6], [1, 2, 3]]])</span>
-<span class="sd">        &gt;&gt;&gt; dat = dict(a=a, b=b, c=c)</span>
+<span class="sd">    &gt;&gt;&gt; a = np.array((1,))</span>
 
-<span class="sd">        &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;a&quot;, to=&quot;b&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat[&quot;a&quot;].shape</span>
-<span class="sd">        (2, 1)</span>
+<span class="sd">    shape (2, 3) array:</span>
 
-<span class="sd">        &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;a&quot;, to=&quot;b&quot;, exclude=None)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat[&quot;a&quot;].shape</span>
-<span class="sd">        (2, 3)</span>
+<span class="sd">    &gt;&gt;&gt; b = np.array([[1, 2, 3], [4, 5, 6]])</span>
 
-<span class="sd">        &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;b&quot;, to=&quot;c&quot;, expand=1)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
-<span class="sd">        &gt;&gt;&gt; new_dat[&quot;b&quot;].shape</span>
-<span class="sd">        (2, 2, 3)</span>
+<span class="sd">    shape (2, 2, 3) array:</span>
+
+<span class="sd">    &gt;&gt;&gt; c = np.array([[[1, 2, 3], [4, 5, 6]], [[4, 5, 6], [1, 2, 3]]])</span>
+
+<span class="sd">    &gt;&gt;&gt; dat = dict(a=a, b=b, c=c)</span>
+<span class="sd">    &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;a&quot;, to=&quot;b&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat[&quot;a&quot;].shape</span>
+<span class="sd">    (2, 1)</span>
+
+<span class="sd">    &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;a&quot;, to=&quot;b&quot;, exclude=None)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat[&quot;a&quot;].shape</span>
+<span class="sd">    (2, 3)</span>
+
+<span class="sd">    &gt;&gt;&gt; bc = bf.adapters.transforms.Broadcast(&quot;b&quot;, to=&quot;c&quot;, expand=1)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat = bc.forward(dat)</span>
+<span class="sd">    &gt;&gt;&gt; new_dat[&quot;b&quot;].shape</span>
+<span class="sd">    (2, 2, 3)</span>
 
 <span class="sd">    It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

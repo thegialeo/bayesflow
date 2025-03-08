@@ -423,43 +423,48 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constrains neural network predictions of a data variable to specified bounds.</span>
 
-<span class="sd">    Parameters:</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    * : str</span>
 <span class="sd">        String containing the name of the data variable to be transformed e.g. &quot;sigma&quot;. See examples below.</span>
 
-<span class="sd">    Named Parameters:</span>
-<span class="sd">        lower: Lower bound for named data variable.</span>
-<span class="sd">        upper: Upper bound for named data variable.</span>
-<span class="sd">        method: Method by which to shrink the network predictions space to specified bounds. Choose from</span>
-<span class="sd">            - Double bounded methods: sigmoid, expit, (default = sigmoid)</span>
-<span class="sd">            - Lower bound only methods: softplus, exp, (default = softplus)</span>
-<span class="sd">            - Upper bound only methods: softplus, exp, (default = softplus)</span>
-<span class="sd">        inclusive: Indicates which bounds are inclusive (or exclusive).</span>
-<span class="sd">            - &quot;both&quot; (default): Both lower and upper bounds are inclusive.</span>
-<span class="sd">            - &quot;lower&quot;: Lower bound is inclusive, upper bound is exclusive.</span>
-<span class="sd">            - &quot;upper&quot;: Lower bound is exclusive, upper bound is inclusive.</span>
-<span class="sd">            - &quot;none&quot;: Both lower and upper bounds are exclusive.</span>
-<span class="sd">        epsilon: Small value to ensure inclusive bounds are not violated.</span>
-<span class="sd">            Current default is 1e-15 as this ensures finite outcomes</span>
-<span class="sd">            with the default transformations applied to data exactly at the boundaries.</span>
+<span class="sd">    lower: int or float or np.darray, optional</span>
+<span class="sd">        Lower bound for named data variable.</span>
+<span class="sd">    upper: int or float or np.darray, optional</span>
+<span class="sd">        Upper bound for named data variable.</span>
+<span class="sd">    method: str, optional</span>
+<span class="sd">        Method by which to shrink the network predictions space to specified bounds. Choose from</span>
+<span class="sd">        - Double bounded methods: sigmoid, expit, (default = sigmoid)</span>
+<span class="sd">        - Lower bound only methods: softplus, exp, (default = softplus)</span>
+<span class="sd">        - Upper bound only methods: softplus, exp, (default = softplus)</span>
+<span class="sd">    inclusive: {&#39;both&#39;, &#39;lower&#39;, &#39;upper&#39;, &#39;none&#39;}, optional</span>
+<span class="sd">        Indicates which bounds are inclusive (or exclusive).</span>
+<span class="sd">        - &quot;both&quot; (default): Both lower and upper bounds are inclusive.</span>
+<span class="sd">        - &quot;lower&quot;: Lower bound is inclusive, upper bound is exclusive.</span>
+<span class="sd">        - &quot;upper&quot;: Lower bound is exclusive, upper bound is inclusive.</span>
+<span class="sd">        - &quot;none&quot;: Both lower and upper bounds are exclusive.</span>
+<span class="sd">    epsilon: float, optional</span>
+<span class="sd">        Small value to ensure inclusive bounds are not violated.</span>
+<span class="sd">        Current default is 1e-15 as this ensures finite outcomes</span>
+<span class="sd">        with the default transformations applied to data exactly at the boundaries.</span>
 
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 
-<span class="sd">    Examples:</span>
-<span class="sd">        1) Let sigma be the standard deviation of a normal distribution,</span>
-<span class="sd">        then sigma should always be greater than zero.</span>
+<span class="sd">    1) Let sigma be the standard deviation of a normal distribution,</span>
+<span class="sd">    then sigma should always be greater than zero.</span>
 
-<span class="sd">        Usage:</span>
-<span class="sd">        adapter = (</span>
-<span class="sd">            bf.Adapter()</span>
-<span class="sd">            .constrain(&quot;sigma&quot;, lower=0)</span>
-<span class="sd">            )</span>
+<span class="sd">    &gt;&gt;&gt; adapter = (</span>
+<span class="sd">        bf.Adapter()</span>
+<span class="sd">        .constrain(&quot;sigma&quot;, lower=0)</span>
+<span class="sd">    )</span>
 
-<span class="sd">        2 ) Suppose p is the parameter for a binomial distribution where p must be in</span>
-<span class="sd">        [0,1] then we would constrain the neural network to estimate p in the following way.</span>
+<span class="sd">    2) Suppose p is the parameter for a binomial distribution where p must be in</span>
+<span class="sd">    [0,1] then we would constrain the neural network to estimate p in the following way.</span>
 
-<span class="sd">        Usage:</span>
-<span class="sd">        &gt;&gt;&gt; import bayesflow as bf</span>
-<span class="sd">        &gt;&gt;&gt; adapter = bf.Adapter()</span>
-<span class="sd">        &gt;&gt;&gt; adapter.constrain(&quot;p&quot;, lower=0, upper=1, method=&quot;sigmoid&quot;, inclusive=&quot;both&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; import bayesflow as bf</span>
+<span class="sd">    &gt;&gt;&gt; adapter = bf.Adapter()</span>
+<span class="sd">    &gt;&gt;&gt; adapter.constrain(&quot;p&quot;, lower=0, upper=1, method=&quot;sigmoid&quot;, inclusive=&quot;both&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>

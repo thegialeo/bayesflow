@@ -621,20 +621,16 @@
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.AsTimeSeries">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.</span></span><span class="sig-name descname"><span class="pre">AsTimeSeries</span></span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/as_time_series.html#AsTimeSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.AsTimeSeries" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform" title="bayesflow.adapters.transforms.elementwise_transform.ElementwiseTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementwiseTransform</span></code></a></p>
-<p>The <cite>.as_time_series</cite> transform can be used to indicate that
-variables shall be treated as time series.</p>
+<p>The <cite>.as_time_series</cite> transform can be used to indicate that variables shall be treated as time series.</p>
 <p>Currently, all this transformation does is to ensure that the variable
 arrays are at least 3D. The 2rd dimension is treated as the
 time series dimension and the 3rd dimension as the data dimension.
 In the future, the transform will have more advanced behavior
 to better ensure the correct treatment of time series data.</p>
-<p>Useage:</p>
-<dl class="simple">
-<dt>adapter = (</dt><dd><p>bf.Adapter()
-.as_time_series([“x”, “y”])
-)</p>
-</dd>
-</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">Adapter</span><span class="p">()</span><span class="o">.</span><span class="n">as_time_series</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.AsTimeSeries.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.AsTimeSeries.__call__" title="Link to this definition">#</a></dt>

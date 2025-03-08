@@ -628,6 +628,19 @@ arXiv preprint arXiv:2410.11081</p>
 Consistency Models.
 arXiv preprint arXiv:2303.01469</p>
 <p>Creates an instance of an sCM to be used for consistency training (CT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subnet</strong><span class="classifier">str or type, optional, default: “mlp”</span></dt><dd><p>A neural network type for the consistency model, will be
+instantiated using subnet_kwargs.</p>
+</dd>
+<dt><strong>sigma_data</strong><span class="classifier">float, optional, default: 1.0</span></dt><dd><p>Standard deviation of the target distribution</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments, such as</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.ContinuousTimeConsistencyModel.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/continuous_time_consistency_model.html#ContinuousTimeConsistencyModel.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.ContinuousTimeConsistencyModel.get_config" title="Link to this definition">#</a></dt>

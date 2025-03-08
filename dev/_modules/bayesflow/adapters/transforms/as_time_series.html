@@ -409,9 +409,7 @@
 <div class="viewcode-block" id="AsTimeSeries">
 <a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.AsTimeSeries.html#bayesflow.adapters.transforms.AsTimeSeries">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AsTimeSeries</span><span class="p">(</span><span class="n">ElementwiseTransform</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The `.as_time_series` transform can be used to indicate that</span>
-<span class="sd">    variables shall be treated as time series.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The `.as_time_series` transform can be used to indicate that variables shall be treated as time series.</span>
 
 <span class="sd">    Currently, all this transformation does is to ensure that the variable</span>
 <span class="sd">    arrays are at least 3D. The 2rd dimension is treated as the</span>
@@ -419,12 +417,10 @@
 <span class="sd">    In the future, the transform will have more advanced behavior</span>
 <span class="sd">    to better ensure the correct treatment of time series data.</span>
 
-<span class="sd">    Useage:</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 
-<span class="sd">    adapter = (</span>
-<span class="sd">        bf.Adapter()</span>
-<span class="sd">        .as_time_series([&quot;x&quot;, &quot;y&quot;])</span>
-<span class="sd">        )</span>
+<span class="sd">    &gt;&gt;&gt; adapter = bf.Adapter().as_time_series([&quot;x&quot;, &quot;y&quot;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>

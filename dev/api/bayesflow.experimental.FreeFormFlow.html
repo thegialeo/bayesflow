@@ -627,6 +627,28 @@ In International Conference on Artificial Intelligence and Statistics.</p>
 Köthe, U. (2024). Lifting Architectural Constraints of Injective Flows.
 In International Conference on Learning Representations.</p>
 <p>Creates an instance of a Free-form Flow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>beta</strong><span class="classifier">float, optional, default: 50.0</span></dt><dd></dd>
+<dt><strong>encoder_subnet</strong><span class="classifier">str or type, optional, default: “mlp”</span></dt><dd><p>A neural network type for the flow, will be instantiated using
+encoder_subnet_kwargs. Will be equipped with a projector to ensure
+the correct output dimension and a global skip connection.</p>
+</dd>
+<dt><strong>decoder_subnet</strong><span class="classifier">str or type, optional, default: “mlp”</span></dt><dd><p>A neural network type for the flow, will be instantiated using
+decoder_subnet_kwargs. Will be equipped with a projector to ensure
+the correct output dimension and a global skip connection.</p>
+</dd>
+<dt><strong>base_distribution</strong><span class="classifier">str, optional, default: “normal”</span></dt><dd><p>The latent distribution</p>
+</dd>
+<dt><strong>hutchinson_sampling</strong><span class="classifier">str, optional, default: “qr</span></dt><dd><p>One of <cite>[“sphere”, “qr”]</cite>. Select the sampling scheme for the
+vectors of the Hutchinson trace estimator.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.get_config" title="Link to this definition">#</a></dt>

@@ -419,20 +419,25 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">Concatenate</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenate multiple arrays into a new key. Used to specify how data variables should be treated by the network.</span>
 
-<span class="sd">    Parameters:</span>
-<span class="sd">        keys: Input a list of strings, where the strings are the names of data variables.</span>
-<span class="sd">        into: A string telling the network how to use the variables named in keys.</span>
-<span class="sd">        axis: integer specifing along which axis to concatonate the keys. The last axis is used by default.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys: sequence of str,</span>
+<span class="sd">        Input a list of strings, where the strings are the names of data variables.</span>
+<span class="sd">    into: str</span>
+<span class="sd">        A string telling the network how to use the variables named in keys.</span>
+<span class="sd">    axis: int, optional</span>
+<span class="sd">        integer specifing along which axis to concatonate the keys. The last axis is used by default.</span>
 
-<span class="sd">    Example:</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 <span class="sd">    Suppose you have a simulator that generates variables &quot;beta&quot; and &quot;sigma&quot; from priors and then observation</span>
 <span class="sd">    variables &quot;x&quot; and &quot;y&quot;. We can then use concatonate in the following way</span>
 
-<span class="sd">    adapter = (</span>
+<span class="sd">    &gt;&gt;&gt; adapter = (</span>
 <span class="sd">        bf.Adapter()</span>
 <span class="sd">            .concatenate([&quot;beta&quot;, &quot;sigma&quot;], into=&quot;inference_variables&quot;)</span>
 <span class="sd">            .concatenate([&quot;x&quot;, &quot;y&quot;], into=&quot;summary_variables&quot;)</span>
-<span class="sd">     )</span>
+<span class="sd">    )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">into</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_indices</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>

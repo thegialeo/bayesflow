@@ -419,6 +419,11 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements a transform that applies a set of elementwise transforms</span>
 <span class="sd">    to a subset of the data as given by a mapping.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    transform_map : dict[str, ElementwiseTransform]</span>
+<span class="sd">        Dictionary with variable names as keys and corresponding transforms as values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transform_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ElementwiseTransform</span><span class="p">]):</span>

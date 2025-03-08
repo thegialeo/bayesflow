@@ -417,6 +417,13 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">ConvertDType</span><span class="p">(</span><span class="n">ElementwiseTransform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Default transform used to convert all floats from float64 to float32 to be in line with keras framework.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    from_dtype : str</span>
+<span class="sd">        Original dtype</span>
+<span class="sd">    to_dtype : str</span>
+<span class="sd">        Target dtype</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_dtype</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">to_dtype</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>

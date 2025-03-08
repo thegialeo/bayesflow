@@ -623,15 +623,24 @@
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform" title="bayesflow.adapters.transforms.elementwise_transform.ElementwiseTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementwiseTransform</span></code></a></p>
 <p>Transform that when applied standardizes data using typical z-score standardization i.e. for some unstandardized
 data x the standardized version z  would be</p>
-<p>z = (x - mean(x))/std(x)</p>
-<p>Parameters:
-mean: integer or float used to specify a mean if known but will be estimated from data when not provided
-std: integer or float used to specify a standard devation if known but will be estimated from data when not provided
-axis: integer representing a specific axis along which standardization should take place. By default</p>
-<blockquote>
-<div><p>standardization happens individually for each dimension</p>
-</div></blockquote>
-<p>momentum: float in (0,1) specifying the momentum during training</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mean</strong><span class="classifier">int or float, optional</span></dt><dd><p>Specify a mean if known but will be estimated from data when not provided</p>
+</dd>
+<dt><strong>std: int or float, optional</strong></dt><dd><p>Specify a standard devation if known but will be estimated from data when not provided</p>
+</dd>
+<dt><strong>axis: int, optional</strong></dt><dd><p>A specific axis along which standardization should take place. By default
+standardization happens individually for each dimension</p>
+</dd>
+<dt><strong>momentum: float in (0,1)</strong></dt><dd><p>The momentum during training</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.Standardize.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.Standardize.__call__" title="Link to this definition">#</a></dt>

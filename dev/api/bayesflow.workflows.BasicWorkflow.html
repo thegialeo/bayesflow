@@ -833,9 +833,9 @@ diagnostic plots, including:
 - Parameter recovery plots.
 - Calibration ECDF plots.
 - Z-score contraction plots.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>test_data</strong><span class="classifier">dict[str, np.ndarray] or int</span></dt><dd><p>A dictionary containing test data where keys represent variable
 names and values are corresponding data arrays. If an integer
 is provided, that number of test data sets will be generated
@@ -847,12 +847,13 @@ by default 1000.</p>
 <dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional</span></dt><dd><p>A list of variable names to include in the diagnostic plots. If
 None, all available variables are used.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:
-- <cite>test_data_kwargs</cite>: dict, optional</p>
-<blockquote>
-<div><p>Arguments to pass to the simulator when generating test data.</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:</p>
 <ul class="simple">
+<li><dl class="simple">
+<dt><cite>test_data_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the simulator when generating test data.</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><cite>approximator_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the approximator’s sampling function.</p>
 </dd>
@@ -900,9 +901,9 @@ types, and values are the respective matplotlib Figure objects.</p>
 the following signature:
 - fn(samples, inference_variables, variable_names)</p>
 <p>They should also return a single matplotlib Figure object.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>test_data</strong><span class="classifier">dict[str, np.ndarray] or int</span></dt><dd><p>A dictionary containing test data where keys represent variable
 names and values are corresponding data arrays. If an integer
 is provided, that number of test data sets will be generated
@@ -918,12 +919,13 @@ by default 1000.</p>
 <dt><strong>variable_names</strong><span class="classifier">Sequence[str], optional</span></dt><dd><p>A list of variable names to include in the diagnostic plots. If
 None, all available variables are used.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:
-- <cite>test_data_kwargs</cite>: dict, optional</p>
-<blockquote>
-<div><p>Arguments to pass to the simulator when generating test data.</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:</p>
 <ul class="simple">
+<li><dl class="simple">
+<dt><cite>test_data_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the simulator when generating test data.</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><cite>approximator_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the approximator’s sampling function.</p>
 </dd>
@@ -972,9 +974,9 @@ diagnostic metrics, including:
 - Root Mean Squared Error (RMSE)
 - Posterior contraction
 - Calibration error</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>test_data</strong><span class="classifier">dict[str, np.ndarray] or int</span></dt><dd><p>A dictionary containing test data where keys represent variable
 names and values are corresponding realizations. If an integer
 is provided, that number of test data sets will be generated
@@ -989,12 +991,13 @@ all available variables are used.</p>
 <dt><strong>as_data_frame</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the results as a pandas DataFrame (default: True).
 If False, a sequence of dictionaries with metric values is returned.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:
-- <cite>test_data_kwargs</cite>: dict, optional</p>
-<blockquote>
-<div><p>Arguments to pass to the simulator when generating test data.</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:</p>
 <ul class="simple">
+<li><dl class="simple">
+<dt><cite>test_data_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the simulator when generating test data.</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><cite>approximator_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the approximator’s sampling function.</p>
 </dd>
@@ -1039,9 +1042,9 @@ have a signature of:</p>
 <li><p>metric_fn(samples, inference_variables, variable_names)</p></li>
 </ul>
 <p>And return a dictionary containing the metric name in ‘name’ key and the metric values in a ‘values’ key.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>test_data</strong><span class="classifier">dict[str, np.ndarray] or int</span></dt><dd><p>A dictionary containing test data where keys represent variable
 names and values are corresponding realizations. If an integer
 is provided, that number of test data sets will be generated
@@ -1060,12 +1063,13 @@ all available variables are used.</p>
 <dt><strong>as_data_frame</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the results as a pandas DataFrame (default: True).
 If False, a sequence of dictionaries with metric values is returned.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:
-- <cite>test_data_kwargs</cite>: dict, optional</p>
-<blockquote>
-<div><p>Arguments to pass to the simulator when generating test data.</p>
-</div></blockquote>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments:</p>
 <ul class="simple">
+<li><dl class="simple">
+<dt><cite>test_data_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the simulator when generating test data.</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><cite>approximator_kwargs</cite>: dict, optional</dt><dd><p>Arguments to pass to the approximator’s sampling function.</p>
 </dd>
@@ -1186,7 +1190,7 @@ don’t fit in memory.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>root</strong><span class="classifier">os.PathLike</span></dt><dd><p>The root directory containing the dataset files.</p>
 </dd>
-<dt><strong>pattern</strong><span class="classifier">str, optional</span></dt><dd><p>A filename pattern to match dataset files, by default “<a href="#id1"><span class="problematic" id="id2">*</span></a>.pkl”.</p>
+<dt><strong>pattern</strong><span class="classifier">str, optional</span></dt><dd><p>A filename pattern to match dataset files, by default <code class="docutils literal notranslate"><span class="pre">&quot;*.pkl&quot;</span></code>.</p>
 </dd>
 <dt><strong>batch_size</strong><span class="classifier">int, optional</span></dt><dd><p>The batch size used for training, by default 32.</p>
 </dd>

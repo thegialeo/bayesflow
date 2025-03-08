@@ -620,30 +620,36 @@
 <dd><p>Compute or estimate the trace of the Jacobian matrix of f.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – The function to be differentiated.</p></li>
-<li><p><strong>x</strong> – Tensor of shape (n, …, d)
-The input tensor to f.</p></li>
-<li><p><strong>max_steps</strong> – The maximum number of steps to use for the estimate.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>f</strong><span class="classifier">callable</span></dt><dd><p>The function to be differentiated.</p>
+</dd>
+<dt><strong>x</strong><span class="classifier">Tensor of shape (n, …, d)</span></dt><dd><p>The input tensor to f.</p>
+</dd>
+<dt><strong>max_steps</strong><span class="classifier">int, optional</span></dt><dd><p>The maximum number of steps to use for the estimate.
 If this does not exceed the dimensionality of f(x), use Hutchinson’s algorithm to
 return an unbiased estimate of the Jacobian trace.
 Otherwise, perform an exact computation.
-Default: None</p></li>
-<li><p><strong>return_output</strong> – bool
-Whether to return the output of f(x) along with the trace of the Jacobian.
-Default: False</p></li>
-<li><p><strong>seed</strong> – int or keras SeedGenerator
-The seed to use for hutchinson trace estimation. Only has an effect when max_steps &lt; d.</p></li>
-</ul>
+Default: None</p>
+</dd>
+<dt><strong>return_output</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the output of f(x) along with the trace of the Jacobian.
+Default: False</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int or keras SeedGenerator, optional</span></dt><dd><p>The seed to use for hutchinson trace estimation. Only has an effect when max_steps &lt; d.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><p>2-tuple of tensors:
-1. The output of f(x) (if return_output is True)
-2. Tensor of shape (n,)</p>
-<blockquote>
-<div><p>An unbiased estimate or the exact trace of the Jacobian of f.</p>
-</div></blockquote>
-</p>
+<dd class="field-even"><dl class="simple">
+<dt>2-tuple of tensors:</dt><dd><ol class="arabic simple">
+<li><p>The output of f(x) (if return_output is True)</p></li>
+<li><dl class="simple">
+<dt>Tensor of shape (n,)</dt><dd><p>An unbiased estimate or the exact trace of the Jacobian of f.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

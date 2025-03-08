@@ -417,19 +417,22 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Jacobian matrix of f with respect to x.</span>
 
-<span class="sd">    :param f: The function to be differentiated.</span>
-
-<span class="sd">    :param x: Tensor of shape (..., D_in)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : callable</span>
+<span class="sd">        The function to be differentiated.</span>
+<span class="sd">    x : Tensor of shape (..., D_in)</span>
 <span class="sd">        The input tensor to f.</span>
-
-<span class="sd">    :param return_output: bool</span>
+<span class="sd">    return_output : bool, optional</span>
 <span class="sd">        Whether to return the output of f(x) along with the Jacobian matrix.</span>
 <span class="sd">        Default: False</span>
 
-<span class="sd">    :return: Tensor of shape (..., D_out, D_in)</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor of shape (..., D_out, D_in)</span>
 <span class="sd">        The Jacobian matrix of f with respect to x.</span>
 
-<span class="sd">    :return: 2-tuple of tensors:</span>
+<span class="sd">    2-tuple of tensors</span>
 <span class="sd">        1. The output of f(x) (if return_output is True)</span>
 <span class="sd">        2. Tensor of shape (..., D_out, D_in)</span>
 <span class="sd">            The Jacobian matrix of f with respect to x.</span>
