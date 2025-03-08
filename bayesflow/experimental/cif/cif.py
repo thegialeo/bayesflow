@@ -27,8 +27,8 @@ class CIF(InferenceNetwork):
         `ConditionalGaussian` distributions p and q, each containing MLP
         networks
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         pq_depth: int, optional, default: 4
             The number of MLP hidden layers (minimum: 1)
         pq_width: int, optional, default: 128

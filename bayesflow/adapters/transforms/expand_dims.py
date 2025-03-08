@@ -12,27 +12,32 @@ from .elementwise_transform import ElementwiseTransform
 class ExpandDims(ElementwiseTransform):
     """
     Expand the shape of an array.
-    Examples:
-        shape (3,) array:
-        >>> a = np.array([1, 2, 3])
-        shape (2, 3) array:
-        >>> b = np.array([[1, 2, 3], [4, 5, 6]])
-        >>> dat = dict(a=a, b=b)
 
-        >>> ed = bf.adapters.transforms.ExpandDims("a", axis=0)
-        >>> new_dat = ed.forward(dat)
-        >>> new_dat["a"].shape
-        (1, 3)
+    Examples
+    --------
+    shape (3,) array:
 
-        >>> ed = bf.adapters.transforms.ExpandDims("a", axis=1)
-        >>> new_dat = ed.forward(dat)
-        >>> new_dat["a"].shape
-        (3, 1)
+    >>> a = np.array([1, 2, 3])
 
-        >>> ed = bf.adapters.transforms.ExpandDims("b", axis=1)
-        >>> new_dat = ed.forward(dat)
-        >>> new_dat["b"].shape
-        (2, 1, 3)
+    shape (2, 3) array:
+
+    >>> b = np.array([[1, 2, 3], [4, 5, 6]])
+    >>> dat = dict(a=a, b=b)
+
+    >>> ed = bf.adapters.transforms.ExpandDims("a", axis=0)
+    >>> new_dat = ed.forward(dat)
+    >>> new_dat["a"].shape
+    (1, 3)
+
+    >>> ed = bf.adapters.transforms.ExpandDims("a", axis=1)
+    >>> new_dat = ed.forward(dat)
+    >>> new_dat["a"].shape
+    (3, 1)
+
+    >>> ed = bf.adapters.transforms.ExpandDims("b", axis=1)
+    >>> new_dat = ed.forward(dat)
+    >>> new_dat["b"].shape
+    (2, 1, 3)
 
     It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.
     """

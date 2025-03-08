@@ -49,8 +49,8 @@ class ConsistencyModel(InferenceNetwork):
     ):
         """Creates an instance of a consistency model (CM) to be used for standalone consistency training (CT).
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         total_steps : int
             The total number of training steps, can be calculate as
             number of epochs * number of batches

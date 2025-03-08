@@ -24,15 +24,15 @@ class RecurrentEmbedding(keras.Layer):
     def call(self, x: Tensor, t: Tensor = None) -> Tensor:
         """Creates time representations and concatenates them to x.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         x   : Tensor of shape (batch_size, sequence_length, dim)
             The input sequence.
         t   : Tensor of shape (batch_size, sequence_length)
             Vector of times
 
-        Returns:
-        --------
+        Returns
+        -------
         emb : Tensor
             Embedding of shape (batch_size, sequence_length, embed_dim + 1)
         """

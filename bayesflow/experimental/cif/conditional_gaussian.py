@@ -22,8 +22,8 @@ class ConditionalGaussian(keras.Layer):
         """Creates an instance of a `ConditionalGaussian` with configurable
         `MLP` networks for the means and standard deviations.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         depth: int, optional, default: 4
             The number of MLP hidden layers (minimum: 1)
         width: int, optional, default: 128

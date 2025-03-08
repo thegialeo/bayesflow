@@ -15,40 +15,50 @@ class Broadcast(Transform):
     """
     Broadcasts arrays or scalars to the shape of a given other array.
 
-    Parameters:
+    Parameters
+    ----------
+    keys: sequence of str,
+        Input a list of strings, where the strings are the names of data variables.
+    expand: str or int or tuple, optional
+        Where should new dimensions be added to match the number of dimensions in `to`?
+        Can be "left", "right", or an integer or tuple containing the indices of the new dimensions.
+        The latter is needed if we want to include a dimension in the middle, which will be required
+        for more advanced cases. By default we expand left.
 
-    expand: Where should new dimensions be added to match the number of dimensions in `to`?
-    Can be "left", "right", or an integer or tuple containing the indices of the new dimensions.
-    The latter is needed if we want to include a dimension in the middle, which will be required
-    for more advanced cases. By default we expand left.
+    exclude: int or tuple, optional
+        Which dimensions (of the dimensions after expansion) should retain their size,
+        rather than being broadcasted to the corresponding dimension size of `to`?
+        By default we exclude the last dimension (usually the data dimension) from broadcasting the size.
 
-    exclude: Which dimensions (of the dimensions after expansion) should retain their size,
-    rather than being broadcasted to the corresponding dimension size of `to`?
-    By default we exclude the last dimension (usually the data dimension) from broadcasting the size.
+    Examples
+    --------
+    shape (1, ) array:
 
-    Examples:
-        shape (1, ) array:
-        >>> a = np.array((1,))
-        shape (2, 3) array:
-        >>> b = np.array([[1, 2, 3], [4, 5, 6]])
-        shape (2, 2, 3) array:
-        >>> c = np.array([[[1, 2, 3], [4, 5, 6]], [[4, 5, 6], [1, 2, 3]]])
-        >>> dat = dict(a=a, b=b, c=c)
+    >>> a = np.array((1,))
 
-        >>> bc = bf.adapters.transforms.Broadcast("a", to="b")
-        >>> new_dat = bc.forward(dat)
-        >>> new_dat["a"].shape
-        (2, 1)
+    shape (2, 3) array:
 
-        >>> bc = bf.adapters.transforms.Broadcast("a", to="b", exclude=None)
-        >>> new_dat = bc.forward(dat)
-        >>> new_dat["a"].shape
-        (2, 3)
+    >>> b = np.array([[1, 2, 3], [4, 5, 6]])
 
-        >>> bc = bf.adapters.transforms.Broadcast("b", to="c", expand=1)
-        >>> new_dat = bc.forward(dat)
-        >>> new_dat["b"].shape
-        (2, 2, 3)
+    shape (2, 2, 3) array:
+
+    >>> c = np.array([[[1, 2, 3], [4, 5, 6]], [[4, 5, 6], [1, 2, 3]]])
+
+    >>> dat = dict(a=a, b=b, c=c)
+    >>> bc = bf.adapters.transforms.Broadcast("a", to="b")
+    >>> new_dat = bc.forward(dat)
+    >>> new_dat["a"].shape
+    (2, 1)
+
+    >>> bc = bf.adapters.transforms.Broadcast("a", to="b", exclude=None)
+    >>> new_dat = bc.forward(dat)
+    >>> new_dat["a"].shape
+    (2, 3)
+
+    >>> bc = bf.adapters.transforms.Broadcast("b", to="c", expand=1)
+    >>> new_dat = bc.forward(dat)
+    >>> new_dat["b"].shape
+    (2, 2, 3)
 
     It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.
     """
