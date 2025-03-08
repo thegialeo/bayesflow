@@ -34,6 +34,7 @@ def posterior_contraction(
     -------
     result : dict
         Dictionary containing:
+
         - "values" : float or np.ndarray
             The aggregated posterior contraction per variable
         - "metric_name" : str

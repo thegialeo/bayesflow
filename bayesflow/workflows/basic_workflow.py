@@ -335,6 +335,7 @@ class BasicWorkflow(Workflow):
             None, all available variables are used.
         **kwargs : dict, optional
             Additional keyword arguments:
+
             - `test_data_kwargs`: dict, optional
                 Arguments to pass to the simulator when generating test data.
             - `approximator_kwargs`: dict, optional
@@ -413,6 +414,7 @@ class BasicWorkflow(Workflow):
             None, all available variables are used.
         **kwargs : dict, optional
             Additional keyword arguments:
+
             - `test_data_kwargs`: dict, optional
                 Arguments to pass to the simulator when generating test data.
             - `approximator_kwargs`: dict, optional
@@ -481,6 +483,7 @@ class BasicWorkflow(Workflow):
             If False, a sequence of dictionaries with metric values is returned.
         **kwargs : dict, optional
             Additional keyword arguments:
+
             - `test_data_kwargs`: dict, optional
                 Arguments to pass to the simulator when generating test data.
             - `approximator_kwargs`: dict, optional
@@ -576,6 +579,7 @@ class BasicWorkflow(Workflow):
             If False, a sequence of dictionaries with metric values is returned.
         **kwargs : dict, optional
             Additional keyword arguments:
+
             - `test_data_kwargs`: dict, optional
                 Arguments to pass to the simulator when generating test data.
             - `approximator_kwargs`: dict, optional
@@ -728,7 +732,7 @@ class BasicWorkflow(Workflow):
         root : os.PathLike
             The root directory containing the dataset files.
         pattern : str, optional
-            A filename pattern to match dataset files, by default "*.pkl".
+            A filename pattern to match dataset files, by default ``"*.pkl"``.
         batch_size : int, optional
             The batch size used for training, by default 32.
         load_fn : callable, optional

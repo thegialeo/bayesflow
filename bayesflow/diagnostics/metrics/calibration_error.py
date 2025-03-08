@@ -46,6 +46,7 @@ def calibration_error(
     -------
     result : dict
         Dictionary containing:
+
         - "values" : float or np.ndarray
             The aggregated calibration error per variable
         - "metric_name" : str

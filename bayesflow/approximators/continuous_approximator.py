@@ -124,6 +124,7 @@ class ContinuousApproximator(Approximator):
             A simulator used to generate a dataset. If provided, `dataset` must be None.
         **kwargs : dict
             Additional keyword arguments passed to `keras.Model.fit()`, including (see also `build_dataset`):
+
             batch_size : int or None, default='auto'
                 Number of samples per gradient update. Do not specify if `dataset` is provided as a
                 `keras.utils.PyDataset`, `tf.data.Dataset`, `torch.utils.data.DataLoader`, or a generator function.

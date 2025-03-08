@@ -59,8 +59,7 @@ class ConsistencyModel(InferenceNetwork):
             instantiated using subnet_kwargs.
         max_time : int or float, optional, default: 200.0
             The maximum time of the diffusion
-        sigma2      : float or Tensor of dimension (input_dim, 1),
-                      optional, default: 1.0
+        sigma2      : float or Tensor of dimension (input_dim, 1), optional, default: 1.0
             Controls the shape of the skip-function
         eps         : float, optional, default: 0.001
             The minimum time

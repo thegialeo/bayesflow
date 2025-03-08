@@ -27,6 +27,7 @@ def prepare_plot_data(
     ----------
     estimates           : dict[str, ndarray] or ndarray
         The model-generated predictions or estimates, which can take the following forms:
+
         - ndarray of shape (num_datasets, num_variables)
             Point estimates for each dataset, where `num_datasets` is the number of datasets
             and `num_variables` is the number of variables per dataset.

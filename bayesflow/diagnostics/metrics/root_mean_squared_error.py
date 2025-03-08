@@ -42,6 +42,7 @@ def root_mean_squared_error(
     -------
     result : dict
         Dictionary containing:
+
         - "values" : np.ndarray
             The aggregated (N)RMSE for each variable.
         - "metric_name" : str
