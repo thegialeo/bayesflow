@@ -28,7 +28,6 @@
     CouplingFlow
     DeepSet
     FlowMatching
-    FreeFormFlow
     FusionTransformer
     InferenceNetwork
     LSTNet
