@@ -13,9 +13,9 @@ class Rename(Transform):
 
     Parameters
     ----------
-    from_key: str
+    from_key : str
         Variable name that should be renamed
-    to_key: str
+    to_key : str
         New variable name
 
     Examples

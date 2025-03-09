@@ -16,12 +16,12 @@ class Concatenate(Transform):
 
     Parameters
     ----------
-    keys: sequence of str,
+    keys : sequence of str,
         Input a list of strings, where the strings are the names of data variables.
-    into: str
+    into : str
         A string telling the network how to use the variables named in keys.
-    axis: int, optional
-        integer specifing along which axis to concatonate the keys. The last axis is used by default.
+    axis : int, optional
+        Along which axis to concatenate the keys. The last axis is used by default.
 
     Examples
     --------

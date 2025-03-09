@@ -20,12 +20,12 @@ class Standardize(ElementwiseTransform):
     ----------
     mean : int or float, optional
         Specify a mean if known but will be estimated from data when not provided
-    std: int or float, optional
+    std : int or float, optional
         Specify a standard devation if known but will be estimated from data when not provided
-    axis: int, optional
+    axis : int, optional
         A specific axis along which standardization should take place. By default
         standardization happens individually for each dimension
-    momentum: float in (0,1)
+    momentum : float in (0,1)
         The momentum during training
     """
 

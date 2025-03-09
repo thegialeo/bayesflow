@@ -16,7 +16,7 @@ class Keep(Transform):
 
     Parameters
     ----------
-    keys: sequence of str
+    keys : sequence of str
         The names of kept data variables as strings.
 
     Examples

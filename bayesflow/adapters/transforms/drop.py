@@ -16,7 +16,7 @@ class Drop(Transform):
 
     Parameters
     ----------
-    keys: sequence of str
+    keys : sequence of str
         Names of data variables that should be dropped
 
     Examples

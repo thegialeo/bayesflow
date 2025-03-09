@@ -13,6 +13,13 @@ class ExpandDims(ElementwiseTransform):
     """
     Expand the shape of an array.
 
+    Parameters
+    ----------
+    keys : str or Sequence of str
+        The names of the variables to expand.
+    axis : int or tuple
+        The axis to expand.
+
     Examples
     --------
     shape (3,) array:

@@ -17,18 +17,21 @@ class Broadcast(Transform):
 
     Parameters
     ----------
-    keys: sequence of str,
+    keys : sequence of str,
         Input a list of strings, where the strings are the names of data variables.
-    expand: str or int or tuple, optional
+    to : str
+        Name of the data variable to broadcast to.
+    expand : str or int or tuple, optional
         Where should new dimensions be added to match the number of dimensions in `to`?
         Can be "left", "right", or an integer or tuple containing the indices of the new dimensions.
         The latter is needed if we want to include a dimension in the middle, which will be required
         for more advanced cases. By default we expand left.
-
-    exclude: int or tuple, optional
+    exclude : int or tuple, optional
         Which dimensions (of the dimensions after expansion) should retain their size,
         rather than being broadcasted to the corresponding dimension size of `to`?
         By default we exclude the last dimension (usually the data dimension) from broadcasting the size.
+    squeeze : int or tuple, optional
+        Axis to squeeze after broadcasting.
 
     Examples
     --------

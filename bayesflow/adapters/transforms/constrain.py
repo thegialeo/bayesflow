@@ -23,22 +23,22 @@ class Constrain(ElementwiseTransform):
     * : str
         String containing the name of the data variable to be transformed e.g. "sigma". See examples below.
 
-    lower: int or float or np.darray, optional
+    lower : int or float or np.darray, optional
         Lower bound for named data variable.
-    upper: int or float or np.darray, optional
+    upper : int or float or np.darray, optional
         Upper bound for named data variable.
-    method: str, optional
+    method : str, optional
         Method by which to shrink the network predictions space to specified bounds. Choose from
         - Double bounded methods: sigmoid, expit, (default = sigmoid)
         - Lower bound only methods: softplus, exp, (default = softplus)
         - Upper bound only methods: softplus, exp, (default = softplus)
-    inclusive: {'both', 'lower', 'upper', 'none'}, optional
+    inclusive : {'both', 'lower', 'upper', 'none'}, optional
         Indicates which bounds are inclusive (or exclusive).
         - "both" (default): Both lower and upper bounds are inclusive.
         - "lower": Lower bound is inclusive, upper bound is exclusive.
         - "upper": Lower bound is exclusive, upper bound is inclusive.
         - "none": Both lower and upper bounds are exclusive.
-    epsilon: float, optional
+    epsilon : float, optional
         Small value to ensure inclusive bounds are not violated.
         Current default is 1e-15 as this ensures finite outcomes
         with the default transformations applied to data exactly at the boundaries.

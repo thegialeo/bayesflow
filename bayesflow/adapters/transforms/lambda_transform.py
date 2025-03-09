@@ -16,12 +16,12 @@ class LambdaTransform(ElementwiseTransform):
 
     Parameters
     ----------
-    forward: callable, no lambda
+    forward : callable, no lambda
         Function to transform the data in the forward pass.
         For the adapter to be serializable, this function has to be serializable
         as well (see Notes). Therefore, only proper functions and no lambda
         functions should be used here.
-    inverse: callable, no lambda
+    inverse : callable, no lambda
         Function to transform the data in the inverse pass.
         For the adapter to be serializable, this function has to be serializable
         as well (see Notes). Therefore, only proper functions and no lambda
