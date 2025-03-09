@@ -66,6 +66,7 @@ def patch_conf(sourcedir):
         "_static/bayesflow_hor.png",
         "_static/custom.css",
         "sphinxext/override_pst_pagetoc.py",
+        "sphinxext/adapt_autodoc_docstring.py",
     ]
     for path in copy_rel_paths:
         srcfile = cursrc / path
