@@ -88,16 +88,12 @@ def test_constrain():
     assert np.isneginf(result["x_both_disc2"][0])
     assert np.isinf(result["x_both_disc2"][-1])
 
+
 def test_log_sqrt(random_data):
     # check if constraint-implied transforms are applied correctly
     from bayesflow.adapters import Adapter
 
-    adapter = (
-        Adapter()
-        .log(["o1", "p2"])
-        .log("t1", p1=True)
-        .sqrt("p1")
-    )
+    adapter = Adapter().log(["o1", "p2"]).log("t1", p1=True).sqrt("p1")
 
     result = adapter(random_data)
 
