@@ -56,9 +56,15 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx_design",
     "sphinxcontrib.bibtex",
-    "override_pst_pagetoc",  # local, see sphinxext folder
-    "adapt_autodoc_docstring",  # local, see sphinxext folder
 ]
+
+if not current.startswith("v1."):
+    extensions.extend(
+        [
+            "override_pst_pagetoc",  # local, see sphinxext folder
+            "adapt_autodoc_docstring",  # local, see sphinxext folder
+        ]
+    )
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
@@ -99,10 +105,20 @@ exclude_patterns = []
 # Options for autodoc and autosummary
 # do not ignore __all__, use it to determine public members
 autosummary_ignore_module_all = False
-# include imported members in autosummary
 autosummary_imported_members = False
 # selects content to insert into the main body of an autoclass directive.
 autoclass_content = "both"
+
+if current.startswith("v1."):
+    autodoc_default_options = {
+        "members": True,
+        "undoc-members": True,
+        "imported-members": False,
+        "inherited-members": True,
+        "show-inheritance": True,
+        "special-members": "__call__",
+        "memberorder": "bysource",
+    }
 
 # -- Options for HTML output -------------------------------------------------
 
