@@ -474,8 +474,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">num_batches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">))</span>
 
+<div class="viewcode-block" id="DiskDataset.shuffle">
+<a class="viewcode-back" href="../../../api/bayesflow.datasets.DiskDataset.html#bayesflow.datasets.DiskDataset.shuffle">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

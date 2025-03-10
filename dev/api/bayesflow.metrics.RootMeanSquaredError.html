@@ -625,6 +625,26 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.add_variable">
+<span class="sig-name descname"><span class="pre">add_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.add_variable" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.add_weight">
+<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.add_weight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.dtype">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.dtype" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.from_config">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.from_config" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.get_config" title="Link to this definition">#</a></dt>
 <dd><p>Return the serializable config of the metric.</p>
@@ -649,10 +669,30 @@ when a metric is evaluated during training.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.stateless_reset_state">
+<span class="sig-name descname"><span class="pre">stateless_reset_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.stateless_reset_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.stateless_result">
+<span class="sig-name descname"><span class="pre">stateless_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.stateless_result" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.stateless_update_state">
+<span class="sig-name descname"><span class="pre">stateless_update_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_variables</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.stateless_update_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.update_state">
 <span class="sig-name descname"><span class="pre">update_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.update_state" title="Link to this definition">#</a></dt>
 <dd><p>Accumulate statistics for the metric.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.metrics.RootMeanSquaredError.variables">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.metrics.RootMeanSquaredError.variables" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -708,10 +748,18 @@ when a metric is evaluated during training.</p>
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError"><code class="docutils literal notranslate"><span class="pre">RootMeanSquaredError</span></code></a><ul class="nav section-nav flex-column visible">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.add_variable"><code class="docutils literal notranslate"><span class="pre">add_variable()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.dtype"><code class="docutils literal notranslate"><span class="pre">dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.from_config"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.get_config"><code class="docutils literal notranslate"><span class="pre">get_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.reset_state"><code class="docutils literal notranslate"><span class="pre">reset_state()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.result"><code class="docutils literal notranslate"><span class="pre">result()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.stateless_reset_state"><code class="docutils literal notranslate"><span class="pre">stateless_reset_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.stateless_result"><code class="docutils literal notranslate"><span class="pre">stateless_result()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.stateless_update_state"><code class="docutils literal notranslate"><span class="pre">stateless_update_state()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.update_state"><code class="docutils literal notranslate"><span class="pre">update_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.metrics.RootMeanSquaredError.variables"><code class="docutils literal notranslate"><span class="pre">variables</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -445,10 +445,15 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">logits_projector</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_models</span><span class="p">)</span>
 
+<div class="viewcode-block" id="ModelComparisonApproximator.build">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_shapes</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Shape</span><span class="p">]):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data_shapes</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="ModelComparisonApproximator.build_adapter">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build_adapter">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_adapter</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
@@ -476,8 +481,11 @@
         <span class="c1"># TODO: add one-hot encoding</span>
         <span class="c1"># .one_hot(&quot;model_indices&quot;, self.num_models)</span>
 
-        <span class="k">return</span> <span class="n">adapter</span>
+        <span class="k">return</span> <span class="n">adapter</span></div>
 
+
+<div class="viewcode-block" id="ModelComparisonApproximator.build_dataset">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.build_dataset">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
@@ -493,7 +501,8 @@
         <span class="k">if</span> <span class="n">simulators</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">simulator</span> <span class="o">=</span> <span class="n">ModelComparisonSimulator</span><span class="p">(</span><span class="n">simulators</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="ModelComparisonApproximator.compile">
 <a class="viewcode-back" href="../../../api/bayesflow.approximators.ModelComparisonApproximator.html#bayesflow.approximators.ModelComparisonApproximator.compile">[docs]</a>

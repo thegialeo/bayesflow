@@ -466,6 +466,14 @@
   <section id="module-bayesflow.default_settings">
 <span id="bayesflow-default-settings-module"></span><h1>bayesflow.default_settings module<a class="headerlink" href="#module-bayesflow.default_settings" title="Link to this heading">#</a></h1>
 <dl class="py class">
+<dt class="sig sig-object py" id="bayesflow.default_settings.ABC">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.default_settings.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="reference internal" href="../_modules/abc.html#ABC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.default_settings.ABC" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="bayesflow.default_settings.MetaDictSetting">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.default_settings.</span></span><span class="sig-name descname"><span class="pre">MetaDictSetting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">mandatory_fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/default_settings.html#MetaDictSetting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.default_settings.MetaDictSetting" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bayesflow.default_settings.Setting" title="bayesflow.default_settings.Setting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Setting</span></code></a></p>
@@ -485,8 +493,31 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="bayesflow.default_settings.Setting">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.default_settings.</span></span><span class="sig-name descname"><span class="pre">Setting</span></span><a class="reference internal" href="../_modules/bayesflow/default_settings.html#Setting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.default_settings.Setting" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#bayesflow.default_settings.ABC" title="abc.ABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Abstract base class for settings. It’s here to potentially extend the setting functionality in future.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bayesflow.default_settings.abstractmethod">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.default_settings.</span></span><span class="sig-name descname"><span class="pre">abstractmethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abc.html#abstractmethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.default_settings.abstractmethod" title="Link to this definition">#</a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, arg1, arg2, argN):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 </section>
@@ -537,14 +568,12 @@
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    
-<ul class="visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.default_settings.ABC"><code class="docutils literal notranslate"><span class="pre">ABC</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.default_settings.MetaDictSetting"><code class="docutils literal notranslate"><span class="pre">MetaDictSetting</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.default_settings.Setting"><code class="docutils literal notranslate"><span class="pre">Setting</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.default_settings.abstractmethod"><code class="docutils literal notranslate"><span class="pre">abstractmethod()</span></code></a></li>
 </ul>
-
-
-
   </nav></div>
 
   <div class="sidebar-secondary-item">

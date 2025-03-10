@@ -419,6 +419,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">simulators</span> <span class="o">=</span> <span class="n">simulators</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expand_outputs</span> <span class="o">=</span> <span class="n">expand_outputs</span>
 
+<div class="viewcode-block" id="SequentialSimulator.sample">
+<a class="viewcode-back" href="../../../api/bayesflow.simulators.SequentialSimulator.html#bayesflow.simulators.SequentialSimulator.sample">[docs]</a>
     <span class="nd">@allow_batch_size</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
@@ -431,6 +433,7 @@
             <span class="p">}</span>
 
         <span class="k">return</span> <span class="n">data</span></div>
+</div>
 
 </pre></div>
 

@@ -437,21 +437,32 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">original_type</span> <span class="o">=</span> <span class="kc">None</span>
 
+<div class="viewcode-block" id="ToArray.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ToArray&quot;</span><span class="p">:</span>
         <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">original_type</span> <span class="o">=</span> <span class="n">deserialize_type</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;original_type&quot;</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">instance</span>
+        <span class="k">return</span> <span class="n">instance</span></div>
 
+
+<div class="viewcode-block" id="ToArray.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;original_type&quot;</span><span class="p">:</span> <span class="n">serialize_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">original_type</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;original_type&quot;</span><span class="p">:</span> <span class="n">serialize_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">original_type</span><span class="p">)}</span></div>
 
+
+<div class="viewcode-block" id="ToArray.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">original_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="ToArray.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.ToArray.html#bayesflow.adapters.transforms.ToArray.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot call `inverse` before calling `forward` at least once.&quot;</span><span class="p">)</span>
@@ -464,6 +475,7 @@
 
         <span class="c1"># cannot invert</span>
         <span class="k">return</span> <span class="n">data</span></div>
+</div>
 
 </pre></div>
 

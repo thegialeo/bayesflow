@@ -425,7 +425,7 @@
 
 
 <div class="viewcode-block" id="SpectralNormalization">
-<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.wrappers.SpectralNormalization">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.helper_networks.SpectralNormalization">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SpectralNormalization</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Wrapper</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs spectral normalization on neural network weights. Adapted from:</span>
 
@@ -447,7 +447,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="kc">False</span>
 
 <div class="viewcode-block" id="SpectralNormalization.build">
-<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.wrappers.SpectralNormalization.build">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.helper_networks.SpectralNormalization.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Build `Layer`&quot;&quot;&quot;</span>
 
@@ -476,7 +476,7 @@
 
 
 <div class="viewcode-block" id="SpectralNormalization.call">
-<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.wrappers.SpectralNormalization.call">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.helper_networks.SpectralNormalization.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Call `Layer`</span>
 
@@ -494,7 +494,7 @@
 
 
 <div class="viewcode-block" id="SpectralNormalization.normalize_weights">
-<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.wrappers.SpectralNormalization.normalize_weights">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.helper_networks.SpectralNormalization.normalize_weights">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">normalize_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate spectral normalized weights.</span>
 
@@ -517,7 +517,7 @@
 
 
 <div class="viewcode-block" id="SpectralNormalization.get_config">
-<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.wrappers.SpectralNormalization.get_config">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.wrappers.html#bayesflow.helper_networks.SpectralNormalization.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;power_iterations&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_iterations</span><span class="p">}</span>
         <span class="n">base_config</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_config</span><span class="p">()</span>

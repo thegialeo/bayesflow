@@ -649,6 +649,16 @@ vectors of the Hutchinson trace estimator.</p>
 </dl>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">ENCODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">DECODER_MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'activation':</span> <span class="pre">'mish',</span> <span class="pre">'dropout':</span> <span class="pre">0.05,</span> <span class="pre">'kernel_initializer':</span> <span class="pre">'he_normal',</span> <span class="pre">'residual':</span> <span class="pre">True,</span> <span class="pre">'spectral_normalization':</span> <span class="pre">False,</span> <span class="pre">'widths':</span> <span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256,</span> <span class="pre">256)}</span></em><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.get_config">
 <span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.get_config" title="Link to this definition">#</a></dt>
@@ -678,6 +688,26 @@ config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.encode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.decode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.MLP_DEFAULT_CONFIG">
+<span class="sig-name descname"><span class="pre">MLP_DEFAULT_CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.MLP_DEFAULT_CONFIG" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.__call__" title="Link to this definition">#</a></dt>
 <dd><p>Call self as a function.</p>
@@ -696,6 +726,11 @@ config, which is a <cite>dict</cite>. You can deserialize it as follows:</p>
 </pre></div>
 </div>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.add_metric">
+<span class="sig-name descname"><span class="pre">add_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.add_metric" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.add_variable">
@@ -755,11 +790,31 @@ layer’s state, you should override this method.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.compute_dtype">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_dtype</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.compute_dtype" title="Link to this definition">#</a></dt>
 <dd><p>The dtype of the computations performed by the layer.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.compute_mask">
+<span class="sig-name descname"><span class="pre">compute_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.compute_mask" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.compute_output_shape">
+<span class="sig-name descname"><span class="pre">compute_output_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.compute_output_shape" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.compute_output_spec">
+<span class="sig-name descname"><span class="pre">compute_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.compute_output_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.count_params">
@@ -776,6 +831,11 @@ layer’s state, you should override this method.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.dtype" title="Link to this definition">#</a></dt>
 <dd><p>Alias of <cite>layer.variable_dtype</cite>.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.dtype_policy">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype_policy</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.dtype_policy" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.get_build_config">
@@ -819,6 +879,11 @@ the operation was called.</p>
 <dd><p>The dtype layer inputs should be converted to.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.input_spec">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_spec</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.input_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.load_own_variables">
 <span class="sig-name descname"><span class="pre">load_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.load_own_variables" title="Link to this definition">#</a></dt>
@@ -830,6 +895,11 @@ the layer is loaded upon calling <cite>keras.models.load_model()</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.log_prob">
+<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.log_prob" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.losses">
@@ -890,6 +960,26 @@ the operation was called.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantization_mode</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.quantization_mode" title="Link to this definition">#</a></dt>
 <dd><p>The quantization mode of this layer, <cite>None</cite> if not quantized.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.quantize">
+<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.quantize" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.quantized_build">
+<span class="sig-name descname"><span class="pre">quantized_build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.quantized_build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.quantized_call">
+<span class="sig-name descname"><span class="pre">quantized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.quantized_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.sample" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.save_own_variables">
@@ -965,6 +1055,11 @@ These are all elements of state of the layer.</p>
 <dd><p>Whether this layer supports computing a mask using <cite>compute_mask</cite>.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.symbolic_call">
+<span class="sig-name descname"><span class="pre">symbolic_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.symbolic_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.trainable">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trainable</span></span><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.trainable" title="Link to this definition">#</a></dt>
@@ -1007,6 +1102,11 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
 <dd><p>List of all weight variables of the layer.</p>
 <p>Unlike, <cite>layer.variables</cite> this excludes metric state and random seeds.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.experimental.FreeFormFlow.compute_metrics">
+<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bayesflow/experimental/free_form_flow/free_form_flow.html#FreeFormFlow.compute_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.experimental.FreeFormFlow.compute_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1061,21 +1161,35 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
     
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow"><code class="docutils literal notranslate"><span class="pre">FreeFormFlow</span></code></a><ul class="nav section-nav flex-column visible">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.ENCODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">ENCODER_MLP_DEFAULT_CONFIG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.DECODER_MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">DECODER_MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.get_config"><code class="docutils literal notranslate"><span class="pre">get_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.from_config"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.encode"><code class="docutils literal notranslate"><span class="pre">encode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.decode"><code class="docutils literal notranslate"><span class="pre">decode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.MLP_DEFAULT_CONFIG"><code class="docutils literal notranslate"><span class="pre">MLP_DEFAULT_CONFIG</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.add_loss"><code class="docutils literal notranslate"><span class="pre">add_loss()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.add_variable"><code class="docutils literal notranslate"><span class="pre">add_variable()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.build_from_config"><code class="docutils literal notranslate"><span class="pre">build_from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.compute_dtype"><code class="docutils literal notranslate"><span class="pre">compute_dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.compute_mask"><code class="docutils literal notranslate"><span class="pre">compute_mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">compute_output_shape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.compute_output_spec"><code class="docutils literal notranslate"><span class="pre">compute_output_spec()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.count_params"><code class="docutils literal notranslate"><span class="pre">count_params()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.dtype"><code class="docutils literal notranslate"><span class="pre">dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.dtype_policy"><code class="docutils literal notranslate"><span class="pre">dtype_policy</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.get_build_config"><code class="docutils literal notranslate"><span class="pre">get_build_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.get_weights"><code class="docutils literal notranslate"><span class="pre">get_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.input_dtype"><code class="docutils literal notranslate"><span class="pre">input_dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.input_spec"><code class="docutils literal notranslate"><span class="pre">input_spec</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.load_own_variables"><code class="docutils literal notranslate"><span class="pre">load_own_variables()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.log_prob"><code class="docutils literal notranslate"><span class="pre">log_prob()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.losses"><code class="docutils literal notranslate"><span class="pre">losses</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.metrics"><code class="docutils literal notranslate"><span class="pre">metrics</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.metrics_variables"><code class="docutils literal notranslate"><span class="pre">metrics_variables</span></code></a></li>
@@ -1084,16 +1198,22 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.output"><code class="docutils literal notranslate"><span class="pre">output</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.path"><code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.quantization_mode"><code class="docutils literal notranslate"><span class="pre">quantization_mode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.quantized_build"><code class="docutils literal notranslate"><span class="pre">quantized_build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.quantized_call"><code class="docutils literal notranslate"><span class="pre">quantized_call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.sample"><code class="docutils literal notranslate"><span class="pre">sample()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.save_own_variables"><code class="docutils literal notranslate"><span class="pre">save_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.set_weights"><code class="docutils literal notranslate"><span class="pre">set_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.stateless_call"><code class="docutils literal notranslate"><span class="pre">stateless_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.supports_masking"><code class="docutils literal notranslate"><span class="pre">supports_masking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.symbolic_call"><code class="docutils literal notranslate"><span class="pre">symbolic_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.trainable"><code class="docutils literal notranslate"><span class="pre">trainable</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.trainable_variables"><code class="docutils literal notranslate"><span class="pre">trainable_variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.trainable_weights"><code class="docutils literal notranslate"><span class="pre">trainable_weights</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.variable_dtype"><code class="docutils literal notranslate"><span class="pre">variable_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.variables"><code class="docutils literal notranslate"><span class="pre">variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.weights"><code class="docutils literal notranslate"><span class="pre">weights</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.experimental.FreeFormFlow.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
 </ul>
 </li>
 </ul>

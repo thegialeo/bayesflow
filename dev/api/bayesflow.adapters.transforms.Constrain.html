@@ -627,22 +627,22 @@
 <dd class="field-odd"><dl class="simple">
 <dt><strong>*</strong><span class="classifier">str</span></dt><dd><p>String containing the name of the data variable to be transformed e.g. “sigma”. See examples below.</p>
 </dd>
-<dt><strong>lower: int or float or np.darray, optional</strong></dt><dd><p>Lower bound for named data variable.</p>
+<dt><strong>lower</strong><span class="classifier">int or float or np.darray, optional</span></dt><dd><p>Lower bound for named data variable.</p>
 </dd>
-<dt><strong>upper: int or float or np.darray, optional</strong></dt><dd><p>Upper bound for named data variable.</p>
+<dt><strong>upper</strong><span class="classifier">int or float or np.darray, optional</span></dt><dd><p>Upper bound for named data variable.</p>
 </dd>
-<dt><strong>method: str, optional</strong></dt><dd><p>Method by which to shrink the network predictions space to specified bounds. Choose from
+<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Method by which to shrink the network predictions space to specified bounds. Choose from
 - Double bounded methods: sigmoid, expit, (default = sigmoid)
 - Lower bound only methods: softplus, exp, (default = softplus)
 - Upper bound only methods: softplus, exp, (default = softplus)</p>
 </dd>
-<dt><strong>inclusive: {‘both’, ‘lower’, ‘upper’, ‘none’}, optional</strong></dt><dd><p>Indicates which bounds are inclusive (or exclusive).
+<dt><strong>inclusive</strong><span class="classifier">{‘both’, ‘lower’, ‘upper’, ‘none’}, optional</span></dt><dd><p>Indicates which bounds are inclusive (or exclusive).
 - “both” (default): Both lower and upper bounds are inclusive.
 - “lower”: Lower bound is inclusive, upper bound is exclusive.
 - “upper”: Lower bound is exclusive, upper bound is inclusive.
 - “none”: Both lower and upper bounds are exclusive.</p>
 </dd>
-<dt><strong>epsilon: float, optional</strong></dt><dd><p>Small value to ensure inclusive bounds are not violated.
+<dt><strong>epsilon</strong><span class="classifier">float, optional</span></dt><dd><p>Small value to ensure inclusive bounds are not violated.
 Current default is 1e-15 as this ensures finite outcomes
 with the default transformations applied to data exactly at the boundaries.</p>
 </dd>
@@ -665,6 +665,26 @@ then sigma should always be greater than zero.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">constrain</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.from_config">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bayesflow.adapters.transforms.Constrain" title="bayesflow.adapters.transforms.constrain.Constrain"><span class="pre">Constrain</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/constrain.html#Constrain.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.from_config" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.get_config">
+<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/constrain.html#Constrain.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.get_config" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/constrain.html#Constrain.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.forward" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/constrain.html#Constrain.inverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.inverse" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.transforms.Constrain.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#bayesflow.adapters.transforms.Constrain.__call__" title="Link to this definition">#</a></dt>
@@ -724,6 +744,10 @@ then sigma should always be greater than zero.</p>
     
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain"><code class="docutils literal notranslate"><span class="pre">Constrain</span></code></a><ul class="nav section-nav flex-column visible">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain.from_config"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain.get_config"><code class="docutils literal notranslate"><span class="pre">get_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain.forward"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain.inverse"><code class="docutils literal notranslate"><span class="pre">inverse()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.transforms.Constrain.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
 </ul>
 </li>

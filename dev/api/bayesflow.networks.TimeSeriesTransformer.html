@@ -678,6 +678,11 @@ will be assumed.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.add_metric">
+<span class="sig-name descname"><span class="pre">add_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.add_metric" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.add_variable">
 <span class="sig-name descname"><span class="pre">add_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.add_variable" title="Link to this definition">#</a></dt>
 <dd><p>Add a weight variable to the layer.</p>
@@ -722,6 +727,11 @@ when writing custom data parallel training loops.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.build_from_config">
 <span class="sig-name descname"><span class="pre">build_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.build_from_config" title="Link to this definition">#</a></dt>
 <dd><p>Builds the layer’s states with the supplied config dict.</p>
@@ -742,6 +752,26 @@ layer’s state, you should override this method.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.compute_mask">
+<span class="sig-name descname"><span class="pre">compute_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.compute_mask" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.compute_metrics">
+<span class="sig-name descname"><span class="pre">compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'training'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.compute_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.compute_output_shape">
+<span class="sig-name descname"><span class="pre">compute_output_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.compute_output_shape" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.compute_output_spec">
+<span class="sig-name descname"><span class="pre">compute_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.compute_output_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.count_params">
 <span class="sig-name descname"><span class="pre">count_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.count_params" title="Link to this definition">#</a></dt>
 <dd><p>Count the total number of scalars composing the weights.</p>
@@ -756,6 +786,11 @@ layer’s state, you should override this method.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.dtype" title="Link to this definition">#</a></dt>
 <dd><p>Alias of <cite>layer.variable_dtype</cite>.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.dtype_policy">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype_policy</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.dtype_policy" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.from_config">
@@ -826,6 +861,11 @@ the operation was called.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_dtype</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.input_dtype" title="Link to this definition">#</a></dt>
 <dd><p>The dtype layer inputs should be converted to.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.input_spec">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_spec</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.input_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.load_own_variables">
@@ -900,6 +940,21 @@ the operation was called.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.quantize">
+<span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.quantize" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.quantized_build">
+<span class="sig-name descname"><span class="pre">quantized_build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.quantized_build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.quantized_call">
+<span class="sig-name descname"><span class="pre">quantized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.quantized_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.save_own_variables">
 <span class="sig-name descname"><span class="pre">save_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.save_own_variables" title="Link to this definition">#</a></dt>
 <dd><p>Saves the state of the layer.</p>
@@ -972,6 +1027,11 @@ These are all elements of state of the layer.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supports_masking</span></span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.supports_masking" title="Link to this definition">#</a></dt>
 <dd><p>Whether this layer supports computing a mask using <cite>compute_mask</cite>.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.symbolic_call">
+<span class="sig-name descname"><span class="pre">symbolic_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.symbolic_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.trainable">
@@ -1097,18 +1157,26 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer"><code class="docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a><ul class="nav section-nav flex-column visible">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_loss"><code class="docutils literal notranslate"><span class="pre">add_loss()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_variable"><code class="docutils literal notranslate"><span class="pre">add_variable()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.build_from_config"><code class="docutils literal notranslate"><span class="pre">build_from_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_dtype"><code class="docutils literal notranslate"><span class="pre">compute_dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_mask"><code class="docutils literal notranslate"><span class="pre">compute_mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">compute_output_shape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_output_spec"><code class="docutils literal notranslate"><span class="pre">compute_output_spec()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.count_params"><code class="docutils literal notranslate"><span class="pre">count_params()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.dtype"><code class="docutils literal notranslate"><span class="pre">dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.dtype_policy"><code class="docutils literal notranslate"><span class="pre">dtype_policy</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.from_config"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.get_build_config"><code class="docutils literal notranslate"><span class="pre">get_build_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.get_config"><code class="docutils literal notranslate"><span class="pre">get_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.get_weights"><code class="docutils literal notranslate"><span class="pre">get_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.input_dtype"><code class="docutils literal notranslate"><span class="pre">input_dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.input_spec"><code class="docutils literal notranslate"><span class="pre">input_spec</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.load_own_variables"><code class="docutils literal notranslate"><span class="pre">load_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.losses"><code class="docutils literal notranslate"><span class="pre">losses</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.metrics"><code class="docutils literal notranslate"><span class="pre">metrics</span></code></a></li>
@@ -1118,10 +1186,14 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.output"><code class="docutils literal notranslate"><span class="pre">output</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.path"><code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.quantization_mode"><code class="docutils literal notranslate"><span class="pre">quantization_mode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.quantized_build"><code class="docutils literal notranslate"><span class="pre">quantized_build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.quantized_call"><code class="docutils literal notranslate"><span class="pre">quantized_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.save_own_variables"><code class="docutils literal notranslate"><span class="pre">save_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.set_weights"><code class="docutils literal notranslate"><span class="pre">set_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.stateless_call"><code class="docutils literal notranslate"><span class="pre">stateless_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.supports_masking"><code class="docutils literal notranslate"><span class="pre">supports_masking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.symbolic_call"><code class="docutils literal notranslate"><span class="pre">symbolic_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.trainable"><code class="docutils literal notranslate"><span class="pre">trainable</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.trainable_variables"><code class="docutils literal notranslate"><span class="pre">trainable_variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.trainable_weights"><code class="docutils literal notranslate"><span class="pre">trainable_weights</span></code></a></li>

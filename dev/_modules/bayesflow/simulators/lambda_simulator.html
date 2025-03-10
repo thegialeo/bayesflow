@@ -419,6 +419,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_fn</span> <span class="o">=</span> <span class="n">sample_fn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_batched</span> <span class="o">=</span> <span class="n">is_batched</span>
 
+<div class="viewcode-block" id="LambdaSimulator.sample">
+<a class="viewcode-back" href="../../../api/bayesflow.simulators.LambdaSimulator.html#bayesflow.simulators.LambdaSimulator.sample">[docs]</a>
     <span class="nd">@allow_batch_size</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
         <span class="c1"># try to use only valid keyword-arguments</span>
@@ -431,6 +433,7 @@
         <span class="n">data</span> <span class="o">=</span> <span class="n">tree_stack</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">data</span></div>
+</div>
 
 </pre></div>
 

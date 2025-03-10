@@ -444,7 +444,7 @@
 
 
 <div class="viewcode-block" id="SimulationDataset">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationDataset">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationDataset">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SimulationDataset</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper class to create a tensorflow.data.Dataset which parses simulation dictionaries</span>
 <span class="sd">    and returns simulation dictionaries as expected by BayesFlow amortizers.</span>
@@ -490,6 +490,8 @@
         <span class="n">n_sim</span> <span class="o">=</span> <span class="n">forward_dict</span><span class="p">[</span><span class="n">DEFAULT_KEYS</span><span class="p">[</span><span class="s2">&quot;sim_data&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">slices</span><span class="p">,</span> <span class="n">keys_used</span><span class="p">,</span> <span class="n">keys_none</span><span class="p">,</span> <span class="n">n_sim</span>
 
+<div class="viewcode-block" id="SimulationDataset.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationDataset.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_in</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert output of tensorflow.data.Dataset to dict.&quot;&quot;&quot;</span>
 
@@ -498,7 +500,8 @@
             <span class="n">forward_dict</span><span class="p">[</span><span class="n">key_used</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch_stuff</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">key_none</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys_none</span><span class="p">):</span>
             <span class="n">forward_dict</span><span class="p">[</span><span class="n">key_none</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">return</span> <span class="n">forward_dict</span>
+        <span class="k">return</span> <span class="n">forward_dict</span></div>
+
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -509,7 +512,7 @@
 
 
 <div class="viewcode-block" id="MultiSimulationDataset">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.MultiSimulationDataset">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.MultiSimulationDataset">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">MultiSimulationDataset</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper class for model comparison training with multiple generative models.</span>
 
@@ -573,7 +576,7 @@
 
 
 <div class="viewcode-block" id="EarlyStopper">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.EarlyStopper">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.EarlyStopper">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">EarlyStopper</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This class will track the total validation loss and trigger an early stopping</span>
 <span class="sd">    recommendation based on its hyperparameters.&quot;&quot;&quot;</span>
@@ -594,7 +597,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_patience_counter</span> <span class="o">=</span> <span class="mi">0</span>
 
 <div class="viewcode-block" id="EarlyStopper.update_and_recommend">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.EarlyStopper.update_and_recommend">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.EarlyStopper.update_and_recommend">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">update_and_recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_val_loss</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds loss to history and check difference between sequential losses.&quot;&quot;&quot;</span>
 
@@ -866,7 +869,7 @@
 
 
 <div class="viewcode-block" id="LossHistory">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LossHistory</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper class to keep track of losses during training.&quot;&quot;&quot;</span>
 
@@ -891,19 +894,19 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_total_val_loss</span><span class="p">)</span>
 
 <div class="viewcode-block" id="LossHistory.last_total_loss">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.last_total_loss">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.last_total_loss">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">last_total_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_loss</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="LossHistory.last_total_val_loss">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.last_total_val_loss">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.last_total_val_loss">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">last_total_val_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_val_loss</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="LossHistory.start_new_run">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.start_new_run">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.start_new_run">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">start_new_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_current_run</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Run </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_run</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -911,7 +914,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.add_val_entry">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.add_val_entry">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.add_val_entry">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add_val_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add validation entry to loss structure. Assume ``loss_names`` already exists</span>
 <span class="sd">        as an attribute, so no attempt will be made to create names.</span>
@@ -957,7 +960,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.add_entry">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.add_entry">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.add_entry">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">add_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">current_loss</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds loss entry for current epoch into internal memory data structure.&quot;&quot;&quot;</span>
 
@@ -1001,7 +1004,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.get_running_losses">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.get_running_losses">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.get_running_losses">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_running_losses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute and return running means of the losses for current epoch.&quot;&quot;&quot;</span>
 
@@ -1013,7 +1016,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.get_plottable">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.get_plottable">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.get_plottable">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_plottable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the losses as a nicely formatted pandas DataFrame, in case</span>
 <span class="sd">        only train losses were collected, otherwise a dict of data frames.</span>
@@ -1040,7 +1043,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.flush">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.flush">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.flush">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns current history and removes all existing loss history, but keeps loss names.&quot;&quot;&quot;</span>
 
@@ -1055,7 +1058,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.save_to_file">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.save_to_file">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.save_to_file">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">max_to_keep</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves a `LossHistory` object to a pickled dictionary in file_path.</span>
 <span class="sd">        If max_to_keep saved loss history files are found in file_path, the oldest is deleted before a new one is saved.</span>
@@ -1092,7 +1095,7 @@
 
 
 <div class="viewcode-block" id="LossHistory.load_from_file">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.LossHistory.load_from_file">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.LossHistory.load_from_file">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Loads the most recent saved `LossHistory` object from `file_path`.&quot;&quot;&quot;</span>
 
@@ -1150,7 +1153,7 @@
 
 
 <div class="viewcode-block" id="SimulationMemory">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SimulationMemory</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper class to keep track of a pre-determined number of simulations during training.&quot;&quot;&quot;</span>
 
@@ -1164,7 +1167,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">size_in_batches</span> <span class="o">=</span> <span class="mi">0</span>
 
 <div class="viewcode-block" id="SimulationMemory.store">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory.store">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory.store">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stores simulation outputs in `forward_dict`, if internal buffer is not full.</span>
 
@@ -1182,13 +1185,13 @@
 
 
 <div class="viewcode-block" id="SimulationMemory.get_memory">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory.get_memory">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory.get_memory">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="SimulationMemory.is_full">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory.is_full">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory.is_full">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">is_full</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns True if the buffer is full, otherwise False.&quot;&quot;&quot;</span>
 
@@ -1198,7 +1201,7 @@
 
 
 <div class="viewcode-block" id="SimulationMemory.save_to_file">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory.save_to_file">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory.save_to_file">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves a `SimulationMemory` object to a pickled dictionary in file_path.&quot;&quot;&quot;</span>
 
@@ -1219,7 +1222,7 @@
 
 
 <div class="viewcode-block" id="SimulationMemory.load_from_file">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.SimulationMemory.load_from_file">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.SimulationMemory.load_from_file">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Loads the saved `SimulationMemory` object from file_path.&quot;&quot;&quot;</span>
 
@@ -1251,7 +1254,7 @@
 
 
 <div class="viewcode-block" id="MemoryReplayBuffer">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.MemoryReplayBuffer">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.MemoryReplayBuffer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">MemoryReplayBuffer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a memory replay buffer for simulation-based inference.&quot;&quot;&quot;</span>
 
@@ -1272,7 +1275,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_full</span> <span class="o">=</span> <span class="kc">False</span>
 
 <div class="viewcode-block" id="MemoryReplayBuffer.store">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.MemoryReplayBuffer.store">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.MemoryReplayBuffer.store">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stores simulation outputs, if internal buffer is not full.</span>
 
@@ -1301,7 +1304,7 @@
 
 
 <div class="viewcode-block" id="MemoryReplayBuffer.sample">
-<a class="viewcode-back" href="../../api/bayesflow.helper_classes.html#bayesflow.helper_classes.MemoryReplayBuffer.sample">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.helper_classes.MemoryReplayBuffer.sample">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Samples `batch_size` number of parameter vectors and simulations from buffer.</span>
 

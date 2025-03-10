@@ -908,7 +908,7 @@
 
 
 <div class="viewcode-block" id="CouplingLayer">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">CouplingLayer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;General wrapper for a coupling layer (either affine or spline) with different settings.&quot;&quot;&quot;</span>
 
@@ -998,7 +998,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">act_norm</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="CouplingLayer.call">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.call">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_or_z</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs one pass through the affine coupling layer (either inverse or forward).</span>
 
@@ -1033,7 +1033,7 @@
 
 
 <div class="viewcode-block" id="CouplingLayer.forward">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.forward">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through a coupling layer with an optinal `Permutation` and `ActNorm` layers.</span>
 
@@ -1073,7 +1073,7 @@
 
 
 <div class="viewcode-block" id="CouplingLayer.inverse">
-<a class="viewcode-back" href="../../api/bayesflow.coupling_networks.html#bayesflow.coupling_networks.CouplingLayer.inverse">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.coupling_networks.CouplingLayer.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs an inverse pass through a coupling layer with an optinal `Permutation` and `ActNorm` layers.</span>
 

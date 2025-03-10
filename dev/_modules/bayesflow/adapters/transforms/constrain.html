@@ -428,22 +428,22 @@
 <span class="sd">    * : str</span>
 <span class="sd">        String containing the name of the data variable to be transformed e.g. &quot;sigma&quot;. See examples below.</span>
 
-<span class="sd">    lower: int or float or np.darray, optional</span>
+<span class="sd">    lower : int or float or np.darray, optional</span>
 <span class="sd">        Lower bound for named data variable.</span>
-<span class="sd">    upper: int or float or np.darray, optional</span>
+<span class="sd">    upper : int or float or np.darray, optional</span>
 <span class="sd">        Upper bound for named data variable.</span>
-<span class="sd">    method: str, optional</span>
+<span class="sd">    method : str, optional</span>
 <span class="sd">        Method by which to shrink the network predictions space to specified bounds. Choose from</span>
 <span class="sd">        - Double bounded methods: sigmoid, expit, (default = sigmoid)</span>
 <span class="sd">        - Lower bound only methods: softplus, exp, (default = softplus)</span>
 <span class="sd">        - Upper bound only methods: softplus, exp, (default = softplus)</span>
-<span class="sd">    inclusive: {&#39;both&#39;, &#39;lower&#39;, &#39;upper&#39;, &#39;none&#39;}, optional</span>
+<span class="sd">    inclusive : {&#39;both&#39;, &#39;lower&#39;, &#39;upper&#39;, &#39;none&#39;}, optional</span>
 <span class="sd">        Indicates which bounds are inclusive (or exclusive).</span>
 <span class="sd">        - &quot;both&quot; (default): Both lower and upper bounds are inclusive.</span>
 <span class="sd">        - &quot;lower&quot;: Lower bound is inclusive, upper bound is exclusive.</span>
 <span class="sd">        - &quot;upper&quot;: Lower bound is exclusive, upper bound is inclusive.</span>
 <span class="sd">        - &quot;none&quot;: Both lower and upper bounds are exclusive.</span>
-<span class="sd">    epsilon: float, optional</span>
+<span class="sd">    epsilon : float, optional</span>
 <span class="sd">        Small value to ensure inclusive bounds are not violated.</span>
 <span class="sd">        Current default is 1e-15 as this ensures finite outcomes</span>
 <span class="sd">        with the default transformations applied to data exactly at the boundaries.</span>
@@ -568,10 +568,15 @@
             <span class="k">case</span> <span class="n">other</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported value for &#39;inclusive&#39;: </span><span class="si">{</span><span class="n">other</span><span class="si">!r}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="Constrain.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Constrain&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="Constrain.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s2">&quot;lower&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span>
@@ -579,15 +584,22 @@
             <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
             <span class="s2">&quot;inclusive&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">inclusive</span><span class="p">,</span>
             <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span>
-        <span class="p">}</span>
+        <span class="p">}</span></div>
 
+
+<div class="viewcode-block" id="Constrain.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="c1"># forward means data space -&gt; network space, so unconstrain the data</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unconstrain</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unconstrain</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="Constrain.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Constrain.html#bayesflow.adapters.transforms.Constrain.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="c1"># inverse means network space -&gt; data space, so constrain the data</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">constrain</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

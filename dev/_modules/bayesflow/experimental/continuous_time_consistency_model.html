@@ -510,6 +510,8 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Increasing rho (was </span><span class="si">{</span><span class="n">rho</span><span class="si">}</span><span class="s2">) or n_steps (was </span><span class="si">{</span><span class="n">num_steps</span><span class="si">}</span><span class="s2">) might improve results.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
 
+<div class="viewcode-block" id="ContinuousTimeConsistencyModel.build">
+<a class="viewcode-back" href="../../../api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xz_shape</span><span class="p">,</span> <span class="n">conditions_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subnet_projector</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">xz_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -537,8 +539,11 @@
         <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">xz_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight_fn</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span>
         <span class="n">input_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight_fn</span><span class="o">.</span><span class="n">compute_output_shape</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weight_fn_projector</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight_fn_projector</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="ContinuousTimeConsistencyModel.call">
+<a class="viewcode-back" href="../../../api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">xz</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
@@ -548,7 +553,8 @@
     <span class="p">):</span>
         <span class="k">if</span> <span class="n">inverse</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Consistency Models only learn the direction from noise distribution</span>
@@ -620,6 +626,8 @@
         <span class="k">return</span> <span class="n">out</span></div>
 
 
+<div class="viewcode-block" id="ContinuousTimeConsistencyModel.compute_metrics">
+<a class="viewcode-back" href="../../../api/bayesflow.experimental.ContinuousTimeConsistencyModel.html#bayesflow.experimental.ContinuousTimeConsistencyModel.compute_metrics">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">compute_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="n">base_metrics</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
@@ -692,6 +700,7 @@
         <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">base_metrics</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div>
+</div>
 
 </pre></div>
 

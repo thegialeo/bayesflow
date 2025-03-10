@@ -431,7 +431,7 @@
 
 
 <div class="viewcode-block" id="InvertibleNetwork">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.InvertibleNetwork">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.InvertibleNetwork">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InvertibleNetwork</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a chain of conditional invertible coupling layers for conditional density estimation.&quot;&quot;&quot;</span>
 
@@ -552,7 +552,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="n">num_params</span>
 
 <div class="viewcode-block" id="InvertibleNetwork.call">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.InvertibleNetwork.call">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.InvertibleNetwork.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs one pass through an invertible chain (either inverse or forward).</span>
 
@@ -586,7 +586,7 @@
 
 
 <div class="viewcode-block" id="InvertibleNetwork.forward">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.InvertibleNetwork.forward">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.InvertibleNetwork.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a forward pass through the chain.&quot;&quot;&quot;</span>
 
@@ -631,7 +631,7 @@
 
 
 <div class="viewcode-block" id="InvertibleNetwork.inverse">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.InvertibleNetwork.inverse">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.InvertibleNetwork.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs a reverse pass through the chain. Assumes that it is only used</span>
 <span class="sd">        in inference mode, so ``**kwargs`` contains ``training=False``.&quot;&quot;&quot;</span>
@@ -683,7 +683,7 @@
         <span class="k">return</span> <span class="n">coupling_layers</span>
 
 <div class="viewcode-block" id="InvertibleNetwork.create_config">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.InvertibleNetwork.create_config">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.InvertibleNetwork.create_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">create_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; &quot;Used to create the settings dictionary for the internal networks of the invertible</span>
@@ -696,7 +696,7 @@
 
 
 <div class="viewcode-block" id="EvidentialNetwork">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.EvidentialNetwork">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.EvidentialNetwork">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">EvidentialNetwork</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a network whose outputs are the concentration parameters of a Dirichlet density.</span>
 
@@ -747,7 +747,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">num_models</span> <span class="o">=</span> <span class="n">num_models</span>
 
 <div class="viewcode-block" id="EvidentialNetwork.call">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.EvidentialNetwork.call">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.EvidentialNetwork.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes evidences for model comparison given a batch of data and optional concatenated context,</span>
 <span class="sd">        typically passed through a summayr network.</span>
@@ -766,7 +766,7 @@
 
 
 <div class="viewcode-block" id="EvidentialNetwork.evidence">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.EvidentialNetwork.evidence">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.EvidentialNetwork.evidence">[docs]</a>
     <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">evidence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">rep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -776,7 +776,7 @@
 
 
 <div class="viewcode-block" id="EvidentialNetwork.sample">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.EvidentialNetwork.sample">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.EvidentialNetwork.sample">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Samples posterior model probabilities from the higher-order Dirichlet density.</span>
 
@@ -802,7 +802,7 @@
 
 
 <div class="viewcode-block" id="EvidentialNetwork.create_config">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.EvidentialNetwork.create_config">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.EvidentialNetwork.create_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">create_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; &quot;Used to create the settings dictionary for the internal networks of the invertible</span>
@@ -815,7 +815,7 @@
 
 
 <div class="viewcode-block" id="PMPNetwork">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.PMPNetwork">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.PMPNetwork">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PMPNetwork</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implements a network that approximates posterior model probabilities (PMPs) as employed in [1].</span>
 
@@ -879,7 +879,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">num_models</span> <span class="o">=</span> <span class="n">num_models</span>
 
 <div class="viewcode-block" id="PMPNetwork.call">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.PMPNetwork.call">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.PMPNetwork.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">return_probs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Forward pass through the network. Computes approximated PMPs given a batch of data</span>
 <span class="sd">        and optional concatenated context, typically passed through a summary network.</span>
@@ -905,7 +905,7 @@
 
 
 <div class="viewcode-block" id="PMPNetwork.posterior_probs">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.PMPNetwork.posterior_probs">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.PMPNetwork.posterior_probs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">posterior_probs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut function to obtain posterior probabilities given a</span>
 <span class="sd">        condition tensor (e.g., summary statistics of data sets).</span>
@@ -925,7 +925,7 @@
 
 
 <div class="viewcode-block" id="PMPNetwork.logits">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.PMPNetwork.logits">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.PMPNetwork.logits">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">logits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut function to obtain logits given a condition tensor</span>
 <span class="sd">        (e.g., summary statistics of data sets).</span>
@@ -945,7 +945,7 @@
 
 
 <div class="viewcode-block" id="PMPNetwork.create_config">
-<a class="viewcode-back" href="../../api/bayesflow.inference_networks.html#bayesflow.inference_networks.PMPNetwork.create_config">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.networks.html#bayesflow.amortizers.PMPNetwork.create_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">create_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Used to create the settings dictionary for the internal networks of the</span>

@@ -418,9 +418,9 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    from_key: str</span>
+<span class="sd">    from_key : str</span>
 <span class="sd">        Variable name that should be renamed</span>
-<span class="sd">    to_key: str</span>
+<span class="sd">    to_key : str</span>
 <span class="sd">        New variable name</span>
 
 <span class="sd">    Examples</span>
@@ -438,16 +438,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">from_key</span> <span class="o">=</span> <span class="n">from_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">to_key</span> <span class="o">=</span> <span class="n">to_key</span>
 
+<div class="viewcode-block" id="Rename.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Rename&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="n">from_key</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;from_key&quot;</span><span class="p">],</span>
             <span class="n">to_key</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;to_key&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="Rename.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;from_key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_key</span><span class="p">,</span> <span class="s2">&quot;to_key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_key</span><span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;from_key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_key</span><span class="p">,</span> <span class="s2">&quot;to_key&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_key</span><span class="p">}</span></div>
 
+
+<div class="viewcode-block" id="Rename.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -457,8 +465,11 @@
             <span class="k">return</span> <span class="n">data</span>
 
         <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">to_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">from_key</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
+
+<div class="viewcode-block" id="Rename.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -468,10 +479,14 @@
             <span class="k">return</span> <span class="n">data</span>
 
         <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">from_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_key</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
+
+<div class="viewcode-block" id="Rename.extra_repr">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename.extra_repr">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">from_key</span><span class="si">!r}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">to_key</span><span class="si">!r}</span><span class="s2">&quot;</span></div>
+</div>
 
 </pre></div>
 

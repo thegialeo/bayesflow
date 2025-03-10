@@ -429,7 +429,7 @@
 
 
 <div class="viewcode-block" id="DefaultJointConfigurator">
-<a class="viewcode-back" href="../../api/bayesflow.configuration.html#bayesflow.configuration.DefaultJointConfigurator">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultJointConfigurator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DefaultJointConfigurator</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fallback class for a generic configurator for joint posterior and likelihood approximation.&quot;&quot;&quot;</span>
 
@@ -438,6 +438,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">likelihood_config</span> <span class="o">=</span> <span class="n">DefaultLikelihoodConfigurator</span><span class="p">(</span><span class="n">default_float_type</span><span class="o">=</span><span class="n">default_float_type</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span> <span class="o">=</span> <span class="n">default_float_type</span>
 
+<div class="viewcode-block" id="DefaultJointConfigurator.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultJointConfigurator.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Configures the outputs of a generative model for joint learning.&quot;&quot;&quot;</span>
 
@@ -445,17 +447,20 @@
         <span class="n">input_dict</span><span class="p">[</span><span class="n">DEFAULT_KEYS</span><span class="p">[</span><span class="s2">&quot;posterior_inputs&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">posterior_config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">)</span>
         <span class="n">input_dict</span><span class="p">[</span><span class="n">DEFAULT_KEYS</span><span class="p">[</span><span class="s2">&quot;likelihood_inputs&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">likelihood_config</span><span class="p">(</span><span class="n">forward_dict</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">input_dict</span></div>
+</div>
 
 
 
 <div class="viewcode-block" id="DefaultLikelihoodConfigurator">
-<a class="viewcode-back" href="../../api/bayesflow.configuration.html#bayesflow.configuration.DefaultLikelihoodConfigurator">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultLikelihoodConfigurator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DefaultLikelihoodConfigurator</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fallback class for a generic configrator for amortized likelihood approximation.&quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_float_type</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span> <span class="o">=</span> <span class="n">default_float_type</span>
 
+<div class="viewcode-block" id="DefaultLikelihoodConfigurator.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultLikelihoodConfigurator.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Configures the output of a generative model for likelihood estimation.&quot;&quot;&quot;</span>
 
@@ -464,7 +469,8 @@
 
         <span class="c1"># Convert everything to default type or fail gently</span>
         <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">input_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-        <span class="k">return</span> <span class="n">input_dict</span>
+        <span class="k">return</span> <span class="n">input_dict</span></div>
+
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Default combination for entries in forward_dict.&quot;&quot;&quot;</span>
@@ -500,10 +506,12 @@
 
 
 <div class="viewcode-block" id="DefaultCombiner">
-<a class="viewcode-back" href="../../api/bayesflow.configuration.html#bayesflow.configuration.DefaultCombiner">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultCombiner">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DefaultCombiner</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fallback class for a generic combiner of conditions.&quot;&quot;&quot;</span>
 
+<div class="viewcode-block" id="DefaultCombiner.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultCombiner.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts all condition-related variables or fails.&quot;&quot;&quot;</span>
 
@@ -622,11 +630,12 @@
                 <span class="p">)</span>
         <span class="n">out_dict</span><span class="p">[</span><span class="n">DEFAULT_KEYS</span><span class="p">[</span><span class="s2">&quot;direct_conditions&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">direct_conditions</span>
         <span class="k">return</span> <span class="n">out_dict</span></div>
+</div>
 
 
 
 <div class="viewcode-block" id="DefaultPosteriorConfigurator">
-<a class="viewcode-back" href="../../api/bayesflow.configuration.html#bayesflow.configuration.DefaultPosteriorConfigurator">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultPosteriorConfigurator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DefaultPosteriorConfigurator</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fallback class for a generic configrator for amortized posterior approximation.&quot;&quot;&quot;</span>
 
@@ -634,6 +643,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span> <span class="o">=</span> <span class="n">default_float_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">combiner</span> <span class="o">=</span> <span class="n">DefaultCombiner</span><span class="p">()</span>
 
+<div class="viewcode-block" id="DefaultPosteriorConfigurator.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultPosteriorConfigurator.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Processes the forward dict to configure the input to an amortizer.&quot;&quot;&quot;</span>
 
@@ -644,11 +655,12 @@
         <span class="c1"># Convert everything to default type or fail gently</span>
         <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">input_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">return</span> <span class="n">input_dict</span></div>
+</div>
 
 
 
 <div class="viewcode-block" id="DefaultModelComparisonConfigurator">
-<a class="viewcode-back" href="../../api/bayesflow.configuration.html#bayesflow.configuration.DefaultModelComparisonConfigurator">[docs]</a>
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultModelComparisonConfigurator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DefaultModelComparisonConfigurator</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fallback class for a default configurator for amortized model comparison.&quot;&quot;&quot;</span>
 
@@ -660,6 +672,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">combiner</span> <span class="o">=</span> <span class="n">combiner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span> <span class="o">=</span> <span class="n">default_float_type</span>
 
+<div class="viewcode-block" id="DefaultModelComparisonConfigurator.__call__">
+<a class="viewcode-back" href="../../api/bayesflow.trainers.html#bayesflow.configuration.DefaultModelComparisonConfigurator.__call__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward_dict</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert all variables to arrays and combines them for inference into a dictionary with</span>
 <span class="sd">        the following keys, if DEFAULT_KEYS dictionary unchanged:</span>
@@ -708,6 +722,7 @@
         <span class="c1"># Convert to default types</span>
         <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_float_type</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">input_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
         <span class="k">return</span> <span class="n">input_dict</span></div>
+</div>
 
 </pre></div>
 

@@ -447,18 +447,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">p_dist</span> <span class="o">=</span> <span class="n">ConditionalGaussian</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">pq_depth</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">pq_width</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">pq_activation</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">q_dist</span> <span class="o">=</span> <span class="n">ConditionalGaussian</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">pq_depth</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">pq_width</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">pq_activation</span><span class="p">)</span>
 
+<div class="viewcode-block" id="CIF.build">
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xz_shape</span><span class="p">:</span> <span class="n">Shape</span><span class="p">,</span> <span class="n">conditions_shape</span><span class="p">:</span> <span class="n">Shape</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bijection</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">,</span> <span class="n">conditions_shape</span><span class="o">=</span><span class="n">conditions_shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_dist</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">q_dist</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q_dist</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">xz_shape</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="CIF.call">
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.call">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">xz</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">inverse</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">xz</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">density</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
@@ -500,6 +506,8 @@
 
         <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">log_pu</span>
 
+<div class="viewcode-block" id="CIF.compute_metrics">
+<a class="viewcode-back" href="../../../../api/bayesflow.experimental.CIF.html#bayesflow.experimental.CIF.compute_metrics">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">compute_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="n">base_metrics</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">conditions</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
@@ -508,6 +516,7 @@
         <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">elbo</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">base_metrics</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div>
+</div>
 
 </pre></div>
 

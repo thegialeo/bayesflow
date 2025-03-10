@@ -415,19 +415,30 @@
 <div class="viewcode-block" id="Approximator">
 <a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Approximator</span><span class="p">(</span><span class="n">BackendApproximator</span><span class="p">):</span>
+<div class="viewcode-block" id="Approximator.build">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_shapes</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mock_data</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">zeros</span><span class="p">,</span> <span class="n">data_shapes</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">build_from_data</span><span class="p">(</span><span class="n">mock_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build_from_data</span><span class="p">(</span><span class="n">mock_data</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="Approximator.build_adapter">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_adapter">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_adapter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Adapter</span><span class="p">:</span>
         <span class="c1"># implemented by each respective architecture</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
+
+<div class="viewcode-block" id="Approximator.build_from_data">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_from_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_from_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">built</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">built</span> <span class="o">=</span> <span class="kc">True</span></div>
 
+
+<div class="viewcode-block" id="Approximator.build_dataset">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.build_dataset">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
@@ -463,7 +474,8 @@
             <span class="n">workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
             <span class="n">use_multiprocessing</span><span class="o">=</span><span class="n">use_multiprocessing</span><span class="p">,</span>
             <span class="n">max_queue_size</span><span class="o">=</span><span class="n">max_queue_size</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="Approximator.fit">
 <a class="viewcode-back" href="../../../api/bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator.fit">[docs]</a>

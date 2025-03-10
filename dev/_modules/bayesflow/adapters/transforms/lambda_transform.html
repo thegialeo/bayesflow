@@ -421,12 +421,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    forward: callable, no lambda</span>
+<span class="sd">    forward : callable, no lambda</span>
 <span class="sd">        Function to transform the data in the forward pass.</span>
 <span class="sd">        For the adapter to be serializable, this function has to be serializable</span>
 <span class="sd">        as well (see Notes). Therefore, only proper functions and no lambda</span>
 <span class="sd">        functions should be used here.</span>
-<span class="sd">    inverse: callable, no lambda</span>
+<span class="sd">    inverse : callable, no lambda</span>
 <span class="sd">        Function to transform the data in the inverse pass.</span>
 <span class="sd">        For the adapter to be serializable, this function has to be serializable</span>
 <span class="sd">        as well (see Notes). Therefore, only proper functions and no lambda</span>
@@ -447,27 +447,39 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span> <span class="o">=</span> <span class="n">forward</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span> <span class="o">=</span> <span class="n">inverse</span>
 
+<div class="viewcode-block" id="LambdaTransform.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;LambdaTransform&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="n">forward</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;forward&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
             <span class="n">inverse</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;inverse&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="LambdaTransform.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s2">&quot;forward&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">),</span>
             <span class="s2">&quot;inverse&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">),</span>
-        <span class="p">}</span>
+        <span class="p">}</span></div>
 
+
+<div class="viewcode-block" id="LambdaTransform.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="c1"># filter kwargs so that other transform args like batch_size, strict, ... are not passed through</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="n">filter_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="LambdaTransform.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="n">filter_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 

@@ -620,6 +620,39 @@
 <dd><p>Bases: <a class="reference internal" href="bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator" title="bayesflow.approximators.approximator.Approximator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Approximator</span></code></a></p>
 <p>Defines a workflow for performing fast posterior or likelihood inference.
 The distribution is approximated with an inference network and an optional summary network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>adapter</strong><span class="classifier">Adapter</span></dt><dd><p>Adapter for data processing. You can use <a class="reference internal" href="#bayesflow.approximators.ContinuousApproximator.build_adapter" title="bayesflow.approximators.ContinuousApproximator.build_adapter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">build_adapter()</span></code></a>
+to create it.</p>
+</dd>
+<dt><strong>inference_network</strong><span class="classifier">InferenceNetwork</span></dt><dd><p>The inference network used for posterior or likelihood approximation.</p>
+</dd>
+<dt><strong>summary_network</strong><span class="classifier">SummaryNetwork, optional</span></dt><dd><p>The summary network used for data summarization (default is None).</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional</span></dt><dd><p>Additional arguments passed to the <a class="reference internal" href="bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator" title="bayesflow.approximators.Approximator"><code class="xref py py-class docutils literal notranslate"><span class="pre">bayesflow.approximators.Approximator</span></code></a> class.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.build_adapter">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_adapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inference_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/approximators/continuous_approximator.html#ContinuousApproximator.build_adapter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.build_adapter" title="Link to this definition">#</a></dt>
+<dd><p>Create an <a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.Adapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Adapter</span></code></a> suited for the approximator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inference_variables</strong><span class="classifier">Sequence of str</span></dt><dd><p>Names of the inference variables in the data</p>
+</dd>
+<dt><strong>inference_conditions</strong><span class="classifier">Sequence of str, optional</span></dt><dd><p>Names of the inference conditions in the data</p>
+</dd>
+<dt><strong>summary_variables</strong><span class="classifier">Sequence of str, optional</span></dt><dd><p>Names of the summary variables in the data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.compile">
 <span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Metric</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Metric</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/continuous_approximator.html#ContinuousApproximator.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.compile" title="Link to this definition">#</a></dt>
@@ -916,6 +949,11 @@ samples.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.add_metric">
+<span class="sig-name descname"><span class="pre">add_metric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.add_metric" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.add_variable">
 <span class="sig-name descname"><span class="pre">add_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.add_variable" title="Link to this definition">#</a></dt>
 <dd><p>Add a weight variable to the layer.</p>
@@ -960,6 +998,16 @@ when writing custom data parallel training loops.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_shapes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.build_dataset">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_batches</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_budget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_queue_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="bayesflow.datasets.OnlineDataset.html#bayesflow.datasets.OnlineDataset" title="bayesflow.datasets.online_dataset.OnlineDataset"><span class="pre">OnlineDataset</span></a></span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.build_dataset" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.build_from_config">
 <span class="sig-name descname"><span class="pre">build_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.build_from_config" title="Link to this definition">#</a></dt>
 <dd><p>Builds the layer’s states with the supplied config dict.</p>
@@ -972,6 +1020,16 @@ layer’s state, you should override this method.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.build_from_data">
+<span class="sig-name descname"><span class="pre">build_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.build_from_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.compile_from_config">
@@ -1048,6 +1106,21 @@ training: Whether we are training or evaluating the model.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.compute_mask">
+<span class="sig-name descname"><span class="pre">compute_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.compute_mask" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.compute_output_shape">
+<span class="sig-name descname"><span class="pre">compute_output_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.compute_output_shape" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.compute_output_spec">
+<span class="sig-name descname"><span class="pre">compute_output_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.compute_output_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.count_params">
 <span class="sig-name descname"><span class="pre">count_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.count_params" title="Link to this definition">#</a></dt>
 <dd><p>Count the total number of scalars composing the weights.</p>
@@ -1062,6 +1135,11 @@ training: Whether we are training or evaluating the model.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.dtype" title="Link to this definition">#</a></dt>
 <dd><p>Alias of <cite>layer.variable_dtype</cite>.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.dtype_policy">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype_policy</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.dtype_policy" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.evaluate">
@@ -1328,6 +1406,26 @@ the operation was called.</p>
 <dd><p>The dtype layer inputs should be converted to.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.input_spec">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_spec</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.input_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.jax_state_sync">
+<span class="sig-name descname"><span class="pre">jax_state_sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.jax_state_sync" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.jit_compile">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">jit_compile</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.jit_compile" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.layers">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">layers</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.layers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.load_own_variables">
 <span class="sig-name descname"><span class="pre">load_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.load_own_variables" title="Link to this definition">#</a></dt>
@@ -1375,11 +1473,31 @@ the shape of the weights.</p>
 <dd><p>List of scalar losses from <cite>add_loss</cite>, regularizers and sublayers.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.make_predict_function">
+<span class="sig-name descname"><span class="pre">make_predict_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.make_predict_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.make_test_function">
+<span class="sig-name descname"><span class="pre">make_test_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.make_test_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.make_train_function">
+<span class="sig-name descname"><span class="pre">make_train_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.make_train_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.metrics">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metrics</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.metrics" title="Link to this definition">#</a></dt>
 <dd><p>List of all metrics.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.metrics_names">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metrics_names</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.metrics_names" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.metrics_variables">
@@ -1493,6 +1611,11 @@ repeating dataset, it will run indefinitely.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.predict_step">
+<span class="sig-name descname"><span class="pre">predict_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.predict_step" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.quantization_mode">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantization_mode</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.quantization_mode" title="Link to this definition">#</a></dt>
@@ -1514,6 +1637,26 @@ will be skipped if the layer doesn’t implement the function.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.quantized_build">
+<span class="sig-name descname"><span class="pre">quantized_build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.quantized_build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.quantized_call">
+<span class="sig-name descname"><span class="pre">quantized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.quantized_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.reset_metrics">
+<span class="sig-name descname"><span class="pre">reset_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.reset_metrics" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.run_eagerly">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">run_eagerly</span></span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.run_eagerly" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.save">
@@ -1663,6 +1806,11 @@ These are all elements of state of the layer.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.stateless_compute_loss">
+<span class="sig-name descname"><span class="pre">stateless_compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainable_variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_trainable_variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.stateless_compute_loss" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.stateless_compute_metrics">
 <span class="sig-name descname"><span class="pre">stateless_compute_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">trainable_variables:</span> <span class="pre">any,</span> <span class="pre">non_trainable_variables:</span> <span class="pre">any,</span> <span class="pre">metrics_variables:</span> <span class="pre">any,</span> <span class="pre">data:</span> <span class="pre">dict[str,</span> <span class="pre">any],</span> <span class="pre">stage:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'training')</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'jax.Array'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'tuple'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.stateless_compute_metrics" title="Link to this definition">#</a></dt>
 <dd><p>Things we do for jax:
@@ -1682,6 +1830,16 @@ These are all elements of state of the layer.</p>
 1. The function is stateless
 2. The function can be differentiated with jax autograd</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.stateless_test_step">
+<span class="sig-name descname"><span class="pre">stateless_test_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">state:</span> <span class="pre">tuple,</span> <span class="pre">data:</span> <span class="pre">dict[str,</span> <span class="pre">any])</span> <span class="pre">-&gt;</span> <span class="pre">(dict[str,</span> <span class="pre">jax.Array],</span> <span class="pre">&lt;class</span> <span class="pre">'tuple'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.stateless_test_step" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.stateless_train_step">
+<span class="sig-name descname"><span class="pre">stateless_train_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">state:</span> <span class="pre">tuple,</span> <span class="pre">data:</span> <span class="pre">dict[str,</span> <span class="pre">any])</span> <span class="pre">-&gt;</span> <span class="pre">(dict[str,</span> <span class="pre">jax.Array],</span> <span class="pre">&lt;class</span> <span class="pre">'tuple'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.stateless_train_step" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.summary">
@@ -1727,6 +1885,11 @@ By default <cite>None</cite> considers all layers of the model.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.symbolic_call">
+<span class="sig-name descname"><span class="pre">symbolic_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.symbolic_call" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.test_on_batch">
 <span class="sig-name descname"><span class="pre">test_on_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.test_on_batch" title="Link to this definition">#</a></dt>
 <dd><p>Test the model on a single batch of samples.</p>
@@ -1753,6 +1916,11 @@ metric and loss values (if <cite>return_dict=True</cite>).</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.test_step">
+<span class="sig-name descname"><span class="pre">test_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.test_step" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.to_json">
@@ -1806,6 +1974,11 @@ metric and loss values (if <cite>return_dict=True</cite>).</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.train_step">
+<span class="sig-name descname"><span class="pre">train_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.ContinuousApproximator.train_step" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="bayesflow.approximators.ContinuousApproximator.trainable">
@@ -1903,6 +2076,7 @@ including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGen
     
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator"><code class="docutils literal notranslate"><span class="pre">ContinuousApproximator</span></code></a><ul class="nav section-nav flex-column visible">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.build_adapter"><code class="docutils literal notranslate"><span class="pre">build_adapter()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compile"><code class="docutils literal notranslate"><span class="pre">compile()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
@@ -1912,15 +2086,24 @@ including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGen
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.log_prob"><code class="docutils literal notranslate"><span class="pre">log_prob()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.add_loss"><code class="docutils literal notranslate"><span class="pre">add_loss()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.add_variable"><code class="docutils literal notranslate"><span class="pre">add_variable()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.build_dataset"><code class="docutils literal notranslate"><span class="pre">build_dataset()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.build_from_config"><code class="docutils literal notranslate"><span class="pre">build_from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.build_from_data"><code class="docutils literal notranslate"><span class="pre">build_from_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compile_from_config"><code class="docutils literal notranslate"><span class="pre">compile_from_config()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_dtype"><code class="docutils literal notranslate"><span class="pre">compute_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_loss"><code class="docutils literal notranslate"><span class="pre">compute_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_loss_and_updates"><code class="docutils literal notranslate"><span class="pre">compute_loss_and_updates()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_mask"><code class="docutils literal notranslate"><span class="pre">compute_mask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_output_shape"><code class="docutils literal notranslate"><span class="pre">compute_output_shape()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.compute_output_spec"><code class="docutils literal notranslate"><span class="pre">compute_output_spec()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.count_params"><code class="docutils literal notranslate"><span class="pre">count_params()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.dtype"><code class="docutils literal notranslate"><span class="pre">dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.dtype_policy"><code class="docutils literal notranslate"><span class="pre">dtype_policy</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.export"><code class="docutils literal notranslate"><span class="pre">export()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.get_build_config"><code class="docutils literal notranslate"><span class="pre">get_build_config()</span></code></a></li>
@@ -1931,10 +2114,18 @@ including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGen
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.get_weights"><code class="docutils literal notranslate"><span class="pre">get_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.input_dtype"><code class="docutils literal notranslate"><span class="pre">input_dtype</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.input_spec"><code class="docutils literal notranslate"><span class="pre">input_spec</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.jax_state_sync"><code class="docutils literal notranslate"><span class="pre">jax_state_sync()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.jit_compile"><code class="docutils literal notranslate"><span class="pre">jit_compile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.layers"><code class="docutils literal notranslate"><span class="pre">layers</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.load_own_variables"><code class="docutils literal notranslate"><span class="pre">load_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.load_weights"><code class="docutils literal notranslate"><span class="pre">load_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.losses"><code class="docutils literal notranslate"><span class="pre">losses</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.make_predict_function"><code class="docutils literal notranslate"><span class="pre">make_predict_function()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.make_test_function"><code class="docutils literal notranslate"><span class="pre">make_test_function()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.make_train_function"><code class="docutils literal notranslate"><span class="pre">make_train_function()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.metrics"><code class="docutils literal notranslate"><span class="pre">metrics</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.metrics_names"><code class="docutils literal notranslate"><span class="pre">metrics_names</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.metrics_variables"><code class="docutils literal notranslate"><span class="pre">metrics_variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.non_trainable_variables"><code class="docutils literal notranslate"><span class="pre">non_trainable_variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.non_trainable_weights"><code class="docutils literal notranslate"><span class="pre">non_trainable_weights</span></code></a></li>
@@ -1942,20 +2133,31 @@ including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGen
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.path"><code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.predict_on_batch"><code class="docutils literal notranslate"><span class="pre">predict_on_batch()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.predict_step"><code class="docutils literal notranslate"><span class="pre">predict_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.quantization_mode"><code class="docutils literal notranslate"><span class="pre">quantization_mode</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.quantized_build"><code class="docutils literal notranslate"><span class="pre">quantized_build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.quantized_call"><code class="docutils literal notranslate"><span class="pre">quantized_call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.reset_metrics"><code class="docutils literal notranslate"><span class="pre">reset_metrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.run_eagerly"><code class="docutils literal notranslate"><span class="pre">run_eagerly</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.save_own_variables"><code class="docutils literal notranslate"><span class="pre">save_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.save_weights"><code class="docutils literal notranslate"><span class="pre">save_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.set_state_tree"><code class="docutils literal notranslate"><span class="pre">set_state_tree()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.set_weights"><code class="docutils literal notranslate"><span class="pre">set_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.stateless_call"><code class="docutils literal notranslate"><span class="pre">stateless_call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.stateless_compute_loss"><code class="docutils literal notranslate"><span class="pre">stateless_compute_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.stateless_compute_metrics"><code class="docutils literal notranslate"><span class="pre">stateless_compute_metrics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.stateless_test_step"><code class="docutils literal notranslate"><span class="pre">stateless_test_step()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.stateless_train_step"><code class="docutils literal notranslate"><span class="pre">stateless_train_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.summary"><code class="docutils literal notranslate"><span class="pre">summary()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.supports_masking"><code class="docutils literal notranslate"><span class="pre">supports_masking</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.symbolic_call"><code class="docutils literal notranslate"><span class="pre">symbolic_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.test_on_batch"><code class="docutils literal notranslate"><span class="pre">test_on_batch()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.test_step"><code class="docutils literal notranslate"><span class="pre">test_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.to_json"><code class="docutils literal notranslate"><span class="pre">to_json()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.train_on_batch"><code class="docutils literal notranslate"><span class="pre">train_on_batch()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.train_step"><code class="docutils literal notranslate"><span class="pre">train_step()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.trainable"><code class="docutils literal notranslate"><span class="pre">trainable</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.trainable_variables"><code class="docutils literal notranslate"><span class="pre">trainable_variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.ContinuousApproximator.trainable_weights"><code class="docutils literal notranslate"><span class="pre">trainable_weights</span></code></a></li>

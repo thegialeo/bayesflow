@@ -465,6 +465,123 @@
                   
   <section id="module-bayesflow.helper_functions">
 <span id="bayesflow-helper-functions-module"></span><h1>bayesflow.helper_functions module<a class="headerlink" href="#module-bayesflow.helper_functions" title="Link to this heading">#</a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ConfigurationError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.helper_functions.</span></span><span class="sig-name descname"><span class="pre">ConfigurationError</span></span><a class="reference internal" href="../_modules/bayesflow/exceptions.html#ConfigurationError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.ConfigurationError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>Class for error in model configuration, e.g. in meta dict</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ConfigurationError.add_note">
+<span class="sig-name descname"><span class="pre">add_note</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.helper_functions.ConfigurationError.add_note" title="Link to this definition">#</a></dt>
+<dd><p>Exception.add_note(note) –
+add a note to the exception</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ConfigurationError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#bayesflow.helper_functions.ConfigurationError.args" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ConfigurationError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.helper_functions.ConfigurationError.with_traceback" title="Link to this definition">#</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.LearningRateSchedule">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.helper_functions.</span></span><span class="sig-name descname"><span class="pre">LearningRateSchedule</span></span><a class="reference internal" href="../_modules/keras/src/optimizers/schedules/learning_rate_schedule.html#LearningRateSchedule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.LearningRateSchedule" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The learning rate schedule base class.</p>
+<p>You can use a learning rate schedule to modulate how the learning rate
+of your optimizer changes over time.</p>
+<p>Several built-in learning rate schedules are available, such as
+<cite>tf.keras.optimizers.schedules.ExponentialDecay</cite> or
+<cite>tf.keras.optimizers.schedules.PiecewiseConstantDecay</cite>:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+lr_schedule = keras.optimizers.schedules.ExponentialDecay(</p>
+<blockquote>
+<div><p>initial_learning_rate=1e-2,
+decay_steps=10000,
+decay_rate=0.9)</p>
+</div></blockquote>
+<p>optimizer = keras.optimizers.SGD(learning_rate=lr_schedule)
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>A <cite>LearningRateSchedule</cite> instance can be passed in as the <cite>learning_rate</cite>
+argument of any optimizer.</p>
+<p>To implement your own schedule object, you should implement the <cite>__call__</cite>
+method, which takes a <cite>step</cite> argument (scalar integer tensor, the
+current training step count).
+Like for any other Keras object, you can also optionally
+make your object serializable by implementing the <cite>get_config</cite>
+and <cite>from_config</cite> methods.</p>
+<p>Example:</p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
+class MyLRSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def __init__(self, initial_learning_rate):</dt><dd><p>self.initial_learning_rate = initial_learning_rate</p>
+</dd>
+<dt>def __call__(self, step):</dt><dd><p>return self.initial_learning_rate / (step + 1)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>optimizer = tf.keras.optimizers.SGD(learning_rate=MyLRSchedule(0.1))
+<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.LearningRateSchedule.__call__">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/keras/src/optimizers/schedules/learning_rate_schedule.html#LearningRateSchedule.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.LearningRateSchedule.__call__" title="Link to this definition">#</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.LearningRateSchedule.from_config">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/keras/src/optimizers/schedules/learning_rate_schedule.html#LearningRateSchedule.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.LearningRateSchedule.from_config" title="Link to this definition">#</a></dt>
+<dd><p>Instantiates a <cite>LearningRateSchedule</cite> from its config.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>config: Output of <cite>get_config()</cite>.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A <cite>LearningRateSchedule</cite> instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.LearningRateSchedule.get_config">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/keras/src/optimizers/schedules/learning_rate_schedule.html#LearningRateSchedule.get_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.LearningRateSchedule.get_config" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ShapeError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.helper_functions.</span></span><span class="sig-name descname"><span class="pre">ShapeError</span></span><a class="reference internal" href="../_modules/bayesflow/exceptions.html#ShapeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.ShapeError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>Class for error in expected shapes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ShapeError.add_note">
+<span class="sig-name descname"><span class="pre">add_note</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.helper_functions.ShapeError.add_note" title="Link to this definition">#</a></dt>
+<dd><p>Exception.add_note(note) –
+add a note to the exception</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ShapeError.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#bayesflow.helper_functions.ShapeError.args" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.helper_functions.ShapeError.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.helper_functions.ShapeError.with_traceback" title="Link to this definition">#</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="bayesflow.helper_functions.backprop_step">
 <span class="sig-prename descclassname"><span class="pre">bayesflow.helper_functions.</span></span><span class="sig-name descname"><span class="pre">backprop_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amortizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/helper_functions.html#backprop_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.helper_functions.backprop_step" title="Link to this definition">#</a></dt>
@@ -640,8 +757,25 @@ dictionary = {k1: v1, k2: v2} -&gt; ‘k1: v1, k2: v2’</p>
     <i class="fa-solid fa-list"></i> On this page
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    
-<ul class="visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ConfigurationError"><code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ConfigurationError.add_note"><code class="docutils literal notranslate"><span class="pre">ConfigurationError.add_note()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ConfigurationError.args"><code class="docutils literal notranslate"><span class="pre">ConfigurationError.args</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ConfigurationError.with_traceback"><code class="docutils literal notranslate"><span class="pre">ConfigurationError.with_traceback()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.LearningRateSchedule"><code class="docutils literal notranslate"><span class="pre">LearningRateSchedule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.LearningRateSchedule.__call__"><code class="docutils literal notranslate"><span class="pre">LearningRateSchedule.__call__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.LearningRateSchedule.from_config"><code class="docutils literal notranslate"><span class="pre">LearningRateSchedule.from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.LearningRateSchedule.get_config"><code class="docutils literal notranslate"><span class="pre">LearningRateSchedule.get_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ShapeError"><code class="docutils literal notranslate"><span class="pre">ShapeError</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ShapeError.add_note"><code class="docutils literal notranslate"><span class="pre">ShapeError.add_note()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ShapeError.args"><code class="docutils literal notranslate"><span class="pre">ShapeError.args</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.ShapeError.with_traceback"><code class="docutils literal notranslate"><span class="pre">ShapeError.with_traceback()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.backprop_step"><code class="docutils literal notranslate"><span class="pre">backprop_step()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.build_meta_dict"><code class="docutils literal notranslate"><span class="pre">build_meta_dict()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.check_posterior_prior_shapes"><code class="docutils literal notranslate"><span class="pre">check_posterior_prior_shapes()</span></code></a></li>
@@ -651,9 +785,6 @@ dictionary = {k1: v1, k2: v2} -&gt; ‘k1: v1, k2: v2’</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.loss_to_string"><code class="docutils literal notranslate"><span class="pre">loss_to_string()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.helper_functions.merge_left_into_right"><code class="docutils literal notranslate"><span class="pre">merge_left_into_right()</span></code></a></li>
 </ul>
-
-
-
   </nav></div>
 
   <div class="sidebar-secondary-item">

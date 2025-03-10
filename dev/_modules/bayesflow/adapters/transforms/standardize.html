@@ -425,12 +425,12 @@
 <span class="sd">    ----------</span>
 <span class="sd">    mean : int or float, optional</span>
 <span class="sd">        Specify a mean if known but will be estimated from data when not provided</span>
-<span class="sd">    std: int or float, optional</span>
+<span class="sd">    std : int or float, optional</span>
 <span class="sd">        Specify a standard devation if known but will be estimated from data when not provided</span>
-<span class="sd">    axis: int, optional</span>
+<span class="sd">    axis : int, optional</span>
 <span class="sd">        A specific axis along which standardization should take place. By default</span>
 <span class="sd">        standardization happens individually for each dimension</span>
-<span class="sd">    momentum: float in (0,1)</span>
+<span class="sd">    momentum : float in (0,1)</span>
 <span class="sd">        The momentum during training</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -448,6 +448,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">momentum</span> <span class="o">=</span> <span class="n">momentum</span>
 
+<div class="viewcode-block" id="Standardize.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Standardize&quot;</span><span class="p">:</span>
         <span class="c1"># Deserialize turns tuples to lists, undo it if necessary</span>
@@ -459,16 +461,22 @@
             <span class="n">std</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;std&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
             <span class="n">axis</span><span class="o">=</span><span class="n">deserialized_axis</span><span class="p">,</span>
             <span class="n">momentum</span><span class="o">=</span><span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">],</span> <span class="n">custom_objects</span><span class="p">),</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="Standardize.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">),</span>
             <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std</span><span class="p">),</span>
             <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">),</span>
             <span class="s2">&quot;momentum&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">momentum</span><span class="p">),</span>
-        <span class="p">}</span>
+        <span class="p">}</span></div>
 
+
+<div class="viewcode-block" id="Standardize.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
@@ -492,8 +500,11 @@
         <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span></div>
 
+
+<div class="viewcode-block" id="Standardize.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">std</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot call `inverse` before calling `forward` at least once.&quot;</span><span class="p">)</span>
@@ -502,6 +513,7 @@
         <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">data</span> <span class="o">*</span> <span class="n">std</span> <span class="o">+</span> <span class="n">mean</span></div>
+</div>
 
 </pre></div>
 

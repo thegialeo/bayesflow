@@ -425,6 +425,18 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Defines a workflow for performing fast posterior or likelihood inference.</span>
 <span class="sd">    The distribution is approximated with an inference network and an optional summary network.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    adapter : Adapter</span>
+<span class="sd">        Adapter for data processing. You can use :py:meth:`build_adapter`</span>
+<span class="sd">        to create it.</span>
+<span class="sd">    inference_network : InferenceNetwork</span>
+<span class="sd">        The inference network used for posterior or likelihood approximation.</span>
+<span class="sd">    summary_network : SummaryNetwork, optional</span>
+<span class="sd">        The summary network used for data summarization (default is None).</span>
+<span class="sd">    **kwargs : dict, optional</span>
+<span class="sd">        Additional arguments passed to the :py:class:`bayesflow.approximators.Approximator` class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -440,6 +452,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">inference_network</span> <span class="o">=</span> <span class="n">inference_network</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">summary_network</span> <span class="o">=</span> <span class="n">summary_network</span>
 
+<div class="viewcode-block" id="ContinuousApproximator.build_adapter">
+<a class="viewcode-back" href="../../../api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.build_adapter">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_adapter</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
@@ -447,6 +461,17 @@
         <span class="n">inference_conditions</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">summary_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Adapter</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an :py:class:`~bayesflow.adapters.Adapter` suited for the approximator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inference_variables : Sequence of str</span>
+<span class="sd">            Names of the inference variables in the data</span>
+<span class="sd">        inference_conditions : Sequence of str, optional</span>
+<span class="sd">            Names of the inference conditions in the data</span>
+<span class="sd">        summary_variables : Sequence of str, optional</span>
+<span class="sd">            Names of the summary variables in the data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">adapter</span> <span class="o">=</span> <span class="n">Adapter</span><span class="o">.</span><span class="n">create_default</span><span class="p">(</span><span class="n">inference_variables</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">inference_conditions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -457,7 +482,8 @@
 
         <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">keep</span><span class="p">([</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;inference_conditions&quot;</span><span class="p">,</span> <span class="s2">&quot;summary_variables&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">adapter</span>
+        <span class="k">return</span> <span class="n">adapter</span></div>
+
 
 <div class="viewcode-block" id="ContinuousApproximator.compile">
 <a class="viewcode-back" href="../../../api/bayesflow.approximators.ContinuousApproximator.html#bayesflow.approximators.ContinuousApproximator.compile">[docs]</a>

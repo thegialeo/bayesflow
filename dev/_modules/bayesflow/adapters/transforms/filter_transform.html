@@ -465,6 +465,8 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_constructor</span><span class="o">.</span><span class="vm">__name__</span>
 
+<div class="viewcode-block" id="FilterTransform.extra_repr">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.extra_repr">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
@@ -483,8 +485,11 @@
 
             <span class="n">result</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;exclude=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">exclude</span><span class="si">!r}</span><span class="s2">&quot;</span>
 
-        <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span></div>
 
+
+<div class="viewcode-block" id="FilterTransform.from_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.from_config">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Transform&quot;</span><span class="p">:</span>
         <span class="n">transform_constructor</span> <span class="o">=</span> <span class="n">get_registered_object</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;transform_constructor&quot;</span><span class="p">])</span>
@@ -518,8 +523,11 @@
 
         <span class="n">instance</span><span class="o">.</span><span class="n">transform_map</span> <span class="o">=</span> <span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;transform_map&quot;</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="n">instance</span>
+        <span class="k">return</span> <span class="n">instance</span></div>
 
+
+<div class="viewcode-block" id="FilterTransform.get_config">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.get_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s2">&quot;transform_constructor&quot;</span><span class="p">:</span> <span class="n">get_registered_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_constructor</span><span class="p">),</span>
@@ -528,8 +536,11 @@
             <span class="s2">&quot;exclude&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exclude</span><span class="p">),</span>
             <span class="s2">&quot;kwargs&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">),</span>
             <span class="s2">&quot;transform_map&quot;</span><span class="p">:</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_map</span><span class="p">),</span>
-        <span class="p">}</span>
+        <span class="p">}</span></div>
 
+
+<div class="viewcode-block" id="FilterTransform.forward">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -542,8 +553,11 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_transform</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
                 <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_transform</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
+
+<div class="viewcode-block" id="FilterTransform.inverse">
+<a class="viewcode-back" href="../../../../api/bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform.inverse">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">strict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -556,7 +570,8 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_transform</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
                 <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_transform</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_should_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">inverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">match</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">include</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude</span><span class="p">:</span>

@@ -416,11 +416,14 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">keras_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_distribution</span> <span class="o">=</span> <span class="n">find_distribution</span><span class="p">(</span><span class="n">base_distribution</span><span class="p">)</span>
 
+<div class="viewcode-block" id="SummaryNetwork.build">
+<a class="viewcode-back" href="../../../api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.build">[docs]</a>
     <span class="nd">@sanitize_input_shape</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_distribution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">output_shape</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">base_distribution</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">output_shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_distribution</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">output_shape</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="SummaryNetwork.call">
 <a class="viewcode-back" href="../../../api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.call">[docs]</a>
@@ -435,6 +438,8 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 
+<div class="viewcode-block" id="SummaryNetwork.compute_metrics">
+<a class="viewcode-back" href="../../../api/bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork.compute_metrics">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">compute_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;training&quot;</span><span class="p">)</span>
 
@@ -451,6 +456,7 @@
                     <span class="n">metrics</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">metrics</span></div>
+</div>
 
 </pre></div>
 
