@@ -19,9 +19,11 @@ from .transforms import (
     FilterTransform,
     Keep,
     LambdaTransform,
+    Log,
     MapTransform,
     OneHot,
     Rename,
+    Sqrt,
     Standardize,
     ToArray,
     Transform,
@@ -500,6 +502,23 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(transform)
         return self
 
+    def log(self, keys: str | Sequence[str], *, p1: bool = False):
+        """Append an :py:class:`~transforms.Log` transform to the adapter.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to expand.
+        p1 : boolean
+            Add 1 to the input before taking the logarithm?
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = Log(keys, p1=p1)
+        self.transforms.append(transform)
+        return self
+
     def one_hot(self, keys: str | Sequence[str], num_classes: int):
         """Append a :py:class:`~transforms.OneHot` transform to the adapter.
 
@@ -528,6 +547,21 @@ class Adapter(MutableSequence[Transform]):
             New variable name
         """
         self.transforms.append(Rename(from_key, to_key))
+        return self
+
+    def sqrt(self, keys: str | Sequence[str]):
+        """Append an :py:class:`~transforms.Sqrt` transform to the adapter.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to expand.
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = Sqrt(keys)
+        self.transforms.append(transform)
         return self
 
     def standardize(
