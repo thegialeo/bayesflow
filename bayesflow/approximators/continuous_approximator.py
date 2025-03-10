@@ -20,6 +20,18 @@ class ContinuousApproximator(Approximator):
     """
     Defines a workflow for performing fast posterior or likelihood inference.
     The distribution is approximated with an inference network and an optional summary network.
+
+    Parameters
+    ----------
+    adapter : Adapter
+        Adapter for data processing. You can use :py:meth:`build_adapter`
+        to create it.
+    inference_network : InferenceNetwork
+        The inference network used for posterior or likelihood approximation.
+    summary_network : SummaryNetwork, optional
+        The summary network used for data summarization (default is None).
+    **kwargs : dict, optional
+        Additional arguments passed to the :py:class:`bayesflow.approximators.Approximator` class.
     """
 
     def __init__(
@@ -42,6 +54,17 @@ class ContinuousApproximator(Approximator):
         inference_conditions: Sequence[str] = None,
         summary_variables: Sequence[str] = None,
     ) -> Adapter:
+        """Create an :py:class:`~bayesflow.adapters.Adapter` suited for the approximator.
+
+        Parameters
+        ----------
+        inference_variables : Sequence of str
+            Names of the inference variables in the data
+        inference_conditions : Sequence of str, optional
+            Names of the inference conditions in the data
+        summary_variables : Sequence of str, optional
+            Names of the summary variables in the data
+        """
         adapter = Adapter.create_default(inference_variables)
 
         if inference_conditions is not None:
