@@ -1,6 +1,9 @@
 import numpy as np
 
-from collections.abc import Sequence
+from keras.saving import (
+    deserialize_keras_object as deserialize,
+    serialize_keras_object as serialize,
+)
 
 from .elementwise_transform import ElementwiseTransform
 
@@ -18,26 +21,29 @@ class Log(ElementwiseTransform):
     >>> adapter = bf.Adapter().log(["x"])
     """
 
-    def __init__(self, keys: Sequence[str], *, p1: bool = False):
+    def __init__(self, *, p1: bool = False):
         super().__init__()
-        self.keys = keys
         self.p1 = p1
 
-    def forward(self, data: dict[str, any], **kwargs) -> dict[str, np.ndarray]:
+    def forward(self, data: np.ndarray, **kwargs) -> np.ndarray:
         if self.p1:
-            return {k: (np.log1p(v) if k in self.keys else v) for k, v in data.items()}
+            return np.log1p(data)
         else:
-            return {k: (np.log(v) if k in self.keys else v) for k, v in data.items()}
+            return np.log(data)
 
-    def inverse(self, data: dict[str, any], **kwargs) -> dict[str, np.ndarray]:
+    def inverse(self, data: np.ndarray, **kwargs) -> np.ndarray:
         if self.p1:
-            return {k: (np.expm1(v) if k in self.keys else v) for k, v in data.items()}
+            return np.expm1(data)
         else:
-            return {k: (np.exp(v) if k in self.keys else v) for k, v in data.items()}
+            return np.exp(data)
 
     @classmethod
     def from_config(cls, config: dict, custom_objects=None) -> "Log":
-        return cls()
+        return cls(
+            p1=deserialize(config["p1"], custom_objects),
+        )
 
     def get_config(self) -> dict:
-        return {}
+        return {
+            "p1": serialize(self.p1),
+        }

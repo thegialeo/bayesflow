@@ -483,7 +483,7 @@ class Adapter(MutableSequence[Transform]):
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = ExpandDims(keys, axis=axis)
+        transform = MapTransform({key: ExpandDims(axis=axis) for key in keys})
         self.transforms.append(transform)
         return self
 
@@ -508,14 +508,14 @@ class Adapter(MutableSequence[Transform]):
         Parameters
         ----------
         keys : str or Sequence of str
-            The names of the variables to expand.
+            The names of the variables to transform.
         p1 : boolean
             Add 1 to the input before taking the logarithm?
         """
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = Log(keys, p1=p1)
+        transform = MapTransform({key: Log(p1=p1) for key in keys})
         self.transforms.append(transform)
         return self
 
@@ -555,12 +555,12 @@ class Adapter(MutableSequence[Transform]):
         Parameters
         ----------
         keys : str or Sequence of str
-            The names of the variables to expand.
+            The names of the variables to transform.
         """
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = Sqrt(keys)
+        transform = MapTransform({key: Sqrt() for key in keys})
         self.transforms.append(transform)
         return self
 
