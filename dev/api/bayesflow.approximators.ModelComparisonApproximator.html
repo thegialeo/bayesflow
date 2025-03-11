@@ -620,6 +620,23 @@
 <dd><p>Bases: <a class="reference internal" href="bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator" title="bayesflow.approximators.approximator.Approximator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Approximator</span></code></a></p>
 <p>Defines an approximator for model (simulator) comparison, where the (discrete) posterior model probabilities are
 learned with a classifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>adapter: Adapter</strong></dt><dd><p>Adapter for data processing.</p>
+</dd>
+<dt><strong>num_models: int</strong></dt><dd><p>Number of models (simulators) that the approximator will compare</p>
+</dd>
+<dt><strong>classifier_network: keras.Model</strong></dt><dd><p>The network (e.g, an MLP) that is used for model classification.
+The input of the classifier network is created by concatenating <cite>classifier_variables</cite>
+and (optional) output of the summary_network.</p>
+</dd>
+<dt><strong>summary_network: SummaryNetwork, optional</strong></dt><dd><p>The summary network used for data summarisation (default is None).
+The input of the summary network is <cite>summary_variables</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ModelComparisonApproximator.build">
 <span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_shapes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.13)"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/model_comparison_approximator.html#ModelComparisonApproximator.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ModelComparisonApproximator.build" title="Link to this definition">#</a></dt>
@@ -774,15 +791,18 @@ Example: <cite>{‘loss’: 0.2, ‘accuracy’: 0.7}</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ModelComparisonApproximator.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.adapter.Adapter"><span class="pre">Adapter</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PyDataset</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html#bayesflow.simulators.ModelComparisonSimulator" title="bayesflow.simulators.model_comparison_simulator.ModelComparisonSimulator"><span class="pre">ModelComparisonSimulator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.simulator.Simulator"><span class="pre">Simulator</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/approximators/model_comparison_approximator.html#ModelComparisonApproximator.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ModelComparisonApproximator.fit" title="Link to this definition">#</a></dt>
-<dd><p>Trains the approximator on the provided dataset or on-demand data generated from the given simulator.
+<dd><p>Trains the approximator on the provided dataset or on-demand generated from the given (multi-model) simulator.
 If <cite>dataset</cite> is not provided, a dataset is built from the <cite>simulator</cite>.
+If <cite>simulator</cite> is not provided, it will be build from a list of <cite>simulators</cite>.
 If the model has not been built, it will be built using a batch from the dataset.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>dataset</strong><span class="classifier">keras.utils.PyDataset, optional</span></dt><dd><p>A dataset containing simulations for training. If provided, <cite>simulator</cite> must be None.</p>
 </dd>
-<dt><strong>simulator</strong><span class="classifier">Simulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
+<dt><strong>simulator</strong><span class="classifier">ModelComparisonSimulator, optional</span></dt><dd><p>A simulator used to generate a dataset. If provided, <cite>dataset</cite> must be None.</p>
+</dd>
+<dt><strong>simulators: Sequence[Simulator], optional</strong></dt><dd><p>A list of simulators (one simulator per model). If provided, <cite>dataset</cite> must be None.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to <cite>keras.Model.fit()</cite>, including (see also <cite>build_dataset</cite>):</p>
 <dl class="simple">
@@ -824,7 +844,7 @@ or tensors).</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p>If both <cite>dataset</cite> and <cite>simulator</cite> are provided or neither is provided.</p>
+<dt>ValueError</dt><dd><p>If both <cite>dataset</cite> and <cite>simulator</cite> or <cite>simulators</cite> are provided or neither is provided.</p>
 </dd>
 </dl>
 </dd>
@@ -862,57 +882,25 @@ containing the information needed to re-instantiate it.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.ModelComparisonApproximator.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/approximators/model_comparison_approximator.html#ModelComparisonApproximator.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.approximators.ModelComparisonApproximator.predict" title="Link to this definition">#</a></dt>
-<dd><p>Generates output predictions for the input samples.</p>
-<p>Computation is done in batches. This method is designed for batch
-processing of large numbers of inputs. It is not intended for use inside
-of loops that iterate over your data and process small numbers of inputs
-at a time.</p>
-<p>For small numbers of inputs that fit in one batch,
-directly use <cite>__call__()</cite> for faster execution, e.g.,
-<cite>model(x)</cite>, or <cite>model(x, training=False)</cite> if you have layers such as
-<cite>BatchNormalization</cite> that behave differently during
-inference.</p>
-<p>Note: See [this FAQ entry](
-<a class="reference external" href="https://keras.io/getting_started/faq/#whats-the-difference-between-model-methods-predict-and-call">https://keras.io/getting_started/faq/#whats-the-difference-between-model-methods-predict-and-call</a>)
-for more details about the difference between <cite>Model</cite> methods
-<cite>predict()</cite> and <cite>__call__()</cite>.</p>
-<dl>
-<dt>Args:</dt><dd><dl>
-<dt>x: Input data. It can be:</dt><dd><ul class="simple">
-<li><p>A NumPy array (or array-like), or a list of arrays</p></li>
-</ul>
-<p>(in case the model has multiple inputs).
-- A backend-native tensor, or a list of tensors
-(in case the model has multiple inputs).
-- A dict mapping input names to the corresponding array/tensors,
-if the model has named inputs.
-- A <cite>keras.utils.PyDataset</cite>.
-- A <cite>tf.data.Dataset</cite>.
-- A <cite>torch.utils.data.DataLoader</cite>.
-- A Python generator function.</p>
+<dd><p>Predicts posterior model probabilities given input conditions. The <cite>conditions</cite> dictionary is preprocessed
+using the <cite>adapter</cite>. The output is converted to NumPy array after inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>conditions</strong><span class="classifier">dict[str, np.ndarray]</span></dt><dd><p>Dictionary of conditioning variables as NumPy arrays.</p>
 </dd>
-<dt>batch_size: Integer or <cite>None</cite>.</dt><dd><p>Number of samples per batch of computation.
-If unspecified, <cite>batch_size</cite> will default to 32.
-Do not specify the <cite>batch_size</cite> if your input data <cite>x</cite> is a
-<cite>keras.utils.PyDataset</cite>, <cite>tf.data.Dataset</cite>,
-<cite>torch.utils.data.DataLoader</cite> or Python generator function
-since they generate batches.</p>
+<dt><strong>logits: bool, default=False</strong></dt><dd><p>Should the posterior model probabilities be on the (unconstrained) logit space?
+If <cite>False</cite>, the output is a unit simplex instead.</p>
 </dd>
-<dt>verbose: <cite>“auto”</cite>, 0, 1, or 2. Verbosity mode.</dt><dd><p>0 = silent, 1 = progress bar, 2 = single line.
-<cite>“auto”</cite> becomes 1 for most cases. Note that the progress bar
-is not particularly useful when logged to a file,
-so <cite>verbose=2</cite> is recommended when not running interactively
-(e.g. in a production environment). Defaults to <cite>“auto”</cite>.</p>
-</dd>
-<dt>steps: Total number of steps (batches of samples) to draw before</dt><dd><p>declaring the prediction round finished. If <cite>steps</cite> is <cite>None</cite>,
-it will run until <cite>x</cite> is exhausted. In the case of an infinitely
-repeating dataset, it will run indefinitely.</p>
-</dd>
-<dt>callbacks: List of <cite>keras.callbacks.Callback</cite> instances.</dt><dd><p>List of callbacks to apply during prediction.</p>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Additional keyword arguments for the adapter and classification process.</p>
 </dd>
 </dl>
 </dd>
-<dt>Returns:</dt><dd><p>NumPy array(s) of predictions.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>Predicted posterior model probabilities given <cite>conditions</cite>.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

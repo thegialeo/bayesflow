@@ -427,6 +427,20 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Defines an approximator for model (simulator) comparison, where the (discrete) posterior model probabilities are</span>
 <span class="sd">    learned with a classifier.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    adapter: Adapter</span>
+<span class="sd">        Adapter for data processing.</span>
+<span class="sd">    num_models: int</span>
+<span class="sd">        Number of models (simulators) that the approximator will compare</span>
+<span class="sd">    classifier_network: keras.Model</span>
+<span class="sd">        The network (e.g, an MLP) that is used for model classification.</span>
+<span class="sd">        The input of the classifier network is created by concatenating `classifier_variables`</span>
+<span class="sd">        and (optional) output of the summary_network.</span>
+<span class="sd">    summary_network: SummaryNetwork, optional</span>
+<span class="sd">        The summary network used for data summarisation (default is None).</span>
+<span class="sd">        The input of the summary network is `summary_variables`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -583,6 +597,60 @@
         <span class="n">simulators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Simulator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Trains the approximator on the provided dataset or on-demand generated from the given (multi-model) simulator.</span>
+<span class="sd">        If `dataset` is not provided, a dataset is built from the `simulator`.</span>
+<span class="sd">        If `simulator` is not provided, it will be build from a list of `simulators`.</span>
+<span class="sd">        If the model has not been built, it will be built using a batch from the dataset.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dataset : keras.utils.PyDataset, optional</span>
+<span class="sd">            A dataset containing simulations for training. If provided, `simulator` must be None.</span>
+<span class="sd">        simulator : ModelComparisonSimulator, optional</span>
+<span class="sd">            A simulator used to generate a dataset. If provided, `dataset` must be None.</span>
+<span class="sd">        simulators: Sequence[Simulator], optional</span>
+<span class="sd">            A list of simulators (one simulator per model). If provided, `dataset` must be None.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Additional keyword arguments passed to `keras.Model.fit()`, including (see also `build_dataset`):</span>
+
+<span class="sd">            batch_size : int or None, default=&#39;auto&#39;</span>
+<span class="sd">                Number of samples per gradient update. Do not specify if `dataset` is provided as a</span>
+<span class="sd">                `keras.utils.PyDataset`, `tf.data.Dataset`, `torch.utils.data.DataLoader`, or a generator function.</span>
+<span class="sd">            epochs : int, default=1</span>
+<span class="sd">                Number of epochs to train the model.</span>
+<span class="sd">            verbose : {&quot;auto&quot;, 0, 1, 2}, default=&quot;auto&quot;</span>
+<span class="sd">                Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.</span>
+<span class="sd">            callbacks : list of keras.callbacks.Callback, optional</span>
+<span class="sd">                List of callbacks to apply during training.</span>
+<span class="sd">            validation_split : float, optional</span>
+<span class="sd">                Fraction of training data to use for validation (only supported if `dataset` consists of NumPy arrays</span>
+<span class="sd">                or tensors).</span>
+<span class="sd">            validation_data : tuple or dataset, optional</span>
+<span class="sd">                Data for validation, overriding `validation_split`.</span>
+<span class="sd">            shuffle : bool, default=True</span>
+<span class="sd">                Whether to shuffle the training data before each epoch (ignored for dataset generators).</span>
+<span class="sd">            initial_epoch : int, default=0</span>
+<span class="sd">                Epoch at which to start training (useful for resuming training).</span>
+<span class="sd">            steps_per_epoch : int or None, optional</span>
+<span class="sd">                Number of steps (batches) before declaring an epoch finished.</span>
+<span class="sd">            validation_steps : int or None, optional</span>
+<span class="sd">                Number of validation steps per validation epoch.</span>
+<span class="sd">            validation_batch_size : int or None, optional</span>
+<span class="sd">                Number of samples per validation batch (defaults to `batch_size`).</span>
+<span class="sd">            validation_freq : int, default=1</span>
+<span class="sd">                Specifies how many training epochs to run before performing validation.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        keras.callbacks.History</span>
+<span class="sd">            A history object containing the training loss and metrics values.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If both `dataset` and `simulator` or `simulators` are provided or neither is provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">simulator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">simulators</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -638,6 +706,25 @@
         <span class="n">logits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predicts posterior model probabilities given input conditions. The `conditions` dictionary is preprocessed</span>
+<span class="sd">        using the `adapter`. The output is converted to NumPy array after inference.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        conditions : dict[str, np.ndarray]</span>
+<span class="sd">            Dictionary of conditioning variables as NumPy arrays.</span>
+<span class="sd">        logits: bool, default=False</span>
+<span class="sd">            Should the posterior model probabilities be on the (unconstrained) logit space?</span>
+<span class="sd">            If `False`, the output is a unit simplex instead.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Additional keyword arguments for the adapter and classification process.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            Predicted posterior model probabilities given `conditions`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapter</span><span class="p">(</span><span class="n">conditions</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="s2">&quot;inference&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="c1"># at inference time, model_indices are predicted by the networks and thus ignored in conditions</span>
         <span class="n">conditions</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;model_indices&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
