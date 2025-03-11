@@ -438,6 +438,12 @@
 <span class="sd">    squeeze : int or tuple, optional</span>
 <span class="sd">        Axis to squeeze after broadcasting.</span>
 
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Important: Do not broadcast to variables that are used as inference variables</span>
+<span class="sd">    (i.e., parameters to be inferred by the networks). The adapter will work during training</span>
+<span class="sd">    but then fail during inference because the variable being broadcasted to is not available.</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    shape (1, ) array:</span>

@@ -643,6 +643,10 @@ By default we exclude the last dimension (usually the data dimension) from broad
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Important: Do not broadcast to variables that are used as inference variables
+(i.e., parameters to be inferred by the networks). The adapter will work during training
+but then fail during inference because the variable being broadcasted to is not available.</p>
 <p class="rubric">Examples</p>
 <p>shape (1, ) array:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1</span><span class="p">,))</span>

@@ -781,6 +781,12 @@
 <span class="sd">            By default we exclude the last dimension (usually the data dimension) from broadcasting the size.</span>
 <span class="sd">        squeeze : int or tuple, optional</span>
 <span class="sd">            Axis to squeeze after broadcasting.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Important: Do not broadcast to variables that are used as inference variables</span>
+<span class="sd">        (i.e., parameters to be inferred by the networks). The adapter will work during training</span>
+<span class="sd">        but then fail during inference because the variable being broadcasted to is not available.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">keys</span><span class="p">]</span>
