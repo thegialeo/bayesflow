@@ -5,7 +5,6 @@ from keras.saving import (
     serialize_keras_object as serialize,
 )
 
-from collections.abc import Sequence
 from .elementwise_transform import ElementwiseTransform
 
 
@@ -15,8 +14,6 @@ class ExpandDims(ElementwiseTransform):
 
     Parameters
     ----------
-    keys : str or Sequence of str
-        The names of the variables to expand.
     axis : int or tuple
         The axis to expand.
 
@@ -49,29 +46,23 @@ class ExpandDims(ElementwiseTransform):
     It is recommended to precede this transform with a :class:`bayesflow.adapters.transforms.ToArray` transform.
     """
 
-    def __init__(self, keys: Sequence[str], *, axis: int | tuple):
+    def __init__(self, *, axis: int | tuple):
         super().__init__()
-
-        self.keys = keys
         self.axis = axis
 
     @classmethod
     def from_config(cls, config: dict, custom_objects=None) -> "ExpandDims":
         return cls(
-            keys=deserialize(config["keys"], custom_objects),
             axis=deserialize(config["axis"], custom_objects),
         )
 
     def get_config(self) -> dict:
         return {
-            "keys": serialize(self.keys),
             "axis": serialize(self.axis),
         }
 
-    # noinspection PyMethodOverriding
-    def forward(self, data: dict[str, any], **kwargs) -> dict[str, np.ndarray]:
-        return {k: (np.expand_dims(v, axis=self.axis) if k in self.keys else v) for k, v in data.items()}
+    def forward(self, data: np.ndarray, **kwargs) -> np.ndarray:
+        return np.expand_dims(data, axis=self.axis)
 
-    # noinspection PyMethodOverriding
-    def inverse(self, data: dict[str, any], **kwargs) -> dict[str, np.ndarray]:
-        return {k: (np.squeeze(v, axis=self.axis) if k in self.keys else v) for k, v in data.items()}
+    def inverse(self, data: np.ndarray, **kwargs) -> np.ndarray:
+        return np.squeeze(data, axis=self.axis)

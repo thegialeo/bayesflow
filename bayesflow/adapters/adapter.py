@@ -19,9 +19,11 @@ from .transforms import (
     FilterTransform,
     Keep,
     LambdaTransform,
+    Log,
     MapTransform,
     OneHot,
     Rename,
+    Sqrt,
     Standardize,
     ToArray,
     Transform,
@@ -487,7 +489,7 @@ class Adapter(MutableSequence[Transform]):
         if isinstance(keys, str):
             keys = [keys]
 
-        transform = ExpandDims(keys, axis=axis)
+        transform = MapTransform({key: ExpandDims(axis=axis) for key in keys})
         self.transforms.append(transform)
         return self
 
@@ -503,6 +505,23 @@ class Adapter(MutableSequence[Transform]):
             keys = [keys]
 
         transform = Keep(keys)
+        self.transforms.append(transform)
+        return self
+
+    def log(self, keys: str | Sequence[str], *, p1: bool = False):
+        """Append an :py:class:`~transforms.Log` transform to the adapter.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to transform.
+        p1 : boolean
+            Add 1 to the input before taking the logarithm?
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = MapTransform({key: Log(p1=p1) for key in keys})
         self.transforms.append(transform)
         return self
 
@@ -534,6 +553,21 @@ class Adapter(MutableSequence[Transform]):
             New variable name
         """
         self.transforms.append(Rename(from_key, to_key))
+        return self
+
+    def sqrt(self, keys: str | Sequence[str]):
+        """Append an :py:class:`~transforms.Sqrt` transform to the adapter.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to transform.
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = MapTransform({key: Sqrt() for key in keys})
+        self.transforms.append(transform)
         return self
 
     def standardize(
