@@ -69,7 +69,7 @@ class PointInferenceNetwork(keras.Layer):
                 # is resolved, a flat version of the heads dictionary is kept.
                 # This allows to save head weights properly, see for reference
                 # https://github.com/keras-team/keras/blob/v3.3.3/keras/src/saving/saving_lib.py#L481.
-                # A nested heads dict is still prefered over this flat dict,
+                # A nested heads dict is still preferred over this flat dict,
                 # because it avoids string operation based filtering in `self._forward()`.
                 flat_key = f"{score_key}___{head_key}"
                 self.heads_flat[flat_key] = head
@@ -96,17 +96,12 @@ class PointInferenceNetwork(keras.Layer):
         if xz is None and not self.built:
             raise ValueError("Cannot build inference network without inference variables.")
         if conditions is None:  # unconditional estimation uses a fixed input vector
-            conditions = keras.ops.convert_to_tensor([[1.0]], dtype="float32")
-        return self._forward(conditions=conditions, training=training, **kwargs)
+            conditions = keras.ops.convert_to_tensor([[1.0]], dtype=keras.ops.dtype(xz))
 
-    def _forward(
-        self,
-        conditions: Tensor = None,
-        training: bool = False,
-        **kwargs,
-    ) -> dict[str, Tensor]:
+        # pass conditions to the shared subnet
         output = self.subnet(conditions, training=training)
 
+        # pass along to calculate individual head outputs
         output = {
             score_key: {head_key: head(output, training=training) for head_key, head in self.heads[score_key].items()}
             for score_key in self.heads.keys()
