@@ -97,7 +97,7 @@ def test_simple_transforms(random_data):
 
     result = adapter(random_data)
 
-    assert np.isfinite(result["o1"][0, 0])
-    assert np.isfinite(result["p2"][0, 0])
-    assert np.isfinite(result["t1"][0, 0])
-    assert np.isfinite(result["p1"][0, 0])
+    assert np.array_equal(result["o1"], np.log(random_data["o1"]))
+    assert np.array_equal(result["p2"], np.log(random_data["p2"]))
+    assert np.array_equal(result["t1"], np.log1p(random_data["t1"]))
+    assert np.array_equal(result["p1"], np.sqrt(random_data["p1"]))
