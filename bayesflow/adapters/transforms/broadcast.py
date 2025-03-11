@@ -33,6 +33,12 @@ class Broadcast(Transform):
     squeeze : int or tuple, optional
         Axis to squeeze after broadcasting.
 
+    Notes
+    -----
+    Important: Do not broadcast to variables that are used as inference variables
+    (i.e., parameters to be inferred by the networks). The adapter will work during training
+    but then fail during inference because the variable being broadcasted to is not available.
+
     Examples
     --------
     shape (1, ) array:
