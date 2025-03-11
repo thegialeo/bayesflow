@@ -25,17 +25,17 @@ class Ordered(keras.Layer):
         assert self.anchor_index % input_shape[self.axis] != 0 and self.anchor_index != -1, (
             "anchor should not be first or last index."
         )
-        self.group_indeces = dict(
+        self.group_indices = dict(
             below=list(range(0, self.anchor_index)),
             above=list(range(self.anchor_index + 1, input_shape[self.axis])),
         )
 
     def call(self, inputs):
         # Divide in anchor, below and above
-        below_inputs = keras.ops.take(inputs, self.group_indeces["below"], axis=self.axis)
+        below_inputs = keras.ops.take(inputs, self.group_indices["below"], axis=self.axis)
         anchor_input = keras.ops.take(inputs, self.anchor_index, axis=self.axis)
         anchor_input = keras.ops.expand_dims(anchor_input, axis=self.axis)
-        above_inputs = keras.ops.take(inputs, self.group_indeces["above"], axis=self.axis)
+        above_inputs = keras.ops.take(inputs, self.group_indices["above"], axis=self.axis)
 
         # Apply softplus for positivity and cumulate to ensure ordered quantiles
         below = keras.activations.softplus(below_inputs)
