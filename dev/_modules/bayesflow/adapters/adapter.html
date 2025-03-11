@@ -422,9 +422,11 @@
     <span class="n">FilterTransform</span><span class="p">,</span>
     <span class="n">Keep</span><span class="p">,</span>
     <span class="n">LambdaTransform</span><span class="p">,</span>
+    <span class="n">Log</span><span class="p">,</span>
     <span class="n">MapTransform</span><span class="p">,</span>
     <span class="n">OneHot</span><span class="p">,</span>
     <span class="n">Rename</span><span class="p">,</span>
+    <span class="n">Sqrt</span><span class="p">,</span>
     <span class="n">Standardize</span><span class="p">,</span>
     <span class="n">ToArray</span><span class="p">,</span>
     <span class="n">Transform</span><span class="p">,</span>
@@ -948,7 +950,7 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">keys</span><span class="p">]</span>
 
-        <span class="n">transform</span> <span class="o">=</span> <span class="n">ExpandDims</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+        <span class="n">transform</span> <span class="o">=</span> <span class="n">MapTransform</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">ExpandDims</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -967,6 +969,26 @@
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">keys</span><span class="p">]</span>
 
         <span class="n">transform</span> <span class="o">=</span> <span class="n">Keep</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Adapter.log">
+<a class="viewcode-back" href="../../../api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.log">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">p1</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append an :py:class:`~transforms.Log` transform to the adapter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        keys : str or Sequence of str</span>
+<span class="sd">            The names of the variables to transform.</span>
+<span class="sd">        p1 : boolean</span>
+<span class="sd">            Add 1 to the input before taking the logarithm?</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">keys</span><span class="p">]</span>
+
+        <span class="n">transform</span> <span class="o">=</span> <span class="n">MapTransform</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">Log</span><span class="p">(</span><span class="n">p1</span><span class="o">=</span><span class="n">p1</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -1004,6 +1026,24 @@
 <span class="sd">            New variable name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Rename</span><span class="p">(</span><span class="n">from_key</span><span class="p">,</span> <span class="n">to_key</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Adapter.sqrt">
+<a class="viewcode-back" href="../../../api/bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter.sqrt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append an :py:class:`~transforms.Sqrt` transform to the adapter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        keys : str or Sequence of str</span>
+<span class="sd">            The names of the variables to transform.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">keys</span><span class="p">]</span>
+
+        <span class="n">transform</span> <span class="o">=</span> <span class="n">MapTransform</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">Sqrt</span><span class="p">()</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 

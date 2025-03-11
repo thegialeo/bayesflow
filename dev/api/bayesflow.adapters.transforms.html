@@ -370,9 +370,11 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Log.html">Log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Sqrt.html">Sqrt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
@@ -641,7 +643,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform" title="bayesflow.adapters.transforms.ElementwiseTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ElementwiseTransform</span></code></a>()</p></td>
 <td><p>Base class on which other transforms are based</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims" title="bayesflow.adapters.transforms.ExpandDims"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpandDims</span></code></a>(keys, *, axis)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.ExpandDims.html#bayesflow.adapters.transforms.ExpandDims" title="bayesflow.adapters.transforms.ExpandDims"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpandDims</span></code></a>(*, axis)</p></td>
 <td><p>Expand the shape of an array.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html#bayesflow.adapters.transforms.FilterTransform" title="bayesflow.adapters.transforms.FilterTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FilterTransform</span></code></a>(*, transform_constructor[, ...])</p></td>
@@ -653,14 +655,20 @@
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html#bayesflow.adapters.transforms.LambdaTransform" title="bayesflow.adapters.transforms.LambdaTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LambdaTransform</span></code></a>(*, forward, inverse)</p></td>
 <td><p>Transforms a parameter using a pair of forward and inverse functions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform" title="bayesflow.adapters.transforms.MapTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapTransform</span></code></a>(transform_map)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.Log.html#bayesflow.adapters.transforms.Log" title="bayesflow.adapters.transforms.Log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Log</span></code></a>(*[, p1])</p></td>
+<td><p>Log transforms a variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html#bayesflow.adapters.transforms.MapTransform" title="bayesflow.adapters.transforms.MapTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapTransform</span></code></a>(transform_map)</p></td>
 <td><p>Implements a transform that applies a set of elementwise transforms to a subset of the data as given by a mapping.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot" title="bayesflow.adapters.transforms.OneHot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OneHot</span></code></a>(num_classes)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot" title="bayesflow.adapters.transforms.OneHot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OneHot</span></code></a>(num_classes)</p></td>
 <td><p>Changes data to be one-hot encoded.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename" title="bayesflow.adapters.transforms.Rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rename</span></code></a>(from_key, to_key)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html#bayesflow.adapters.transforms.Rename" title="bayesflow.adapters.transforms.Rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rename</span></code></a>(from_key, to_key)</p></td>
 <td><p>Transform to rename keys in data dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.Sqrt.html#bayesflow.adapters.transforms.Sqrt" title="bayesflow.adapters.transforms.Sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sqrt</span></code></a>()</p></td>
+<td><p>Square-root transform a variable.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html#bayesflow.adapters.transforms.Standardize" title="bayesflow.adapters.transforms.Standardize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Standardize</span></code></a>([mean, std, axis, momentum])</p></td>
 <td><p>Transform that when applied standardizes data using typical z-score standardization i.e. for some unstandardized data x the standardized version z  would be.</p></td>

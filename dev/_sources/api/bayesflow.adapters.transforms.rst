@@ -36,9 +36,11 @@ transforms
     FilterTransform
     Keep
     LambdaTransform
+    Log
     MapTransform
     OneHot
     Rename
+    Sqrt
     Standardize
     ToArray
     Transform

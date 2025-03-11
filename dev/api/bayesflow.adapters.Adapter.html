@@ -370,9 +370,11 @@
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.FilterTransform.html">FilterTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Keep.html">Keep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.LambdaTransform.html">LambdaTransform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Log.html">Log</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.MapTransform.html">MapTransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html">OneHot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Rename.html">Rename</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Sqrt.html">Sqrt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Standardize.html">Standardize</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.ToArray.html">ToArray</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bayesflow.adapters.transforms.Transform.html">Transform</a></li>
@@ -1000,6 +1002,22 @@ with the default transformations applied to data exactly at the boundaries.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.log" title="Link to this definition">#</a></dt>
+<dd><p>Append an <a class="reference internal" href="bayesflow.adapters.transforms.Log.html#bayesflow.adapters.transforms.Log" title="bayesflow.adapters.transforms.Log"><code class="xref py py-class docutils literal notranslate"><span class="pre">Log</span></code></a> transform to the adapter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>keys</strong><span class="classifier">str or Sequence of str</span></dt><dd><p>The names of the variables to transform.</p>
+</dd>
+<dt><strong>p1</strong><span class="classifier">boolean</span></dt><dd><p>Add 1 to the input before taking the logarithm?</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.adapters.Adapter.one_hot">
 <span class="sig-name descname"><span class="pre">one_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.one_hot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.one_hot" title="Link to this definition">#</a></dt>
 <dd><p>Append a <a class="reference internal" href="bayesflow.adapters.transforms.OneHot.html#bayesflow.adapters.transforms.OneHot" title="bayesflow.adapters.transforms.OneHot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneHot</span></code></a> transform to the adapter.</p>
@@ -1025,6 +1043,20 @@ with the default transformations applied to data exactly at the boundaries.</p>
 <dt><strong>from_key</strong><span class="classifier">str</span></dt><dd><p>Variable name that should be renamed</p>
 </dd>
 <dt><strong>to_key</strong><span class="classifier">str</span></dt><dd><p>New variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.adapters.Adapter.sqrt">
+<span class="sig-name descname"><span class="pre">sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/adapter.html#Adapter.sqrt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.Adapter.sqrt" title="Link to this definition">#</a></dt>
+<dd><p>Append an <a class="reference internal" href="bayesflow.adapters.transforms.Sqrt.html#bayesflow.adapters.transforms.Sqrt" title="bayesflow.adapters.transforms.Sqrt"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sqrt</span></code></a> transform to the adapter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>keys</strong><span class="classifier">str or Sequence of str</span></dt><dd><p>The names of the variables to transform.</p>
 </dd>
 </dl>
 </dd>
@@ -1177,8 +1209,10 @@ Raise ValueError if the value is not present.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.drop"><code class="docutils literal notranslate"><span class="pre">drop()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.expand_dims"><code class="docutils literal notranslate"><span class="pre">expand_dims()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.keep"><code class="docutils literal notranslate"><span class="pre">keep()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.one_hot"><code class="docutils literal notranslate"><span class="pre">one_hot()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.rename"><code class="docutils literal notranslate"><span class="pre">rename()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.standardize"><code class="docutils literal notranslate"><span class="pre">standardize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.to_array"><code class="docutils literal notranslate"><span class="pre">to_array()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.adapters.Adapter.count"><code class="docutils literal notranslate"><span class="pre">count()</span></code></a></li>
