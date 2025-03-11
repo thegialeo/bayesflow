@@ -6,6 +6,8 @@ from bayesflow.utils import keras_kwargs
 
 @serializable(package="links.ordered")
 class Ordered(keras.Layer):
+    """Activation function to link to a tensor which is monotonously increasing along a specified axis."""
+
     def __init__(self, axis: int, anchor_index: int, **kwargs):
         super().__init__(**keras_kwargs(kwargs))
         self.axis = axis

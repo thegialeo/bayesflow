@@ -4,6 +4,8 @@ from bayesflow.utils import keras_kwargs
 
 
 class PositiveSemiDefinite(keras.Layer):
+    """Activation function to link from any square matrix to a positive semidefinite matrix."""
+
     def __init__(self, **kwargs):
         super().__init__(**keras_kwargs(kwargs))
 

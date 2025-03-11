@@ -12,8 +12,10 @@ from .continuous_approximator import ContinuousApproximator
 @serializable(package="bayesflow.approximators")
 class PointApproximator(ContinuousApproximator):
     """
-    Defines a workflow for performing fast posterior or likelihood inference.
-    The distribution is approximated by point estimators with a feed-forward network and an optional summary network.
+    A workflow for fast amortized point estimation of a conditional distribution.
+
+    The distribution is approximated by point estimators, parameterized by a feed-forward `PointInferenceNetwork`.
+    Conditions can be compressed by an optional `SummaryNetwork` or used directly as input to the inference network.
     """
 
     def estimate(
