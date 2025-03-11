@@ -93,11 +93,20 @@ def test_simple_transforms(random_data):
     # check if simple transforms are applied correctly
     from bayesflow.adapters import Adapter
 
-    adapter = Adapter().log(["o1", "p2"]).log("t1", p1=True).sqrt("p1")
+    adapter = Adapter().log(["p2", "t2"]).log("t1", p1=True).sqrt("p1")
 
     result = adapter(random_data)
 
-    assert np.array_equal(result["o1"], np.log(random_data["o1"]))
     assert np.array_equal(result["p2"], np.log(random_data["p2"]))
+    assert np.array_equal(result["t2"], np.log(random_data["t2"]))
     assert np.array_equal(result["t1"], np.log1p(random_data["t1"]))
     assert np.array_equal(result["p1"], np.sqrt(random_data["p1"]))
+
+    # inverse results should match the original input
+    inverse = adapter.inverse(result)
+
+    assert np.array_equal(inverse["p2"], random_data["p2"])
+    assert np.array_equal(inverse["t2"], random_data["t2"])
+    assert np.array_equal(inverse["t1"], random_data["t1"])
+    # numerical inaccuries prevent np.array_equal to work here
+    assert np.allclose(inverse["p1"], random_data["p1"])
