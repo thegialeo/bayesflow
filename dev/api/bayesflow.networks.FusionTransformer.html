@@ -671,6 +671,32 @@ units (equiv. output dimensions) of the recurrent network.</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/fusion_transformer.html#FusionTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FusionTransformer.call" title="Link to this definition">#</a></dt>
+<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
+</dd>
+<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
+layers to distinguish between train and test time behavior.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
+such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FusionTransformer.__call__" title="Link to this definition">#</a></dt>
 <dd><p>Call self as a function.</p>
@@ -741,7 +767,7 @@ when writing custom data parallel training loops.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.FusionTransformer.build" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/fusion_transformer.html#FusionTransformer.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FusionTransformer.build" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -754,32 +780,6 @@ config. If your config contains other information needed to load the
 layer’s state, you should override this method.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: Dict containing the input shape associated with this layer.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.FusionTransformer.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/fusion_transformer.html#FusionTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.FusionTransformer.call" title="Link to this definition">#</a></dt>
-<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
-layers to distinguish between train and test time behavior.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
-such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
-</dd>
-</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1168,6 +1168,7 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
     
 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer"><code class="docutils literal notranslate"><span class="pre">FusionTransformer</span></code></a><ul class="nav section-nav flex-column visible">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.add_loss"><code class="docutils literal notranslate"><span class="pre">add_loss()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
@@ -1175,7 +1176,6 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.build_from_config"><code class="docutils literal notranslate"><span class="pre">build_from_config()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.compute_dtype"><code class="docutils literal notranslate"><span class="pre">compute_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.compute_mask"><code class="docutils literal notranslate"><span class="pre">compute_mask()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.FusionTransformer.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>

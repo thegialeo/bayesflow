@@ -729,11 +729,6 @@ when writing custom data parallel training loops.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.build" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.build_from_config">
 <span class="sig-name descname"><span class="pre">build_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.build_from_config" title="Link to this definition">#</a></dt>
 <dd><p>Builds the layer’s states with the supplied config dict.</p>
@@ -743,6 +738,32 @@ config. If your config contains other information needed to load the
 layer’s state, you should override this method.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>config: Dict containing the input shape associated with this layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/time_series_transformer.html#TimeSeriesTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.call" title="Link to this definition">#</a></dt>
+<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
+</dd>
+<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
+layers to distinguish between train and test time behavior.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
+such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1079,30 +1100,9 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.call">
-<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/time_series_transformer.html#TimeSeriesTransformer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.call" title="Link to this definition">#</a></dt>
-<dd><p>Compresses the input sequence into a summary vector of size <cite>summary_dim</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>input_sequence</strong><span class="classifier">Tensor</span></dt><dd><p>Input of shape (batch_size, sequence_length, input_dim)</p>
-</dd>
-<dt><strong>training</strong><span class="classifier">boolean, optional (default - False)</span></dt><dd><p>Passed to the optional internal dropout and spectral normalization
-layers to distinguish between train and test time behavior.</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">dict, optional (default - {})</span></dt><dd><p>Additional keyword arguments passed to the internal attention layer,
-such as <code class="docutils literal notranslate"><span class="pre">attention_mask</span></code> or <code class="docutils literal notranslate"><span class="pre">return_attention_scores</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor</span></dt><dd><p>Output of shape (batch_size, set_size, output_dim)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="bayesflow.networks.TimeSeriesTransformer.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/networks/transformers/time_series_transformer.html#TimeSeriesTransformer.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.networks.TimeSeriesTransformer.build" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1162,8 +1162,8 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_metric"><code class="docutils literal notranslate"><span class="pre">add_metric()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_variable"><code class="docutils literal notranslate"><span class="pre">add_variable()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.add_weight"><code class="docutils literal notranslate"><span class="pre">add_weight()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.build_from_config"><code class="docutils literal notranslate"><span class="pre">build_from_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_dtype"><code class="docutils literal notranslate"><span class="pre">compute_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_mask"><code class="docutils literal notranslate"><span class="pre">compute_mask()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
@@ -1202,7 +1202,7 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.variable_dtype"><code class="docutils literal notranslate"><span class="pre">variable_dtype</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.variables"><code class="docutils literal notranslate"><span class="pre">variables</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.weights"><code class="docutils literal notranslate"><span class="pre">weights</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.call"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.TimeSeriesTransformer.build"><code class="docutils literal notranslate"><span class="pre">build()</span></code></a></li>
 </ul>
 </li>
 </ul>
