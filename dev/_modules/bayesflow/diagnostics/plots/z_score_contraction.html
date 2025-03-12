@@ -526,7 +526,7 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">contraction</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">z_score</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
 
-    <span class="n">prettify_subplots</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">],</span> <span class="n">tick_fontsize</span><span class="p">)</span>
+    <span class="n">prettify_subplots</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">],</span> <span class="n">num_subplots</span><span class="o">=</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;num_variables&quot;</span><span class="p">],</span> <span class="n">tick_fontsize</span><span class="o">=</span><span class="n">tick_fontsize</span><span class="p">)</span>
 
     <span class="c1"># Add labels, titles, and set font sizes</span>
     <span class="n">add_titles_and_labels</span><span class="p">(</span>
