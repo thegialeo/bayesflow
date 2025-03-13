@@ -121,12 +121,10 @@ class PointInferenceNetwork(keras.Layer):
 
         metrics = {}
         # calculate negative score as mean over all scores
-        neg_score = 0
         for score_key, score in self.scores.items():
             score_value = score.score(output[score_key], x)
-            neg_score += score_value
             metrics[score_key] = score_value
-        neg_score /= len(self.scores)
+        neg_score = keras.ops.mean(list(metrics.values()))
 
         if stage != "training" and any(self.metrics):
             # compute sample-based metrics
