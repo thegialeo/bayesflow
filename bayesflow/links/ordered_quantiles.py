@@ -10,6 +10,8 @@ from .ordered import Ordered
 
 @serializable(package="links.ordered_quantiles")
 class OrderedQuantiles(Ordered):
+    """Activation function to link to monotonously increasing quantile estimates."""
+
     def __init__(self, q: Sequence[float] = None, axis: int = None, **kwargs):
         super().__init__(axis, None, **keras_kwargs(kwargs))
         self.q = q
