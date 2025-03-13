@@ -189,8 +189,7 @@ class NormedDifferenceScore(ScoringRule):
         }
 
     def get_head_shapes_from_target_shape(self, target_shape: Shape):
-        # keras.saving.load_model sometimes passes target_shape as a list.
-        # This is why I force a conversion to tuple here.
+        # keras.saving.load_model sometimes passes target_shape as a list, so we force a conversion
         target_shape = tuple(target_shape)
         return dict(value=target_shape[1:])
 
@@ -255,8 +254,7 @@ class QuantileScore(ScoringRule):
         return base_config | self.config
 
     def get_head_shapes_from_target_shape(self, target_shape: Shape):
-        # keras.saving.load_model sometimes passes target_shape as a list.
-        # This is why I force a conversion to tuple here.
+        # keras.saving.load_model sometimes passes target_shape as a list, so we force a conversion
         target_shape = tuple(target_shape)
         return dict(value=(len(self.q),) + target_shape[1:])
 
