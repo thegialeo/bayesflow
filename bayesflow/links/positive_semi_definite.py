@@ -10,8 +10,6 @@ class PositiveSemiDefinite(keras.Layer):
         super().__init__(**keras_kwargs(kwargs))
 
     def call(self, inputs):
-        # add identity to avoid coliniarity of input columns
-        inputs += keras.ops.identity(inputs.shape[-1])
         # multiply M * M^T to get symmetric matrix
         return keras.ops.einsum("...ij,...kj->...ik", inputs, inputs)
 
