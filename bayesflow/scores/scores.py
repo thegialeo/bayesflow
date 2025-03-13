@@ -57,7 +57,8 @@ class ScoringRule:
 
         return cls(**config)
 
-    def get_head_shapes_from_target_shape(self, target_shape):
+    def get_head_shapes_from_target_shape(self, target_shape: Shape) -> dict[str, Shape]:
+        """Request a dictionary of names and output shapes of required heads from the score."""
         raise NotImplementedError
 
     def get_subnet(self, key: str) -> keras.Layer:
@@ -79,7 +80,19 @@ class ScoringRule:
         else:
             return find_network(self.subnets[key], **self.subnets_kwargs.get(key, {}))
 
-    def get_link(self, key: str):
+    def get_link(self, key: str) -> keras.Layer:
+        """For a specified key, request a link from network output to estimation target.
+
+        Parameters
+        ----------
+        key : str
+            Name of head for which to request a link.
+
+        Returns
+        -------
+        link : keras.Layer
+            Activation function linking network output to estimation target.
+        """
         if key not in self.links.keys():
             return keras.layers.Activation("linear")
         elif isinstance(self.links[key], str):
@@ -87,7 +100,20 @@ class ScoringRule:
         else:
             return self.links[key]
 
-    def get_head(self, key: str, shape: Shape):
+    def get_head(self, key: str, shape: Shape) -> keras.Sequential:
+        """For a specified head key and shape, request corresponding head network.
+
+        Parameters
+        ----------
+        key : str
+            Name of head for which to request a link.
+
+        Returns
+        -------
+        head : keras.Sequential
+            Head network consisting of a learnable projection, a reshape and a link operation
+            to parameterize estimates.
+        """
         subnet = self.get_subnet(key)
         dense = keras.layers.Dense(units=math.prod(shape))
         reshape = keras.layers.Reshape(target_shape=shape)
@@ -95,7 +121,45 @@ class ScoringRule:
         return keras.Sequential([subnet, dense, reshape, link])
 
     def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor) -> Tensor:
-        """Scores a probabilistic estimate based of a distribution based on samples of that distribution."""
+        """Scores a batch of probabilistic estimates of distributions based on samples
+        of the corresponding distributions.
+
+        Parameters
+        ----------
+        estimates : dict[str, Tensor]
+            Dictionary of estimates.
+        targets : Tensor
+            Tensor of samples fromt the true distribution to evaluate the estimates.
+
+        Returns
+        -------
+        numeric_score : Tensor
+            Negatively oriented score evaluating the estimates, aggregated for the whole batch.
+
+        Examples
+        --------
+        The following shows how to score estimates with a ``MeanScore``. All ``ScoringRule`` s follow this pattern,
+        only differing in the structure of the estimates dictionary.
+
+        >>> import keras
+        ... from bayesflow.scores import MeanScore
+        >>>
+        >>> # batch of samples from a normal distribution
+        >>> samples = keras.random.normal(shape=(100,))
+        >>>
+        >>> # batch of uninformed (random) estimates
+        >>> bad_estimates = {"value": keras.random.uniform((100,))}
+        >>>
+        >>> # batch of estimates that are closer to the true mean
+        >>> better_estimates = {"value": keras.random.normal(stddev=0.1, shape=(100,))}
+        >>>
+        >>> # calculate the score
+        >>> scoring_rule = MeanScore()
+        >>> scoring_rule.score(bad_estimates, samples)
+        <tf.Tensor: shape=(), dtype=float32, numpy=1.2243813276290894>
+        >>> scoring_rule.score(better_estimates, samples)
+        <tf.Tensor: shape=(), dtype=float32, numpy=1.013983130455017>
+        """
         raise NotImplementedError
 
     def aggregate(self, scores: Tensor, weights: Tensor = None):

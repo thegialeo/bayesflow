@@ -23,9 +23,7 @@ class PointInferenceNetwork(keras.Layer):
         subnet: str | type = "mlp",
         **kwargs,
     ):
-        super().__init__(
-            **keras_kwargs(kwargs)
-        )  # TODO: need for bf.utils.keras_kwargs in regular InferenceNetwork class? seems to be a bug
+        super().__init__(**keras_kwargs(kwargs))
 
         self.scores = scores
 
@@ -38,6 +36,16 @@ class PointInferenceNetwork(keras.Layer):
         self.config["scores"] = serialize(self.scores)
 
     def build(self, xz_shape: Shape, conditions_shape: Shape = None) -> None:
+        """Builds all network components based on shapes of conditions and targets.
+
+        For each score, corresponding estimation heads are constructed.
+        There are two steps in this:
+
+        #. Request a dictionary of names and output shapes of required heads from the score.
+        #. Then for each required head, request corresponding head networks from the score.
+
+        Since the score is in charge of constructing heads, this allows for convenient yet flexible building.
+        """
         if conditions_shape is None:  # unconditional estimation uses a fixed input vector
             input_shape = (1, 1)
         else:
