@@ -51,6 +51,10 @@ class PointInferenceNetwork(keras.Layer):
         else:
             input_shape = conditions_shape
 
+        # Save input_shape and xz_shape for usage in get_build_config
+        self._input_shape = input_shape
+        self._xz_shape = xz_shape
+
         # build the shared body network
         self.subnet.build(input_shape)
         body_output_shape = self.subnet.compute_output_shape(input_shape)
@@ -81,6 +85,62 @@ class PointInferenceNetwork(keras.Layer):
                 # because it avoids string operation based filtering in `self._forward()`.
                 flat_key = f"{score_key}___{head_key}"
                 self.heads_flat[flat_key] = head
+
+    def get_build_config(self):
+        build_config = {
+            "conditions_shape": self._input_shape,
+            "xz_shape": self._xz_shape,
+        }
+
+        # Save names of head networks
+        heads = {}
+        for score_key in self.heads.keys():
+            heads[score_key] = {}
+            for head_key, head in self.heads[score_key].items():
+                heads[score_key][head_key] = head.name
+                # Alternatively, save full build config of head
+                # heads[score_key][head_key] = head.get_build_config()
+                # TODO: decide
+
+        build_config["heads"] = heads
+
+        return build_config
+
+    def build_from_config(self, config):
+        self.build(xz_shape=config["xz_shape"], conditions_shape=config["conditions_shape"])
+
+        for score_key in self.scores.keys():
+            for head_key, head in self.heads[score_key].items():
+                head.name = config["heads"][score_key][head_key]
+
+        # Alternatively, do NOT call self.build, but rather imitate it using the build config of each head
+        # This results in some code duplication with self.build and requires heads to be of a custom type.
+        # TODO: decide
+
+        # input_shape = config["conditions_shape"]
+        #
+        # # Save input_shape for usage in get_build_config
+        # self._input_shape = input_shape
+        #
+        # # build the shared body network
+        # self.subnet.build(input_shape)
+        #
+        # # build head(s) for every scoring rule
+        # self.heads = dict()
+        # self.heads_flat = dict()
+        #
+        # for score_key in self.scores.keys():
+        #
+        #     self.heads[score_key] = {}
+        #
+        #     for head_key, head_config in config["heads"][score_key].items():
+        #         head = keras.Sequential()
+        #         head.build_from_config(head_config)  # TODO: this method is not implemented yet
+        #                                                      it would require the head to be a
+        #                                                      custom object rather than a Sequential
+        #         self.heads[score_key][head_key] = head
+        #         flat_key = f"{score_key}___{head_key}"
+        #         self.heads_flat[flat_key] = head
 
     def get_config(self):
         base_config = super().get_config()

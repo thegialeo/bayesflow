@@ -32,5 +32,5 @@ def assert_layers_equal(layer1: keras.Layer, layer2: keras.Layer):
         msg = f"Variable '{v1.name}' for Layer '{layer1.name}' is not equal: {x1} != {x2}"
         assert keras.ops.all(keras.ops.isclose(x1, x2)), msg
 
-    # The names of layers need not stay the same
-    # assert layer1.name == layer2.name
+    msg = f"Layers {layer1.name} and {layer2.name} have a different name."
+    assert layer1.name == layer2.name, msg
