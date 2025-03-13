@@ -5,7 +5,7 @@ from keras.saving import (
 )
 
 from bayesflow.types import Tensor
-from bayesflow.utils import filter_kwargs, split_arrays
+from bayesflow.utils import filter_kwargs, split_arrays, squeeze_inner_estimates_dict
 from .continuous_approximator import ContinuousApproximator
 
 
@@ -62,16 +62,10 @@ class PointApproximator(ContinuousApproximator):
             for variable_name in inference_variable_names
         }
 
-        def squeeze_dict(d):
-            if len(d.keys()) == 1 and "value" in d.keys():
-                return d["value"]
-            else:
-                return d
-
         # remove unnecessary nesting
         conditions = {
             variable_name: {
-                outer_key: squeeze_dict(conditions[variable_name][outer_key])
+                outer_key: squeeze_inner_estimates_dict(conditions[variable_name][outer_key])
                 for outer_key in conditions[variable_name].keys()
             }
             for variable_name in conditions.keys()

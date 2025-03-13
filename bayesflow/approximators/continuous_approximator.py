@@ -11,7 +11,7 @@ from keras.saving import (
 from bayesflow.adapters import Adapter
 from bayesflow.networks import InferenceNetwork, SummaryNetwork
 from bayesflow.types import Tensor
-from bayesflow.utils import filter_kwargs, logging, split_arrays
+from bayesflow.utils import filter_kwargs, logging, split_arrays, squeeze_inner_estimates_dict
 from .approximator import Approximator
 
 
@@ -232,16 +232,10 @@ class ContinuousApproximator(Approximator):
             for variable_name in samples.keys()
         }
 
-        def squeeze_dict(d):
-            if len(d.keys()) == 1 and "value" in d.keys():
-                return d["value"]
-            else:
-                return d
-
         # remove unnecessary nesting
         estimates = {
             variable_name: {
-                outer_key: squeeze_dict(estimates[variable_name][outer_key])
+                outer_key: squeeze_inner_estimates_dict(estimates[variable_name][outer_key])
                 for outer_key in estimates[variable_name].keys()
             }
             for variable_name in estimates.keys()
