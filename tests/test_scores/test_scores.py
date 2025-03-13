@@ -15,11 +15,12 @@ def test_score_output(scoring_rule, random_conditions):
     if random_conditions is None:
         random_conditions = keras.ops.convert_to_tensor([[1.0]])
 
-    scoring_rule.set_head_shapes_from_target_shape(random_conditions.shape)
+    # Using random random_conditions also as targets for the purpose of this test.
+    head_shapes = scoring_rule.get_head_shapes_from_target_shape(random_conditions.shape)
     print(scoring_rule.get_config())
     estimates = {
         k: scoring_rule.get_link(k)(keras.random.normal((random_conditions.shape[0],) + head_shape))
-        for k, head_shape in scoring_rule.head_shapes.items()
+        for k, head_shape in head_shapes.items()
     }
     score = scoring_rule.score(estimates, random_conditions)
 
@@ -30,7 +31,6 @@ def test_mean_score_optimality(mean_score, random_conditions):
     if random_conditions is None:
         random_conditions = keras.ops.convert_to_tensor([[1.0]])
 
-    mean_score.set_head_shapes_from_target_shape(random_conditions.shape)
     key = "value"
     suboptimal_estimates = {key: keras.random.uniform(random_conditions.shape)}
     optimal_estimates = {key: random_conditions}

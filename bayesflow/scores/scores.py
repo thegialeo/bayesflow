@@ -60,10 +60,20 @@ class ScoringRule:
     def get_head_shapes_from_target_shape(self, target_shape):
         raise NotImplementedError
 
-    def set_head_shapes_from_target_shape(self, target_shape):
-        self.head_shapes = self.get_head_shapes_from_target_shape(target_shape)
+    def get_subnet(self, key: str) -> keras.Layer:
+        """For a specified key, request a subnet to be used for projecting the shared condition embedding
+        before reshaping to the heads output shape.
 
-    def get_subnet(self, key: str):
+        Parameters
+        ----------
+        key : str
+            Name of head for which to request a link.
+
+        Returns
+        -------
+        link : keras.Layer
+            Subnet projecting the shared condition embedding.
+        """
         if key not in self.subnets.keys():
             return keras.layers.Identity()
         else:
@@ -77,15 +87,15 @@ class ScoringRule:
         else:
             return self.links[key]
 
-    def get_head(self, key: str):
+    def get_head(self, key: str, shape: Shape):
         subnet = self.get_subnet(key)
-        head_shape = self.head_shapes[key]
-        dense = keras.layers.Dense(units=math.prod(head_shape))
-        reshape = keras.layers.Reshape(target_shape=head_shape)
+        dense = keras.layers.Dense(units=math.prod(shape))
+        reshape = keras.layers.Reshape(target_shape=shape)
         link = self.get_link(key)
         return keras.Sequential([subnet, dense, reshape, link])
 
     def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor) -> Tensor:
+        """Scores a probabilistic estimate based of a distribution based on samples of that distribution."""
         raise NotImplementedError
 
     def aggregate(self, scores: Tensor, weights: Tensor = None):
@@ -114,7 +124,7 @@ class NormedDifferenceScore(ScoringRule):
             "k": k,
         }
 
-    def get_head_shapes_from_target_shape(self, target_shape):
+    def get_head_shapes_from_target_shape(self, target_shape: Shape):
         # keras.saving.load_model sometimes passes target_shape as a list.
         # This is why I force a conversion to tuple here.
         target_shape = tuple(target_shape)
@@ -180,7 +190,7 @@ class QuantileScore(ScoringRule):
         base_config = super().get_config()
         return base_config | self.config
 
-    def get_head_shapes_from_target_shape(self, target_shape):
+    def get_head_shapes_from_target_shape(self, target_shape: Shape):
         # keras.saving.load_model sometimes passes target_shape as a list.
         # This is why I force a conversion to tuple here.
         target_shape = tuple(target_shape)
@@ -240,7 +250,7 @@ class MultivariateNormalScore(ParametricDistributionRule):
         base_config = super().get_config()
         return base_config | self.config
 
-    def get_head_shapes_from_target_shape(self, target_shape) -> dict[str, Shape]:
+    def get_head_shapes_from_target_shape(self, target_shape: Shape) -> dict[str, Shape]:
         self.D = target_shape[-1]
         return dict(
             mean=(self.D,),

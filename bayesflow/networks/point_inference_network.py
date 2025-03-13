@@ -52,12 +52,12 @@ class PointInferenceNetwork(keras.Layer):
         self.heads_flat = dict()  # see comment regarding heads_flat below
 
         for score_key, score in self.scores.items():
-            score.set_head_shapes_from_target_shape(xz_shape)
+            head_shapes = score.get_head_shapes_from_target_shape(xz_shape)
 
             self.heads[score_key] = {}
 
-            for head_key in score.head_shapes.keys():
-                head = score.get_head(head_key)
+            for head_key, head_shape in head_shapes.items():
+                head = score.get_head(head_key, head_shape)
                 head.build(body_output_shape)
                 # If head is not tracked explicitly, self.variables does not include them.
                 # Testing with tests.utils.assert_layers_equal() would thus neglect heads
