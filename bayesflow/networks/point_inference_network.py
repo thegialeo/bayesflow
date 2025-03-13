@@ -125,7 +125,7 @@ class PointInferenceNetwork(keras.Layer):
         for score_key, score in self.scores.items():
             score_value = score.score(output[score_key], x)
             neg_score += score_value
-            metrics |= {score_key: score_value}
+            metrics[score_key] = score_value
         neg_score /= len(self.scores)
 
         if stage != "training" and any(self.metrics):
