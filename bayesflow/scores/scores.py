@@ -195,8 +195,8 @@ class NormedDifferenceScore(ScoringRule):
 
     def score(self, estimates: dict[str, Tensor], targets: Tensor, weights: Tensor = None) -> Tensor:
         estimates = estimates["value"]
-        pointwise_differance = estimates - targets
-        scores = keras.ops.absolute(pointwise_differance) ** self.k
+        pointwise_difference = estimates - targets
+        scores = keras.ops.absolute(pointwise_difference) ** self.k
         score = self.aggregate(scores, weights)
         return score
 
