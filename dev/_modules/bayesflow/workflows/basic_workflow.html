@@ -411,10 +411,10 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">OnlineDataset</span><span class="p">,</span> <span class="n">OfflineDataset</span><span class="p">,</span> <span class="n">DiskDataset</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceNetwork</span><span class="p">,</span> <span class="n">SummaryNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceNetwork</span><span class="p">,</span> <span class="n">PointInferenceNetwork</span><span class="p">,</span> <span class="n">SummaryNetwork</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.simulators</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulator</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adapter</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.approximators</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContinuousApproximator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.approximators</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContinuousApproximator</span><span class="p">,</span> <span class="n">PointApproximator</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shape</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_inference_network</span><span class="p">,</span> <span class="n">find_summary_network</span><span class="p">,</span> <span class="n">logging</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span> <span class="k">as</span> <span class="n">bf_metrics</span>
@@ -507,7 +507,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">inference_variables</span> <span class="o">=</span> <span class="n">inference_variables</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">approximator</span> <span class="o">=</span> <span class="n">ContinuousApproximator</span><span class="p">(</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_network</span><span class="p">,</span> <span class="n">PointInferenceNetwork</span><span class="p">):</span>
+            <span class="n">Approximator</span> <span class="o">=</span> <span class="n">PointApproximator</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Approximator</span> <span class="o">=</span> <span class="n">ContinuousApproximator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">approximator</span> <span class="o">=</span> <span class="n">Approximator</span><span class="p">(</span>
             <span class="n">inference_network</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inference_network</span><span class="p">,</span> <span class="n">summary_network</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">summary_network</span><span class="p">,</span> <span class="n">adapter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">adapter</span>
         <span class="p">)</span>
 

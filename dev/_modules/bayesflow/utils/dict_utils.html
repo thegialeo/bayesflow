@@ -739,6 +739,21 @@
         <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
         <span class="n">priors</span><span class="o">=</span><span class="n">priors</span><span class="p">,</span>
     <span class="p">)</span>
+
+
+<div class="viewcode-block" id="squeeze_inner_estimates_dict">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.squeeze_inner_estimates_dict.html#bayesflow.utils.squeeze_inner_estimates_dict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">squeeze_inner_estimates_dict</span><span class="p">(</span><span class="n">estimates</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;If a dictionary has only one key-value pair and the key is &quot;value&quot;, return only its value.</span>
+<span class="sd">    Otherwise, return the unchanged dictionary.</span>
+
+<span class="sd">    This method helps to remove unnecessary nesting levels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">estimates</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">&quot;value&quot;</span> <span class="ow">in</span> <span class="n">estimates</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">estimates</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">estimates</span></div>
+
 </pre></div>
 
                 </article>

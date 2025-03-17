@@ -35,9 +35,9 @@ transforms
     ExpandDims
     FilterTransform
     Keep
-    LambdaTransform
     Log
     MapTransform
+    NumpyTransform
     OneHot
     Rename
     Sqrt

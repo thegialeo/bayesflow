@@ -401,7 +401,7 @@
                 <article class="bd-article">
                   
   <h1>Source code for bayesflow.adapters.adapter</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">MutableSequence</span><span class="p">,</span> <span class="n">Sequence</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">MutableSequence</span><span class="p">,</span> <span class="n">Sequence</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">keras.saving</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -421,9 +421,9 @@
     <span class="n">ExpandDims</span><span class="p">,</span>
     <span class="n">FilterTransform</span><span class="p">,</span>
     <span class="n">Keep</span><span class="p">,</span>
-    <span class="n">LambdaTransform</span><span class="p">,</span>
     <span class="n">Log</span><span class="p">,</span>
     <span class="n">MapTransform</span><span class="p">,</span>
+    <span class="n">NumpyTransform</span><span class="p">,</span>
     <span class="n">OneHot</span><span class="p">,</span>
     <span class="n">Rename</span><span class="p">,</span>
     <span class="n">Sqrt</span><span class="p">,</span>
@@ -668,8 +668,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
-        <span class="n">forward</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-        <span class="n">inverse</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">forward</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ufunc</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">inverse</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ufunc</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">predicate</span><span class="p">:</span> <span class="n">Predicate</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">include</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">exclude</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -705,7 +705,7 @@
 <span class="sd">        to the `custom_objects` argument of the `deserialize` function when deserializing this class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">transform</span> <span class="o">=</span> <span class="n">FilterTransform</span><span class="p">(</span>
-            <span class="n">transform_constructor</span><span class="o">=</span><span class="n">LambdaTransform</span><span class="p">,</span>
+            <span class="n">transform_constructor</span><span class="o">=</span><span class="n">NumpyTransform</span><span class="p">,</span>
             <span class="n">predicate</span><span class="o">=</span><span class="n">predicate</span><span class="p">,</span>
             <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span>
             <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">,</span>

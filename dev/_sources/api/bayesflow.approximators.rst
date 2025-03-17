@@ -27,6 +27,7 @@
     Approximator
     ContinuousApproximator
     ModelComparisonApproximator
+    PointApproximator
   
   
 

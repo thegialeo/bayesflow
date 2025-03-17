@@ -365,6 +365,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Bayesian_Experimental_Design.html">5. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="From_ABC_to_BayesFlow.html">6. From pyABC to BayesFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lotka_Volterra_point_estimation_and_expert_stats.html">8. Differential Equation Example: Lotka-Volterra predetor prey dynamics</a></li>
 </ul>
 </div>
 </nav></div>
@@ -677,7 +678,7 @@ Wall time: 1.13 ms
     <span class="c1"># since all our variables are non-negative (zero or larger)</span>
     <span class="c1"># this .apply call ensures that the variables are transformed</span>
     <span class="c1"># to the unconstrained real space and can be back-transformed under the hood</span>
-    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">forward</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">inverse</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">forward</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>

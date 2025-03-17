@@ -411,7 +411,7 @@
 <div class="viewcode-block" id="simultaneous_ecdf_bands">
 <a class="viewcode-back" href="../../../../api/bayesflow.utils.simultaneous_ecdf_bands.html#bayesflow.utils.simultaneous_ecdf_bands">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">simultaneous_ecdf_bands</span><span class="p">(</span>
-    <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">num_estimates</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">num_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_simulations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
     <span class="n">confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
@@ -431,11 +431,11 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    num_samples     : int</span>
-<span class="sd">        The sample size used for computing the ECDF. Will equal to the number of posterior</span>
-<span class="sd">        samples when used for calibration. Corresponds to `N` in the paper above.</span>
+<span class="sd">    num_estimates   : int</span>
+<span class="sd">        The sample size used for computing the ECDF. Will equal to the number of simulated conditions when used</span>
+<span class="sd">        for simulation-based calibration. Corresponds to `N` in the paper above.</span>
 <span class="sd">    num_points      : int, optional, default: None</span>
-<span class="sd">        The number of evaluation points on the interval (0, 1). Defaults to `num_points = num_samples` if</span>
+<span class="sd">        The number of evaluation points on the interval (0, 1). Defaults to `num_points = num_estimates` if</span>
 <span class="sd">        not explicitly specified. Correspond to `K` in the paper above.</span>
 <span class="sd">    num_simulations : int, optional, default: 1000</span>
 <span class="sd">        The number of samples of size `n_samples` to simulate for determining the simultaneous CIs.</span>
@@ -445,16 +445,16 @@
 <span class="sd">        Small number to add to the lower and subtract from the upper bound of the interval [0, 1]</span>
 <span class="sd">        to avoid edge artefacts. No need to touch this.</span>
 <span class="sd">    max_num_points  : int, optional, default: 1000</span>
-<span class="sd">        Upper bound on `num_points`. Saves computation time when `num_samples` is large.</span>
+<span class="sd">        Upper bound on `num_points`. Saves computation time when `num_estimates` is large.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    (alpha, z, L, U) - tuple of scalar and three arrays of size (num_samples,) containing the confidence level</span>
+<span class="sd">    (alpha, z, L, U) - tuple of scalar and three arrays of size (num_estimates,) containing the confidence level</span>
 <span class="sd">        as well as the evaluation points, the lower, and the upper confidence bands, respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Use shorter variable names to match paper notation</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">num_samples</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">num_estimates</span>
     <span class="k">if</span> <span class="n">num_points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">K</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">max_num_points</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>

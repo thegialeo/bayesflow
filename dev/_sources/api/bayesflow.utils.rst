@@ -82,6 +82,7 @@
     size_of
     split_arrays
     split_tensors
+    squeeze_inner_estimates_dict
     tile_axis
     tree_concatenate
     tree_stack

@@ -32,6 +32,7 @@
     InferenceNetwork
     LSTNet
     MLP
+    PointInferenceNetwork
     SetTransformer
     SummaryNetwork
     TimeSeriesTransformer

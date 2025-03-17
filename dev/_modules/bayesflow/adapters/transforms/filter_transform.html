@@ -496,18 +496,6 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">kwargs</span> <span class="o">=</span> <span class="n">deserialize</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;kwargs&quot;</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">transform_constructor</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;LambdaTransform&quot;</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                    <span class="s2">&quot;LambdaTransform (created by Adapter.apply) could not be deserialized.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s2">&quot;This is probably because the custom transform functions `forward` and &quot;</span>
-                    <span class="s2">&quot;`backward` from `Adapter.apply` were not passed as `custom_objects`.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s2">&quot;For example, if your adapter uses</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s2">&quot;`Adapter.apply(forward=forward_transform, inverse=inverse_transform)`,</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s2">&quot;you have to pass</span><span class="se">\n</span><span class="s2">&quot;</span>
-                    <span class="s1">&#39;`custom_objects={&quot;forward_transform&quot;: forward_transform, &#39;</span>
-                    <span class="s1">&#39;&quot;inverse_transform&quot;: inverse_transform}`</span><span class="se">\n</span><span class="s1">&#39;</span>
-                    <span class="s2">&quot;to the function you use to load the serialized object.&quot;</span>
-                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
                 <span class="s2">&quot;The transform could not be deserialized properly. &quot;</span>
                 <span class="s2">&quot;The most likely reason is that some classes or functions &quot;</span>
