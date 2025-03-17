@@ -37,7 +37,7 @@
     batched_call
     check_estimates_prior_shapes
     check_lengths_same
-    concatenate
+    concatenate_valid
     convert_args
     convert_kwargs
     deserialize_value_or_type
@@ -83,6 +83,7 @@
     split_arrays
     split_tensors
     squeeze_inner_estimates_dict
+    stack_valid
     tile_axis
     tree_concatenate
     tree_stack

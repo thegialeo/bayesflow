@@ -413,6 +413,19 @@
 <span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
 
 
+<div class="viewcode-block" id="concatenate_valid">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.concatenate_valid.html#bayesflow.utils.concatenate_valid">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">concatenate_valid</span><span class="p">(</span><span class="n">tensors</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenate multiple tensors along axis, ignoring None values.&quot;&quot;&quot;</span>
+    <span class="n">tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tensors</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tensors</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">tensors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="expand">
 <a class="viewcode-back" href="../../../api/bayesflow.utils.expand.html#bayesflow.utils.expand">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">expand</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -516,6 +529,28 @@
 
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">is_symbolic_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">is_keras_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">match</span> <span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">backend</span><span class="p">():</span>
+        <span class="k">case</span> <span class="s2">&quot;jax&quot;</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+
+            <span class="k">return</span> <span class="ow">not</span> <span class="n">jax</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">is_concrete</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;tensorflow&quot;</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">is_symbolic_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;torch&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Symbolic tensor check not implemented for backend </span><span class="si">{</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">backend</span><span class="p">()</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="pad">
 <a class="viewcode-back" href="../../../api/bayesflow.utils.pad.html#bayesflow.utils.pad">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pad</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;both&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -541,106 +576,6 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid side </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">. Must be &#39;left&#39;, &#39;right&#39;, or &#39;both&#39;.&quot;</span><span class="p">)</span>
         <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid side type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">side</span><span class="p">)</span><span class="si">!r}</span><span class="s2">. Must be str.&quot;</span><span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="size_of">
-<a class="viewcode-back" href="../../../api/bayesflow.utils.size_of.html#bayesflow.utils.size_of">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">size_of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    :param x: A nested structure of tensors.</span>
-<span class="sd">    :return: The total memory footprint of x, ignoring view semantics, in bytes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">itemsize</span>
-
-    <span class="c1"># flatten nested structure</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-    <span class="c1"># get unique tensors by id</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="nb">id</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span> <span class="n">tensor</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">x</span><span class="p">}</span>
-
-    <span class="c1"># sum up individual sizes</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">size_of</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
-
-
-
-<div class="viewcode-block" id="tile_axis">
-<a class="viewcode-back" href="../../../api/bayesflow.utils.tile_axis.html#bayesflow.utils.tile_axis">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">tile_axis</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tile x along the given axis n times&quot;&quot;&quot;</span>
-    <span class="n">repeats</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">repeats</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-
-    <span class="k">if</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeats</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeats</span><span class="p">)</span></div>
-
-
-
-<span class="c1"># we want to annotate this as Sequence[PyTree[Tensor]], but static type checkers do not support PyTree&#39;s type expansion</span>
-<div class="viewcode-block" id="tree_concatenate">
-<a class="viewcode-back" href="../../../api/bayesflow.utils.tree_concatenate.html#bayesflow.utils.tree_concatenate">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">tree_concatenate</span><span class="p">(</span><span class="n">structures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenate all tensors in the given sequence of nested structures.</span>
-<span class="sd">    All objects in the given sequence must have the same structure.</span>
-<span class="sd">    The output will adhere to this structure.</span>
-
-<span class="sd">    :param structures: A sequence of nested structures of tensors.</span>
-<span class="sd">        All structures in the sequence must have the same layout.</span>
-<span class="sd">        Tensors in the same layout location must have compatible shapes for concatenation.</span>
-<span class="sd">    :param axis: The axis along which to concatenate tensors.</span>
-<span class="sd">    :param numpy: Whether to use numpy or keras for concatenation.</span>
-<span class="sd">        Will convert all items in the structures to numpy arrays if True, tensors otherwise.</span>
-<span class="sd">        Defaults to True if all tensors are numpy arrays, False otherwise.</span>
-<span class="sd">    :return: A structure of concatenated tensors with the same layout as each input structure.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">numpy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">numpy</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)))</span>
-
-    <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
-        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_numpy</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">concat</span><span class="p">,</span> <span class="o">*</span><span class="n">structures</span><span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="concatenate">
-<a class="viewcode-back" href="../../../api/bayesflow.utils.concatenate.html#bayesflow.utils.concatenate">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="o">*</span><span class="n">tensors</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenate multiple tensors along axis, some of which can be None.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tensors</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="tree_stack">
-<a class="viewcode-back" href="../../../api/bayesflow.utils.tree_stack.html#bayesflow.utils.tree_stack">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">tree_stack</span><span class="p">(</span><span class="n">structures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Like :func:`tree_concatenate`, except tensors are stacked instead of concatenated.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">numpy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">numpy</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)))</span>
-
-    <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
-        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_numpy</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="o">*</span><span class="n">structures</span><span class="p">)</span></div>
 
 
 
@@ -693,6 +628,111 @@
             <span class="k">return</span> <span class="n">indices</span>
         <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Searchsorted not implemented for backend </span><span class="si">{</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">backend</span><span class="p">()</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="size_of">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.size_of.html#bayesflow.utils.size_of">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">size_of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param x: A nested structure of tensors.</span>
+<span class="sd">    :return: The total memory footprint of x, ignoring view semantics, in bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">itemsize</span>
+
+    <span class="c1"># flatten nested structure</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># get unique tensors by id</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="nb">id</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span> <span class="n">tensor</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">x</span><span class="p">}</span>
+
+    <span class="c1"># sum up individual sizes</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">size_of</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+
+
+
+<div class="viewcode-block" id="stack_valid">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.stack_valid.html#bayesflow.utils.stack_valid">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">stack_valid</span><span class="p">(</span><span class="n">tensors</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stack multiple tensors along axis, ignoring None values.&quot;&quot;&quot;</span>
+    <span class="n">tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tensors</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tensors</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">tensors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="tile_axis">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.tile_axis.html#bayesflow.utils.tile_axis">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tile_axis</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tile x along the given axis n times&quot;&quot;&quot;</span>
+    <span class="n">repeats</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">repeats</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+
+    <span class="k">if</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeats</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeats</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># we want to annotate this as Sequence[PyTree[Tensor]], but static type checkers do not support PyTree&#39;s type expansion</span>
+<div class="viewcode-block" id="tree_concatenate">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.tree_concatenate.html#bayesflow.utils.tree_concatenate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tree_concatenate</span><span class="p">(</span><span class="n">structures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenate all tensors in the given sequence of nested structures.</span>
+<span class="sd">    All objects in the given sequence must have the same structure.</span>
+<span class="sd">    The output will adhere to this structure.</span>
+
+<span class="sd">    :param structures: A sequence of nested structures of tensors.</span>
+<span class="sd">        All structures in the sequence must have the same layout.</span>
+<span class="sd">        Tensors in the same layout location must have compatible shapes for concatenation.</span>
+<span class="sd">    :param axis: The axis along which to concatenate tensors.</span>
+<span class="sd">    :param numpy: Whether to use numpy or keras for concatenation.</span>
+<span class="sd">        Will convert all items in the structures to numpy arrays if True, tensors otherwise.</span>
+<span class="sd">        Defaults to True if all tensors are numpy arrays, False otherwise.</span>
+<span class="sd">    :return: A structure of concatenated tensors with the same layout as each input structure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">numpy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">numpy</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
+        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_numpy</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">concat</span><span class="p">,</span> <span class="o">*</span><span class="n">structures</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="tree_stack">
+<a class="viewcode-back" href="../../../api/bayesflow.utils.tree_stack.html#bayesflow.utils.tree_stack">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tree_stack</span><span class="p">(</span><span class="n">structures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Like :func:`tree_concatenate`, except tensors are stacked instead of concatenated.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">numpy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">numpy</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
+        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_numpy</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">structures</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">,</span> <span class="n">structures</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="o">*</span><span class="n">items</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="o">*</span><span class="n">structures</span><span class="p">)</span></div>
 
 </pre></div>
 

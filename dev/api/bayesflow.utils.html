@@ -516,7 +516,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.batched_call.html">batched_call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.check_estimates_prior_shapes.html">check_estimates_prior_shapes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.check_lengths_same.html">check_lengths_same</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.concatenate.html">concatenate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.concatenate_valid.html">concatenate_valid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.convert_args.html">convert_args</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.convert_kwargs.html">convert_kwargs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.deserialize_value_or_type.html">deserialize_value_or_type</a></li>
@@ -562,6 +562,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.split_arrays.html">split_arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.split_tensors.html">split_tensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.squeeze_inner_estimates_dict.html">squeeze_inner_estimates_dict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.stack_valid.html">stack_valid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tile_axis.html">tile_axis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tree_concatenate.html">tree_concatenate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tree_stack.html">tree_stack</a></li>
@@ -667,8 +668,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.check_lengths_same.html#bayesflow.utils.check_lengths_same" title="bayesflow.utils.check_lengths_same"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_lengths_same</span></code></a>(*args)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.concatenate.html#bayesflow.utils.concatenate" title="bayesflow.utils.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(*tensors[, axis])</p></td>
-<td><p>Concatenate multiple tensors along axis, some of which can be None.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.concatenate_valid.html#bayesflow.utils.concatenate_valid" title="bayesflow.utils.concatenate_valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate_valid</span></code></a>(tensors[, axis])</p></td>
+<td><p>Concatenate multiple tensors along axis, ignoring None values.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.convert_args.html#bayesflow.utils.convert_args" title="bayesflow.utils.convert_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_args</span></code></a>(f, *args, **kwargs)</p></td>
 <td><p>Convert positional and keyword arguments to just positional arguments for f</p></td>
@@ -761,7 +762,7 @@
 <td><p>Compute the Jacobian-vector product of f at x with tangents.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.keras_kwargs.html#bayesflow.utils.keras_kwargs" title="bayesflow.utils.keras_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keras_kwargs</span></code></a>(kwargs)</p></td>
-<td><p>Keep dictionary keys that do not end with _kwargs.</p></td>
+<td><p>Filter keyword arguments for keras.Layer</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.make_quadratic.html#bayesflow.utils.make_quadratic" title="bayesflow.utils.make_quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_quadratic</span></code></a>(ax, x_data, y_data)</p></td>
 <td><p>Utility to make a subplots quadratic in order to avoid visual illusions in, e.g., recovery plots.</p></td>
@@ -805,16 +806,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.squeeze_inner_estimates_dict.html#bayesflow.utils.squeeze_inner_estimates_dict" title="bayesflow.utils.squeeze_inner_estimates_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squeeze_inner_estimates_dict</span></code></a>(estimates)</p></td>
 <td><p>If a dictionary has only one key-value pair and the key is &quot;value&quot;, return only its value.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.tile_axis.html#bayesflow.utils.tile_axis" title="bayesflow.utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.stack_valid.html#bayesflow.utils.stack_valid" title="bayesflow.utils.stack_valid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stack_valid</span></code></a>(tensors[, axis])</p></td>
+<td><p>Stack multiple tensors along axis, ignoring None values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.tile_axis.html#bayesflow.utils.tile_axis" title="bayesflow.utils.tile_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tile_axis</span></code></a>(x, n, axis)</p></td>
 <td><p>Tile x along the given axis n times</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.tree_concatenate.html#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.tree_concatenate.html#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_concatenate</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Concatenate all tensors in the given sequence of nested structures.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.tree_stack.html#bayesflow.utils.tree_stack" title="bayesflow.utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.tree_stack.html#bayesflow.utils.tree_stack" title="bayesflow.utils.tree_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_stack</span></code></a>(structures[, axis, numpy])</p></td>
 <td><p>Like <a class="reference internal" href="bayesflow.utils.tree_concatenate.html#bayesflow.utils.tree_concatenate" title="bayesflow.utils.tree_concatenate"><code class="xref py py-func docutils literal notranslate"><span class="pre">tree_concatenate()</span></code></a>, except tensors are stacked instead of concatenated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.vjp.html#bayesflow.utils.vjp" title="bayesflow.utils.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(f, x[, return_output])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.vjp.html#bayesflow.utils.vjp" title="bayesflow.utils.vjp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vjp</span></code></a>(f, x[, return_output])</p></td>
 <td><p>Compute the vector-Jacobian product of f at x.</p></td>
 </tr>
 </tbody>

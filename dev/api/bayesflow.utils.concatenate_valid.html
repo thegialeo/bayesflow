@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>concatenate &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>concatenate_valid &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -45,7 +45,7 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/bayesflow.utils.concatenate';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/bayesflow.utils.concatenate_valid';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '/versions.json';
@@ -53,7 +53,7 @@
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
-    <link rel="canonical" href="https://www.bayesflow.org/api/bayesflow.utils.concatenate.html" />
+    <link rel="canonical" href="https://www.bayesflow.org/api/bayesflow.utils.concatenate_valid.html" />
     <link rel="icon" href="../_static/bayesflow_hex.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -516,7 +516,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.batched_call.html">batched_call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.check_estimates_prior_shapes.html">check_estimates_prior_shapes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.check_lengths_same.html">check_lengths_same</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">concatenate</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">concatenate_valid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.convert_args.html">convert_args</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.convert_kwargs.html">convert_kwargs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.deserialize_value_or_type.html">deserialize_value_or_type</a></li>
@@ -562,6 +562,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.split_arrays.html">split_arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.split_tensors.html">split_tensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.squeeze_inner_estimates_dict.html">squeeze_inner_estimates_dict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.stack_valid.html">stack_valid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tile_axis.html">tile_axis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tree_concatenate.html">tree_concatenate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.utils.tree_stack.html">tree_stack</a></li>
@@ -618,7 +619,7 @@
     
     <li class="breadcrumb-item"><a href="bayesflow.utils.html" class="nav-link">utils</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">concatenate</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">concatenate_valid</span></li>
   </ul>
 </nav>
 </div>
@@ -635,12 +636,12 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="concatenate">
-<h1>concatenate<a class="headerlink" href="#concatenate" title="Link to this heading">#</a></h1>
+  <section id="concatenate-valid">
+<h1>concatenate_valid<a class="headerlink" href="#concatenate-valid" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="bayesflow.utils.concatenate">
-<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tensors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#concatenate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.concatenate" title="Link to this definition">#</a></dt>
-<dd><p>Concatenate multiple tensors along axis, some of which can be None.</p>
+<dt class="sig sig-object py" id="bayesflow.utils.concatenate_valid">
+<span class="sig-prename descclassname"><span class="pre">bayesflow.utils.</span></span><span class="sig-name descname"><span class="pre">concatenate_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/utils/tensor_utils.html#concatenate_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.utils.concatenate_valid" title="Link to this definition">#</a></dt>
+<dd><p>Concatenate multiple tensors along axis, ignoring None values.</p>
 </dd></dl>
 
 </section>
@@ -693,7 +694,7 @@
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     
 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.concatenate"><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.utils.concatenate_valid"><code class="docutils literal notranslate"><span class="pre">concatenate_valid()</span></code></a></li>
 </ul>
 
 
@@ -704,7 +705,7 @@
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/bayesflow-org/bayesflow/edit/dev/docsrc/api/bayesflow.utils.concatenate.rst">
+    <a href="https://github.com/bayesflow-org/bayesflow/edit/dev/docsrc/api/bayesflow.utils.concatenate_valid.rst">
       <i class="fa-solid fa-pencil"></i>
       
       

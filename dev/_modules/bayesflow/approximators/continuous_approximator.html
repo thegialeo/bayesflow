@@ -472,15 +472,20 @@
 <span class="sd">        summary_variables : Sequence of str, optional</span>
 <span class="sd">            Names of the summary variables in the data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">adapter</span> <span class="o">=</span> <span class="n">Adapter</span><span class="o">.</span><span class="n">create_default</span><span class="p">(</span><span class="n">inference_variables</span><span class="p">)</span>
+        <span class="n">adapter</span> <span class="o">=</span> <span class="n">Adapter</span><span class="p">()</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">convert_dtype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">,</span> <span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">inference_variables</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">inference_conditions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">inference_conditions</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;inference_conditions&quot;</span><span class="p">)</span>
+            <span class="n">adapter</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">inference_conditions</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;inference_conditions&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">summary_variables</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">as_set</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">)</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;summary_variables&quot;</span><span class="p">)</span>
+            <span class="n">adapter</span><span class="o">.</span><span class="n">as_set</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">)</span>
+            <span class="n">adapter</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;summary_variables&quot;</span><span class="p">)</span>
 
-        <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">keep</span><span class="p">([</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;inference_conditions&quot;</span><span class="p">,</span> <span class="s2">&quot;summary_variables&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">keep</span><span class="p">([</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;inference_conditions&quot;</span><span class="p">,</span> <span class="s2">&quot;summary_variables&quot;</span><span class="p">])</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">adapter</span></div>
 

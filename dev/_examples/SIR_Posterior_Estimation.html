@@ -628,15 +628,6 @@ The resulting object can now generate <em>batches</em> of simulations.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 1)
-(2, 1)
-(2, 14)
-CPU times: user 1.01 ms, sys: 182 μs, total: 1.19 ms
-Wall time: 1.13 ms
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -652,9 +643,6 @@ Wall time: 1.13 ms
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/b3de7431f5edf30689464bb22c355672c3d5795bb943ede91c585f05cca39afe.png" src="../_images/b3de7431f5edf30689464bb22c355672c3d5795bb943ede91c585f05cca39afe.png" />
 </div>
 </div>
 </section>
@@ -690,12 +678,6 @@ Wall time: 1.13 ms
 <span class="n">adapted_sims</span> <span class="o">=</span> <span class="n">adapter</span><span class="p">(</span><span class="n">simulator</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">adapted_sims</span><span class="p">[</span><span class="s2">&quot;summary_variables&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">adapted_sims</span><span class="p">[</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 14, 1)
-(2, 5)
 </pre></div>
 </div>
 </div>
@@ -772,12 +754,6 @@ Wall time: 1.13 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.82 ms, sys: 733 μs, total: 5.55 ms
-Wall time: 5.06 ms
-</pre></div>
-</div>
-</div>
 </div>
 <p>Not too bad! However, for the purpose of illustration, we will go with offline training using a fixed data set of simulations.</p>
 <section id="generating-offline-data">
@@ -808,9 +784,6 @@ Wall time: 5.06 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/44fc5ae0ca3f6c77c5e64e19d08e44ac56f15713561fe9296182ce494e9acee9.png" src="../_images/44fc5ae0ca3f6c77c5e64e19d08e44ac56f15713561fe9296182ce494e9acee9.png" />
-</div>
 </div>
 <p>Great, it seems that our approximator has converged! Before we get too excited and throw our networks at real data, we need to make sure that they meet our expectations <em>in silico</em>, that is, given the small world of simulations the networks have seen during training.</p>
 </section>
@@ -821,14 +794,15 @@ Wall time: 5.06 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the number of posterior draws you want to get</span>
+<span class="n">num_datasets</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="c1"># Simulate 300 scenarios and extract time series from dict</span>
-<span class="n">test_sims</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">test_sims</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">num_datasets</span><span class="p">)</span>
 <span class="n">time_series</span> <span class="o">=</span> <span class="n">test_sims</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cases&quot;</span><span class="p">)</span>
 
 <span class="c1"># Obtain num_samples posterior samples per scenario</span>
-<span class="n">samples</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cases&quot;</span><span class="p">:</span> <span class="n">time_series</span><span class="p">},</span> <span class="n">num_samples</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cases&quot;</span><span class="p">:</span> <span class="n">time_series</span><span class="p">},</span> <span class="n">num_datasets</span><span class="o">=</span><span class="n">num_datasets</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -842,9 +816,6 @@ Wall time: 5.06 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/63877d43b3910f657546c0d0d5f78d5ea095d5e98dea0ebac12770ebc4da0460.png" src="../_images/63877d43b3910f657546c0d0d5f78d5ea095d5e98dea0ebac12770ebc4da0460.png" />
-</div>
 </div>
 </section>
 <section id="simulation-based-calibration-rank-ecdf">
@@ -857,9 +828,6 @@ Wall time: 5.06 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/9671396d8687cb03e8c2bec25f2e2ba3f27a3f9f9eef6f8605335dd3be0040cb.png" src="../_images/9671396d8687cb03e8c2bec25f2e2ba3f27a3f9f9eef6f8605335dd3be0040cb.png" />
-</div>
 </div>
 </section>
 <section id="inferential-adequacy-global">
@@ -870,9 +838,6 @@ Wall time: 5.06 ms
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">recovery</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">test_sims</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/910d4536932e8e6f0b47896a6ae53d20ba3ca92686e44365cb6add0f31b12792.png" src="../_images/910d4536932e8e6f0b47896a6ae53d20ba3ca92686e44365cb6add0f31b12792.png" />
 </div>
 </div>
 <p>Interestingly, it seems that the parameters <span class="math notranslate nohighlight">\(\theta_1 = \mu\)</span> and <span class="math notranslate nohighlight">\(\theta_2 = D\)</span> have not been learned properly as they are estimated roughly the same for every simulated datset used during testing. For some models, this might indicate that the the network training had partially failed; and we would have to train longer or adjust the network architecture. For this specific model, however, the reason is different: From the provided observables, these parameters are actually not identified so cannot be learned consistently, no matter the kind of approximator we would use.</p>
@@ -887,60 +852,6 @@ Wall time: 5.06 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lambd</th>
-      <th>mu</th>
-      <th>D</th>
-      <th>I0</th>
-      <th>psi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>NRMSE</th>
-      <td>0.067225</td>
-      <td>0.234122</td>
-      <td>0.245685</td>
-      <td>0.168430</td>
-      <td>0.168900</td>
-    </tr>
-    <tr>
-      <th>Posterior Contraction</th>
-      <td>0.946775</td>
-      <td>0.211903</td>
-      <td>0.087245</td>
-      <td>0.418774</td>
-      <td>0.899313</td>
-    </tr>
-    <tr>
-      <th>Calibration Error</th>
-      <td>0.024298</td>
-      <td>0.037544</td>
-      <td>0.022632</td>
-      <td>0.016316</td>
-      <td>0.011404</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>We can also obtain the full set of graphical diagnostics:</p>
 <div class="cell docutils container">
@@ -954,17 +865,6 @@ Wall time: 5.06 ms
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;positron-console-cell-24&gt;:10: RuntimeWarning: overflow encountered in expm1
-/opt/miniconda3/envs/bayesflow/lib/python3.11/site-packages/numpy/core/_methods.py:173: RuntimeWarning: invalid value encountered in subtract
-  x = asanyarray(arr - arrmean)
-</pre></div>
-</div>
-<img alt="../_images/3eb430aa2455fd5fd4c4678c0ad6ebb1b5348b80e564aca0372e3fb428b89df8.png" src="../_images/3eb430aa2455fd5fd4c4678c0ad6ebb1b5348b80e564aca0372e3fb428b89df8.png" />
-<img alt="../_images/423274f5a86f50c7b65267b29bd719bacca8be25f96e67aa1f8aafb3a6c099d6.png" src="../_images/423274f5a86f50c7b65267b29bd719bacca8be25f96e67aa1f8aafb3a6c099d6.png" />
-<img alt="../_images/3ce5f62c81f85bbfa28eb39e6823e7614344f4272edcbd6391e8ed2acb1a6e40.png" src="../_images/3ce5f62c81f85bbfa28eb39e6823e7614344f4272edcbd6391e8ed2acb1a6e40.png" />
-<img alt="../_images/155beff21b95dde1449a248212e76c0195b12d86f10f470aa148a4c97ce8784e.png" src="../_images/155beff21b95dde1449a248212e76c0195b12d86f10f470aa148a4c97ce8784e.png" />
 </div>
 </div>
 </section>
@@ -987,125 +887,6 @@ Wall time: 5.06 ms
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lambd</th>
-      <th>mu</th>
-      <th>D</th>
-      <th>I0</th>
-      <th>psi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.389977</td>
-      <td>0.099344</td>
-      <td>6.423841</td>
-      <td>22.259497</td>
-      <td>4.388555</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.333174</td>
-      <td>0.096319</td>
-      <td>7.382321</td>
-      <td>43.247791</td>
-      <td>13.968859</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.374435</td>
-      <td>0.108260</td>
-      <td>8.571528</td>
-      <td>21.924253</td>
-      <td>4.500786</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.414256</td>
-      <td>0.164638</td>
-      <td>8.253544</td>
-      <td>25.943682</td>
-      <td>9.791203</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.408597</td>
-      <td>0.128407</td>
-      <td>6.193287</td>
-      <td>33.744724</td>
-      <td>5.930839</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>995</th>
-      <td>0.426901</td>
-      <td>0.137356</td>
-      <td>7.524636</td>
-      <td>19.449280</td>
-      <td>5.443706</td>
-    </tr>
-    <tr>
-      <th>996</th>
-      <td>0.388506</td>
-      <td>0.145415</td>
-      <td>8.965568</td>
-      <td>25.825762</td>
-      <td>11.506467</td>
-    </tr>
-    <tr>
-      <th>997</th>
-      <td>0.458162</td>
-      <td>0.147817</td>
-      <td>9.568476</td>
-      <td>9.221110</td>
-      <td>12.137198</td>
-    </tr>
-    <tr>
-      <th>998</th>
-      <td>0.359414</td>
-      <td>0.141969</td>
-      <td>9.411676</td>
-      <td>39.595699</td>
-      <td>2.017844</td>
-    </tr>
-    <tr>
-      <th>999</th>
-      <td>0.392589</td>
-      <td>0.161338</td>
-      <td>7.945607</td>
-      <td>30.871384</td>
-      <td>1.356222</td>
-    </tr>
-  </tbody>
-</table>
-<p>1000 rows × 5 columns</p>
-</div></div></div>
 </div>
 <section id="posterior-retrodictive-checks">
 <h3><span class="section-number">3.8.1. </span>Posterior Retrodictive Checks <a class="anchor" id="posterior_retrodictive_checks"></a><a class="headerlink" href="#posterior-retrodictive-checks" title="Link to this heading">#</a></h3>
@@ -1165,9 +946,6 @@ Wall time: 5.06 ms
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">plot_ppc</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">obs_cases</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/7f419bdf6352e7b5f75b7f6af35e441689d23eb45fffc299c50c42393d64e5eb.png" src="../_images/7f419bdf6352e7b5f75b7f6af35e441689d23eb45fffc299c50c42393d64e5eb.png" />
 </div>
 </div>
 <p>That’s it for this tutorial! You now know how to use the basic building blocks of <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code> to create amortized neural approximators. :)</p>
