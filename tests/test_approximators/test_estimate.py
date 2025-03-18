@@ -9,6 +9,7 @@ def test_approximator_estimate(approximator, simulator, batch_size, adapter):
     data = simulator.sample((num_batches * batch_size,))
 
     batch = adapter(data)
+    batch = keras.tree.map_structure(keras.ops.convert_to_tensor, batch)
     approximator.build_from_data(batch)
 
     estimates = approximator.estimate(data)
