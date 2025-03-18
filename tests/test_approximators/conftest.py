@@ -1,4 +1,5 @@
 import pytest
+from tests.utils import check_combination_simulator_adapter
 
 
 @pytest.fixture()
@@ -96,7 +97,7 @@ def approximator(request):
 
 
 @pytest.fixture()
-def adapter():
+def adapter_without_sample_weight():
     from bayesflow import ContinuousApproximator
 
     return ContinuousApproximator.build_adapter(
@@ -106,14 +107,48 @@ def adapter():
 
 
 @pytest.fixture()
-def simulator():
+def adapter_with_sample_weight():
+    from bayesflow import ContinuousApproximator
+
+    return ContinuousApproximator.build_adapter(
+        inference_variables=["mean", "std"],
+        inference_conditions=["x"],
+        sample_weight="weight",
+    )
+
+
+@pytest.fixture(params=["adapter_without_sample_weight", "adapter_with_sample_weight"])
+def adapter(request):
+    return request.getfixturevalue(request.param)
+
+
+@pytest.fixture()
+def normal_simulator():
     from tests.utils.normal_simulator import NormalSimulator
 
     return NormalSimulator()
 
 
 @pytest.fixture()
+def normal_simulator_with_sample_weight():
+    from tests.utils.normal_simulator import NormalSimulator
+    from bayesflow import make_simulator
+
+    def weight(mean):
+        return dict(weight=1.0)
+
+    return make_simulator([NormalSimulator(), weight])
+
+
+@pytest.fixture(params=["normal_simulator", "normal_simulator_with_sample_weight"])
+def simulator(request):
+    return request.getfixturevalue(request.param)
+
+
+@pytest.fixture()
 def train_dataset(batch_size, adapter, simulator):
+    check_combination_simulator_adapter(simulator, adapter)
+
     from bayesflow import OfflineDataset
 
     num_batches = 4

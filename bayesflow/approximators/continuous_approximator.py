@@ -53,6 +53,7 @@ class ContinuousApproximator(Approximator):
         inference_variables: Sequence[str],
         inference_conditions: Sequence[str] = None,
         summary_variables: Sequence[str] = None,
+        sample_weight: Sequence[str] = None,
     ) -> Adapter:
         """Create an :py:class:`~bayesflow.adapters.Adapter` suited for the approximator.
 
@@ -64,6 +65,8 @@ class ContinuousApproximator(Approximator):
             Names of the inference conditions in the data
         summary_variables : Sequence of str, optional
             Names of the summary variables in the data
+        sample_weight : str, optional
+            Name of the sample weights
         """
         adapter = Adapter()
         adapter.to_array()
@@ -77,8 +80,11 @@ class ContinuousApproximator(Approximator):
             adapter.as_set(summary_variables)
             adapter.concatenate(summary_variables, into="summary_variables")
 
-        adapter.keep(["inference_variables", "inference_conditions", "summary_variables"])
-        adapter.standardize()
+        if sample_weight is not None:
+            adapter = adapter.rename(sample_weight, "sample_weight")
+
+        adapter.keep(["inference_variables", "inference_conditions", "summary_variables", "sample_weight"])
+        adapter.standardize(exclude="sample_weight")
 
         return adapter
 
@@ -105,6 +111,7 @@ class ContinuousApproximator(Approximator):
         inference_variables: Tensor,
         inference_conditions: Tensor = None,
         summary_variables: Tensor = None,
+        sample_weight: Tensor = None,
         stage: str = "training",
     ) -> dict[str, Tensor]:
         if self.summary_network is None:
@@ -128,7 +135,7 @@ class ContinuousApproximator(Approximator):
         # Force a conversion to Tensor
         inference_variables = keras.tree.map_structure(keras.ops.convert_to_tensor, inference_variables)
         inference_metrics = self.inference_network.compute_metrics(
-            inference_variables, conditions=inference_conditions, stage=stage
+            inference_variables, conditions=inference_conditions, sample_weight=sample_weight, stage=stage
         )
 
         loss = inference_metrics.get("loss", keras.ops.zeros(())) + summary_metrics.get("loss", keras.ops.zeros(()))
