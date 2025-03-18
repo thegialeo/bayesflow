@@ -24,6 +24,29 @@ class PointApproximator(ContinuousApproximator):
         split: bool = False,
         **kwargs,
     ) -> dict[str, dict[str, np.ndarray]]:
+        """
+        Provides point estimates based on provided conditions (e.g., observables).
+
+        This method processes input conditions, computes estimates, applies necessary adapter transformations,
+        and optionally splits the resulting arrays along the last axis.
+
+        Parameters
+        ----------
+        conditions : dict[str, np.ndarray]
+            A dictionary mapping variable names to NumPy arrays representing the conditions
+            for the estimation process.
+        split : bool, optional
+            If True, the estimated arrays are split along the last axis, by default False.
+        **kwargs
+            Additional keyword arguments passed to underlying processing functions.
+
+        Returns
+        -------
+        dict[str, dict[str, np.ndarray]]
+            A nested dictionary where the top-level keys correspond to original variable names,
+            and values contain dictionaries mapping estimation results to NumPy arrays.
+        """
+
         conditions = self._prepare_conditions(conditions, **kwargs)
         estimates = self._estimate(**conditions, **kwargs)
         estimates = self._apply_inverse_adapter_to_estimates(estimates, **kwargs)
@@ -45,6 +68,33 @@ class PointApproximator(ContinuousApproximator):
         split: bool = False,
         **kwargs,
     ) -> dict[str, np.ndarray]:
+        """
+        Generate samples from point estimates based on provided conditions. These samples
+        will generally not correspond to samples from the fully Bayesian posterior, since
+        they will assume some parametric form (e.g., Gaussian in the case of mean score).
+
+        This method draws a specified number of samples according to the given conditions,
+        applies necessary transformations, and optionally splits the resulting arrays along the last axis.
+
+        Parameters
+        ----------
+        num_samples : int
+            The number of samples to generate.
+        conditions : dict[str, np.ndarray]
+            A dictionary mapping variable names to NumPy arrays representing the conditions
+            for the sampling process.
+        split : bool, optional
+            If True, the sampled arrays are split along the last axis, by default False.
+        **kwargs
+            Additional keyword arguments passed to underlying processing functions.
+
+        Returns
+        -------
+        dict[str, np.ndarray]
+            A dictionary where keys correspond to variable names and values are NumPy arrays
+            containing the generated samples.
+        """
+
         conditions = self._prepare_conditions(conditions, **kwargs)
         samples = self._sample(num_samples, **conditions, **kwargs)
         samples = self._apply_inverse_adapter_to_samples(samples, **kwargs)
