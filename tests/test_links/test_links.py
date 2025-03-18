@@ -1,3 +1,4 @@
+import keras
 import numpy as np
 import pytest
 
@@ -25,6 +26,7 @@ def test_invalid_shape_for_ordered_quantiles_with_specified_axis(
 
 
 def check_ordering(output, axis):
+    output = keras.ops.convert_to_numpy(output)
     assert np.all(np.diff(output, axis=axis) > 0), f"is not ordered along specified axis: {axis}."
     for i in range(output.ndim):
         if i != axis % output.ndim:
