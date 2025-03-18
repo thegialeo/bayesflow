@@ -492,6 +492,8 @@
 <span class="sd">            Additional keyword arguments for the integration process. Default is None.</span>
 <span class="sd">        optimal_transport_kwargs : dict[str, any], optional</span>
 <span class="sd">            Additional keyword arguments for configuring optimal transport. Default is None.</span>
+<span class="sd">        subnet_kwargs: dict[str, any], optional</span>
+<span class="sd">            Keyword arguments passed to the subnet constructor or used to update the default MLP settings.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional keyword arguments passed to the subnet and other components.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -508,7 +510,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">seed_generator</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">SeedGenerator</span><span class="p">()</span>
 
         <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">subnet_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
-
         <span class="k">if</span> <span class="n">subnet</span> <span class="o">==</span> <span class="s2">&quot;mlp&quot;</span><span class="p">:</span>
             <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">FlowMatching</span><span class="o">.</span><span class="n">MLP_DEFAULT_CONFIG</span> <span class="o">|</span> <span class="n">subnet_kwargs</span>
 
@@ -521,6 +522,7 @@
             <span class="s2">&quot;use_optimal_transport&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_optimal_transport</span><span class="p">,</span>
             <span class="s2">&quot;optimal_transport_kwargs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimal_transport_kwargs</span><span class="p">,</span>
             <span class="s2">&quot;integrate_kwargs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">integrate_kwargs</span><span class="p">,</span>
+            <span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">:</span> <span class="n">subnet_kwargs</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">serialize_value_or_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;subnet&quot;</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span>

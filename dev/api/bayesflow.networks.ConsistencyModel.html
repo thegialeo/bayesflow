@@ -653,8 +653,8 @@ fast simulation-based inference. arXiv preprint arXiv:2312.05440.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>total_steps</strong><span class="classifier">int</span></dt><dd><p>The total number of training steps, can be calculate as
-number of epochs * number of batches</p>
+<dt><strong>total_steps</strong><span class="classifier">int</span></dt><dd><p>The total number of training steps, must be calculated as number of epochs * number of batches
+and cannot be inferred during construction time.</p>
 </dd>
 <dt><strong>subnet</strong><span class="classifier">str or type, optional, default: “mlp”</span></dt><dd><p>A neural network type for the consistency model, will be
 instantiated using subnet_kwargs.</p>
@@ -668,6 +668,8 @@ instantiated using subnet_kwargs.</p>
 <dt><strong>s0</strong><span class="classifier">int or float, optional, default: 10</span></dt><dd><p>Initial number of discretization steps</p>
 </dd>
 <dt><strong>s1</strong><span class="classifier">int or float, optional, default: 50</span></dt><dd><p>Final number of discretization steps</p>
+</dd>
+<dt><strong>subnet_kwargs: dict[str, any], optional</strong></dt><dd><p>Keyword arguments passed to the subnet constructor or used to update the default MLP settings.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">dict, optional, default: {}</span></dt><dd><p>Additional keyword arguments</p>
 </dd>

@@ -441,8 +441,8 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
         <span class="n">subnet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;mlp&quot;</span><span class="p">,</span>
+        <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
         <span class="n">transform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;affine&quot;</span><span class="p">,</span>
         <span class="n">permutation</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
         <span class="n">use_actnorm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -467,11 +467,11 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        depth : int, optional</span>
-<span class="sd">            The number of invertible layers in the model. Default is 6.</span>
 <span class="sd">        subnet : str or type, optional</span>
 <span class="sd">            The architecture type used within the coupling layers. Can be a string</span>
 <span class="sd">            identifier like &quot;mlp&quot; or a callable type. Default is &quot;mlp&quot;.</span>
+<span class="sd">        depth : int, optional</span>
+<span class="sd">            The number of invertible layers in the model. Default is 6.</span>
 <span class="sd">        transform : str, optional</span>
 <span class="sd">            The type of transformation used in the coupling layers, such as &quot;affine&quot;.</span>
 <span class="sd">            Default is &quot;affine&quot;.</span>

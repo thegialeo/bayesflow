@@ -450,6 +450,7 @@
         <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span>
         <span class="n">s0</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
         <span class="n">s1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="n">subnet_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates an instance of a consistency model (CM) to be used for standalone consistency training (CT).</span>
@@ -457,8 +458,8 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        total_steps : int</span>
-<span class="sd">            The total number of training steps, can be calculate as</span>
-<span class="sd">            number of epochs * number of batches</span>
+<span class="sd">            The total number of training steps, must be calculated as number of epochs * number of batches</span>
+<span class="sd">            and cannot be inferred during construction time.</span>
 <span class="sd">        subnet      : str or type, optional, default: &quot;mlp&quot;</span>
 <span class="sd">            A neural network type for the consistency model, will be</span>
 <span class="sd">            instantiated using subnet_kwargs.</span>
@@ -472,6 +473,8 @@
 <span class="sd">            Initial number of discretization steps</span>
 <span class="sd">        s1          : int or float, optional, default: 50</span>
 <span class="sd">            Final number of discretization steps</span>
+<span class="sd">        subnet_kwargs: dict[str, any], optional</span>
+<span class="sd">            Keyword arguments passed to the subnet constructor or used to update the default MLP settings.</span>
 <span class="sd">        **kwargs    : dict, optional, default: {}</span>
 <span class="sd">            Additional keyword arguments</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -479,14 +482,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">total_steps</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">total_steps</span><span class="p">)</span>
 
+        <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">subnet_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">subnet</span> <span class="o">==</span> <span class="s2">&quot;mlp&quot;</span><span class="p">:</span>
-            <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">ConsistencyModel</span><span class="o">.</span><span class="n">MLP_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">subnet_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">subnet_kwargs</span> <span class="o">=</span> <span class="n">ConsistencyModel</span><span class="o">.</span><span class="n">MLP_DEFAULT_CONFIG</span> <span class="o">|</span> <span class="n">subnet_kwargs</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">student</span> <span class="o">=</span> <span class="n">find_network</span><span class="p">(</span><span class="n">subnet</span><span class="p">,</span> <span class="o">**</span><span class="n">subnet_kwargs</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">student_projector</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bias_initializer</span><span class="o">=</span><span class="s2">&quot;zeros&quot;</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s2">&quot;zeros&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">sigma2</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">sigma2</span><span class="p">)</span>
@@ -513,6 +513,7 @@
             <span class="s2">&quot;eps&quot;</span><span class="p">:</span> <span class="n">eps</span><span class="p">,</span>
             <span class="s2">&quot;s0&quot;</span><span class="p">:</span> <span class="n">s0</span><span class="p">,</span>
             <span class="s2">&quot;s1&quot;</span><span class="p">:</span> <span class="n">s1</span><span class="p">,</span>
+            <span class="s2">&quot;subnet_kwargs&quot;</span><span class="p">:</span> <span class="n">subnet_kwargs</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">serialize_value_or_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;subnet&quot;</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span>
