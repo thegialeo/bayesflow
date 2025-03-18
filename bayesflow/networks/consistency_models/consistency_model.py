@@ -45,6 +45,7 @@ class ConsistencyModel(InferenceNetwork):
         eps: float = 0.001,
         s0: int | float = 10,
         s1: int | float = 50,
+        subnet_kwargs: dict[str, any] = None,
         **kwargs,
     ):
         """Creates an instance of a consistency model (CM) to be used for standalone consistency training (CT).
@@ -52,8 +53,8 @@ class ConsistencyModel(InferenceNetwork):
         Parameters
         ----------
         total_steps : int
-            The total number of training steps, can be calculate as
-            number of epochs * number of batches
+            The total number of training steps, must be calculated as number of epochs * number of batches
+            and cannot be inferred during construction time.
         subnet      : str or type, optional, default: "mlp"
             A neural network type for the consistency model, will be
             instantiated using subnet_kwargs.
@@ -67,6 +68,8 @@ class ConsistencyModel(InferenceNetwork):
             Initial number of discretization steps
         s1          : int or float, optional, default: 50
             Final number of discretization steps
+        subnet_kwargs: dict[str, any], optional
+            Keyword arguments passed to the subnet constructor or used to update the default MLP settings.
         **kwargs    : dict, optional, default: {}
             Additional keyword arguments
         """
@@ -74,14 +77,11 @@ class ConsistencyModel(InferenceNetwork):
 
         self.total_steps = float(total_steps)
 
+        subnet_kwargs = subnet_kwargs or {}
         if subnet == "mlp":
-            subnet_kwargs = ConsistencyModel.MLP_DEFAULT_CONFIG.copy()
-            subnet_kwargs.update(kwargs.get("subnet_kwargs", {}))
-        else:
-            subnet_kwargs = kwargs.get("subnet_kwargs", {})
+            subnet_kwargs = ConsistencyModel.MLP_DEFAULT_CONFIG | subnet_kwargs
 
         self.student = find_network(subnet, **subnet_kwargs)
-
         self.student_projector = keras.layers.Dense(units=None, bias_initializer="zeros", kernel_initializer="zeros")
 
         self.sigma2 = ops.convert_to_tensor(sigma2)
@@ -108,6 +108,7 @@ class ConsistencyModel(InferenceNetwork):
             "eps": eps,
             "s0": s0,
             "s1": s1,
+            "subnet_kwargs": subnet_kwargs,
             **kwargs,
         }
         self.config = serialize_value_or_type(self.config, "subnet", subnet)

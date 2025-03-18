@@ -104,11 +104,19 @@ class EquivariantModule(keras.Layer):
 
         Parameters
         ----------
-        #TODO
+        input_set : Tensor
+            The input tensor representing a set, with shape
+            (batch_size, ..., set_size, input_dim).
+        training : bool, optional
+            A flag indicating whether the model is in training mode. Default is False.
+        **kwargs : dict
+            Additional keyword arguments for compatibility with other functions.
 
         Returns
         -------
-        #TODO
+        Tensor
+            The transformed output tensor with the same shape as `input_set`, where
+            each element is processed through the equivariant transformation.
         """
 
         input_set = self.input_projector(input_set)

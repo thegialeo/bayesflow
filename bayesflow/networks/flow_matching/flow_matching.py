@@ -87,6 +87,8 @@ class FlowMatching(InferenceNetwork):
             Additional keyword arguments for the integration process. Default is None.
         optimal_transport_kwargs : dict[str, any], optional
             Additional keyword arguments for configuring optimal transport. Default is None.
+        subnet_kwargs: dict[str, any], optional
+            Keyword arguments passed to the subnet constructor or used to update the default MLP settings.
         **kwargs
             Additional keyword arguments passed to the subnet and other components.
         """
@@ -103,7 +105,6 @@ class FlowMatching(InferenceNetwork):
         self.seed_generator = keras.random.SeedGenerator()
 
         subnet_kwargs = subnet_kwargs or {}
-
         if subnet == "mlp":
             subnet_kwargs = FlowMatching.MLP_DEFAULT_CONFIG | subnet_kwargs
 
@@ -116,6 +117,7 @@ class FlowMatching(InferenceNetwork):
             "use_optimal_transport": self.use_optimal_transport,
             "optimal_transport_kwargs": self.optimal_transport_kwargs,
             "integrate_kwargs": self.integrate_kwargs,
+            "subnet_kwargs": subnet_kwargs,
             **kwargs,
         }
         self.config = serialize_value_or_type(self.config, "subnet", subnet)

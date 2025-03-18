@@ -36,8 +36,8 @@ class CouplingFlow(InferenceNetwork):
 
     def __init__(
         self,
-        depth: int = 6,
         subnet: str | type = "mlp",
+        depth: int = 6,
         transform: str = "affine",
         permutation: str | None = "random",
         use_actnorm: bool = True,
@@ -62,11 +62,11 @@ class CouplingFlow(InferenceNetwork):
 
         Parameters
         ----------
-        depth : int, optional
-            The number of invertible layers in the model. Default is 6.
         subnet : str or type, optional
             The architecture type used within the coupling layers. Can be a string
             identifier like "mlp" or a callable type. Default is "mlp".
+        depth : int, optional
+            The number of invertible layers in the model. Default is 6.
         transform : str, optional
             The type of transformation used in the coupling layers, such as "affine".
             Default is "affine".
