@@ -450,11 +450,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.FlowMatching.html">FlowMatching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.FusionTransformer.html">FusionTransformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html">InferenceNetwork</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.LSTNet.html">LSTNet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.MLP.html">MLP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.PointInferenceNetwork.html">PointInferenceNetwork</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.SetTransformer.html">SetTransformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html">SummaryNetwork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.TimeSeriesNetwork.html">TimeSeriesNetwork</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
 </ul>
 </details></li>
@@ -653,20 +653,20 @@
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.LSTNet.html#bayesflow.networks.LSTNet" title="bayesflow.networks.LSTNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSTNet</span></code></a>(*args, **kwargs)</p></td>
-<td><p>Implements a LSTNet Architecture as described in [1]</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.MLP.html#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.MLP.html#bayesflow.networks.MLP" title="bayesflow.networks.MLP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MLP</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements a simple configurable MLP with optional residual connections and dropout.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.PointInferenceNetwork.html#bayesflow.networks.PointInferenceNetwork" title="bayesflow.networks.PointInferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointInferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.PointInferenceNetwork.html#bayesflow.networks.PointInferenceNetwork" title="bayesflow.networks.PointInferenceNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointInferenceNetwork</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements point estimation for user specified scoring rules by a shared feed forward architecture with separate heads for each scoring rule.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.SetTransformer.html#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.SetTransformer.html#bayesflow.networks.SetTransformer" title="bayesflow.networks.SetTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SetTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Implements the set transformer architecture from [1] which ultimately represents a learnable permutation-invariant function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.TimeSeriesNetwork.html#bayesflow.networks.TimeSeriesNetwork" title="bayesflow.networks.TimeSeriesNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesNetwork</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Implements a LSTNet Architecture as described in [1]</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html#bayesflow.networks.TimeSeriesTransformer" title="bayesflow.networks.TimeSeriesTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeSeriesTransformer</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Creates a regular transformer coupled with Time2Vec embeddings of time used to flexibly compress time series.</p></td>

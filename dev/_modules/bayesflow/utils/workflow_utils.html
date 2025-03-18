@@ -444,7 +444,7 @@
             <span class="k">return</span> <span class="n">bayesflow</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">FusionTransformer</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">case</span> <span class="s2">&quot;time_series_transformer&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">bayesflow</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">TimeSeriesTransformer</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">case</span> <span class="s2">&quot;lstnet&quot;</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;time_series_network&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">bayesflow</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">LSTNet</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">case</span> <span class="nb">str</span><span class="p">()</span> <span class="k">as</span> <span class="n">unknown_network</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown summary network: &#39;</span><span class="si">{</span><span class="n">unknown_network</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>

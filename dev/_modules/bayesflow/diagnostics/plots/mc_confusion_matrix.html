@@ -410,8 +410,6 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">ops</span>
-
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.utils.plot_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_figure</span>
 
 
@@ -480,8 +478,8 @@
         <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;#132a70&quot;</span><span class="p">])</span>
 
     <span class="c1"># Flatten input</span>
-    <span class="n">true_models</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">true_models</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">pred_models</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pred_models</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">true_models</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">true_models</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pred_models</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pred_models</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="c1"># Compute confusion matrix</span>
     <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">true_models</span><span class="p">,</span> <span class="n">pred_models</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span><span class="p">)</span>

@@ -460,6 +460,7 @@
         <span class="n">inference_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
         <span class="n">inference_conditions</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">summary_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">sample_weight</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Adapter</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an :py:class:`~bayesflow.adapters.Adapter` suited for the approximator.</span>
 
@@ -471,6 +472,8 @@
 <span class="sd">            Names of the inference conditions in the data</span>
 <span class="sd">        summary_variables : Sequence of str, optional</span>
 <span class="sd">            Names of the summary variables in the data</span>
+<span class="sd">        sample_weight : str, optional</span>
+<span class="sd">            Name of the sample weights</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">adapter</span> <span class="o">=</span> <span class="n">Adapter</span><span class="p">()</span>
         <span class="n">adapter</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
@@ -484,8 +487,11 @@
             <span class="n">adapter</span><span class="o">.</span><span class="n">as_set</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">)</span>
             <span class="n">adapter</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">summary_variables</span><span class="p">,</span> <span class="n">into</span><span class="o">=</span><span class="s2">&quot;summary_variables&quot;</span><span class="p">)</span>
 
-        <span class="n">adapter</span><span class="o">.</span><span class="n">keep</span><span class="p">([</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;inference_conditions&quot;</span><span class="p">,</span> <span class="s2">&quot;summary_variables&quot;</span><span class="p">])</span>
-        <span class="n">adapter</span><span class="o">.</span><span class="n">standardize</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">sample_weight</span><span class="p">,</span> <span class="s2">&quot;sample_weight&quot;</span><span class="p">)</span>
+
+        <span class="n">adapter</span><span class="o">.</span><span class="n">keep</span><span class="p">([</span><span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;inference_conditions&quot;</span><span class="p">,</span> <span class="s2">&quot;summary_variables&quot;</span><span class="p">,</span> <span class="s2">&quot;sample_weight&quot;</span><span class="p">])</span>
+        <span class="n">adapter</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;sample_weight&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">adapter</span></div>
 
@@ -518,6 +524,7 @@
         <span class="n">inference_variables</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
         <span class="n">inference_conditions</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">summary_variables</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">sample_weight</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary_network</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -541,7 +548,7 @@
         <span class="c1"># Force a conversion to Tensor</span>
         <span class="n">inference_variables</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">map_structure</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">,</span> <span class="n">inference_variables</span><span class="p">)</span>
         <span class="n">inference_metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_network</span><span class="o">.</span><span class="n">compute_metrics</span><span class="p">(</span>
-            <span class="n">inference_variables</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">inference_conditions</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span>
+            <span class="n">inference_variables</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="n">inference_conditions</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="n">stage</span>
         <span class="p">)</span>
 
         <span class="n">loss</span> <span class="o">=</span> <span class="n">inference_metrics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loss&quot;</span><span class="p">,</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">zeros</span><span class="p">(()))</span> <span class="o">+</span> <span class="n">summary_metrics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;loss&quot;</span><span class="p">,</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">zeros</span><span class="p">(()))</span>

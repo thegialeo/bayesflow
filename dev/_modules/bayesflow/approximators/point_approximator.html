@@ -431,6 +431,29 @@
         <span class="n">split</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides point estimates based on provided conditions (e.g., observables).</span>
+
+<span class="sd">        This method processes input conditions, computes estimates, applies necessary adapter transformations,</span>
+<span class="sd">        and optionally splits the resulting arrays along the last axis.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        conditions : dict[str, np.ndarray]</span>
+<span class="sd">            A dictionary mapping variable names to NumPy arrays representing the conditions</span>
+<span class="sd">            for the estimation process.</span>
+<span class="sd">        split : bool, optional</span>
+<span class="sd">            If True, the estimated arrays are split along the last axis, by default False.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to underlying processing functions.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict[str, dict[str, np.ndarray]]</span>
+<span class="sd">            A nested dictionary where the top-level keys correspond to original variable names,</span>
+<span class="sd">            and values contain dictionaries mapping estimation results to NumPy arrays.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_conditions</span><span class="p">(</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">estimates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="p">(</span><span class="o">**</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">estimates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_inverse_adapter_to_estimates</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -455,6 +478,33 @@
         <span class="n">split</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate samples from point estimates based on provided conditions. These samples</span>
+<span class="sd">        will generally not correspond to samples from the fully Bayesian posterior, since</span>
+<span class="sd">        they will assume some parametric form (e.g., Gaussian in the case of mean score).</span>
+
+<span class="sd">        This method draws a specified number of samples according to the given conditions,</span>
+<span class="sd">        applies necessary transformations, and optionally splits the resulting arrays along the last axis.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_samples : int</span>
+<span class="sd">            The number of samples to generate.</span>
+<span class="sd">        conditions : dict[str, np.ndarray]</span>
+<span class="sd">            A dictionary mapping variable names to NumPy arrays representing the conditions</span>
+<span class="sd">            for the sampling process.</span>
+<span class="sd">        split : bool, optional</span>
+<span class="sd">            If True, the sampled arrays are split along the last axis, by default False.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments passed to underlying processing functions.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict[str, np.ndarray]</span>
+<span class="sd">            A dictionary where keys correspond to variable names and values are NumPy arrays</span>
+<span class="sd">            containing the generated samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_conditions</span><span class="p">(</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="o">**</span><span class="n">conditions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_inverse_adapter_to_samples</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

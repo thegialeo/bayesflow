@@ -30,11 +30,11 @@
     FlowMatching
     FusionTransformer
     InferenceNetwork
-    LSTNet
     MLP
     PointInferenceNetwork
     SetTransformer
     SummaryNetwork
+    TimeSeriesNetwork
     TimeSeriesTransformer
   
   
