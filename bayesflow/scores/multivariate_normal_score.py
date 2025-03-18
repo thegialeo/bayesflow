@@ -1,6 +1,7 @@
 import math
 
 import keras
+from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Shape, Tensor
 from bayesflow.links import PositiveSemiDefinite
@@ -9,6 +10,7 @@ from bayesflow.utils import logging
 from .parametric_distribution_score import ParametricDistributionScore
 
 
+@serializable(package="bayesflow.scores")
 class MultivariateNormalScore(ParametricDistributionScore):
     r""":math:`S(\hat p_{\mu, \Sigma}, \theta; k) = \log( \mathcal N (\theta; \mu, \Sigma))`
 
@@ -96,9 +98,14 @@ class MultivariateNormalScore(ParametricDistributionScore):
             A tensor of shape (batch_size, num_samples, D) containing the generated samples.
         """
         batch_size, num_samples = batch_shape
-        dim = mean.shape[-1]
-        assert mean.shape == (batch_size, dim), "mean must have shape (batch_size, D)"
-        assert covariance.shape == (batch_size, dim, dim), "covariance must have shape (batch_size, D, D)"
+        dim = keras.ops.shape(mean)[-1]
+        if keras.ops.shape(mean) != (batch_size, dim):
+            raise ValueError(f"mean must have shape (batch_size, {dim}), but got {keras.ops.shape(mean)}")
+
+        if keras.ops.shape(covariance) != (batch_size, dim, dim):
+            raise ValueError(
+                f"covariance must have shape (batch_size, {dim}, {dim}), but got {keras.ops.shape(covariance)}"
+            )
 
         # Use Cholesky decomposition to generate samples
         cholesky_factor = keras.ops.cholesky(covariance)
