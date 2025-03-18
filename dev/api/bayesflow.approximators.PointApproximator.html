@@ -712,7 +712,7 @@ samples.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.PointApproximator.add_weight">
-<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.add_weight" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.add_weight" title="Link to this definition">#</a></dt>
 <dd><p>Add a weight variable to the layer.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -737,9 +737,10 @@ during optimization. Defaults to <cite>None</cite>.</p>
 <dt>constraint: Contrainst object to call on the variable after any</dt><dd><p>optimizer update, or string name of a built-in constraint.
 Defaults to <cite>None</cite>.</p>
 </dd>
-<dt>aggregation: String, one of <cite>‘mean’</cite>, <cite>‘sum’</cite>,</dt><dd><p><cite>‘only_first_replica’</cite>. Annotates the variable with the type
-of multi-replica aggregation to be used for this variable
-when writing custom data parallel training loops.</p>
+<dt>aggregation: Optional string, one of <cite>None</cite>, <cite>“none”</cite>, <cite>“mean”</cite>,</dt><dd><p><cite>“sum”</cite> or <cite>“only_first_replica”</cite>. Annotates the variable with
+the type of multi-replica aggregation to be used for this
+variable when writing custom data parallel training loops.
+Defaults to <cite>“none”</cite>.</p>
 </dd>
 </dl>
 <p>name: String name of the variable. Useful for debugging purposes.</p>
@@ -1127,37 +1128,79 @@ the display labels for the scalar outputs.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.PointApproximator.export">
-<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tf_saved_model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.export" title="Link to this definition">#</a></dt>
-<dd><p>Create a TF SavedModel artifact for inference.</p>
-<p><strong>Note:</strong> This can currently only be used with
-the TensorFlow or JAX backends.</p>
-<p>This method lets you export a model to a lightweight SavedModel artifact
-that contains the model’s forward pass only (its <cite>call()</cite> method)
-and can be served via e.g. TF-Serving. The forward pass is registered
-under the name <cite>serve()</cite> (see example below).</p>
-<p>The original code of the model (including any custom layers you may
-have used) is <em>no longer</em> necessary to reload the artifact – it is
-entirely standalone.</p>
+<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tf_saved_model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_signature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.export" title="Link to this definition">#</a></dt>
+<dd><p>Export the model as an artifact for inference.</p>
 <dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>filepath: <cite>str</cite> or <cite>pathlib.Path</cite> object. Path where to save</dt><dd><p>the artifact.</p>
+<dt>Args:</dt><dd><dl>
+<dt>filepath: <cite>str</cite> or <cite>pathlib.Path</cite> object. The path to save the</dt><dd><p>artifact.</p>
+</dd>
+<dt>format: <cite>str</cite>. The export format. Supported values:</dt><dd><p><cite>“tf_saved_model”</cite> and <cite>“onnx”</cite>.  Defaults to
+<cite>“tf_saved_model”</cite>.</p>
+</dd>
+<dt>verbose: <cite>bool</cite>. Whether to print a message during export. Defaults</dt><dd><p>to <cite>None</cite>, which uses the default value set by different
+backends and formats.</p>
+</dd>
+<dt>input_signature: Optional. Specifies the shape and dtype of the</dt><dd><p>model inputs. Can be a structure of <cite>keras.InputSpec</cite>,
+<cite>tf.TensorSpec</cite>, <cite>backend.KerasTensor</cite>, or backend tensor. If
+not provided, it will be automatically computed. Defaults to
+<cite>None</cite>.</p>
+</dd>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs: Additional keyword arguments:</dt><dd><ul>
+<li><dl>
+<dt>Specific to the JAX backend and <cite>format=”tf_saved_model”</cite>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><cite>is_static</cite>: Optional <cite>bool</cite>. Indicates whether <cite>fn</cite> is</dt><dd><p>static. Set to <cite>False</cite> if <cite>fn</cite> involves state updates
+(e.g., RNG seeds and counters).</p>
 </dd>
 </dl>
-<p>verbose: whether to print all the variables of the exported model.</p>
+</li>
+<li><dl>
+<dt><cite>jax2tf_kwargs</cite>: Optional <cite>dict</cite>. Arguments for</dt><dd><p><cite>jax2tf.convert</cite>. See the documentation for
+[<cite>jax2tf.convert</cite>](</p>
+<blockquote>
+<div><p><a class="github reference external" href="https://github.com/google/jax/blob/main/jax/experimental/jax2tf/README.md">google/jax</a>).</p>
+</div></blockquote>
+<p>If <cite>native_serialization</cite> and <cite>polymorphic_shapes</cite> are
+not provided, they will be automatically computed.</p>
 </dd>
 </dl>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the artifact</span>
-<span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;path/to/location&quot;</span><span class="p">)</span>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><strong>Note:</strong> This feature is currently supported only with TensorFlow, JAX
+and Torch backends.</p>
+<p><strong>Note:</strong> Be aware that the exported artifact may contain information
+from the local file system when using <cite>format=”onnx”</cite>, <cite>verbose=True</cite>
+and Torch backend.</p>
+<p>Examples:</p>
+<p>Here’s how to export a TensorFlow SavedModel for inference.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Export the model as a TensorFlow SavedModel artifact</span>
+<span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;path/to/location&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;tf_saved_model&quot;</span><span class="p">)</span>
 
-<span class="c1"># Later, in a different process/environment...</span>
+<span class="c1"># Load the artifact in a different process/environment</span>
 <span class="n">reloaded_artifact</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">saved_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;path/to/location&quot;</span><span class="p">)</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">reloaded_artifact</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you would like to customize your serving endpoints, you can
-use the lower-level <cite>keras.export.ExportArchive</cite> class. The
-<cite>export()</cite> method relies on <cite>ExportArchive</cite> internally.</p>
+<p>Here’s how to export an ONNX for inference.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Export the model as a ONNX artifact</span>
+<span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;path/to/location&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;onnx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load the artifact in a different process/environment</span>
+<span class="n">ort_session</span> <span class="o">=</span> <span class="n">onnxruntime</span><span class="o">.</span><span class="n">InferenceSession</span><span class="p">(</span><span class="s2">&quot;path/to/location&quot;</span><span class="p">)</span>
+<span class="n">ort_inputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ort_session</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">(),</span> <span class="n">input_data</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">ort_session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">ort_inputs</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1525,7 +1568,7 @@ the shape of the weights.</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">non_trainable_variables</span></span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.non_trainable_variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all non-trainable layer state.</p>
 <p>This extends <cite>layer.non_trainable_weights</cite> to include all state used by
-the layer including state for metrics and <a href="#id1"><span class="problematic" id="id2">`</span></a>SeedGenerator`s.</p>
+the layer including state for metrics and <a href="#id3"><span class="problematic" id="id4">`</span></a>SeedGenerator`s.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -1664,6 +1707,18 @@ will be skipped if the layer doesn’t implement the function.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.approximators.PointApproximator.rematerialized_call">
+<span class="sig-name descname"><span class="pre">rematerialized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_call</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.rematerialized_call" title="Link to this definition">#</a></dt>
+<dd><p>Enable rematerialization dynamically for layer’s call method.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>layer_call: The original <cite>call</cite> method of a layer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Rematerialized layer’s <cite>call</cite> method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.approximators.PointApproximator.reset_metrics">
 <span class="sig-name descname"><span class="pre">reset_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.reset_metrics" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
@@ -1780,12 +1835,12 @@ non_trainable_variables: List of non-trainable variables of the</p>
 <blockquote>
 <div><p>model.</p>
 </div></blockquote>
-<p><a href="#id3"><span class="problematic" id="id4">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>args: Positional arguments to be passed to <cite>call()</cite>.
 return_losses: If <cite>True</cite>, <cite>stateless_call()</cite> will return the list of</p>
 <blockquote>
 <div><p>losses created during <cite>call()</cite> as part of its return values.</p>
 </div></blockquote>
-<p><a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
+<p><a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs: Keyword arguments to be passed to <cite>call()</cite>.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>A tuple. By default, returns <cite>(outputs, non_trainable_variables)</cite>.</dt><dd><p>If <cite>return_losses = True</cite>, then returns
@@ -1945,7 +2000,7 @@ metric and loss values (if <cite>return_dict=True</cite>).</p>
 <cite>keras.models.model_from_json(json_string, custom_objects={…})</cite>.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
-<dt><a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs: Additional keyword arguments to be passed to</dt><dd><p><cite>json.dumps()</cite>.</p>
+<dt><a href="#id9"><span class="problematic" id="id10">**</span></a>kwargs: Additional keyword arguments to be passed to</dt><dd><p><cite>json.dumps()</cite>.</p>
 </dd>
 </dl>
 </dd>
@@ -2026,7 +2081,7 @@ metric and loss values (if <cite>return_dict=True</cite>).</p>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#bayesflow.approximators.PointApproximator.variables" title="Link to this definition">#</a></dt>
 <dd><p>List of all layer state, including random seeds.</p>
 <p>This extends <cite>layer.weights</cite> to include all state used by the layer
-including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGenerator`s.</p>
+including <a href="#id11"><span class="problematic" id="id12">`</span></a>SeedGenerator`s.</p>
 <p>Note that metrics variables are not included here, use
 <cite>metrics_variables</cite> to visit all the metric variables.</p>
 </dd></dl>
@@ -2154,6 +2209,7 @@ including <a href="#id9"><span class="problematic" id="id10">`</span></a>SeedGen
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.quantized_build"><code class="docutils literal notranslate"><span class="pre">quantized_build()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.quantized_call"><code class="docutils literal notranslate"><span class="pre">quantized_call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.rematerialized_call"><code class="docutils literal notranslate"><span class="pre">rematerialized_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.reset_metrics"><code class="docutils literal notranslate"><span class="pre">reset_metrics()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.run_eagerly"><code class="docutils literal notranslate"><span class="pre">run_eagerly</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.approximators.PointApproximator.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>

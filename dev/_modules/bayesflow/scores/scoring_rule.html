@@ -404,6 +404,7 @@
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.saving</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_keras_serializable</span> <span class="k">as</span> <span class="n">serializable</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shape</span><span class="p">,</span> <span class="n">Tensor</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_network</span><span class="p">,</span> <span class="n">serialize_value_or_type</span><span class="p">,</span> <span class="n">deserialize_value_or_type</span>
@@ -411,6 +412,7 @@
 
 <div class="viewcode-block" id="ScoringRule">
 <a class="viewcode-back" href="../../../api/bayesflow.scores.ScoringRule.html#bayesflow.scores.ScoringRule">[docs]</a>
+<span class="nd">@serializable</span><span class="p">(</span><span class="n">package</span><span class="o">=</span><span class="s2">&quot;bayesflow.scores&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ScoringRule</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for scoring rules.</span>
 

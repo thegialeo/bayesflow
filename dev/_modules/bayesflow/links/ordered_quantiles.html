@@ -454,17 +454,18 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># choose quantile level closest to median as anchor index</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">anchor_index</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">))</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;Length of `q` does not coincide with input shape: &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;len(q)=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span><span class="si">}</span><span class="s2">, position </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="si">}</span><span class="s2"> of shape=</span><span class="si">{</span><span class="n">input_shape</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-            <span class="k">assert</span> <span class="n">num_quantile_levels</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">),</span> <span class="n">msg</span>
 
-        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">&quot;The link function `OrderedQuantiles` expects at least 3 quantile levels,&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot; but only </span><span class="si">{</span><span class="n">num_quantile_levels</span><span class="si">}</span><span class="s2"> were given.&quot;</span>
-        <span class="p">)</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">anchor_index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_quantile_levels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">msg</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num_quantile_levels</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Length of `q` does not coincide with input shape: len(q)=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;position </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="si">}</span><span class="s2"> of shape=</span><span class="si">{</span><span class="n">input_shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">anchor_index</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_quantile_levels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The link function `OrderedQuantiles` expects at least 3 quantile levels, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;but only </span><span class="si">{</span><span class="n">num_quantile_levels</span><span class="si">}</span><span class="s2"> were given.&quot;</span>
+            <span class="p">)</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="p">)</span></div>
 </div>

@@ -591,7 +591,10 @@
         <span class="c1"># First, we calculate all unique numbers of discretization steps n</span>
         <span class="c1"># in a loop, as self.total_steps might be large</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedule_discretization</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_steps</span><span class="p">))</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_n</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">s1</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_n</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The maximum number of discretization steps must be equal to s1 + 1.&quot;</span><span class="p">)</span>
+
         <span class="n">unique_n</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_steps</span><span class="p">)):</span>
             <span class="n">unique_n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_schedule_discretization</span><span class="p">(</span><span class="n">step</span><span class="p">)))</span>

@@ -753,7 +753,7 @@ such as <code class="docutils literal notranslate"><span class="pre">attention_m
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.SetTransformer.add_weight">
-<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SetTransformer.add_weight" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trainable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autocast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SetTransformer.add_weight" title="Link to this definition">#</a></dt>
 <dd><p>Add a weight variable to the layer.</p>
 <dl>
 <dt>Args:</dt><dd><dl class="simple">
@@ -778,9 +778,10 @@ during optimization. Defaults to <cite>None</cite>.</p>
 <dt>constraint: Contrainst object to call on the variable after any</dt><dd><p>optimizer update, or string name of a built-in constraint.
 Defaults to <cite>None</cite>.</p>
 </dd>
-<dt>aggregation: String, one of <cite>‘mean’</cite>, <cite>‘sum’</cite>,</dt><dd><p><cite>‘only_first_replica’</cite>. Annotates the variable with the type
-of multi-replica aggregation to be used for this variable
-when writing custom data parallel training loops.</p>
+<dt>aggregation: Optional string, one of <cite>None</cite>, <cite>“none”</cite>, <cite>“mean”</cite>,</dt><dd><p><cite>“sum”</cite> or <cite>“only_first_replica”</cite>. Annotates the variable with
+the type of multi-replica aggregation to be used for this
+variable when writing custom data parallel training loops.
+Defaults to <cite>“none”</cite>.</p>
 </dd>
 </dl>
 <p>name: String name of the variable. Useful for debugging purposes.</p>
@@ -1012,6 +1013,18 @@ the operation was called.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.networks.SetTransformer.rematerialized_call">
+<span class="sig-name descname"><span class="pre">rematerialized_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_call</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SetTransformer.rematerialized_call" title="Link to this definition">#</a></dt>
+<dd><p>Enable rematerialization dynamically for layer’s call method.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>layer_call: The original <cite>call</cite> method of a layer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Rematerialized layer’s <cite>call</cite> method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="bayesflow.networks.SetTransformer.save_own_variables">
 <span class="sig-name descname"><span class="pre">save_own_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bayesflow.networks.SetTransformer.save_own_variables" title="Link to this definition">#</a></dt>
 <dd><p>Saves the state of the layer.</p>
@@ -1221,6 +1234,7 @@ including <a href="#id7"><span class="problematic" id="id8">`</span></a>SeedGene
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.quantized_build"><code class="docutils literal notranslate"><span class="pre">quantized_build()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.quantized_call"><code class="docutils literal notranslate"><span class="pre">quantized_call()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.rematerialized_call"><code class="docutils literal notranslate"><span class="pre">rematerialized_call()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.save_own_variables"><code class="docutils literal notranslate"><span class="pre">save_own_variables()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.set_weights"><code class="docutils literal notranslate"><span class="pre">set_weights()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.networks.SetTransformer.stateless_call"><code class="docutils literal notranslate"><span class="pre">stateless_call()</span></code></a></li>

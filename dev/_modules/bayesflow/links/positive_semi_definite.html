@@ -402,12 +402,14 @@
                   
   <h1>Source code for bayesflow.links.positive_semi_definite</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">keras.saving</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_keras_serializable</span> <span class="k">as</span> <span class="n">serializable</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">bayesflow.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras_kwargs</span>
 
 
 <div class="viewcode-block" id="PositiveSemiDefinite">
 <a class="viewcode-back" href="../../../api/bayesflow.links.PositiveSemiDefinite.html#bayesflow.links.PositiveSemiDefinite">[docs]</a>
+<span class="nd">@serializable</span><span class="p">(</span><span class="n">package</span><span class="o">=</span><span class="s2">&quot;bayesflow.links&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PositiveSemiDefinite</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Activation function to link from any square matrix to a positive semidefinite matrix.&quot;&quot;&quot;</span>
 
