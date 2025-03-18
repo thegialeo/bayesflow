@@ -11,7 +11,7 @@ class SIR(BenchmarkSimulator):
         T: int = 160,
         I0: float = 1.0,
         R0: float = 0.0,
-        subsample: int = 10,
+        subsample: int = None,
         total_count: int = 1000,
         scale_by_total: bool = True,
         rng: np.random.Generator = None,
@@ -87,7 +87,7 @@ class SIR(BenchmarkSimulator):
 
         Returns
         -------
-        x : np.ndarray of shape (subsample,) or (T,) if subsample=None
+        x : np.ndarray of shape (subsample, ) or (T, 1) if subsample=None
             The time series of simulated infected individuals. A trailing dimension of 1 should
             be added by a BayesFlow configurator if the data is (properly) to be treated as time series.
         """
@@ -107,6 +107,8 @@ class SIR(BenchmarkSimulator):
         # Subsample evenly the specified number of points, if specified
         if self.subsample is not None:
             irt = irt[:: (self.T // self.subsample)]
+        else:
+            irt = irt[:, None]
 
         # Truncate irt, so that small underflow below zero becomes zero
         irt = np.maximum(irt, 0.0)
@@ -115,4 +117,5 @@ class SIR(BenchmarkSimulator):
         x = self.rng.binomial(n=self.total_count, p=irt / self.N)
         if self.scale_by_total:
             x = x / self.total_count
+
         return x
