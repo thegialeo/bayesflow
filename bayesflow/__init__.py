@@ -36,7 +36,7 @@ def setup():
         # turn off gradients by default
         import torch
 
-        # torch.autograd.set_grad_enabled(False)
+        torch.autograd.set_grad_enabled(False)
 
         logging.warning("Disabling gradients by default. Use\nwith torch.enable_grad():\nin custom training loops.")
 
