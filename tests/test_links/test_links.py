@@ -66,6 +66,7 @@ def test_positive_semi_definite(random_matrix_batch):
 
     output = activation(random_matrix_batch)
 
+    output = keras.ops.convert_to_numpy(output)
     eigenvalues = np.linalg.eig(output).eigenvalues
 
     assert np.all(eigenvalues.real > 0) and np.all(np.isclose(eigenvalues.imag, 0)), (
