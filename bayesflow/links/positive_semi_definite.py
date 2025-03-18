@@ -1,6 +1,7 @@
 import keras
 from keras.saving import register_keras_serializable as serializable
 
+from bayesflow.types import Tensor
 from bayesflow.utils import keras_kwargs
 
 
@@ -11,7 +12,7 @@ class PositiveSemiDefinite(keras.Layer):
     def __init__(self, **kwargs):
         super().__init__(**keras_kwargs(kwargs))
 
-    def call(self, inputs):
+    def call(self, inputs: Tensor) -> Tensor:
         # multiply M * M^T to get symmetric matrix
         return keras.ops.einsum("...ij,...kj->...ik", inputs, inputs)
 
