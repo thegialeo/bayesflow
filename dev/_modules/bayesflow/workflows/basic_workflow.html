@@ -438,8 +438,8 @@
         <span class="n">checkpoint_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span>
         <span class="n">save_weights_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">save_best_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">inference_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;theta&quot;</span><span class="p">,</span>
-        <span class="n">inference_conditions</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+        <span class="n">inference_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">inference_conditions</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">summary_variables</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">standardize</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;inference_variables&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -477,10 +477,10 @@
 <span class="sd">            as some losses (e.g. flow matching) do not reliably reflect model performance, and outliers in the</span>
 <span class="sd">            validation data can cause unwanted effects.</span>
 <span class="sd">        inference_variables : Sequence[str] or str, optional</span>
-<span class="sd">            Variables for inference as a sequence of strings or a single string (default is &quot;theta&quot;).</span>
+<span class="sd">            Variables for inference as a sequence of strings or a single string (default is None).</span>
 <span class="sd">            Important for automating diagnostics!</span>
 <span class="sd">        inference_conditions : Sequence[str] or str, optional</span>
-<span class="sd">            Variables used as conditions for inference (default is &quot;x&quot;).</span>
+<span class="sd">            Variables used as conditions for inference (default is None).</span>
 <span class="sd">        summary_variables : Sequence[str] or str, optional</span>
 <span class="sd">            Variables for summarizing data, if any (default is None).</span>
 <span class="sd">        standardize : Sequence[str] or str, optional</span>
