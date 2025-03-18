@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>benchmarks &#8212; BayesFlow: Amortized Bayesian Inference</title>
+    <title>LotkaVolterra &#8212; BayesFlow: Amortized Bayesian Inference</title>
   
   
   
@@ -45,7 +45,7 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/bayesflow.benchmarks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/bayesflow.simulators.LotkaVolterra';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = '/versions.json';
@@ -53,13 +53,13 @@
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
-    <link rel="canonical" href="https://www.bayesflow.org/api/bayesflow.benchmarks.html" />
+    <link rel="canonical" href="https://www.bayesflow.org/api/bayesflow.simulators.LotkaVolterra.html" />
     <link rel="icon" href="../_static/bayesflow_hex.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="LotkaVolterra" href="bayesflow.benchmarks.LotkaVolterra.html" />
-    <link rel="prev" title="PointApproximator" href="bayesflow.approximators.PointApproximator.html" />
+    <link rel="next" title="ModelComparisonSimulator" href="bayesflow.simulators.ModelComparisonSimulator.html" />
+    <link rel="prev" title="LambdaSimulator" href="bayesflow.simulators.LambdaSimulator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -390,11 +390,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.PointApproximator.html">PointApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">benchmarks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
@@ -463,11 +458,13 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.make_simulator.html">make_simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">LotkaVolterra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SIR.html">SIR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
@@ -616,7 +613,10 @@
     
     <li class="breadcrumb-item"><a href="bayesflow.html" class="nav-link">API Reference</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">benchmarks</span></li>
+    
+    <li class="breadcrumb-item"><a href="bayesflow.simulators.html" class="nav-link">simulators</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">LotkaVolterra</span></li>
   </ul>
 </nav>
 </div>
@@ -633,20 +633,107 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-bayesflow.benchmarks">
-<span id="benchmarks"></span><h1>benchmarks<a class="headerlink" href="#module-bayesflow.benchmarks" title="Link to this heading">#</a></h1>
-<p class="rubric">Classes</p>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html#bayesflow.benchmarks.LotkaVolterra" title="bayesflow.benchmarks.LotkaVolterra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a>([X0, Y0, T, subsample, ...])</p></td>
-<td><p>Lotka Volterra simulated benchmark.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html#bayesflow.benchmarks.TwoMoons" title="bayesflow.benchmarks.TwoMoons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TwoMoons</span></code></a>([lower_bound, upper_bound, rng])</p></td>
-<td><p>Two moons simulated benchmark.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <section id="lotkavolterra">
+<h1>LotkaVolterra<a class="headerlink" href="#lotkavolterra" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.simulators.</span></span><span class="sig-name descname"><span class="pre">LotkaVolterra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="(in NumPy v2.2)"><span class="pre">Generator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/simulators/benchmark_simulators/lotka_volterra.html#LotkaVolterra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSimulator</span></code></p>
+<p>Lotka Volterra simulated benchmark.
+See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">https://arxiv.org/pdf/2101.04653.pdf</a>, Task T.10</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X0: int, optional, default: 30</strong></dt><dd><p>Initial number of prey species.</p>
+</dd>
+<dt><strong>Y0: int, optional, default: 1</strong></dt><dd><p>Initial number of predator species.</p>
+</dd>
+<dt><strong>T: int, optional, default: 20</strong></dt><dd><p>The duration (time horizon) of the simulation.</p>
+</dd>
+<dt><strong>subsample: int or None, optional, default: 10</strong></dt><dd><p>The number of evenly spaced time points to return.
+If None, no subsampling will be performed and all T timepoints will be returned.</p>
+</dd>
+<dt><strong>flatten: bool, optional, default: True</strong></dt><dd><p>A flag to indicate whether a 1D (<cite>flatten=True</cite>) or 2D (<cite>flatten=False</cite>)
+representation of the simulated data is returned.</p>
+</dd>
+<dt><strong>obs_noise: float, optional, default: 0.1</strong></dt><dd><p>The standard deviation of the log-normal likelihood.</p>
+</dd>
+<dt><strong>rng: np.random.Generator or None, optional, default: None</strong></dt><dd><p>An optional random number generator to use.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra.prior">
+<span class="sig-name descname"><span class="pre">prior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/simulators/benchmark_simulators/lotka_volterra.html#LotkaVolterra.prior"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra.prior" title="Link to this definition">#</a></dt>
+<dd><p>Generates a random draw from a 4-dimensional (independent) lognormal prior
+which represents the four contact parameters of the Lotka-Volterra model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">np.ndarray of shape (4, )</span></dt><dd><p>A single draw from the 4-dimensional prior.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra.__call__" title="Link to this definition">#</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra.observation_model">
+<span class="sig-name descname"><span class="pre">observation_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/bayesflow/simulators/benchmark_simulators/lotka_volterra.html#LotkaVolterra.observation_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra.observation_model" title="Link to this definition">#</a></dt>
+<dd><p>Runs a Lotka-Volterra simulation for T time steps and returns <cite>subsample</cite> evenly spaced
+points from the simulated trajectory, given contact parameters <cite>params</cite>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">np.ndarray of shape (2,)</span></dt><dd><p>The 2-dimensional vector of disease parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>x</strong><span class="classifier">np.ndarray of shape (subsample, 2) or (subsample*2,) if <cite>subsample is not None</cite>,</span></dt><dd><p>otherwise shape (T, 2) or (T*2,) if <cite>subsample is None</cite>.
+The time series of simulated predator and pray populations</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra.rejection_sample">
+<span class="sig-name descname"><span class="pre">rejection_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra.rejection_sample" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bayesflow.simulators.LotkaVolterra.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bayesflow.simulators.LotkaVolterra.sample" title="Link to this definition">#</a></dt>
+<dd><p>Runs simulated benchmark and returns <cite>batch_size</cite> parameter
+and observation batches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>batch_shape: tuple</strong></dt><dd><p>Number of parameter-observation batches to simulate.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict[str, np.ndarray]: simulated parameters and observables</dt><dd><p>with shapes (<cite>batch_size</cite>, …)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -660,20 +747,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bayesflow.approximators.PointApproximator.html"
+       href="bayesflow.simulators.LambdaSimulator.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">PointApproximator</p>
+        <p class="prev-next-title">LambdaSimulator</p>
       </div>
     </a>
     <a class="right-next"
-       href="bayesflow.benchmarks.LotkaVolterra.html"
+       href="bayesflow.simulators.ModelComparisonSimulator.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LotkaVolterra</p>
+        <p class="prev-next-title">ModelComparisonSimulator</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -689,10 +776,33 @@
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra"><code class="docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a><ul class="nav section-nav flex-column visible">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra.prior"><code class="docutils literal notranslate"><span class="pre">prior()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra.__call__"><code class="docutils literal notranslate"><span class="pre">__call__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra.observation_model"><code class="docutils literal notranslate"><span class="pre">observation_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra.rejection_sample"><code class="docutils literal notranslate"><span class="pre">rejection_sample()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesflow.simulators.LotkaVolterra.sample"><code class="docutils literal notranslate"><span class="pre">sample()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/bayesflow-org/bayesflow/edit/dev/docsrc/api/bayesflow.benchmarks.rst">
+    <a href="https://github.com/bayesflow-org/bayesflow/edit/dev/docsrc/api/bayesflow.simulators.LotkaVolterra.rst">
       <i class="fa-solid fa-pencil"></i>
       
       

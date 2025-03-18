@@ -1,7 +1,7 @@
 LotkaVolterra
 =============
 
-.. currentmodule:: bayesflow.benchmarks
+.. currentmodule:: bayesflow.simulators
 
 .. autoclass:: LotkaVolterra
    :members:

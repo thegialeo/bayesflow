@@ -390,11 +390,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.PointApproximator.html">PointApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
@@ -467,7 +462,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.make_simulator.html">make_simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.LotkaVolterra.html">LotkaVolterra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SIR.html">SIR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
@@ -642,43 +639,40 @@ please refer to the <a class="reference internal" href="../examples.html"><span 
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.approximators.html#module-bayesflow.approximators" title="bayesflow.approximators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.approximators</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.benchmarks.html#module-bayesflow.benchmarks" title="bayesflow.benchmarks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.benchmarks</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.datasets.html#module-bayesflow.datasets" title="bayesflow.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.datasets</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.datasets.html#module-bayesflow.datasets" title="bayesflow.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.datasets</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.diagnostics.html#module-bayesflow.diagnostics" title="bayesflow.diagnostics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.diagnostics</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.diagnostics.html#module-bayesflow.diagnostics" title="bayesflow.diagnostics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.diagnostics</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.distributions.html#module-bayesflow.distributions" title="bayesflow.distributions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.distributions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.distributions.html#module-bayesflow.distributions" title="bayesflow.distributions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.distributions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.experimental.html#module-bayesflow.experimental" title="bayesflow.experimental"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.experimental</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.experimental.html#module-bayesflow.experimental" title="bayesflow.experimental"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.experimental</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.links.html#module-bayesflow.links" title="bayesflow.links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.links</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.links.html#module-bayesflow.links" title="bayesflow.links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.links</span></code></a></p></td>
 <td><p>Activation functions linking network output to estimates with architecturally enforced properties.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.metrics.html#module-bayesflow.metrics" title="bayesflow.metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.metrics</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.metrics.html#module-bayesflow.metrics" title="bayesflow.metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.metrics</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.networks.html#module-bayesflow.networks" title="bayesflow.networks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.networks</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.html#module-bayesflow.networks" title="bayesflow.networks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.networks</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.simulators.html#module-bayesflow.simulators" title="bayesflow.simulators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.simulators</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.simulators.html#module-bayesflow.simulators" title="bayesflow.simulators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.simulators</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.scores.html#module-bayesflow.scores" title="bayesflow.scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.scores</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.scores.html#module-bayesflow.scores" title="bayesflow.scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.scores</span></code></a></p></td>
 <td><p>Scoring rules for point estimation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.types.html#module-bayesflow.types" title="bayesflow.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.types</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.types.html#module-bayesflow.types" title="bayesflow.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.types</span></code></a></p></td>
 <td><p>Custom types.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.utils.html#module-bayesflow.utils" title="bayesflow.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.utils</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.html#module-bayesflow.utils" title="bayesflow.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.utils</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.workflows.html#module-bayesflow.workflows" title="bayesflow.workflows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.workflows</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.workflows.html#module-bayesflow.workflows" title="bayesflow.workflows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bayesflow.workflows</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

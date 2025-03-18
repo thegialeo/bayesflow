@@ -34,7 +34,9 @@
   
     HierarchicalSimulator
     LambdaSimulator
+    LotkaVolterra
     ModelComparisonSimulator
+    SIR
     SequentialSimulator
     Simulator
     TwoMoons

@@ -1,9 +1,9 @@
-TwoMoons
-========
+SIR
+===
 
-.. currentmodule:: bayesflow.benchmarks
+.. currentmodule:: bayesflow.simulators
 
-.. autoclass:: TwoMoons
+.. autoclass:: SIR
    :members:
    :inherited-members:
    :show-inheritance:

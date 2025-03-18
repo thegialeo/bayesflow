@@ -390,11 +390,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.approximators.PointApproximator.html">PointApproximator</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.benchmarks.html">benchmarks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.LotkaVolterra.html">LotkaVolterra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.benchmarks.TwoMoons.html">TwoMoons</a></li>
-</ul>
-</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.datasets.html">datasets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.DiskDataset.html">DiskDataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.datasets.OfflineDataset.html">OfflineDataset</a></li>
@@ -467,7 +462,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.make_simulator.html">make_simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html">LambdaSimulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.LotkaVolterra.html">LotkaVolterra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html">ModelComparisonSimulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SIR.html">SIR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
@@ -653,8 +650,14 @@
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.simulators.LambdaSimulator.html#bayesflow.simulators.LambdaSimulator" title="bayesflow.simulators.LambdaSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LambdaSimulator</span></code></a>(sample_fn, *[, is_batched])</p></td>
 <td><p>Implements a simulator based on a sampling function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html#bayesflow.simulators.ModelComparisonSimulator" title="bayesflow.simulators.ModelComparisonSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelComparisonSimulator</span></code></a>(simulators[, p, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.simulators.LotkaVolterra.html#bayesflow.simulators.LotkaVolterra" title="bayesflow.simulators.LotkaVolterra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LotkaVolterra</span></code></a>([X0, Y0, T, subsample, ...])</p></td>
+<td><p>Lotka Volterra simulated benchmark.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="bayesflow.simulators.ModelComparisonSimulator.html#bayesflow.simulators.ModelComparisonSimulator" title="bayesflow.simulators.ModelComparisonSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelComparisonSimulator</span></code></a>(simulators[, p, ...])</p></td>
 <td><p>Wraps a sequence of simulators for use with a model comparison approximator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.simulators.SIR.html#bayesflow.simulators.SIR" title="bayesflow.simulators.SIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SIR</span></code></a>([N, T, I0, R0, subsample, total_count, ...])</p></td>
+<td><p>SIR simulated benchmark See: <a class="reference external" href="https://arxiv.org/pdf/2101.04653.pdf">https://arxiv.org/pdf/2101.04653.pdf</a>, Task T.9</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html#bayesflow.simulators.SequentialSimulator" title="bayesflow.simulators.SequentialSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequentialSimulator</span></code></a>(simulators[, expand_outputs])</p></td>
 <td><p>Combines multiple simulators into one, sequentially.</p></td>
