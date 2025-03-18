@@ -5,7 +5,7 @@ from .flow_matching import FlowMatching
 from .inference_network import InferenceNetwork
 from .point_inference_network import PointInferenceNetwork
 from .mlp import MLP
-from .lstnet import LSTNet
+from .lstnet import TimeSeriesNetwork
 from .summary_network import SummaryNetwork
 from .transformers import SetTransformer, TimeSeriesTransformer, FusionTransformer
 

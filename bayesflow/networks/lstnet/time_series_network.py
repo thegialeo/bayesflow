@@ -8,7 +8,7 @@ from ..summary_network import SummaryNetwork
 
 
 @serializable(package="bayesflow.networks")
-class LSTNet(SummaryNetwork):
+class TimeSeriesNetwork(SummaryNetwork):
     """
     Implements a LSTNet Architecture as described in [1]
 

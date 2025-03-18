@@ -1,1 +1,1 @@
-from .lstnet import LSTNet
+from .time_series_network import TimeSeriesNetwork
