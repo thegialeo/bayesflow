@@ -60,7 +60,7 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Hyperparameter Optimization Using Optuna" href="Hyperparameter_Optimization.html" />
+    <link rel="next" title="4. Bayesian Experimental Design (BED) with BayesFlow and PyTorch" href="Bayesian_Experimental_Design.html" />
     <link rel="prev" title="2. Two Moons: Tackling Bimodal Posteriors" href="Two_Moons_Starter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -361,11 +361,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Linear_Regression_Starter.html">1. Bayesian Linear Regression Starter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Two_Moons_Starter.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Hyperparameter_Optimization.html">4. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Bayesian_Experimental_Design.html">5. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="From_ABC_to_BayesFlow.html">6. From pyABC to BayesFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lotka_Volterra_point_estimation_and_expert_stats.html">8. Rapid iteration with point estimation and expert statistics for Lotka-Volterra dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bayesian_Experimental_Design.html">4. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="From_ABC_to_BayesFlow.html">5. From ABC to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="One_Sample_TTest.html">6. Simple Model Comparison - One Sample T-Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lotka_Volterra_point_estimation_and_expert_stats.html">7. Rapid Iteration with Point Estimation Lotka-Volterra Dynamics</a></li>
 </ul>
 </div>
 </nav></div>
@@ -445,10 +444,6 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
 
-<span class="c1"># For BayesFlow devs: this ensures that the latest dev version can be found</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-
 <span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bf</span>
 </pre></div>
 </div>
@@ -464,7 +459,7 @@
 <h2><span class="section-number">3.2. </span>Defining the Simulator <a class="anchor" id="defining_the_generative"></a><a class="headerlink" href="#defining-the-simulator" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RNG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RNG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2025</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -973,11 +968,11 @@ The resulting object can now generate <em>batches</em> of simulations.</p>
       </div>
     </a>
     <a class="right-next"
-       href="Hyperparameter_Optimization.html"
+       href="Bayesian_Experimental_Design.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Hyperparameter Optimization Using Optuna</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Bayesian Experimental Design (BED) with BayesFlow and PyTorch</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

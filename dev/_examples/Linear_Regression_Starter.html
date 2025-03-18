@@ -361,11 +361,10 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Bayesian Linear Regression Starter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Two_Moons_Starter.html">2. Two Moons: Tackling Bimodal Posteriors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SIR_Posterior_Estimation.html">3. Posterior Estimation for SIR-like Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Hyperparameter_Optimization.html">4. Hyperparameter Optimization Using Optuna</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Bayesian_Experimental_Design.html">5. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="From_ABC_to_BayesFlow.html">6. From pyABC to BayesFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="One_Sample_TTest.html">7. Simple Model Comparison - One Sample T-Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lotka_Volterra_point_estimation_and_expert_stats.html">8. Rapid iteration with point estimation and expert statistics for Lotka-Volterra dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bayesian_Experimental_Design.html">4. Bayesian Experimental Design (BED) with BayesFlow and PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="From_ABC_to_BayesFlow.html">5. From ABC to BayesFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="One_Sample_TTest.html">6. Simple Model Comparison - One Sample T-Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lotka_Volterra_point_estimation_and_expert_stats.html">7. Rapid Iteration with Point Estimation Lotka-Volterra Dynamics</a></li>
 </ul>
 </div>
 </nav></div>
@@ -435,18 +434,6 @@
 <p>In traditional Bayesian inference, we seek to approximate the posterior distribution of model parameters given observed data for each new data instance separately. This process can be computationally expensive, especially for complex models or large datasets, because it often involves iterative optimization or sampling methods. This step needs to be repeated for each new instance of data.</p>
 <p>Amortized Bayesian inference offers a solution to this problem. “Amortization” here refers to spreading out the computational cost over multiple instances. Instead of computing a new posterior from scratch for each data instance, amortized inference learns a function. This function is parameterized by a neural network, that directly maps observations to an approximation of the posterior distribution. This function is trained over the dataset to approximate the posterior for <em>any</em> new data instance efficiently. In this example, we will use a simple Gaussian model to illustrate the basic concepts of amortized posterior estimation.</p>
 <p>At a high level, our architecture consists of a summary network <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> and an inference network <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> which jointly learn to invert a generative model. The summary network transforms input data <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of potentially variable size to a fixed-length representations. The inference network generates random draws from an approximate posterior <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> via a conditional generative networks (here, an invertible network).</p>
-</section>
-<section id="setup">
-<h2><span class="section-number">1.2. </span>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
-<p>For this notebook to run, you need to have the latest bayesflow dev version installed,
-for example via:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install git+https://github.com/bayesflow-org/bayesflow.git@dev</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>We load a bunch of libraries and choose the keras backend, we want to use.
 Here we use JAX but you can freely change that and the notebook will work all the same.</p>
 <div class="cell docutils container">
@@ -457,31 +444,12 @@ Here we use JAX but you can freely change that and the notebook will work all th
 <span class="k">if</span> <span class="s2">&quot;KERAS_BACKEND&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="c1"># set this to &quot;torch&quot;, &quot;tensorflow&quot;, or &quot;jax&quot;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KERAS_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;jax&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for BayesFlow devs: this ensures that the latest dev version can be found</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bf</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">keras</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bayesflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bf</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +472,7 @@ Here we use JAX but you can freely change that and the notebook will work all th
 </div>
 </section>
 <section id="generative-model">
-<h2><span class="section-number">1.3. </span>Generative Model<a class="headerlink" href="#generative-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Generative Model<a class="headerlink" href="#generative-model" title="Link to this heading">#</a></h2>
 <p>From the perspective of BayesFlow, a generative model is more than just a prior (encoding beliefs about the parameters before observing data) and a data simulator (a likelihood function, often implicit, that generates data given parameters).</p>
 <p>In addition, a model consists of various implicit context assumptions, which we can make explicit at any time. Furthermore, we can also amortize over these context variables, thus making our real-world inference more flexible (i.e., applicable to more contexts). We are leveraging the concept of amortized inference and extending it to context variables as well.</p>
 <p>We will start with our data simulator:</p>
@@ -651,7 +619,7 @@ that the number of observations <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="adapter">
-<h2><span class="section-number">1.4. </span>Adapter<a class="headerlink" href="#adapter" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Adapter<a class="headerlink" href="#adapter" title="Link to this heading">#</a></h2>
 <p>To ensure that the training data generated by the simulator can be used for deep learning, we have do a bunch of transformations via <code class="docutils literal notranslate"><span class="pre">adapter</span></code> objects. They provides multiple flexible functionalities, from standardization to renaming, and so on.</p>
 <p>Below, we build our own <code class="docutils literal notranslate"><span class="pre">adapter</span></code> from scratch but later on, <code class="docutils literal notranslate"><span class="pre">BayesFlo</span></code> will also provide default adapters that will already automate most of the commonly required steps.</p>
 <div class="cell docutils container">
@@ -702,10 +670,10 @@ reliably without, for example, exploding or vanishing gradients during training.
 <code class="docutils literal notranslate"><span class="pre">beta</span></code> (a vector of length <code class="docutils literal notranslate"><span class="pre">2</span></code>) and <code class="docutils literal notranslate"><span class="pre">sigma</span></code> (a scalar).</p>
 </section>
 <section id="neural-approximator">
-<h2><span class="section-number">1.5. </span>Neural Approximator<a class="headerlink" href="#neural-approximator" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Neural Approximator<a class="headerlink" href="#neural-approximator" title="Link to this heading">#</a></h2>
 <p>Below, we will define the neural networks that we will use to estimate the posterior distribution of our linear regression parameters.</p>
 <section id="summary-network">
-<h3><span class="section-number">1.5.1. </span>Summary Network<a class="headerlink" href="#summary-network" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.4.1. </span>Summary Network<a class="headerlink" href="#summary-network" title="Link to this heading">#</a></h3>
 <p>Since our likelihood generates data exchangeably, we need to respect the permutation invariance of the data. Exchangeability in data means that the probability distribution of a sequence of observations remains the same regardless of the order in which the observations appear. In other words, the data is permutation invariant. For that, we will use a <code class="docutils literal notranslate"><span class="pre">DeepSet</span></code> which does exactly that. This network will take (at least) 3D tensors of shape <code class="docutils literal notranslate"><span class="pre">(batch_size,</span> <span class="pre">n_obs,</span> <span class="pre">D)</span></code> and reduce them to 2D tensors of shape <code class="docutils literal notranslate"><span class="pre">(batch_size,</span> <span class="pre">summary_dim)</span></code>, where <code class="docutils literal notranslate"><span class="pre">summary_dim</span></code> is a hyperparameter to be set by the user (you). Heuristically, this number should not be lower than the number of parameters in a model. Below, we create a permutation-invariant network with <code class="docutils literal notranslate"><span class="pre">summary_dim</span> <span class="pre">=</span> <span class="pre">10</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -716,7 +684,7 @@ reliably without, for example, exploding or vanishing gradients during training.
 </div>
 </section>
 <section id="inference-network">
-<h3><span class="section-number">1.5.2. </span>Inference Network<a class="headerlink" href="#inference-network" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.4.2. </span>Inference Network<a class="headerlink" href="#inference-network" title="Link to this heading">#</a></h3>
 <p>To actually approximate the posterior distribution, we need to define a generative neural network. Here we choose a simple coupling flow network:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +815,7 @@ Epoch 30/30
 </section>
 </section>
 <section id="diagnostics">
-<h2><span class="section-number">1.6. </span>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h2>
 <p>Let’s check out the resulting inference. Say we want to obtain 1000 posterior samples from our approximated posterior of a simulated dataset where we know the ground truth values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -978,7 +946,7 @@ Epoch 30/30
 <p>We clearly see strong posterior contraction in almost all posteriors of <span class="math notranslate nohighlight">\(\beta_0\)</span> and in most posteriors of <span class="math notranslate nohighlight">\(\beta_1\)</span>. In the latter case, there are some notable exceptions where little learning from prior to posterior has taken place. Most likely this is because the variance of the sample predictor value <span class="math notranslate nohighlight">\(x\)</span> was small, leading to reduced information about the slope <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
 <p>In terms of posterior z-score, most estimates are between -2 and 2, which makes sense if our posterior is approximately normal and well calibrated. However, again, there are some notable exceptions with quite large posterior z-scores over greater than 3 in absolute values. These may be cases, where the learned posterior approximation was not yet fully accurate. So likely, these extreme cases would vanish if we trained our approximator a little longer.</p>
 <section id="saving-and-loading-the-trained-networks">
-<h3><span class="section-number">1.6.1. </span>Saving and Loading the Trained Networks<a class="headerlink" href="#saving-and-loading-the-trained-networks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.5.1. </span>Saving and Loading the Trained Networks<a class="headerlink" href="#saving-and-loading-the-trained-networks" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recommended - full serialization (checkpoints folder must exist)</span>
@@ -1073,16 +1041,15 @@ Epoch 30/30
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">1.2. Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model">1.3. Generative Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adapter">1.4. Adapter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-approximator">1.5. Neural Approximator</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-network">1.5.1. Summary Network</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-network">1.5.2. Inference Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model">1.2. Generative Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adapter">1.3. Adapter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-approximator">1.4. Neural Approximator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-network">1.4.1. Summary Network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-network">1.4.2. Inference Network</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">1.6. Diagnostics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-the-trained-networks">1.6.1. Saving and Loading the Trained Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">1.5. Diagnostics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-the-trained-networks">1.5.1. Saving and Loading the Trained Networks</a></li>
 </ul>
 </li>
 </ul>
