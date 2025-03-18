@@ -144,13 +144,15 @@ class PointInferenceNetwork(keras.Layer):
         }
         return output
 
-    def compute_metrics(self, x: Tensor, conditions: Tensor = None, stage: str = "training") -> dict[str, Tensor]:
+    def compute_metrics(
+        self, x: Tensor, conditions: Tensor = None, sample_weight: Tensor = None, stage: str = "training"
+    ) -> dict[str, Tensor]:
         output = self(x, conditions)
 
         metrics = {}
         # calculate negative score as mean over all scores
         for score_key, score in self.scores.items():
-            score_value = score.score(output[score_key], x)
+            score_value = score.score(output[score_key], x, sample_weight)
             metrics[score_key] = score_value
         neg_score = keras.ops.mean(list(metrics.values()))
 
