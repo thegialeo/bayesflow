@@ -2,9 +2,13 @@ import numpy as np
 
 from bayesflow.types import Shape
 from bayesflow.utils import batched_call, tree_stack
+from bayesflow.utils.decorators import allow_batch_size
+
+from ..simulator import Simulator
 
 
-class BenchmarkSimulator:
+class BenchmarkSimulator(Simulator):
+    @allow_batch_size
     def sample(self, batch_shape: Shape, **kwargs) -> dict[str, np.ndarray]:
         """Runs simulated benchmark and returns `batch_size` parameter
         and observation batches

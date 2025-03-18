@@ -1,7 +1,7 @@
 import numpy as np
 
-from .simulator import Simulator
-from ..types import Shape
+from ..simulator import Simulator
+from bayesflow.types import Shape
 
 
 class TwoMoons(Simulator):

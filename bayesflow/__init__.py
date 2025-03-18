@@ -1,6 +1,5 @@
 from . import (
     approximators,
-    benchmarks,
     adapters,
     datasets,
     diagnostics,
