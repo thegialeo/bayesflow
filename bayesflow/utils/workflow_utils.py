@@ -36,7 +36,7 @@ def find_summary_network(summary_network: SummaryNetwork | str, **kwargs) -> Sum
             return bayesflow.networks.FusionTransformer(**kwargs)
         case "time_series_transformer":
             return bayesflow.networks.TimeSeriesTransformer(**kwargs)
-        case "lstnet":
+        case "time_series_network":
             return bayesflow.networks.LSTNet(**kwargs)
         case str() as unknown_network:
             raise ValueError(f"Unknown summary network: '{unknown_network}'")
