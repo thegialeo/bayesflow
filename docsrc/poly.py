@@ -123,9 +123,6 @@ async def selector(rev, keys):
     # map all v1 revisions to one configuration
     if rev.name.startswith("v1."):
         return "v1.1.6"
-    elif rev.name in ["main"]:
-        # special configuration for v1 main branch
-        return rev.name
     elif rev.name == "local":
         return "local"
     # common config for everything else
