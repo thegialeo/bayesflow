@@ -1,5 +1,7 @@
-﻿approximators
+
+approximators
 =============
+
 
 .. automodule:: bayesflow.approximators
   :member-order: alphabetical

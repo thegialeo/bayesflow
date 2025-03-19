@@ -1,5 +1,7 @@
-﻿workflows
+
+workflows
 =========
+
 
 .. automodule:: bayesflow.workflows
   :member-order: alphabetical

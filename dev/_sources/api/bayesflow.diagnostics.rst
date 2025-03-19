@@ -1,5 +1,7 @@
-﻿diagnostics
+
+diagnostics
 ===========
+
 
 .. automodule:: bayesflow.diagnostics
   :member-order: alphabetical

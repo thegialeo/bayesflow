@@ -1,5 +1,7 @@
-﻿distributions
+
+distributions
 =============
+
 
 .. automodule:: bayesflow.distributions
   :member-order: alphabetical

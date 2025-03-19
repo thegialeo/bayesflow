@@ -1,5 +1,7 @@
-﻿networks
+
+networks
 ========
+
 
 .. automodule:: bayesflow.networks
   :member-order: alphabetical

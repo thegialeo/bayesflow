@@ -1,5 +1,7 @@
+
 functional
 ==========
+
 
 .. automodule:: bayesflow.metrics.functional
   :member-order: alphabetical

@@ -1,5 +1,7 @@
-﻿datasets
+
+datasets
 ========
+
 
 .. automodule:: bayesflow.datasets
   :member-order: alphabetical

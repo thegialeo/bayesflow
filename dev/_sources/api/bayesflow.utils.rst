@@ -1,5 +1,7 @@
-﻿utils
+
+utils
 =====
+
 
 .. automodule:: bayesflow.utils
   :member-order: alphabetical

@@ -1,5 +1,7 @@
-﻿links
+
+links
 =====
+
 
 .. automodule:: bayesflow.links
   :member-order: alphabetical

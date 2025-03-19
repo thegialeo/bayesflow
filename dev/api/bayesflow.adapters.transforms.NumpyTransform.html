@@ -458,6 +458,16 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.networks.TimeSeriesTransformer.html">TimeSeriesTransformer</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.scores.html">scores</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MeanScore.html">MeanScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MedianScore.html">MedianScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MultivariateNormalScore.html">MultivariateNormalScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.NormedDifferenceScore.html">NormedDifferenceScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.ParametricDistributionScore.html">ParametricDistributionScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.QuantileScore.html">QuantileScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.ScoringRule.html">ScoringRule</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.simulators.html">simulators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.make_simulator.html">make_simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.HierarchicalSimulator.html">HierarchicalSimulator</a></li>
@@ -468,16 +478,6 @@
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.SequentialSimulator.html">SequentialSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.Simulator.html">Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesflow.simulators.TwoMoons.html">TwoMoons</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bayesflow.scores.html">scores</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MeanScore.html">MeanScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MedianScore.html">MedianScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.MultivariateNormalScore.html">MultivariateNormalScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.NormedDifferenceScore.html">NormedDifferenceScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.ParametricDistributionScore.html">ParametricDistributionScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.QuantileScore.html">QuantileScore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bayesflow.scores.ScoringRule.html">ScoringRule</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="bayesflow.types.html">types</a></li>
@@ -643,23 +643,26 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bayesflow.adapters.transforms.</span></span><span class="sig-name descname"><span class="pre">NumpyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bayesflow/adapters/transforms/numpy_transform.html#NumpyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bayesflow.adapters.transforms.NumpyTransform" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bayesflow.adapters.transforms.ElementwiseTransform.html#bayesflow.adapters.transforms.ElementwiseTransform" title="bayesflow.adapters.transforms.elementwise_transform.ElementwiseTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementwiseTransform</span></code></a></p>
 <p>A class to apply element-wise transformations using plain NumPy functions.</p>
-<section id="attributes">
-<h2>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>_forward<span class="classifier">str</span></dt><dd><p>The name of the NumPy function to apply in the forward transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>_forward</strong><span class="classifier">str</span></dt><dd><p>The name of the NumPy function to apply in the forward transformation.</p>
 </dd>
-<dt>_inverse<span class="classifier">str</span></dt><dd><p>The name of the NumPy function to apply in the inverse transformation.</p>
+<dt><strong>_inverse</strong><span class="classifier">str</span></dt><dd><p>The name of the NumPy function to apply in the inverse transformation.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p>Initializes the NumpyTransform with specified forward and inverse functions.</p>
-</section>
-<section id="parameters">
-<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>forward: str</dt><dd><p>The name of the NumPy function to use for the forward transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>forward</strong><span class="classifier">str</span></dt><dd><p>The name of the NumPy function to use for the forward transformation.</p>
 </dd>
-<dt>inverse: str, optional</dt><dd><p>The name of the NumPy function to use for the inverse transformation.
+<dt><strong>inverse</strong><span class="classifier">str, optional</span></dt><dd><p>The name of the NumPy function to use for the inverse transformation.
 By default, the inverse is inferred from the forward argument for supported methods.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -693,7 +696,6 @@ By default, the inverse is inferred from the forward argument for supported meth
 <dd><p>Call self as a function.</p>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 </section>

@@ -1,5 +1,7 @@
-﻿experimental
+
+experimental
 ============
+
 
 .. automodule:: bayesflow.experimental
   :member-order: alphabetical

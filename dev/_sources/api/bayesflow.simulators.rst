@@ -1,5 +1,7 @@
-﻿simulators
+
+simulators
 ==========
+
 
 .. automodule:: bayesflow.simulators
   :member-order: alphabetical

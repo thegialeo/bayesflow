@@ -1,5 +1,7 @@
+
 logging
 =======
+
 
 .. automodule:: bayesflow.utils.logging
   :member-order: alphabetical

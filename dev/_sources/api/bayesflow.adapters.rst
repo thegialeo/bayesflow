@@ -1,5 +1,7 @@
-﻿adapters
+
+adapters
 ========
+
 
 .. automodule:: bayesflow.adapters
   :member-order: alphabetical

@@ -1,5 +1,7 @@
-﻿scores
+
+scores
 ======
+
 
 .. automodule:: bayesflow.scores
   :member-order: alphabetical

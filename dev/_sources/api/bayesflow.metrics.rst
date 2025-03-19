@@ -1,5 +1,7 @@
-﻿metrics
+
+metrics
 =======
+
 
 .. automodule:: bayesflow.metrics
   :member-order: alphabetical

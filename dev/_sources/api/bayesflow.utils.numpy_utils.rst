@@ -1,5 +1,7 @@
+
 numpy\_utils
 ============
+
 
 .. automodule:: bayesflow.utils.numpy_utils
   :member-order: alphabetical
