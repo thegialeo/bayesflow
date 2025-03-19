@@ -4,14 +4,14 @@
 [![DOI](https://img.shields.io/badge/DOI-10.21105%2Fjoss.05702-blue?style=for-the-badge)](https://doi.org/10.21105/joss.05702)
 ![PyPI - License](https://img.shields.io/pypi/l/bayesflow?style=for-the-badge)
 
-BayesFlow (version 2.0+) is a Python library for simulation-based **Amortized Bayesian Inference** with neural networks.
+BayesFlow is a Python library for simulation-based **Amortized Bayesian Inference** with neural networks.
 It provides users and researchers with:
 
 - A user-friendly API for rapid Bayesian workflows
 - A rich collection of neural network architectures
 - Multi-backend support via [Keras3](https://keras.io/keras_3/): You can use [PyTorch](https://github.com/pytorch/pytorch), [TensorFlow](https://github.com/tensorflow/tensorflow), or [JAX](https://github.com/google/jax)
 
-BayesFlow is designed to be a flexible and efficient tool that enables rapid statistical inference
+BayesFlow (version 2+) is designed to be a flexible and efficient tool that enables rapid statistical inference
 fueled by continuous progress in generative AI and Bayesian inference.
 
 ## Conceptual Overview
@@ -59,7 +59,7 @@ For an in-depth exposition, check out our walkthrough notebooks below.
 6. [Bayesian experimental design](examples/Bayesian_Experimental_Design.ipynb)
 7. [Simple model comparison example](examples/One_Sample_TTest.ipynb)
 
-More tutorials are always welcome! Please consider making a pull request if you have a cool Bayesflow example that you want to contribute.
+More tutorials are always welcome! Please consider making a pull request if you have a cool application that you want to contribute.
 
 ## Install
 
@@ -71,7 +71,7 @@ First, install one machine learning backend of choice. Note that BayesFlow **wil
 - [Install PyTorch](https://pytorch.org/get-started/locally/)
 - [Install TensorFlow](https://www.tensorflow.org/install)
 
-If you don't know which backend to use, we recommend JAX as it is currently 
+If you don't know which backend to use, we recommend JAX as it is currently
 the fastest backend.
 
 Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend). For example, inside your Python script write:
@@ -102,7 +102,7 @@ pip install git+https://github.com/bayesflow-org/bayesflow@main
 
 ### Using Conda
 
-Bayesflow is currently not conda-installable. 
+Bayesflow is currently not conda-installable.
 
 ### From Source
 
@@ -171,16 +171,16 @@ You can cite BayesFlow along the lines of:
 ## FAQ
 
 - *I am starting with Bayesflow, which backend shall I use?*
-A: We recommend JAX as it is currently the fastest backend.
+**A**: We recommend JAX as it is currently the fastest backend.
 
-- *What is the difference between Bayesflow 2.0+ and previous versions?* 
-A: Bayesflow 2.0+ is a complete rewrite of the library. It shares the same
+- *What is the difference between Bayesflow 2.0+ and previous versions?*
+**A**: BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
 overall goals with previous versions, but has much better modularity
-and extensibility. What is more, the new Bayesflow has multi-backend support via Keras3,
-while the old Bayesian was based on tensorflow only. 
+and extensibility. What is more, the new BayesFlow has multi-backend support via Keras3,
+while the old version was based on TensorFlow.
 
-- *I still need the old Bayesflow for some of my projects. How can I install it?*
-A: You can find and install the old Bayesflow version via the "bayesflow1" branch on github.
+- *I still need the old BayesFlow for some of my projects. How can I install it?*
+**A**: You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
 
 ## Awesome Amortized Inference
 
