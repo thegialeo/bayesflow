@@ -95,6 +95,7 @@ jobs:
           conda config --show
           printenv | sort
           conda env export
+          pip list
 
       - name: Run Tests
         run: |
