@@ -14,6 +14,10 @@ on:
       - dev
       - update-workflows
 
+defaults:
+  run:
+    shell: bash
+
 
 jobs:
   test:
@@ -33,40 +37,53 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install Dependencies
         run: |
           pip install -U pip setuptools wheel
           pip install .[test]
-      - name: Install Backend
+
+      - name: Install JAX
+        if: ${{ matrix.backend == 'jax' }}
         run: |
-          if [ "${{ matrix.backend }}" == "jax" ]; then
-              pip install -U jax
-          elif [ "${{ matrix.backend }}" == "tensorflow" ]; then
-              pip install -U tensorflow
-          elif [ "${{ matrix.backend }}" == "torch" ]; then
-              pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-          fi
+          pip install -U jax
+
+      - name: Install TensorFlow
+        if: ${{ matrix.backend == 'tensorflow' }}
+        run: |
+          pip install -U tensorflow
+
+      - name: Install PyTorch
+        if: ${{ matrix.backend == 'torch' }}
+        run: |
+          pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
       - name: Show Environment Info
         run: |
           python --version
           pip --version
           printenv | sort
           pip list
+
       - name: Run Tests
         run: |
           pytest -x
+
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Create Coverage Report
         run: |
           coverage xml
+
       - name: Upload Coverage Reports to CodeCov
         uses: codecov/codecov-action@v4
         with:
