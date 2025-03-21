@@ -63,6 +63,12 @@ More tutorials are always welcome! Please consider making a pull request if you 
 
 ## Install
 
+BayesFlow is available to install via pip:
+
+```bash
+pip install bayesflow
+```
+
 ### Backend
 
 First, install one machine learning backend of choice. Note that BayesFlow **will not run** without a backend.
