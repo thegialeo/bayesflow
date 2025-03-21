@@ -165,17 +165,54 @@ You can cite BayesFlow along the lines of:
 
 ## FAQ
 
-- *I am starting with Bayesflow, which backend shall I use?*
-**A**: We recommend JAX as it is currently the fastest backend.
+-------------
 
-- *What is the difference between Bayesflow 2.0+ and previous versions?*
-**A**: BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
+**Question:**
+I am starting with Bayesflow, which backend should I use?
+
+**Answer:**
+We recommend JAX as it is currently the fastest backend.
+
+-------------
+
+**Question:**
+I am getting `ModuleNotFoundError: No module named 'tensorflow'` when I try to import BayesFlow.
+
+**Answer:**
+One of these applies:
+- You want to use tensorflow as your backend, but you have not installed it.
+See [here](https://www.tensorflow.org/install).
+
+
+- You want to use a backend other than tensorflow, but have not set the environment variable correctly.
+See [here](https://keras.io/getting_started/#configuring-your-backend).
+
+
+- You have set the environment variable, but it is not being picked up by Python.
+This can happen silently in some development environments (e.g., VSCode or PyCharm).
+Try setting the backend as shown [here](https://keras.io/getting_started/#configuring-your-backend)
+in your Python script via `os.environ`.
+
+-------------
+
+**Question:**
+What is the difference between Bayesflow 2.0+ and previous versions?
+
+**Answer:**
+BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
 overall goals with previous versions, but has much better modularity
 and extensibility. What is more, the new BayesFlow has multi-backend support via Keras3,
 while the old version was based on TensorFlow.
 
-- *I still need the old BayesFlow for some of my projects. How can I install it?*
-**A**: You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
+-------------
+
+**Question:**
+I still need the old BayesFlow for some of my projects. How can I install it?
+
+**Answer:**
+You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
+
+-------------
 
 ## Awesome Amortized Inference
 
