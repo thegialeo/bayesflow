@@ -16,8 +16,8 @@ on:
 
 
 jobs:
-  set-up-environment:
-    name: Set Up Environment
+  test:
+    name: Run Multi-Backend Tests
 
     strategy:
       matrix:
@@ -50,33 +50,13 @@ jobs:
           elif [ "${{ matrix.backend }}" == "torch" ]; then
               pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
           fi
-
-  show-environment-info:
-    name: Show Environment Info
-
-    needs: set-up-environment
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Show Python Version
-        run: python --version
-      - name: Show Pip Version
-        run: pip --version
-      - name: Show Environment Variables
-        run: printenv | sort
-      - name: Show Installed Packages
-        run: pip list
-
-  run-tests:
-    name: Run Tests
-
-    needs: set-up-environment
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Run Python Tests
+      - name: Show Environment Info
+        run: |
+          python --version
+          pip --version
+          printenv | sort
+          pip list
+      - name: Run Tests
         run: |
           pytest -x
       - name: Upload test results to Codecov
