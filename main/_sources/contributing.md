@@ -56,30 +56,49 @@ def prior3(a, b, c):
 
 ### 2. Set up your development environment
 
-Create a fork of the BayesFlow git repository using the GitHub interface.
-Then clone your fork and install the development environment with conda:
+Once we agree on an approach in the issue you opened, we can move ahead with the implementation.
+
+First, create a development environment with conda, or any other environment manager of your choice.
 
 ```bash
-git clone https://github.com/<your-username>/bayesflow
+conda create -n bf python=3.11
+conda activate bf
+```
+
+Note: always use a clean environment dedicated for development of BayesFlow to avoid dependency issues.
+
+Most contributors will have to create and clone a fork of BayesFlow using the GitHub interface or the CLI:
+
+```bash
+gh repo fork bayesflow-org/bayesflow --clone
+```
+
+Then, check out the development branch and install dependencies:
+
+```bash
 cd bayesflow
 git checkout dev
-conda env create --file environment.yaml --name bayesflow
-conda activate bayesflow
+conda install pip
+pip install -e .[dev,docs,test]
 pre-commit install
 ```
 
-We recommend using the PyTorch backend for development.
-Be careful not to downgrade your keras version when installing the backend.
-
-You can also install a triple backend cuda environment using `cuda.yaml`:
+Finally, install at least one backend of your choice.
+At the moment of writing this, to install all three backends on a machine supporting CUDA 12.6, we would use:
 
 ```bash
-conda env create --file cuda.yaml --name bf-cuda
+pip install -U jax[cuda12]
+pip install -U tensorflow[and-cuda]
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 ```
 
-Note that we cannot guarantee that this environment file will always work,
-as it is not tested frequently or across devices.
-It is provided merely as a convenience. For reliability, install only a single backend.
+You can set an environment variable to choose the default backend. We recommend defaulting to jax:
+
+```bash
+conda env config vars set KERAS_BACKEND=jax
+```
+
+Note that you will have to re-activate the environment for the changes to take effect.
 
 ### 3. Implement your changes
 
@@ -138,7 +157,8 @@ z = keras.ops.convert_to_numpy(x)
 
 The documentation uses [sphinx](https://www.sphinx-doc.org/) and relies on [numpy style docstrings](https://numpydoc.readthedocs.io/en/latest/format.html) in classes and functions.
 
-Run the following command to install all necessary packages for setting up documentation generation:
+If you haven't done so earlier, run the following command to install all necessary packages for setting up
+documentation generation:
 
 ```
 pip install .[docs]

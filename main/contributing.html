@@ -464,25 +464,37 @@ For instance:</p>
 <hr class="docutils" />
 <section id="set-up-your-development-environment">
 <h3>2. Set up your development environment<a class="headerlink" href="#set-up-your-development-environment" title="Link to this heading">#</a></h3>
-<p>Create a fork of the BayesFlow git repository using the GitHub interface.
-Then clone your fork and install the development environment with conda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/bayesflow
-<span class="nb">cd</span><span class="w"> </span>bayesflow
+<p>Once we agree on an approach in the issue you opened, we can move ahead with the implementation.</p>
+<p>First, create a development environment with conda, or any other environment manager of your choice.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>bf<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+conda<span class="w"> </span>activate<span class="w"> </span>bf
+</pre></div>
+</div>
+<p>Note: always use a clean environment dedicated for development of BayesFlow to avoid dependency issues.</p>
+<p>Most contributors will have to create and clone a fork of BayesFlow using the GitHub interface or the CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gh<span class="w"> </span>repo<span class="w"> </span>fork<span class="w"> </span>bayesflow-org/bayesflow<span class="w"> </span>--clone
+</pre></div>
+</div>
+<p>Then, check out the development branch and install dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>bayesflow
 git<span class="w"> </span>checkout<span class="w"> </span>dev
-conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>environment.yaml<span class="w"> </span>--name<span class="w"> </span>bayesflow
-conda<span class="w"> </span>activate<span class="w"> </span>bayesflow
+conda<span class="w"> </span>install<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev,docs,test<span class="o">]</span>
 pre-commit<span class="w"> </span>install
 </pre></div>
 </div>
-<p>We recommend using the PyTorch backend for development.
-Be careful not to downgrade your keras version when installing the backend.</p>
-<p>You can also install a triple backend cuda environment using <code class="docutils literal notranslate"><span class="pre">cuda.yaml</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>cuda.yaml<span class="w"> </span>--name<span class="w"> </span>bf-cuda
+<p>Finally, install at least one backend of your choice.
+At the moment of writing this, to install all three backends on a machine supporting CUDA 12.6, we would use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>jax<span class="o">[</span>cuda12<span class="o">]</span>
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>tensorflow<span class="o">[</span>and-cuda<span class="o">]</span>
+pip3<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cu126
 </pre></div>
 </div>
-<p>Note that we cannot guarantee that this environment file will always work,
-as it is not tested frequently or across devices.
-It is provided merely as a convenience. For reliability, install only a single backend.</p>
+<p>You can set an environment variable to choose the default backend. We recommend defaulting to jax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>config<span class="w"> </span>vars<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">KERAS_BACKEND</span><span class="o">=</span>jax
+</pre></div>
+</div>
+<p>Note that you will have to re-activate the environment for the changes to take effect.</p>
 </section>
 <section id="implement-your-changes">
 <h3>3. Implement your changes<a class="headerlink" href="#implement-your-changes" title="Link to this heading">#</a></h3>
@@ -535,7 +547,8 @@ Multi-OS tests will automatically be run once you create a pull request.</p>
 <section id="document-your-changes">
 <h3>4. Document your changes<a class="headerlink" href="#document-your-changes" title="Link to this heading">#</a></h3>
 <p>The documentation uses <a class="reference external" href="https://www.sphinx-doc.org/">sphinx</a> and relies on <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpy style docstrings</a> in classes and functions.</p>
-<p>Run the following command to install all necessary packages for setting up documentation generation:</p>
+<p>If you haven’t done so earlier, run the following command to install all necessary packages for setting up
+documentation generation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span><span class="p">[</span><span class="n">docs</span><span class="p">]</span>
 </pre></div>
 </div>
