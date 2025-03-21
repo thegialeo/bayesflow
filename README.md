@@ -71,16 +71,17 @@ pip install bayesflow
 
 ### Backend
 
-First, install one machine learning backend of choice. Note that BayesFlow **will not run** without a backend.
+To use BayesFlow, you will also need to install one of the following machine learning backends.
+Note that BayesFlow **will not run** without a backend.
 
 - [Install JAX](https://jax.readthedocs.io/en/latest/installation.html)
 - [Install PyTorch](https://pytorch.org/get-started/locally/)
 - [Install TensorFlow](https://www.tensorflow.org/install)
 
-If you don't know which backend to use, we recommend JAX as it is currently
-the fastest backend.
+If you don't know which backend to use, we recommend JAX as it is currently the fastest backend.
 
-Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend). For example, inside your Python script write:
+Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend).
+For example, inside your Python script write:
 
 ```python
 import os
@@ -94,31 +95,19 @@ If you use conda, you can alternatively set this individually for each environme
 conda env config vars set KERAS_BACKEND=jax
 ```
 
-This way, you also don't have to manually set the backend every time you are starting Python to use BayesFlow.
-
-**Caution:** Some people report that the IDE (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
-
-### Using pip
-
-You can install the Bayesflow from Github with pip:
+Or just plainly set the environment variable in your shell:
 
 ```bash
-pip install git+https://github.com/bayesflow-org/bayesflow@main
+export KERAS_BACKEND=jax
 ```
 
-### Using Conda
+This way, you also don't have to manually set the backend every time you are starting Python to use BayesFlow.
 
-Bayesflow is currently not conda-installable.
+**Caution:** Some development environments (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
 
 ### From Source
 
-If you want to contribute to BayesFlow, we recommend installing it from source:
-
-```bash
-git clone -b main git@github.com:bayesflow-org/bayesflow.git
-cd <local-path-to-bayesflow-repository>
-conda env create --file environment.yaml --name bayesflow
-```
+If you want to contribute to BayesFlow, we recommend installing it from source, see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## Reporting Issues
 
