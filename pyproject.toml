@@ -33,14 +33,27 @@ dependencies = [
     "tqdm",
 ]
 [project.optional-dependencies]
+dev = [
+    "jupyter",
+    "jupyterlab",
+    "pre-commit",
+    "ruff",
+    "tox",
+]
 docs = [
-  "sphinx",
-  "numpydoc",
-  "myst-nb",
-  "sphinx_design",
-  "pydata-sphinx-theme",
-  "sphinxcontrib-bibtex",
-  "sphinx-polyversion==1.1.0",
+    "myst-nb",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx",
+    "sphinx-polyversion >= 1.1",
+    "sphinx_design",
+    "sphinxcontrib-bibtex",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-xdist",
 ]
 [tool.ruff]
 # We use ruff to lint and auto-format code
