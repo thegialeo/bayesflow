@@ -433,15 +433,15 @@
 <p>For this example, we need to install <a class="reference external" href="https://github.com/icb-dcm/pyabc">pyABC</a>, which is our go-to library for ABC. The example is taken from <a class="reference external" href="https://pyabc.readthedocs.io/en/latest/examples/chemical_reaction.html">the documentation</a>. This tutorial starts with the ABC implementation and then demonstrates how to easily switch to BayesFlow. Readers familiar with pyABC can fast-forward to the second part of the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install if not already installed</span>
-<span class="o">%</span><span class="k">pip</span> install pyabc -q
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install if not already installed</span>
+<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyabc</span> <span class="o">-</span><span class="n">q</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
@@ -449,7 +449,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyabc</span><span class="w"> </span><span class="kn">import</span> <span class="n">RV</span><span class="p">,</span> <span class="n">Distribution</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyabc</span><span class="w"> </span><span class="kn">import</span> <span class="n">RV</span><span class="p">,</span> <span class="n">Distribution</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyabc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABCSMC</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyabc</span><span class="w"> </span><span class="kn">import</span> <span class="n">weighted_statistics</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyabc.populationstrategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdaptivePopulationSize</span>
@@ -469,7 +469,7 @@
 <p>The model is equipped with a single rate parameter <span class="math notranslate nohighlight">\(k\)</span>. To simulate this model, we define a simple Gillespie simulator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">helper</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">helper</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">pre</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>
 
 
@@ -536,7 +536,7 @@
 The reaction <span class="math notranslate nohighlight">\(X + Y \rightarrow 2Y\)</span> is encoded in <code class="docutils literal notranslate"><span class="pre">pre</span> <span class="pre">=</span> <span class="pre">[[1,</span> <span class="pre">1]]</span></code> and <code class="docutils literal notranslate"><span class="pre">post</span> <span class="pre">=</span> <span class="pre">[[0,</span> <span class="pre">2]]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_T</span> <span class="o">=</span> <span class="mf">0.1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_T</span> <span class="o">=</span> <span class="mf">0.1</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">StochasticModel</span><span class="p">:</span>
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;StochasticModel&quot;</span>
@@ -557,7 +557,7 @@ The reaction <span class="math notranslate nohighlight">\(X + Y \rightarrow 2Y\)
 <p>Below, we draw one stochastic simulation from the model (the <code class="docutils literal notranslate"><span class="pre">Observation</span></code>) and visualize it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">true_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
 <span class="n">observations</span> <span class="o">=</span> <span class="n">StochasticModel</span><span class="p">()({</span><span class="s2">&quot;rate&quot;</span><span class="p">:</span> <span class="n">true_rate</span><span class="p">})</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">observations</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="n">observations</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
@@ -585,7 +585,7 @@ The reaction <span class="math notranslate nohighlight">\(X + Y \rightarrow 2Y\)
 <p>We only consider the concentration of species <span class="math notranslate nohighlight">\(Y\)</span> in the distance calculation and not every time point which we simulate is actually observed. In code, this translates to:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_TEST_TIMES</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">N_TEST_TIMES</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">t_test_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MAX_T</span><span class="p">,</span> <span class="n">N_TEST_TIMES</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -603,7 +603,7 @@ The reaction <span class="math notranslate nohighlight">\(X + Y \rightarrow 2Y\)
 <p>We choose a uniform prior over the interval <span class="math notranslate nohighlight">\([-1, 2]\)</span> in <span class="math notranslate nohighlight">\(\log_{10}\)</span> space for the single rate parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prior</span> <span class="o">=</span> <span class="n">Distribution</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="n">RV</span><span class="p">(</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prior</span> <span class="o">=</span> <span class="n">Distribution</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="n">RV</span><span class="p">(</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -612,7 +612,7 @@ The reaction <span class="math notranslate nohighlight">\(X + Y \rightarrow 2Y\)
 There are many more hyperparameters that can be set, but we will stick to the defaults besides using an adaptive population size to reduce the number of simulations. We initialize a new ABC run, taking as observed data the one generated by the model with the true parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abc</span> <span class="o">=</span> <span class="n">ABCSMC</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">abc</span> <span class="o">=</span> <span class="n">ABCSMC</span><span class="p">(</span>
     <span class="n">models</span><span class="o">=</span><span class="n">StochasticModel</span><span class="p">(),</span>
     <span class="n">parameter_priors</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span>
     <span class="n">distance_function</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span>
@@ -633,7 +633,7 @@ ABC.History INFO: Start &lt;ABCSMC id=26, start_time=2025-02-15 19:38:22&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abc_history</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">minimum_epsilon</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">max_nr_populations</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">abc_history</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">minimum_epsilon</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">max_nr_populations</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -693,7 +693,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>We then inspect the distribution of the rate parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">true_rate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">abc_history</span><span class="o">.</span><span class="n">n_populations</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
@@ -722,7 +722,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>We choose a backend for the neural network, in this case we use <code class="docutils literal notranslate"><span class="pre">torch</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">if</span> <span class="s2">&quot;KERAS_BACKEND&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="c1"># set this to &quot;torch&quot;, &quot;tensorflow&quot;, or &quot;jax&quot;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KERAS_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;torch&quot;</span>
@@ -739,14 +739,14 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>Now, we take the model and prios defined above and transfer them to <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code>. We start by defining the simulator and the priors. The output of the simulator must be reduced to the output that is used as condition for the inference network. In <code class="docutils literal notranslate"><span class="pre">pyABC</span></code>, this was done inside the distance function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">StochasticModel</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">StochasticModel</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prior_helper</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prior_helper</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The ABC prior returns a Parameter Object from pyabc which we convert to a dict.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="n">prior</span><span class="o">.</span><span class="n">rvs</span><span class="p">()[</span><span class="s1">&#39;rate&#39;</span><span class="p">])</span>
 
@@ -762,7 +762,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We create a simulator from the helper functions</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We create a simulator from the helper functions</span>
 <span class="n">simulator</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">make_simulator</span><span class="p">([</span><span class="n">prior_helper</span><span class="p">,</span> <span class="n">sim_helper</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -771,7 +771,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>Next we define the <code class="docutils literal notranslate"><span class="pre">adapter</span></code>. The <code class="docutils literal notranslate"><span class="pre">adapter</span></code> is an object that maps the simulator output to the input of the inference network. In this case, we only need to map the observation to the inference network input. We just use the default provided by <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code>. For higher dimensional problems, we would pass the observations through an additional summary network and pass them here into <code class="docutils literal notranslate"><span class="pre">summary_variables</span></code> instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adapter</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">approximators</span><span class="o">.</span><span class="n">ContinuousApproximator</span><span class="o">.</span><span class="n">build_adapter</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">adapter</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">approximators</span><span class="o">.</span><span class="n">ContinuousApproximator</span><span class="o">.</span><span class="n">build_adapter</span><span class="p">(</span>
     <span class="n">inference_variables</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span>
     <span class="n">inference_conditions</span><span class="o">=</span><span class="s1">&#39;obs&#39;</span><span class="p">,</span>
     <span class="n">summary_variables</span><span class="o">=</span><span class="kc">None</span>
@@ -791,7 +791,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>We use the <code class="docutils literal notranslate"><span class="pre">BasicWorkflow</span></code> class to train the networks. We set the number of epochs, the number of batches per epoch, and the batch size.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">num_batches_per_epoch</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
 </pre></div>
@@ -800,14 +800,14 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inference_net</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">ConsistencyModel</span><span class="p">(</span><span class="n">total_stps</span><span class="o">=</span><span class="n">epochs</span><span class="o">*</span><span class="n">num_batches_per_epoch</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inference_net</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">ConsistencyModel</span><span class="p">(</span><span class="n">total_steps</span><span class="o">=</span><span class="n">epochs</span><span class="o">*</span><span class="n">num_batches_per_epoch</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">BasicWorkflow</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">BasicWorkflow</span><span class="p">(</span>
     <span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span>
     <span class="n">adapter</span><span class="o">=</span><span class="n">adapter</span><span class="p">,</span>
     <span class="n">inference_network</span><span class="o">=</span><span class="n">inference_net</span><span class="p">,</span>
@@ -820,7 +820,7 @@ ABC.History INFO: Done &lt;ABCSMC id=26, duration=0:01:35.747941, end_time=2025-
 <p>As in ABC, we can train the networks online. However, we do not specifically pass the data here, we want to do inference on. In this way, we can later apply the trained approximator to arbitrary numbers of new data sets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the networks for 10 epochs. Usually, you would train for much longer times</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the networks for 10 epochs. Usually, you would train for much longer times</span>
 <span class="n">history</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">fit_online</span><span class="p">(</span>
     <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
@@ -861,7 +861,7 @@ Epoch 10/10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the training history. The consistency loss is not very informative on its own</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the training history. The consistency loss is not very informative on its own</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -876,7 +876,7 @@ Epoch 10/10
 <p>At this point you should validate the computational faithfulness of your trained approximator and check its performance <em>in silico</em>. As a reminder, this is not feasible with ABC, as we would have to re-run the fitting for every new data set. With <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code>, we can simply simulate new data sets and check parameter recoverability and calibration over the entire prior predictive space the network was trained on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the number of posterior draws you want to get</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the number of posterior draws you want to get</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="c1"># Simulate 300 scenarios and extract simulations and ground truth parameters</span>
@@ -892,7 +892,7 @@ Epoch 10/10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">recovery</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">test_sims_params</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">recovery</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">test_sims_params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -902,7 +902,7 @@ Epoch 10/10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">calibration_ecdf</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">test_sims_params</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">calibration_ecdf</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">test_sims_params</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -916,7 +916,7 @@ Epoch 10/10
 <p>Once the approximator has passed all consistency checks, we can now go ahead and apply it to the data of interest! For this single dataset, we can compare the posterior samples obtained from <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code> to the ones obtained from <code class="docutils literal notranslate"><span class="pre">pyABC</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We bring the observation into the right format</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We bring the observation into the right format</span>
 <span class="n">xt_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">observations</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="n">t_test_times</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">observations</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">][</span><span class="n">xt_ind</span><span class="p">]</span>
 
@@ -928,7 +928,7 @@ Epoch 10/10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">pairs_posterior</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">true_rate</span><span class="p">]))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">pairs_posterior</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">true_rate</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -938,7 +938,7 @@ Epoch 10/10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># abc gives us weighted samples, we resample them to get comparable samples</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># abc gives us weighted samples, we resample them to get comparable samples</span>
 <span class="n">df</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">abc_history</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">()</span>
 <span class="n">abc_samples</span> <span class="o">=</span> <span class="n">weighted_statistics</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 
@@ -953,7 +953,7 @@ Epoch 10/10
 <p>We can see, that the total number of simulations in ABC run is way higher (~10x) than in <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code>. Furthermore, using ABC, we can only obtain the posterior distribution for one dataset. With <code class="docutils literal notranslate"><span class="pre">BayesFlow</span></code>, we can easily infer parameters on new data sets, thereby amortizing the cost of training the approximator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of simulations in BayesFlow: </span><span class="si">{</span><span class="n">epochs</span><span class="o">*</span><span class="n">num_batches_per_epoch</span><span class="o">*</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of simulations in BayesFlow: </span><span class="si">{</span><span class="n">epochs</span><span class="o">*</span><span class="n">num_batches_per_epoch</span><span class="o">*</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of simulations in ABC: </span><span class="si">{</span><span class="n">abc_history</span><span class="o">.</span><span class="n">total_nr_simulations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_sample_numbers</span><span class="p">(</span><span class="n">abc_history</span><span class="p">)</span>
