@@ -475,7 +475,7 @@ With some Bayes rule gymnastics, we can write the EIG in the following equivalen
 <p>Let’s see how this works in practice!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -504,7 +504,7 @@ With some Bayes rule gymnastics, we can write the EIG in the following equivalen
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="c1"># disable the long printouts from stan.</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;cmdstanpy&quot;</span><span class="p">)</span>
@@ -531,7 +531,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
 <p>The code below implements the Michaelis-Menten kinetics model as a PyTorch module, along with some helper functions for plotting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MichaelisMenten</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MichaelisMenten</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">designs</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
@@ -654,7 +654,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
     <span class="k">def</span><span class="w"> </span><span class="nf">run_hmc_posterior</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">num_chains</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-        <span class="n">stan_model</span> <span class="o">=</span> <span class="n">CmdStanModel</span><span class="p">(</span><span class="n">stan_file</span><span class="o">=</span><span class="s2">&quot;mm_gsn.stan&quot;</span><span class="p">)</span>
+        <span class="n">stan_model</span> <span class="o">=</span> <span class="n">CmdStanModel</span><span class="p">(</span><span class="n">stan_file</span><span class="o">=</span><span class="s2">&quot;misc/mm_gsn.stan&quot;</span><span class="p">)</span>
         <span class="n">hmc_posterior_samples</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">y_sample</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
@@ -778,7 +778,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
 <p>We will initialise <code class="docutils literal notranslate"><span class="pre">num_designs</span> <span class="pre">=</span> <span class="pre">7</span></code> designs randomly and plot the results of <code class="docutils literal notranslate"><span class="pre">num_test_sims</span> <span class="pre">=</span> <span class="pre">3</span></code> test simulations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">20240929</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">20240929</span><span class="p">)</span>
 <span class="n">num_parameters</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># \theta = \theta_1, \theta_2 as described above</span>
 <span class="n">num_designs</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">num_test_sims</span> <span class="o">=</span> <span class="mi">3</span>
@@ -807,7 +807,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;***** Designs before training *****</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">simulator</span><span class="o">.</span><span class="n">designs</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;***** Designs before training *****</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">simulator</span><span class="o">.</span><span class="n">designs</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">enable_grad</span><span class="p">():</span>
     <span class="n">posterior_net</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">CouplingFlow</span><span class="p">()</span>
     <span class="c1"># compile/build the torch model posterior_net</span>
@@ -864,7 +864,7 @@ $<span class="math notranslate nohighlight">\( f(\xi, \theta) = \frac{(L\xi)^s \
 <p><strong>Note:</strong> While this visual inspection is useful, more rigorous and quantitative evaluation methods exist. We’ll explore these advanced techniques in a future blog post.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample from the amortised posterior</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample from the amortised posterior</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">2000</span>
 <span class="n">amortised_posterior_samples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
     <span class="p">[</span>
@@ -905,7 +905,7 @@ However, these posteriors exhibit considerable uncertainty (wide distributions).
 <p>This approach allows us to simultaneously maximise the EIG (by optimising the experimental designs) and tighten the BA bound (by improving the approximate posterior).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulator</span> <span class="o">=</span> <span class="n">MichaelisMenten</span><span class="p">(</span><span class="n">designs</span><span class="o">=</span><span class="n">xi</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span> <span class="n">learn_designs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">simulator</span> <span class="o">=</span> <span class="n">MichaelisMenten</span><span class="p">(</span><span class="n">designs</span><span class="o">=</span><span class="n">xi</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span> <span class="n">learn_designs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;***** Designs before training *****</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">simulator</span><span class="o">.</span><span class="n">designs</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">enable_grad</span><span class="p">():</span>
     <span class="n">posterior_net_designs</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">CouplingFlow</span><span class="p">()</span>
@@ -958,7 +958,7 @@ However, these posteriors exhibit considerable uncertainty (wide distributions).
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the final designs</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the final designs</span>
 <span class="n">simulator</span><span class="o">.</span><span class="n">plot_realisations</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">test_sims</span><span class="p">[</span><span class="s2">&quot;theta&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -970,7 +970,7 @@ However, these posteriors exhibit considerable uncertainty (wide distributions).
 <p>Let’s look at the resulting posteriors for the same set of test parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain the outcomes under the learnt design</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain the outcomes under the learnt design</span>
 <span class="n">designed_y</span><span class="p">,</span> <span class="n">designed_scaled_y</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run_policy</span><span class="p">(</span><span class="n">test_sims</span><span class="p">[</span><span class="s2">&quot;theta&quot;</span><span class="p">])</span>
 
 <span class="n">designed_amortised_samples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
