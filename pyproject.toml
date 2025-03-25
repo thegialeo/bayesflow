@@ -33,6 +33,27 @@ dependencies = [
     "tqdm",
 ]
 [project.optional-dependencies]
+all = [
+    # dev
+    "jupyter",
+    "jupyterlab",
+    "pre-commit",
+    "ruff",
+    "tox",
+    # docs
+    "myst-nb",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx",
+    "sphinx-polyversion >= 1.1",
+    "sphinx_design",
+    "sphinxcontrib-bibtex",
+    # test
+    "pytest",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-xdist",
+]
 dev = [
     "jupyter",
     "jupyterlab",
