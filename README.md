@@ -63,18 +63,25 @@ More tutorials are always welcome! Please consider making a pull request if you 
 
 ## Install
 
+BayesFlow is available to install via pip:
+
+```bash
+pip install bayesflow
+```
+
 ### Backend
 
-First, install one machine learning backend of choice. Note that BayesFlow **will not run** without a backend.
+To use BayesFlow, you will also need to install one of the following machine learning backends.
+Note that BayesFlow **will not run** without a backend.
 
 - [Install JAX](https://jax.readthedocs.io/en/latest/installation.html)
 - [Install PyTorch](https://pytorch.org/get-started/locally/)
 - [Install TensorFlow](https://www.tensorflow.org/install)
 
-If you don't know which backend to use, we recommend JAX as it is currently
-the fastest backend.
+If you don't know which backend to use, we recommend JAX as it is currently the fastest backend.
 
-Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend). For example, inside your Python script write:
+Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend).
+For example, inside your Python script write:
 
 ```python
 import os
@@ -88,31 +95,19 @@ If you use conda, you can alternatively set this individually for each environme
 conda env config vars set KERAS_BACKEND=jax
 ```
 
-This way, you also don't have to manually set the backend every time you are starting Python to use BayesFlow.
-
-**Caution:** Some people report that the IDE (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
-
-### Using pip
-
-You can install the Bayesflow from Github with pip:
+Or just plainly set the environment variable in your shell:
 
 ```bash
-pip install git+https://github.com/bayesflow-org/bayesflow@main
+export KERAS_BACKEND=jax
 ```
 
-### Using Conda
+This way, you also don't have to manually set the backend every time you are starting Python to use BayesFlow.
 
-Bayesflow is currently not conda-installable.
+**Caution:** Some development environments (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
 
 ### From Source
 
-If you want to contribute to BayesFlow, we recommend installing it from source:
-
-```bash
-git clone -b main git@github.com:bayesflow-org/bayesflow.git
-cd <local-path-to-bayesflow-repository>
-conda env create --file environment.yaml --name bayesflow
-```
+If you want to contribute to BayesFlow, we recommend installing it from source, see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## Reporting Issues
 
@@ -170,17 +165,54 @@ You can cite BayesFlow along the lines of:
 
 ## FAQ
 
-- *I am starting with Bayesflow, which backend shall I use?*
-**A**: We recommend JAX as it is currently the fastest backend.
+-------------
 
-- *What is the difference between Bayesflow 2.0+ and previous versions?*
-**A**: BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
+**Question:**
+I am starting with Bayesflow, which backend should I use?
+
+**Answer:**
+We recommend JAX as it is currently the fastest backend.
+
+-------------
+
+**Question:**
+I am getting `ModuleNotFoundError: No module named 'tensorflow'` when I try to import BayesFlow.
+
+**Answer:**
+One of these applies:
+- You want to use tensorflow as your backend, but you have not installed it.
+See [here](https://www.tensorflow.org/install).
+
+
+- You want to use a backend other than tensorflow, but have not set the environment variable correctly.
+See [here](https://keras.io/getting_started/#configuring-your-backend).
+
+
+- You have set the environment variable, but it is not being picked up by Python.
+This can happen silently in some development environments (e.g., VSCode or PyCharm).
+Try setting the backend as shown [here](https://keras.io/getting_started/#configuring-your-backend)
+in your Python script via `os.environ`.
+
+-------------
+
+**Question:**
+What is the difference between Bayesflow 2.0+ and previous versions?
+
+**Answer:**
+BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
 overall goals with previous versions, but has much better modularity
 and extensibility. What is more, the new BayesFlow has multi-backend support via Keras3,
 while the old version was based on TensorFlow.
 
-- *I still need the old BayesFlow for some of my projects. How can I install it?*
-**A**: You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
+-------------
+
+**Question:**
+I still need the old BayesFlow for some of my projects. How can I install it?
+
+**Answer:**
+You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
+
+-------------
 
 ## Awesome Amortized Inference
 

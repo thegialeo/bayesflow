@@ -122,7 +122,7 @@ def sanitize_input_shape(fn: Callable):
     def callback(input_shape: Shape) -> Shape:
         if input_shape[0] is None:
             input_shape = list(input_shape)
-            input_shape[0] = 32
+            input_shape[0] = 1
             return tuple(input_shape)
         return input_shape
 

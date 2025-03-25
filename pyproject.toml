@@ -18,30 +18,63 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-description = "Amortizing Bayesian Inferene With Neural Networks"
+description = "Amortizing Bayesian Inference With Neural Networks"
 license = { file = "LICENSE" }
 
 requires-python = ">= 3.10, < 3.12"
 dependencies = [
-    "keras ~= 3.9.0",
-    "numpy ~= 1.26.4",
-    "scipy ~= 1.14.1",
+    "keras >= 3.9",
     "matplotlib",
-    "seaborn",
+    "numpy >= 1.24, <2.0",
     "pandas",
     "scikit-learn",
     "scipy",
+    "seaborn",
     "tqdm",
 ]
 [project.optional-dependencies]
+all = [
+    # dev
+    "jupyter",
+    "jupyterlab",
+    "pre-commit",
+    "ruff",
+    "tox",
+    # docs
+    "myst-nb",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx",
+    "sphinx-polyversion >= 1.1",
+    "sphinx_design",
+    "sphinxcontrib-bibtex",
+    # test
+    "pytest",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-xdist",
+]
+dev = [
+    "jupyter",
+    "jupyterlab",
+    "pre-commit",
+    "ruff",
+    "tox",
+]
 docs = [
-  "sphinx",
-  "numpydoc",
-  "myst-nb",
-  "sphinx_design",
-  "pydata-sphinx-theme",
-  "sphinxcontrib-bibtex",
-  "sphinx-polyversion==1.1.0",
+    "myst-nb",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx",
+    "sphinx-polyversion >= 1.1",
+    "sphinx_design",
+    "sphinxcontrib-bibtex",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-xdist",
 ]
 [tool.ruff]
 # We use ruff to lint and auto-format code
