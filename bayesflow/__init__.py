@@ -34,6 +34,17 @@ def setup():
 
     logging.debug(f"Using backend {keras.backend.backend()!r}")
 
+    if keras.backend.backend() == "torch":
+        import torch
+
+        torch.autograd.set_grad_enabled(False)
+
+        logging.warning(
+            "When using torch backend, we need to disable autograd by default to avoid excessive memory usage. Use\n"
+            "with torch.enable_grad():\n"
+            "in contexts where you need gradients (e.g. custom training loops)."
+        )
+
 
 # call and clean up namespace
 setup()
