@@ -115,6 +115,9 @@ def _pairs_samples(
             **kwargs,
         )
 
+        # ensures that color doesn't overwrite palette
+        color = None
+
     else:
         # plot just the one set of distributions
         data_to_plot = pd.DataFrame(plot_data["estimates"], columns=variable_names)
