@@ -1,8 +1,8 @@
 import keras
+import numpy as np
 
 from bayesflow.adapters import Adapter
 from bayesflow.simulators.simulator import Simulator
-from bayesflow.types import Tensor
 from bayesflow.utils import logging
 
 
@@ -22,12 +22,6 @@ class RoundsDataset(keras.utils.PyDataset):
     ):
         super().__init__(**kwargs)
 
-        if keras.backend.backend() == "torch" and kwargs.get("use_multiprocessing"):
-            # keras workaround: https://github.com/keras-team/keras/issues/19346
-            import multiprocessing as mp
-
-            mp.set_start_method("spawn", force=True)
-
         self.batches = None
         self._num_batches = num_batches
         self.batch_size = batch_size
@@ -46,7 +40,7 @@ class RoundsDataset(keras.utils.PyDataset):
 
         self.regenerate()
 
-    def __getitem__(self, item: int) -> dict[str, Tensor]:
+    def __getitem__(self, item: int) -> dict[str, np.ndarray]:
         """Get a batch of pre-simulated data"""
         batch = self.batches[item]
 
