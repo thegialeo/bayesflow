@@ -521,6 +521,9 @@
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
 
+        <span class="c1"># ensures that color doesn&#39;t overwrite palette</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="kc">None</span>
+
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># plot just the one set of distributions</span>
         <span class="n">data_to_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s2">&quot;estimates&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">variable_names</span><span class="p">)</span>
