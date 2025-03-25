@@ -5,7 +5,6 @@ from keras import ops, layers
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from bayesflow.utils.decorators import sanitize_input_shape
 from .invariant_module import InvariantModule
 
 
@@ -95,9 +94,20 @@ class EquivariantModule(keras.Layer):
 
         self.layer_norm = layers.LayerNormalization() if layer_norm else None
 
-    @sanitize_input_shape
     def build(self, input_shape):
-        self.call(keras.ops.zeros(input_shape))
+        self.input_projector.build(input_shape)
+        input_shape = self.input_projector.compute_output_shape(input_shape)
+
+        self.invariant_module.build(input_shape)
+        summary_shape = self.invariant_module.compute_output_shape(input_shape)
+
+        input_shape = *input_shape[:-1], input_shape[-1] + summary_shape[-1]
+
+        self.equivariant_fc.build(input_shape)
+        input_shape = self.equivariant_fc.compute_output_shape(input_shape)
+
+        if self.layer_norm is not None:
+            self.layer_norm.build(input_shape)
 
     def call(self, input_set: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Performs the forward pass of a learnable equivariant transform.
@@ -121,15 +131,11 @@ class EquivariantModule(keras.Layer):
 
         input_set = self.input_projector(input_set)
 
-        # Store shape of input_set, will be (batch_size, ..., set_size, some_dim)
-        shape = ops.shape(input_set)
-
         # Example: Output dim is (batch_size, ..., set_size, representation_dim)
         invariant_summary = self.invariant_module(input_set, training=training)
-        invariant_summary = ops.expand_dims(invariant_summary, axis=-2)
-        tiler = [1] * len(shape)
-        tiler[-2] = shape[-2]
-        invariant_summary = ops.tile(invariant_summary, tiler)
+
+        invariant_summary = keras.ops.expand_dims(invariant_summary, axis=-2)
+        invariant_summary = keras.ops.broadcast_to(invariant_summary, keras.ops.shape(input_set))
 
         # Concatenate each input entry with the repeated invariant embedding
         output_set = ops.concatenate([input_set, invariant_summary], axis=-1)
@@ -140,3 +146,16 @@ class EquivariantModule(keras.Layer):
             output_set = self.layer_norm(output_set, training=training)
 
         return output_set
+
+    def compute_output_shape(self, input_shape):
+        output_shape = self.input_projector.compute_output_shape(input_shape)
+        summary_shape = self.invariant_module.compute_output_shape(output_shape)
+
+        output_shape = *output_shape[:-1], output_shape[-1] + summary_shape[-1]
+
+        output_shape = self.equivariant_fc.compute_output_shape(output_shape)
+
+        if self.layer_norm is not None:
+            output_shape = self.layer_norm.compute_output_shape(output_shape)
+
+        return output_shape

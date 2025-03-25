@@ -6,7 +6,6 @@ from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
 from bayesflow.utils import find_pooling
-from bayesflow.utils.decorators import sanitize_input_shape
 
 
 @serializable(package="bayesflow.networks")
@@ -96,9 +95,14 @@ class InvariantModule(keras.Layer):
 
         self.pooling_layer = find_pooling(pooling, **pooling_kwargs)
 
-    @sanitize_input_shape
     def build(self, input_shape):
-        self.call(keras.ops.zeros(input_shape))
+        self.inner_fc.build(input_shape)
+        input_shape = self.inner_fc.compute_output_shape(input_shape)
+
+        self.pooling_layer.build(input_shape)
+        input_shape = self.pooling_layer.compute_output_shape(input_shape)
+
+        self.outer_fc.build(input_shape)
 
     def call(self, input_set: Tensor, training: bool = False, **kwargs) -> Tensor:
         """Performs the forward pass of a learnable invariant transform.
@@ -106,17 +110,24 @@ class InvariantModule(keras.Layer):
         Parameters
         ----------
         input_set : Tensor
-            Input of shape (batch_size,..., input_dim)
+            Input of shape (batch_size, ..., input_dim)
         training  : bool, optional, default - False
             Dictates the behavior of the optional dropout layers
 
         Returns
         -------
         set_summary : tf.Tensor
-            Output of shape (batch_size,..., out_dim)
+            Output of shape (batch_size, ..., out_dim)
         """
 
         set_summary = self.inner_fc(input_set, training=training)
         set_summary = self.pooling_layer(set_summary, training=training)
         set_summary = self.outer_fc(set_summary, training=training)
         return set_summary
+
+    def compute_output_shape(self, input_shape):
+        output_shape = input_shape
+        output_shape = self.inner_fc.compute_output_shape(output_shape)
+        output_shape = self.pooling_layer.compute_output_shape(output_shape)
+        output_shape = self.outer_fc.compute_output_shape(output_shape)
+        return output_shape
