@@ -20,7 +20,7 @@ fueled by continuous progress in generative AI and Bayesian inference.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./img/bayesflow_landing_dark.jpg">
   <source media="(prefers-color-scheme: light)" srcset="./img/bayesflow_landing_light.jpg">
-  <img alt="dsd" src="./img/bayesflow_landing_dark.jpg">
+  <img alt="Overview graphic on using BayesFlow. It is split in three columns: 1. Choose you backend: BayesFlow is based on Keras, so you can choose PyTorch, TensorFlow or JAX. 2. Define your simulator: You specify you simulator in Python, and use it to generate simulated data. 3. Choose your algorithm: You define a generative nerual network, that you can use for estimation after training." src="./img/bayesflow_landing_dark.jpg">
 </picture>
 </div>
 
