@@ -1,5 +1,6 @@
 """
-A collection of `keras.utils.PyDataset <https://keras.io/api/utils/python_utils/#pydataset-class>`__\ s, which wrap your data-generating process (i.e., your :py:class:`~bayesflow.simulators.Simulator`).
+A collection of `keras.utils.PyDataset <https://keras.io/api/utils/python_utils/#pydataset-class>`__\ s, which
+wrap your data-generating process (i.e., your :py:class:`~bayesflow.simulators.Simulator`).
 What type of Dataset you use determines the effective training strategy (e.g., online or offline).
 """
 

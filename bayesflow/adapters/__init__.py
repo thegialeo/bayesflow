@@ -1,5 +1,6 @@
 """
-A collection of :py:class:`~bayesflow.adapters.Adapter` transforms, which tell BayesFlow how to interpret your :py:class:`~bayesflow.simulators.Simulator` output and plug it into neural networks for training and inference.
+A collection of :py:class:`~bayesflow.adapters.Adapter` transforms, which tell BayesFlow how to interpret your
+:py:class:`~bayesflow.simulators.Simulator` output and plug it into neural networks for training and inference.
 """
 
 from . import transforms
