@@ -3,6 +3,7 @@ This module provides the :py:class:`~bayesflow.simulators.Simulator`, which is t
 Its primary function is to sample data with the :py:meth:`~bayesflow.simulators.Simulator.sample` method.
 The module also contains several other kinds of Simulators, as well as the function :py:func:`~bayesflow.simulators.make_simulator` to facilitate easy implementation.
 """
+
 from .sequential_simulator import SequentialSimulator
 from .hierarchical_simulator import HierarchicalSimulator
 from .lambda_simulator import LambdaSimulator
