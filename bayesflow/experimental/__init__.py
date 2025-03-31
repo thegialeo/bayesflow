@@ -1,5 +1,5 @@
 """
-Unstable or largely untested networks. Proceed with caution.
+Unstable or largely untested networks, proceed with caution.
 """
 
 from .cif import CIF

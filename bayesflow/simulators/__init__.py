@@ -1,9 +1,7 @@
 """
-This module provides the :py:class:`~bayesflow.simulators.Simulator`, which is the base implementation of a
-generative mathematical model, or data generating process.
-Its primary function is to sample data with the :py:meth:`~bayesflow.simulators.Simulator.sample` method.
-The module also contains several other kinds of Simulators, as well as the function
-:py:func:`~bayesflow.simulators.make_simulator` to facilitate easy implementation.
+This module provides :py:class:`~bayesflow.simulators.Simulator`, :py:function:`~bayesflow.simulators.make_simulator`,
+and several other kinds of :py:class:`~bayesflow.simulators.Simulator` implementations, which serve as generative
+mathematical models, or data generating processes, with their primary function being to sample data.
 """
 
 from .sequential_simulator import SequentialSimulator
