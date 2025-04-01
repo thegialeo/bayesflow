@@ -83,13 +83,9 @@ def mmd_hypothesis_test_from_summaries(
     for i in range(num_null_samples):
         bootstrap_idx: int = np.random.randint(0, num_reference, size=num_observed)
         sampled_summaries: np.ndarray = reference_summaries[bootstrap_idx]
-        mmd_null_samples[i] = maximum_mean_discrepancy(
-            observed_summaries, sampled_summaries
-        )
+        mmd_null_samples[i] = maximum_mean_discrepancy(observed_summaries, sampled_summaries)
 
-    mmd_observed: float = maximum_mean_discrepancy(
-        observed_summaries, reference_summaries
-    )
+    mmd_observed: float = maximum_mean_discrepancy(observed_summaries, reference_summaries)
 
     return mmd_observed, mmd_null_samples
 
