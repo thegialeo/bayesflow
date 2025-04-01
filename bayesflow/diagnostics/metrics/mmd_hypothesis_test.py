@@ -4,10 +4,12 @@ from bayesflow.approximators import Approximator
 from bayesflow.metrics import maximum_mean_discrepancy
 
 
+# TODO: maximum_mean_discrepancy expects bayesflow.types.Tensor instead of np.ndarray as input and returns
+# bayesflow.types.Tensor instead of float
 def mmd_hypothesis_test_from_summaries(
     observed_summaries: np.ndarray,
     reference_summaries: np.ndarray,
-    num_null_samples: int,
+    num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference summaries and generates a distribution
     of MMD values under the null hypothesis to assess model fit.
@@ -18,6 +20,8 @@ def mmd_hypothesis_test_from_summaries(
         Summary statistics of observed data, shape (num_observed, ...).
     reference_summary : np.ndarray
         Summary statistics of reference data, shape (num_reference, ...).
+    num_null_samples : int
+        Number of null samples to generate for hypothesis testing. Default is 100.
 
     Returns
     -------
@@ -45,8 +49,12 @@ def mmd_hypothesis_test_from_summaries(
     return mmd_observed, mmd_null_samples
 
 
+# TODO: approximator.summary_network takes and returns bayesflow.types.Tensor
 def mmd_hypothesis_test(
-    observed_data: np.ndarray, reference_data: np.ndarray, approximator: Approximator
+    observed_data: np.ndarray,
+    reference_data: np.ndarray,
+    approximator: Approximator,
+    num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a distribution of
     MMD values under the null hypothesis to assess model fit.
@@ -59,6 +67,8 @@ def mmd_hypothesis_test(
         Reference data, shape (num_reference, ...).
     approximator : Approximator
         An instance of the Approximator class used to obtain summary statistics from data.
+    num_null_samples : int
+        Number of null samples to generate for hypothesis testing. Default is 100.
 
     Returns
     -------
@@ -67,4 +77,11 @@ def mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    pass
+    observed_summaries: np.ndarray = approximator.summary_network(observed_data)
+    reference_summaries: np.ndarray = approximator.summary_network(reference_data)
+
+    mmd_observed, mmd_null = mmd_hypothesis_test_from_summaries(
+        observed_summaries, reference_summaries, num_null_samples=num_null_samples
+    )
+
+    return mmd_observed, mmd_null
