@@ -635,46 +635,46 @@ please refer to the <a class="reference internal" href="../examples.html"><span 
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.adapters.html#module-bayesflow.adapters" title="bayesflow.adapters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adapters</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of <a class="reference internal" href="bayesflow.adapters.Adapter.html#bayesflow.adapters.Adapter" title="bayesflow.adapters.Adapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Adapter</span></code></a> transforms, which tell BayesFlow how to interpret your <a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.Simulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulator</span></code></a> output and plug it into neural networks for training and inference.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.approximators.html#module-bayesflow.approximators" title="bayesflow.approximators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">approximators</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of <a class="reference internal" href="bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator" title="bayesflow.approximators.Approximator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Approximator</span></code></a>s, which embody the inference task and the neural network components used to perform it.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.datasets.html#module-bayesflow.datasets" title="bayesflow.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of <a class="reference external" href="https://keras.io/api/utils/python_utils/#pydataset-class">keras.utils.PyDataset</a>s, which wrap your data-generating process (i.e., your <a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.Simulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulator</span></code></a>) and thus determine the effective training strategy (e.g., online or offline).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.diagnostics.html#module-bayesflow.diagnostics" title="bayesflow.diagnostics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagnostics</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of plotting utilities and metrics for evaluating trained <code class="xref py py-class docutils literal notranslate"><span class="pre">Workflow</span></code>s.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.distributions.html#module-bayesflow.distributions" title="bayesflow.distributions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributions</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of <a class="reference internal" href="bayesflow.distributions.Distribution.html#bayesflow.distributions.Distribution" title="bayesflow.distributions.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a>s, which represent the latent space for <a class="reference internal" href="bayesflow.networks.InferenceNetwork.html#bayesflow.networks.InferenceNetwork" title="bayesflow.networks.InferenceNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceNetwork</span></code></a>s or the summary space of <a class="reference internal" href="bayesflow.networks.SummaryNetwork.html#bayesflow.networks.SummaryNetwork" title="bayesflow.networks.SummaryNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">SummaryNetwork</span></code></a>s.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.experimental.html#module-bayesflow.experimental" title="bayesflow.experimental"><code class="xref py py-obj docutils literal notranslate"><span class="pre">experimental</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Unstable or largely untested networks, proceed with caution.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.links.html#module-bayesflow.links" title="bayesflow.links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">links</span></code></a></p></td>
 <td><p>Activation functions linking network output to estimates with architecturally enforced properties.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.metrics.html#module-bayesflow.metrics" title="bayesflow.metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metrics</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of <a class="reference external" href="https://keras.io/api/metrics/base_metric/#metric-class">keras.Metric</a>s for evaluating the performance of models.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.networks.html#module-bayesflow.networks" title="bayesflow.networks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">networks</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A rich collection of neural network architectures for use in <a class="reference internal" href="bayesflow.approximators.Approximator.html#bayesflow.approximators.Approximator" title="bayesflow.approximators.Approximator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Approximator</span></code></a>s.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.scores.html#module-bayesflow.scores" title="bayesflow.scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scores</span></code></a></p></td>
 <td><p>Scoring rules for point estimation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.simulators.html#module-bayesflow.simulators" title="bayesflow.simulators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulators</span></code></a></p></td>
-<td><p></p></td>
+<td><p>This module provides <a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.Simulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulator</span></code></a>, <a href="#id1"><span class="problematic" id="id2">:py:function:`~bayesflow.simulators.make_simulator`</span></a>, and several other kinds of <a class="reference internal" href="bayesflow.simulators.Simulator.html#bayesflow.simulators.Simulator" title="bayesflow.simulators.Simulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulator</span></code></a> implementations, which serve as generative mathematical models, or data generating processes, with their primary function being to sample data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.types.html#module-bayesflow.types" title="bayesflow.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">types</span></code></a></p></td>
-<td><p>Custom types.</p></td>
+<td><p>Custom types used for type annotations.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bayesflow.utils.html#module-bayesflow.utils" title="bayesflow.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils</span></code></a></p></td>
-<td><p></p></td>
+<td><p>A collection of utility functions, mostly used for internal purposes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="bayesflow.workflows.html#module-bayesflow.workflows" title="bayesflow.workflows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">workflows</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Provides <a class="reference internal" href="bayesflow.workflows.BasicWorkflow.html#bayesflow.workflows.BasicWorkflow" title="bayesflow.workflows.BasicWorkflow"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicWorkflow</span></code></a>, a high-level interface for working on typical BayesFlow applications without having to worry about the internals.</p></td>
 </tr>
 </tbody>
 </table>
