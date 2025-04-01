@@ -1,3 +1,48 @@
+"""
+This module provides functions for performing hypothesis testing using the Maximum Mean Discrepancy (MMD) metric.
+
+The MMD is a statistical test used to compare two distributions based on their samples. It is commonly used in
+machine learning and statistics to assess the similarity between observed data and reference data, or between
+summary statistics derived from these datasets.
+
+Functions:
+----------
+- mmd_hypothesis_test_from_summaries:
+    Computes the MMD between observed and reference summaries and generates a null distribution of MMD values
+    for hypothesis testing.
+
+- mmd_hypothesis_test:
+    Computes the MMD between observed and reference data using an approximator to extract summary statistics,
+    and generates a null distribution of MMD values for hypothesis testing.
+
+Dependencies:
+-------------
+- numpy: For numerical operations.
+- bayesflow.approximators: Provides the `Approximator` class for extracting summary statistics.
+- bayesflow.metrics: Provides the `maximum_mean_discrepancy` function for computing the MMD.
+
+Usage:
+------
+These functions can be used to assess the goodness-of-fit of a model by comparing observed data to reference data
+or their respective summary statistics.
+
+Example:
+--------
+# Assuming `observed_data`, `reference_data`, and an `Approximator` instance are available:
+
+This results in namespace collision:
+from bayesflow.diagnostics.metrics.mmd_hypothesis_test import mmd_hypothesis_test
+from bayesflow.diagnostics.plots.mmd_hypothesis_test import mmd_hypothesis_test
+
+import bayesflow as bf
+
+# Perform the MMD hypothesis test
+mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_hypothesis_test(observed_data, reference_data, approximator)
+
+# Plot the null distribution and observed MMD
+bf.diagnostics.plots.mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
+"""
+
 import numpy as np
 
 from bayesflow.approximators import Approximator
