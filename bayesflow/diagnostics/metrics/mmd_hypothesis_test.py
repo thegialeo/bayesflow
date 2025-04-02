@@ -19,27 +19,6 @@ Dependencies:
 - numpy: For numerical operations.
 - bayesflow.approximators: Provides the `Approximator` class for extracting summary statistics.
 - bayesflow.metrics: Provides the `maximum_mean_discrepancy` function for computing the MMD.
-
-Usage:
-------
-These functions can be used to perform MMD hypothesis test by comparing observed data to reference data
-or their respective summary statistics.
-
-Example:
---------
-# Assuming `observed_data`, `reference_data`, and an `Approximator` instance are available:
-
-This results in namespace collision:
-from bayesflow.diagnostics.metrics.mmd_hypothesis_test import mmd_hypothesis_test
-from bayesflow.diagnostics.plots.mmd_hypothesis_test import mmd_hypothesis_test
-
-import bayesflow as bf
-
-# Perform the MMD hypothesis test
-mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_hypothesis_test(observed_data, reference_data, approximator)
-
-# Plot the null distribution and observed MMD
-bf.diagnostics.plots.mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
 """
 
 import numpy as np
@@ -56,6 +35,25 @@ def compute_mmd_hypothesis_test_from_summaries(
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference summaries and generates a distribution
     of MMD values under the null hypothesis to assess model fit.
+
+    [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
+    inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
+    URL: https://arxiv.org/abs/2112.08866
+
+
+    Example:
+    --------
+    # Assuming `observed_summaries` and `reference_summaries` are available:
+
+    from bayesflow.diagnostics.metrics import compute_mmd_hypothesis_test_from_summaries
+    from bayesflow.diagnostics.plots import mmd_hypothesis_test
+
+    # Compute MMD values for hypothesis test
+    mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(observed_summaries, reference_summaries)
+
+    # Plot the null distribution and observed MMD
+    fig = mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
+
 
     Parameters
     ----------
@@ -98,6 +96,25 @@ def compute_mmd_hypothesis_test(
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a distribution of
     MMD values under the null hypothesis to assess model fit.
+
+    [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
+    inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
+    URL: https://arxiv.org/abs/2112.08866
+
+
+    Example:
+    --------
+    # Assuming `observed_data`, `reference_data`, and an `Approximator` instance are available:
+
+    from bayesflow.diagnostics.metrics import compute_mmd_hypothesis_test
+    from bayesflow.diagnostics.plots import mmd_hypothesis_test
+
+    # Compute MMD values for hypothesis test
+    mmd_observed, mmd_null = compute_mmd_hypothesis_test(observed_data, reference_data, approximator)
+
+    # Plot the null distribution and observed MMD
+    fig = mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
+
 
     Parameters
     ----------
