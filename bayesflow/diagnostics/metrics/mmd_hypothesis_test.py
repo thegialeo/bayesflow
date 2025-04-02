@@ -71,6 +71,14 @@ def compute_mmd_hypothesis_test_from_summaries(
         The MMD value between observed and reference summaries.
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
+
+    Raises
+    ------
+    ValueError
+        - If the number of null samples exceeds the number of reference samples or if the shapes of observed and
+        reference summaries do not match.
+
+        - If the shapes of observed and reference summaries do not match on dimensions besides the first one.
     """
     num_observed: int = observed_summaries.shape[0]
     num_reference: int = reference_summaries.shape[0]
