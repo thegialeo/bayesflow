@@ -97,6 +97,22 @@ def test_compute_hypothesis_test_from_summaries_shapes():
     assert mmd_null.shape == (num_null_samples,)
 
 
+def test_compute_hypothesis_test_from_summaries_positive():
+    """Test MMD output values of compute_hypothesis_test_from_summaries are positive."""
+    # Mock observed and reference data
+    observed_summaries = np.random.rand(10, 5)
+    reference_summaries = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+        observed_summaries, reference_summaries, num_null_samples=num_null_samples
+    )
+
+    # Assertions
+    assert mmd_observed >= 0
+    assert np.all(mmd_null >= 0)
+
+
 @pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
 def test_compute_hypothesis_test_shapes(summary_network, monkeypatch):
     """Test the compute_mmd_hypothesis_test output shapes."""
@@ -124,3 +140,31 @@ def test_compute_hypothesis_test_shapes(summary_network, monkeypatch):
     assert isinstance(mmd_observed, float)
     assert isinstance(mmd_null, np.ndarray)
     assert mmd_null.shape == (num_null_samples,)
+
+
+@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
+def test_compute_hypothesis_test_positive(summary_network, monkeypatch):
+    """Test MMD output values of compute_hypothesis_test are positive."""
+    # Mock observed and reference data
+    observed_data = np.random.rand(10, 5)
+    reference_data = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    # Create a dummy ContinuousApproximator instance
+    mock_approximator = bf.approximators.ContinuousApproximator(
+        adapter=None,
+        inference_network=None,
+        summary_network=None,
+    )
+
+    # Patch the summary_network attribute of the mock_approximator instance
+    monkeypatch.setattr(mock_approximator, "summary_network", summary_network)
+
+    # Call the function under test
+    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+        observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
+    )
+
+    # Assertions
+    assert mmd_observed >= 0
+    assert np.all(mmd_null >= 0)
