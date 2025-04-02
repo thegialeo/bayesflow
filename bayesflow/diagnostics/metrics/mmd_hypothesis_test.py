@@ -43,13 +43,12 @@ bf.diagnostics.plots.mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_obs
 """
 
 import numpy as np
+from keras.ops import covert_to_numpy, covert_to_tensor
 
 from bayesflow.approximators import Approximator
 from bayesflow.metrics import maximum_mean_discrepancy
 
 
-# TODO: maximum_mean_discrepancy expects bayesflow.types.Tensor instead of np.ndarray as input and returns
-# bayesflow.types.Tensor instead of float
 def mmd_hypothesis_test_from_summaries(
     observed_summaries: np.ndarray,
     reference_summaries: np.ndarray,
@@ -82,14 +81,15 @@ def mmd_hypothesis_test_from_summaries(
     for i in range(num_null_samples):
         bootstrap_idx: int = np.random.randint(0, num_reference, size=num_observed)
         sampled_summaries: np.ndarray = reference_summaries[bootstrap_idx]
-        mmd_null_samples[i] = maximum_mean_discrepancy(observed_summaries, sampled_summaries)
+        mmd_null_samples[i] = maximum_mean_discrepancy(
+            covert_to_tensor(observed_summaries), covert_to_tensor(sampled_summaries)
+        )
 
-    mmd_observed: float = maximum_mean_discrepancy(observed_summaries, reference_summaries)
+    mmd_observed: float = float(covert_to_numpy(maximum_mean_discrepancy(observed_summaries, reference_summaries)))
 
     return mmd_observed, mmd_null_samples
 
 
-# TODO: approximator.summary_network takes and returns bayesflow.types.Tensor
 def mmd_hypothesis_test(
     observed_data: np.ndarray,
     reference_data: np.ndarray,
@@ -117,8 +117,8 @@ def mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    observed_summaries: np.ndarray = approximator.summary_network(observed_data)
-    reference_summaries: np.ndarray = approximator.summary_network(reference_data)
+    observed_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(observed_data)))
+    reference_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(reference_data)))
 
     mmd_observed, mmd_null = mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
