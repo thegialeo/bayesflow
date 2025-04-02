@@ -72,11 +72,23 @@ def compute_mmd_hypothesis_test_from_summaries(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    observed_summaries_tensor: Tensor = convert_to_tensor(observed_summaries, dtype="float32")
-    reference_summaries_tensor: Tensor = convert_to_tensor(reference_summaries, dtype="float32")
-
     num_observed: int = observed_summaries.shape[0]
     num_reference: int = reference_summaries.shape[0]
+
+    if num_null_samples > num_reference:
+        raise ValueError(
+            f"Number of null samples ({num_null_samples}) cannot exceed"
+            f"the number of reference samples ({num_reference})."
+        )
+
+    if observed_summaries.shape[1:] != reference_summaries.shape[1:]:
+        raise ValueError(
+            f"Expected observed and reference summaries to have the same shape, "
+            f"but got {observed_summaries.shape[1:]} != {reference_summaries.shape[1:]}."
+        )
+
+    observed_summaries_tensor: Tensor = convert_to_tensor(observed_summaries, dtype="float32")
+    reference_summaries_tensor: Tensor = convert_to_tensor(reference_summaries, dtype="float32")
 
     mmd_null_samples: np.ndarray = np.zeros(num_null_samples, dtype=np.float64)
 
@@ -147,7 +159,6 @@ def compute_mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-
     if approximator.summary_network is not None:
         observed_data_tensor: Tensor = convert_to_tensor(observed_data)
         reference_data_tensor: Tensor = convert_to_tensor(reference_data)
