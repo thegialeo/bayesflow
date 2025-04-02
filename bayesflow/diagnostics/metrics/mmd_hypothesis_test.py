@@ -6,11 +6,11 @@ inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.
 
 Functions:
 ----------
-- mmd_hypothesis_test_from_summaries:
+- compute_mmd_hypothesis_test_from_summaries:
     Computes the MMD between observed and reference summaries and generates a null distribution of MMD values
     for hypothesis testing.
 
-- mmd_hypothesis_test:
+- compute_mmd_hypothesis_test:
     Computes the MMD between observed and reference data using an approximator to extract summary statistics,
     and generates a null distribution of MMD values for hypothesis testing.
 
@@ -49,7 +49,7 @@ from bayesflow.approximators import Approximator
 from bayesflow.metrics import maximum_mean_discrepancy
 
 
-def mmd_hypothesis_test_from_summaries(
+def compute_mmd_hypothesis_test_from_summaries(
     observed_summaries: np.ndarray,
     reference_summaries: np.ndarray,
     num_null_samples: int = 100,
@@ -90,7 +90,7 @@ def mmd_hypothesis_test_from_summaries(
     return mmd_observed, mmd_null_samples
 
 
-def mmd_hypothesis_test(
+def compute_mmd_hypothesis_test(
     observed_data: np.ndarray,
     reference_data: np.ndarray,
     approximator: Approximator,
@@ -120,7 +120,7 @@ def mmd_hypothesis_test(
     observed_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(observed_data)))
     reference_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(reference_data)))
 
-    mmd_observed, mmd_null = mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
