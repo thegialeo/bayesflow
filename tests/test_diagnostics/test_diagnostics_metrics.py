@@ -105,26 +105,23 @@ def test_compute_hypothesis_test_from_summaries_shapes():
     assert mmd_null.shape == (num_null_samples,)
 
 
-def test_compute_hypothesis_test_shapes_with_mock(monkeypatch):
-    """Test the compute_mmd_hypothesis_test output shapes using pytest monkeypatch."""
+@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
+def test_compute_hypothesis_test_shapes(summary_network, monkeypatch):
+    """Test the compute_mmd_hypothesis_test output shapes."""
     # Mock observed and reference data
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(100, 5)
     num_null_samples = 50
 
-    # Mock the summary_network method
-    def mock_summary_network(data):
-        return np.random.rand(data.shape[0], 5)
-
     # Create a dummy ContinuousApproximator instance
     mock_approximator = bf.approximators.ContinuousApproximator(
-        adapter=None,  # Pass None or a mock Adapter if required
-        inference_network=None,  # Pass None or a mock InferenceNetwork if required
-        summary_network=None,  # This will be replaced by the monkeypatched method
+        adapter=None,
+        inference_network=None,
+        summary_network=None,
     )
 
     # Patch the summary_network attribute of the mock_approximator instance
-    monkeypatch.setattr(mock_approximator, "summary_network", mock_summary_network)
+    monkeypatch.setattr(mock_approximator, "summary_network", summary_network)
 
     # Call the function under test
     mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
