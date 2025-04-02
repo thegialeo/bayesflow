@@ -154,8 +154,8 @@ def compute_mmd_hypothesis_test(
         observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
         reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
     else:
-        observed_summaries: np.ndarray = convert_to_numpy(observed_data_tensor)
-        reference_summaries: np.ndarray = convert_to_numpy(reference_data_tensor)
+        observed_summaries: np.ndarray = observed_data
+        reference_summaries: np.ndarray = reference_data
 
     mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
