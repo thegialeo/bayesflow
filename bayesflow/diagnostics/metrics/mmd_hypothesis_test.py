@@ -147,11 +147,15 @@ def compute_mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    observed_data_tensor: Tensor = convert_to_tensor(observed_data)
-    reference_data_tensor: Tensor = convert_to_tensor(reference_data)
 
-    observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
-    reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
+    if approximator.summary_network is not None:
+        observed_data_tensor: Tensor = convert_to_tensor(observed_data)
+        reference_data_tensor: Tensor = convert_to_tensor(reference_data)
+        observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
+        reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
+    else:
+        observed_summaries: np.ndarray = convert_to_numpy(observed_data_tensor)
+        reference_summaries: np.ndarray = convert_to_numpy(reference_data_tensor)
 
     mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
