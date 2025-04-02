@@ -1,9 +1,8 @@
 """
 This module provides functions for performing hypothesis testing using the Maximum Mean Discrepancy (MMD) metric.
 
-The MMD is a statistical test used to compare two distributions based on their samples. It is commonly used in
-machine learning and statistics to assess the similarity between observed data and reference data, or between
-summary statistics derived from these datasets.
+[1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
+inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866., https://arxiv.org/abs/2112.08866
 
 Functions:
 ----------
@@ -23,7 +22,7 @@ Dependencies:
 
 Usage:
 ------
-These functions can be used to assess the goodness-of-fit of a model by comparing observed data to reference data
+These functions can be used to perform MMD hypothesis test by comparing observed data to reference data
 or their respective summary statistics.
 
 Example:
