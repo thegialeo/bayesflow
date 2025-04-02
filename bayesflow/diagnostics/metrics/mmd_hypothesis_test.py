@@ -24,7 +24,7 @@ Dependencies:
 import numpy as np
 from keras.ops import convert_to_numpy, convert_to_tensor
 
-from bayesflow.approximators import Approximator
+from bayesflow.approximators import ContinuousApproximator
 from bayesflow.metrics.functional import maximum_mean_discrepancy
 from bayesflow.types import Tensor
 
@@ -104,7 +104,7 @@ def compute_mmd_hypothesis_test_from_summaries(
 def compute_mmd_hypothesis_test(
     observed_data: np.ndarray,
     reference_data: np.ndarray,
-    approximator: Approximator,
+    approximator: ContinuousApproximator,
     num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a distribution of
@@ -135,8 +135,8 @@ def compute_mmd_hypothesis_test(
         Observed data, shape (num_observed, ...).
     reference_data : np.ndarray
         Reference data, shape (num_reference, ...).
-    approximator : Approximator
-        An instance of the Approximator class used to obtain summary statistics from data.
+    approximator : ContinuousApproximator
+        An instance of the ContinuousApproximator class used to obtain summary statistics from data.
     num_null_samples : int
         Number of null samples to generate for hypothesis testing. Default is 100.
 
@@ -147,8 +147,11 @@ def compute_mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(convert_to_tensor(observed_data)))
-    reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(convert_to_tensor(reference_data)))
+    observed_data_tensor: Tensor = convert_to_tensor(observed_data)
+    reference_data_tensor: Tensor = convert_to_tensor(reference_data)
+
+    observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
+    reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
 
     mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
