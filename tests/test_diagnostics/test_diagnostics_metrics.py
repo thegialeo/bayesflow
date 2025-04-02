@@ -80,8 +80,9 @@ def test_expected_calibration_error(pred_models, true_models, model_names):
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
-def test_compute_hypothesis_test_from_summaries_shapes() -> None:
+def test_compute_hypothesis_test_from_summaries_shapes():
     """Test the compute_hypothesis_test_from_summaries output shapes."""
+    # Mock observed and reference data
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.rand(100, 5)
     num_null_samples = 50
@@ -90,6 +91,39 @@ def test_compute_hypothesis_test_from_summaries_shapes() -> None:
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
+    # Assertions
+    assert isinstance(mmd_observed, float)
+    assert isinstance(mmd_null, np.ndarray)
+    assert mmd_null.shape == (num_null_samples,)
+
+
+def test_compute_hypothesis_test_shapes_with_mock(monkeypatch):
+    """Test the compute_mmd_hypothesis_test output shapes using pytest monkeypatch."""
+    # Mock observed and reference data
+    observed_data = np.random.rand(10, 5)
+    reference_data = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    # Mock the summary_network method
+    def mock_summary_network(data):
+        return np.random.rand(data.shape[0], 5)
+
+    # Create a dummy ContinuousApproximator instance
+    mock_approximator = bf.approximators.ContinuousApproximator(
+        adapter=None,  # Pass None or a mock Adapter if required
+        inference_network=None,  # Pass None or a mock InferenceNetwork if required
+        summary_network=None,  # This will be replaced by the monkeypatched method
+    )
+
+    # Patch the summary_network attribute of the mock_approximator instance
+    monkeypatch.setattr(mock_approximator, "summary_network", mock_summary_network)
+
+    # Call the function under test
+    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+        observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
+    )
+
+    # Assertions
     assert isinstance(mmd_observed, float)
     assert isinstance(mmd_null, np.ndarray)
     assert mmd_null.shape == (num_null_samples,)
