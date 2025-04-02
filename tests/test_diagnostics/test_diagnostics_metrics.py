@@ -1,5 +1,7 @@
-import bayesflow as bf
+import numpy as np
 import pytest
+
+import bayesflow as bf
 
 
 def num_variables(x: dict):
@@ -71,3 +73,23 @@ def test_expected_calibration_error(pred_models, true_models, model_names):
 
     with pytest.raises(Exception):
         out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models.transpose)
+
+
+# -------------------------------------------------------------------------------------------------------------------- #
+#                                          Unit tests for MMD Hypothesis Test                                          #
+# -------------------------------------------------------------------------------------------------------------------- #
+
+
+def test_compute_hypothesis_test_from_summaries_shapes() -> None:
+    """Test the compute_hypothesis_test_from_summaries output shapes."""
+    observed_summaries = np.random.rand(10, 5)
+    reference_summaries = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+        observed_summaries, reference_summaries, num_null_samples=num_null_samples
+    )
+
+    assert isinstance(mmd_observed, float)
+    assert isinstance(mmd_null, np.ndarray)
+    assert mmd_null.shape == (num_null_samples,)

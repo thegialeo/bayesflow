@@ -22,10 +22,11 @@ Dependencies:
 """
 
 import numpy as np
-from keras.ops import covert_to_numpy, covert_to_tensor
+from keras.ops import convert_to_numpy, convert_to_tensor
 
 from bayesflow.approximators import Approximator
-from bayesflow.metrics import maximum_mean_discrepancy
+from bayesflow.metrics.functional import maximum_mean_discrepancy
+from bayesflow.types import Tensor
 
 
 def compute_mmd_hypothesis_test_from_summaries(
@@ -71,19 +72,31 @@ def compute_mmd_hypothesis_test_from_summaries(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
+    observed_summaries_tensor: Tensor = convert_to_tensor(observed_summaries, dtype="float32")
+    reference_summaries_tensor: Tensor = convert_to_tensor(reference_summaries, dtype="float32")
+
     num_observed: int = observed_summaries.shape[0]
     num_reference: int = reference_summaries.shape[0]
 
     mmd_null_samples: np.ndarray = np.zeros(num_null_samples, dtype=np.float64)
 
     for i in range(num_null_samples):
-        bootstrap_idx: int = np.random.randint(0, num_reference, size=num_observed)
+        bootstrap_idx: np.ndarray = np.random.randint(0, num_reference, size=num_observed)
         sampled_summaries: np.ndarray = reference_summaries[bootstrap_idx]
-        mmd_null_samples[i] = maximum_mean_discrepancy(
-            covert_to_tensor(observed_summaries), covert_to_tensor(sampled_summaries)
+        sampled_summaries_tensor: Tensor = convert_to_tensor(sampled_summaries, dtype="float32")
+        mmd_null_samples[i] = convert_to_numpy(
+            maximum_mean_discrepancy(
+                sampled_summaries_tensor,
+                reference_summaries_tensor,
+            )
         )
 
-    mmd_observed: float = float(covert_to_numpy(maximum_mean_discrepancy(observed_summaries, reference_summaries)))
+    mmd_observed_tensor: Tensor = maximum_mean_discrepancy(
+        observed_summaries_tensor,
+        reference_summaries_tensor,
+    )
+
+    mmd_observed: float = float(convert_to_numpy(mmd_observed_tensor))
 
     return mmd_observed, mmd_null_samples
 
@@ -134,8 +147,8 @@ def compute_mmd_hypothesis_test(
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
     """
-    observed_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(observed_data)))
-    reference_summaries: np.ndarray = covert_to_numpy(approximator.summary_network(covert_to_tensor(reference_data)))
+    observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(convert_to_tensor(observed_data)))
+    reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(convert_to_tensor(reference_data)))
 
     mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
