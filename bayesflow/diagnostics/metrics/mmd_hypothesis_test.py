@@ -166,7 +166,18 @@ def compute_mmd_hypothesis_test(
         The MMD value between observed and reference data.
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
+
+    Raises:
+    ------
+    ValueError
+        - If the shapes of observed and reference data do not match on dimensions besides the first one.
     """
+    if observed_data.shape[1:] != reference_data.shape[1:]:
+        raise ValueError(
+            f"Expected observed and reference data to have the same shape, "
+            f"but got {observed_data.shape[1:]} != {reference_data.shape[1:]}."
+        )
+
     if approximator.summary_network is not None:
         observed_data_tensor: Tensor = convert_to_tensor(observed_data)
         reference_data_tensor: Tensor = convert_to_tensor(reference_data)

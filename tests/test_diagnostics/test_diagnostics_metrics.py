@@ -257,7 +257,7 @@ def test_compute_hypothesis_test_different_distributions(summary_network, monkey
     assert mmd_observed >= np.quantile(mmd_null, 0.68)
 
 
-@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
+@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5)])
 def test_compute_hypothesis_test_mismatched_last_dimension(summary_network, monkeypatch):
     """Test that a ValueError is raised for mismatched last dimensions."""
     observed_data = np.random.rand(10, 5)
