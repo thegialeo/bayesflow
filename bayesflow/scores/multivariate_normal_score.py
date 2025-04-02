@@ -23,7 +23,7 @@ class MultivariateNormalScore(ParametricDistributionScore):
     This variable contains names of prediction heads that should lead to a warning when the adapter is applied
     in inverse direction to them.
 
-    For more information see :class:`ScoringRule`.
+    For more information see :py:class:`ScoringRule`.
     """
 
     def __init__(self, dim: int = None, links: dict = None, **kwargs):

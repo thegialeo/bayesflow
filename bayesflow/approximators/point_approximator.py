@@ -15,8 +15,8 @@ class PointApproximator(ContinuousApproximator):
     A workflow for fast amortized point estimation of a conditional distribution.
 
     The distribution is approximated by point estimators, parameterized by a feed-forward
-    :class:`bayesflow.networks.PointInferenceNetwork`. Conditions can be compressed by an optional summary network
-    (inheriting from :class:`bayesflow.networks.SummaryNetwork`) or used directly as input to the inference network.
+    :py:class:`~bayesflow.networks.PointInferenceNetwork`. Conditions can be compressed by an optional summary network
+    (inheriting from :py:class:`~bayesflow.networks.SummaryNetwork`) or used directly as input to the inference network.
     """
 
     def estimate(
@@ -90,7 +90,7 @@ class PointApproximator(ContinuousApproximator):
             for the sampling process.
         split : bool, optional
             If True, the sampled arrays are split along the last axis, by default False.
-            Currently not supported for :class:`PointApproximator` .
+            Currently not supported for :py:class:`PointApproximator` .
         **kwargs
             Additional keyword arguments passed to underlying processing functions.
 

@@ -15,14 +15,14 @@ class ScoringRule:
     when sampling from the true distribution. By minimizing an expected score, estimates with
     different properties can be obtained.
 
-    To define a custom :class:`ScoringRule`, inherit from this class and overwrite the score method.
+    To define a custom :py:class:`ScoringRule`, inherit from this class and overwrite the score method.
     For proper serialization, any new constructor arguments must be taken care of in a `get_config` method.
 
     Estimates are typically parameterized by projection heads consisting of a neural network component
     and a link to project into the correct output space.
 
-    A :class:`ScoringRule` can score estimates consisting of multiple parts. See :class:`MultivariateNormalScore`
-    for an example of a :class:`ParametricDistributionScore`. That score evaluates an estimated mean
+    A :py:class:`ScoringRule` can score estimates consisting of multiple parts. See :py:class:`MultivariateNormalScore`
+    for an example of a :py:class:`ParametricDistributionScore`. That score evaluates an estimated mean
     and covariance simultaneously.
     """
 
@@ -34,7 +34,7 @@ class ScoringRule:
     Prediction heads can output estimates in spaces other than the target distribution space.
     To such estimates the adapter cannot be straightforwardly applied in inverse direction,
     because the adapter is built to map vectors from the inference variable space. When subclassing
-    :class:`ScoringRule`, add the names of such heads to the following list to warn users about difficulties
+    :py:class:`ScoringRule`, add the names of such heads to the following list to warn users about difficulties
     with a type of estimate whenever the adapter is applied to them in inverse direction.
     """
 
@@ -128,7 +128,7 @@ class ScoringRule:
         2. dense: A trainable linear projection with as many units as are required by the next component.
         3. reshape: Changes shape of output of projection to match requirements of next component.
         4. link: Transforms unconstrained values into a constrained space for the final estimator.
-           See :mod:`bayesflow.links` for examples.
+           See :py:mod:`~bayesflow.links` for examples.
 
         This method initializes the components in reverse order to meet all requirements and returns them.
 
@@ -138,7 +138,7 @@ class ScoringRule:
             Name of head for which to request a link.
         output_shape: Shape
             The necessary shape of estimated values for the given key as returned by
-            :func:`get_head_shapes_from_target_shape()`.
+            :py:func:`get_head_shapes_from_target_shape()`.
 
         Returns
         -------
@@ -181,7 +181,7 @@ class ScoringRule:
 
         Examples
         --------
-        The following shows how to score estimates with a :class:`MeanScore`. All :class:`ScoringRule` s
+        The following shows how to score estimates with a :py:class:`MeanScore`. All :py:class:`ScoringRule`\ s
         follow this pattern, only differing in the structure of the estimates dictionary.
 
         >>> import keras
@@ -207,7 +207,7 @@ class ScoringRule:
 
     def aggregate(self, scores: Tensor, weights: Tensor = None) -> Tensor:
         """
-        Computes the mean of scores, optionally applying weights.
+        Computes the mean of **scores**, optionally applying **weights**.
 
         This function computes the mean value of the given scores. When weights are provided,
         it first multiplies the scores by the weights and then computes the mean of the result.
@@ -224,8 +224,8 @@ class ScoringRule:
         Returns
         -------
         Tensor
-            The aggregated score computed as a weighted mean if `weights` is provided,
-            or as the simple mean of `scores` otherwise.
+            The aggregated score computed as a weighted mean if **weights** is provided,
+            or as the simple mean of **scores** otherwise.
         """
 
         if weights is not None:
