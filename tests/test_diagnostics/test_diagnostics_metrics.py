@@ -135,8 +135,8 @@ def test_compute_hypothesis_test_from_summaries_different_distributions():
     assert mmd_observed >= np.quantile(mmd_null, 0.68)
 
 
-def test_mismatched_last_dimension():
-    """Test that a ValueError is raised for mismatched last dimensions."""
+def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError for mismatched shapes."""
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.rand(20, 4)
     num_null_samples = 10
@@ -147,8 +147,10 @@ def test_mismatched_last_dimension():
         )
 
 
-def test_num_null_samples_exceeds_reference_samples():
-    """Test that a ValueError is raised when num_null_samples exceeds the number of reference samples."""
+def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_reference_samples():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError when num_null_samples exceeds the number of
+    reference samples.
+    """
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.rand(5, 5)
     num_null_samples = 10
@@ -250,8 +252,8 @@ def test_compute_hypothesis_test_different_distributions(summary_network, monkey
 
 
 @pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5)])
-def test_compute_hypothesis_test_mismatched_last_dimension(summary_network, monkeypatch):
-    """Test that a ValueError is raised for mismatched last dimensions."""
+def test_compute_hypothesis_test_mismatched_shapes(summary_network, monkeypatch):
+    """Test that compute_hypothesis_test raises ValueError for mismatched shapes."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(20, 4)
     num_null_samples = 10
@@ -272,7 +274,8 @@ def test_compute_hypothesis_test_mismatched_last_dimension(summary_network, monk
 
 @pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
 def test_compute_hypothesis_test_num_null_samples_exceeds_reference_samples(summary_network, monkeypatch):
-    """Test that a ValueError is raised when num_null_samples exceeds the number of reference samples."""
+    """Test that compute_hypothesis_test raises ValueError when num_null_samples exceeds the number of reference
+    samples."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(5, 5)
     num_null_samples = 10
