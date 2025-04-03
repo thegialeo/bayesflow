@@ -172,6 +172,7 @@ def compute_mmd_hypothesis_test(
     ------
     ValueError
         - If the shapes of observed and reference data do not match on dimensions besides the first one.
+        - If approximator is not an instance of ContinuousApproximator or SummaryNetwork.
     """
     if observed_data.shape[1:] != reference_data.shape[1:]:
         raise ValueError(
