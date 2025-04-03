@@ -25,6 +25,7 @@ import numpy as np
 from keras.ops import convert_to_numpy, convert_to_tensor
 
 from bayesflow.approximators import ContinuousApproximator
+from bayesflow.networks import SummaryNetwork
 from bayesflow.metrics.functional import maximum_mean_discrepancy
 from bayesflow.types import Tensor
 
@@ -124,7 +125,7 @@ def compute_mmd_hypothesis_test_from_summaries(
 def compute_mmd_hypothesis_test(
     observed_data: np.ndarray,
     reference_data: np.ndarray,
-    approximator: ContinuousApproximator,
+    approximator: ContinuousApproximator | SummaryNetwork,
     num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a distribution of
@@ -155,8 +156,8 @@ def compute_mmd_hypothesis_test(
         Observed data, shape (num_observed, ...).
     reference_data : np.ndarray
         Reference data, shape (num_reference, ...).
-    approximator : ContinuousApproximator
-        An instance of the ContinuousApproximator class used to obtain summary statistics from data.
+    approximator : ContinuousApproximator or SummaryNetwork
+        An instance of the ContinuousApproximator or SummaryNetwork class used to extract summary statistics from data.
     num_null_samples : int
         Number of null samples to generate for hypothesis testing. Default is 100.
 
@@ -178,14 +179,22 @@ def compute_mmd_hypothesis_test(
             f"but got {observed_data.shape[1:]} != {reference_data.shape[1:]}."
         )
 
-    if approximator.summary_network is not None:
+    if isinstance(approximator, ContinuousApproximator):
+        if approximator.summary_network is not None:
+            observed_data_tensor: Tensor = convert_to_tensor(observed_data)
+            reference_data_tensor: Tensor = convert_to_tensor(reference_data)
+            observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
+            reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
+        else:
+            observed_summaries: np.ndarray = observed_data
+            reference_summaries: np.ndarray = reference_data
+    elif isinstance(approximator, SummaryNetwork):
         observed_data_tensor: Tensor = convert_to_tensor(observed_data)
         reference_data_tensor: Tensor = convert_to_tensor(reference_data)
-        observed_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(observed_data_tensor))
-        reference_summaries: np.ndarray = convert_to_numpy(approximator.summary_network(reference_data_tensor))
+        observed_summaries: np.ndarray = convert_to_numpy(approximator(observed_data_tensor))
+        reference_summaries: np.ndarray = convert_to_numpy(approximator(reference_data_tensor))
     else:
-        observed_summaries: np.ndarray = observed_data
-        reference_summaries: np.ndarray = reference_data
+        raise ValueError("The approximator must be an instance of ContinuousApproximator or SummaryNetwork.")
 
     mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
