@@ -157,7 +157,7 @@ def compute_mmd_hypothesis_test(
     reference_data : np.ndarray
         Reference data, shape (num_reference, ...).
     approximator : ContinuousApproximator or SummaryNetwork
-        An instance of the ContinuousApproximator or SummaryNetwork class used to extract summary statistics from data.
+        An instance of the ContinuousApproximator or SummaryNetwork class use to extract summary statistics from data.
     num_null_samples : int
         Number of null samples to generate for hypothesis testing. Default is 100.
 
