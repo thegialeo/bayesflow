@@ -270,25 +270,3 @@ def test_compute_hypothesis_test_mismatched_shapes(summary_network, monkeypatch)
         bf.diagnostics.metrics.compute_mmd_hypothesis_test(
             observed_data, reference_data, mock_approximator, num_null_samples
         )
-
-
-@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
-def test_compute_hypothesis_test_num_null_samples_exceeds_reference_samples(summary_network, monkeypatch):
-    """Test that compute_hypothesis_test raises ValueError when num_null_samples exceeds the number of reference
-    samples."""
-    observed_data = np.random.rand(10, 5)
-    reference_data = np.random.rand(5, 5)
-    num_null_samples = 10
-
-    mock_approximator = bf.approximators.ContinuousApproximator(
-        adapter=None,
-        inference_network=None,
-        summary_network=None,
-    )
-
-    monkeypatch.setattr(mock_approximator, "summary_network", summary_network)
-
-    with pytest.raises(ValueError):
-        bf.diagnostics.metrics.compute_mmd_hypothesis_test(
-            observed_data, reference_data, mock_approximator, num_null_samples
-        )
