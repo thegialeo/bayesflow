@@ -169,7 +169,7 @@ def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_referen
         )
 
 
-@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
+@pytest.mark.parametrize("summary_network", [lambda data: data + 1, None])
 def test_compute_hypothesis_test_shapes(summary_network, monkeypatch):
     """Test the compute_mmd_hypothesis_test output shapes."""
     observed_data = np.random.rand(10, 5)
@@ -193,7 +193,7 @@ def test_compute_hypothesis_test_shapes(summary_network, monkeypatch):
     assert mmd_null.shape == (num_null_samples,)
 
 
-@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5), None])
+@pytest.mark.parametrize("summary_network", [lambda data: data + 1, None])
 def test_compute_hypothesis_test_positive(summary_network, monkeypatch):
     """Test MMD output values of compute_hypothesis_test are positive."""
     observed_data = np.random.rand(10, 5)
@@ -259,7 +259,7 @@ def test_compute_hypothesis_test_different_distributions(summary_network, monkey
     assert mmd_observed >= np.quantile(mmd_null, 0.68)
 
 
-@pytest.mark.parametrize("summary_network", [lambda data: np.random.rand(data.shape[0], 5)])
+@pytest.mark.parametrize("summary_network", [lambda data: data + 1, None])
 def test_compute_hypothesis_test_mismatched_shapes(summary_network, monkeypatch):
     """Test that compute_hypothesis_test raises ValueError for mismatched shapes."""
     observed_data = np.random.rand(10, 5)
