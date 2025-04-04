@@ -76,17 +76,16 @@ def compute_mmd_hypothesis_test_from_summaries(
     Raises
     ------
     ValueError
-        - If the number of null samples exceeds the number of reference samples or if the shapes of observed and
-        reference summaries do not match.
+        - If number of reference summaries is less than number of observed summaries.
         - If the shapes of observed and reference summaries do not match on dimensions besides the first one.
     """
     num_observed: int = observed_summaries.shape[0]
     num_reference: int = reference_summaries.shape[0]
 
-    if num_null_samples > num_reference:
+    if num_observed > num_reference:
         raise ValueError(
-            f"Number of null samples ({num_null_samples}) cannot exceed"
-            f"the number of reference samples ({num_reference})."
+            f"Number of reference summaries ({num_reference}) must be greater than"
+            f"number of observed summaries ({num_observed})."
         )
 
     if observed_summaries.shape[1:] != reference_summaries.shape[1:]:

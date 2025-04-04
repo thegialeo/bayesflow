@@ -147,12 +147,10 @@ def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
         )
 
 
-def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_reference_samples():
-    """Test that compute_hypothesis_test_from_summaries raises ValueError when num_null_samples exceeds the number of
-    reference samples.
-    """
-    observed_summaries = np.random.rand(10, 5)
-    reference_summaries = np.random.rand(5, 5)
+def test_compute_hypothesis_test_from_summaries_observed_larger_than_reference_summaries():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError if observed is larger than reference."""
+    observed_summaries = np.random.rand(20, 5)
+    reference_summaries = np.random.rand(10, 5)
     num_null_samples = 10
 
     with pytest.raises(ValueError):
