@@ -11,7 +11,7 @@ from .parametric_distribution_score import ParametricDistributionScore
 
 @serializable(package="bayesflow.scores")
 class MultivariateNormalScore(ParametricDistributionScore):
-    r""":math:`S(\hat p_{\mu, \Sigma}, \theta; k) = \log( \mathcal N (\theta; \mu, \Sigma))`
+    r""":math:`S(\hat p_{\mu, \Sigma}, \theta; k) = -\log( \mathcal N (\theta; \mu, \Sigma))`
 
     Scores a predicted mean and covariance matrix with the log-score of the probability of the materialized value.
     """
