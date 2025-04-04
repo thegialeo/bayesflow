@@ -147,11 +147,36 @@ def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
         )
 
 
-def test_compute_hypothesis_test_from_summaries_observed_larger_than_reference_summaries():
-    """Test that compute_hypothesis_test_from_summaries raises ValueError if observed is larger than reference."""
+def test_compute_hypothesis_test_from_summaries_reference_smaller_than_observed_summaries():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError if number of reference summaries smaller than
+    observed."""
     observed_summaries = np.random.rand(20, 5)
     reference_summaries = np.random.rand(10, 5)
     num_null_samples = 10
+
+    with pytest.raises(ValueError):
+        bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+            observed_summaries, reference_summaries, num_null_samples
+        )
+
+
+def test_compute_hypothesis_test_from_summaries_num_null_samples_zero():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError if num_null_samples is zero."""
+    observed_summaries = np.random.rand(20, 5)
+    reference_summaries = np.random.rand(10, 5)
+    num_null_samples = 0
+
+    with pytest.raises(ValueError):
+        bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+            observed_summaries, reference_summaries, num_null_samples
+        )
+
+
+def test_compute_hypothesis_test_from_summaries_num_null_samples_negative():
+    """Test that compute_hypothesis_test_from_summaries raises ValueError if num_null_samples is negative."""
+    observed_summaries = np.random.rand(20, 5)
+    reference_summaries = np.random.rand(10, 5)
+    num_null_samples = -1
 
     with pytest.raises(ValueError):
         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(

@@ -78,6 +78,7 @@ def compute_mmd_hypothesis_test_from_summaries(
     ValueError
         - If number of reference summaries is less than number of observed summaries.
         - If the shapes of observed and reference summaries do not match on dimensions besides the first one.
+        - If number of null samples is less than or equal to 0.
     """
     num_observed: int = observed_summaries.shape[0]
     num_reference: int = reference_summaries.shape[0]
@@ -93,6 +94,9 @@ def compute_mmd_hypothesis_test_from_summaries(
             f"Expected observed and reference summaries to have the same shape, "
             f"but got {observed_summaries.shape[1:]} != {reference_summaries.shape[1:]}."
         )
+
+    if num_null_samples <= 0:
+        raise ValueError(f"Number of null samples must be greater than 0, but got {num_null_samples}.")
 
     observed_summaries_tensor: Tensor = convert_to_tensor(observed_summaries, dtype="float32")
     reference_summaries_tensor: Tensor = convert_to_tensor(reference_summaries, dtype="float32")
