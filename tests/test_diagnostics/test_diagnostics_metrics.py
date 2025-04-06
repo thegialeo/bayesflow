@@ -162,8 +162,8 @@ def test_compute_hypothesis_test_from_summaries_reference_smaller_than_observed_
 
 def test_compute_hypothesis_test_from_summaries_num_null_samples_zero():
     """Test that compute_hypothesis_test_from_summaries raises ValueError if num_null_samples is zero."""
-    observed_summaries = np.random.rand(20, 5)
-    reference_summaries = np.random.rand(10, 5)
+    observed_summaries = np.random.rand(10, 5)
+    reference_summaries = np.random.rand(20, 5)
     num_null_samples = 0
 
     with pytest.raises(ValueError):
@@ -174,8 +174,8 @@ def test_compute_hypothesis_test_from_summaries_num_null_samples_zero():
 
 def test_compute_hypothesis_test_from_summaries_num_null_samples_negative():
     """Test that compute_hypothesis_test_from_summaries raises ValueError if num_null_samples is negative."""
-    observed_summaries = np.random.rand(20, 5)
-    reference_summaries = np.random.rand(10, 5)
+    observed_summaries = np.random.rand(10, 5)
+    reference_summaries = np.random.rand(20, 5)
     num_null_samples = -1
 
     with pytest.raises(ValueError):
