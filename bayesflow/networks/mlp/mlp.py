@@ -20,10 +20,8 @@ class MLP(keras.Layer):
 
     def __init__(
         self,
+        widths: Sequence[int],
         *,
-        depth: int = None,
-        width: int = None,
-        widths: Sequence[int] = None,
         activation: str = "mish",
         kernel_initializer: str = "he_normal",
         residual: bool = False,
@@ -46,15 +44,8 @@ class MLP(keras.Layer):
 
         Parameters
         ----------
-        depth : int, optional
-            Number of layers in the MLP when `widths` is not explicitly provided. Must be
-            used together with `width`. Default is 2.
-        width : int, optional
-            Number of units per layer when `widths` is not explicitly provided. Must be used
-            together with `depth`. Default is 256.
         widths : Sequence[int], optional
-            Explicitly defines the number of hidden units per layer. If provided, `depth` and
-            `width` should not be specified. Default is None.
+            Defines the number of hidden units per layer, as well as the number of layers to be used.
         activation : str, optional
             Activation function applied in the hidden layers, such as "mish". Default is "mish".
         kernel_initializer : str, optional
@@ -75,17 +66,6 @@ class MLP(keras.Layer):
         """
 
         super().__init__(**keras_kwargs(kwargs))
-
-        if widths is not None:
-            if depth is not None or width is not None:
-                raise ValueError("Either specify 'widths' or 'depth' and 'width', not both.")
-        else:
-            if depth is None or width is None:
-                # use the default
-                depth = 2
-                width = 256
-
-            widths = [width] * depth
 
         self.res_blocks = []
         for width in widths:
