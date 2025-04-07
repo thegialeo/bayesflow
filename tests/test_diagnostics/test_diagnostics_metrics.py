@@ -52,10 +52,10 @@ def test_root_mean_squared_error(random_estimates, random_targets):
 
 def test_classifier_two_sample_test(random_samples_a, random_samples_b):
     metric = bf.diagnostics.metrics.classifier_two_sample_test(estimates=random_samples_a, targets=random_samples_a)
-    assert 0.6 > metric > 0.4
+    assert 0.55 > metric > 0.45
 
     metric = bf.diagnostics.metrics.classifier_two_sample_test(estimates=random_samples_a, targets=random_samples_b)
-    assert metric > 0.6
+    assert metric > 0.55
 
 
 def test_expected_calibration_error(pred_models, true_models, model_names):

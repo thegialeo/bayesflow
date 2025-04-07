@@ -10,12 +10,12 @@ def var_names():
 
 @pytest.fixture()
 def random_samples_a():
-    return np.random.normal(loc=0, scale=1, size=(1000, 8))
+    return np.random.normal(loc=0, scale=1, size=(5000, 8))
 
 
 @pytest.fixture()
 def random_samples_b():
-    return np.random.normal(loc=0, scale=3, size=(1000, 8))
+    return np.random.normal(loc=0, scale=3, size=(5000, 8))
 
 
 @pytest.fixture()

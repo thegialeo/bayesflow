@@ -12,13 +12,13 @@ def classifier_two_sample_test(
     estimates: np.ndarray,
     targets: np.ndarray,
     metric: str = "accuracy",
-    patience: int = 10,
+    patience: int = 5,
     max_epochs: int = 1000,
-    batch_size: int = 64,
+    batch_size: int = 128,
     return_metric_only: bool = True,
     validation_split: float = 0.5,
     standardize: bool = True,
-    mlp_widths: Sequence = (256, 256),
+    mlp_widths: Sequence = (64, 64),
     **kwargs,
 ) -> float | Mapping[str, Any]:
     """
@@ -94,6 +94,11 @@ def classifier_two_sample_test(
     # Create data for classification task
     data = np.r_[estimates, targets]
     labels = np.r_[np.zeros((estimates.shape[0],)), np.ones((targets.shape[0],))]
+
+    # Important: needed, since keras does not shuffle before selecting validation split
+    shuffle_idx = np.random.permutation(data.shape[0])
+    data = data[shuffle_idx]
+    labels = labels[shuffle_idx]
 
     # Create and train classifier with optional stopping
     classifier = keras.Sequential(
