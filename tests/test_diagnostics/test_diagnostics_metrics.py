@@ -50,6 +50,14 @@ def test_root_mean_squared_error(random_estimates, random_targets):
     assert out["variable_names"] == ["beta_0", "beta_1", "sigma"]
 
 
+def test_classifier_two_sample_test(random_samples_a, random_samples_b):
+    metric = bf.diagnostics.metrics.classifier_two_sample_test(estimates=random_samples_a, targets=random_samples_a)
+    assert 0.6 > metric > 0.4
+
+    metric = bf.diagnostics.metrics.classifier_two_sample_test(estimates=random_samples_a, targets=random_samples_b)
+    assert metric > 0.6
+
+
 def test_expected_calibration_error(pred_models, true_models, model_names):
     out = bf.diagnostics.metrics.expected_calibration_error(pred_models, true_models, model_names=model_names)
     assert list(out.keys()) == ["values", "metric_name", "model_names"]

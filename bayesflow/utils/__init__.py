@@ -72,6 +72,7 @@ from .tensor_utils import (
     tree_stack,
     fill_triangular_matrix,
 )
+from .classification import calibration_curve, confusion_matrix
 from .validators import check_lengths_same
 from .workflow_utils import find_inference_network, find_summary_network
 
