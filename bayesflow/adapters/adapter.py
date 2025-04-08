@@ -555,6 +555,24 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(Rename(from_key, to_key))
         return self
 
+    def scale(self, keys: str | Sequence[str], by: float | np.ndarray):
+        from .transforms import Scale
+
+        if isinstance(keys, str):
+            keys = [keys]
+
+        self.transforms.append(MapTransform({key: Scale(scale=by) for key in keys}))
+        return self
+
+    def shift(self, keys: str | Sequence[str], by: float | np.ndarray):
+        from .transforms import Shift
+
+        if isinstance(keys, str):
+            keys = [keys]
+
+        self.transforms.append(MapTransform({key: Shift(shift=by) for key in keys}))
+        return self
+
     def sqrt(self, keys: str | Sequence[str]):
         """Append an :py:class:`~transforms.Sqrt` transform to the adapter.
 
