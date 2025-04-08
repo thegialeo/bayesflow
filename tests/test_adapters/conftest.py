@@ -20,7 +20,7 @@ def adapter():
         .constrain("p2", lower=0)
         .apply(include="p2", forward="exp", inverse="log")
         .apply(include="p2", forward="log1p")
-        .scale("x", by=2)
+        .scale("x", by=[-1, 2])
         .shift("x", by=2)
         .standardize(exclude=["t1", "t2", "o1"])
         .drop("d1")
