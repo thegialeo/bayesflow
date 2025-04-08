@@ -108,5 +108,6 @@ def test_simple_transforms(random_data):
     assert np.array_equal(inverse["p2"], random_data["p2"])
     assert np.array_equal(inverse["t2"], random_data["t2"])
     assert np.array_equal(inverse["t1"], random_data["t1"])
-    # numerical inaccuries prevent np.array_equal to work here
+
+    # numerical inaccuracies prevent np.array_equal to work here
     assert np.allclose(inverse["p1"], random_data["p1"])
