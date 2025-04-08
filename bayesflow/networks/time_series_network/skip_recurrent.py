@@ -41,17 +41,20 @@ class SkipRecurrentNet(keras.Model):
 
         recurrent_constructor = find_recurrent_net(recurrent_type)
 
-        self.recurrent = recurrent_constructor(
+        recurrent = recurrent_constructor(
             units=hidden_dim // 2 if bidirectional else hidden_dim,
             dropout=dropout,
         )
-        self.skip_recurrent = recurrent_constructor(
+        skip_recurrent = recurrent_constructor(
             units=hidden_dim // 2 if bidirectional else hidden_dim,
             dropout=dropout,
         )
         if bidirectional:
-            self.recurrent = keras.layers.Bidirectional(self.recurrent)
-            self.skip_recurrent = keras.layers.Bidirectional(self.skip_recurrent)
+            recurrent = keras.layers.Bidirectional(recurrent)
+            skip_recurrent = keras.layers.Bidirectional(skip_recurrent)
+
+        self.recurrent = recurrent
+        self.skip_recurrent = skip_recurrent
         self.input_channels = input_channels
 
     def call(self, time_series: Tensor, training: bool = False, **kwargs) -> Tensor:
