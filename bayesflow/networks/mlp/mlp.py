@@ -20,7 +20,7 @@ class MLP(keras.Layer):
 
     def __init__(
         self,
-        widths: Sequence[int],
+        widths: Sequence[int] = (256, 256),
         *,
         activation: str = "mish",
         kernel_initializer: str = "he_normal",
