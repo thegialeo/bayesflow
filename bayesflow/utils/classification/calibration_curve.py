@@ -27,8 +27,8 @@ def calibration_curve(
     num_bins : int, default=5
         Number of bins to discretize the [0, 1] interval. A bigger number
         requires more data. Bins with no samples (i.e. without
-        corresponding values in `y_prob`) will not be returned, thus the
-        returned arrays may have less than `n_bins` values.
+        corresponding values in `estimates`) will not be returned, thus the
+        returned arrays may have less than `num_bins` values.
     strategy : {'uniform', 'quantile'}, default='uniform'
         Strategy used to define the widths of the bins.
 
@@ -39,11 +39,11 @@ def calibration_curve(
 
     Returns
     -------
-    prob_true : ndarray of shape (n_bins,) or smaller
+    prob_true : ndarray of shape (num_bins,) or smaller
         The proportion of samples whose class is the positive class, in each
         bin (fraction of positives).
 
-    prob_pred : ndarray of shape (n_bins,) or smaller
+    prob_pred : ndarray of shape (num_bins,) or smaller
         The mean estimated probability in each bin.
 
     References

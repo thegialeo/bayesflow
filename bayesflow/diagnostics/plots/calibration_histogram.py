@@ -102,7 +102,7 @@ def calibration_histogram(
             "Confidence intervals might be unreliable!"
         )
 
-    # Set n_bins automatically, if nothing provided
+    # Set num_bins automatically, if nothing provided
     if num_bins is None:
         num_bins = int(ratio / 2)
         # Attempt a fix if a single bin is determined so plot still makes sense
