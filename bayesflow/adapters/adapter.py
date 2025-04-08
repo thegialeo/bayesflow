@@ -234,11 +234,11 @@ class Adapter(MutableSequence[Transform]):
 
     def apply(
         self,
+        include: str | Sequence[str] = None,
         *,
         forward: np.ufunc | str,
         inverse: np.ufunc | str = None,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):
@@ -389,6 +389,7 @@ class Adapter(MutableSequence[Transform]):
         exclude: str | Sequence[str] = None,
     ):
         """Append a :py:class:`~transforms.ConvertDType` transform to the adapter.
+        See also :py:meth:`~bayesflow.adapters.Adapter.map_dtype`.
 
         Parameters
         ----------
@@ -526,6 +527,24 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(transform)
         return self
 
+    def map_dtype(self, keys: str | Sequence[str], to_dtype: str):
+        """Append a :py:class:`~transforms.ConvertDType` transform to the adapter.
+        See also :py:meth:`~bayesflow.adapters.Adapter.convert_dtype`.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to transform.
+        to_dtype : str
+            Target dtype
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = MapTransform({key: ConvertDType(to_dtype) for key in keys})
+        self.transforms.append(transform)
+        return self
+
     def one_hot(self, keys: str | Sequence[str], num_classes: int):
         """Append a :py:class:`~transforms.OneHot` transform to the adapter.
 
@@ -591,9 +610,9 @@ class Adapter(MutableSequence[Transform]):
 
     def standardize(
         self,
+        include: str | Sequence[str] = None,
         *,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):
@@ -622,9 +641,9 @@ class Adapter(MutableSequence[Transform]):
 
     def to_array(
         self,
+        include: str | Sequence[str] = None,
         *,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):
