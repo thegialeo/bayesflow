@@ -71,10 +71,6 @@ def classifier_two_sample_test(
         full training history.
     """
 
-    # Convert tensors to numpy, if passed
-    estimates = keras.ops.convert_to_numpy(estimates)
-    targets = keras.ops.convert_to_numpy(targets)
-
     # Error, if targets dim does not match estimates dim
     num_dims = estimates.shape[1]
     if not num_dims == targets.shape[1]:
@@ -111,15 +107,30 @@ def classifier_two_sample_test(
         monitor=f"val_{metric}", patience=patience, restore_best_weights=True
     )
 
-    history = classifier.fit(
-        x=data,
-        y=labels,
-        epochs=max_epochs,
-        batch_size=batch_size,
-        verbose=0,
-        callbacks=[early_stopping],
-        validation_split=validation_split,
-    )
+    # For now, we need to enable grads, since we turn them off by default
+    if keras.backend.backend() == "torch":
+        import torch
+
+        with torch.enable_grad():
+            history = classifier.fit(
+                x=data,
+                y=labels,
+                epochs=max_epochs,
+                batch_size=batch_size,
+                verbose=0,
+                callbacks=[early_stopping],
+                validation_split=validation_split,
+            )
+    else:
+        history = classifier.fit(
+            x=data,
+            y=labels,
+            epochs=max_epochs,
+            batch_size=batch_size,
+            verbose=0,
+            callbacks=[early_stopping],
+            validation_split=validation_split,
+        )
 
     if return_metric_only:
         return history.history[f"val_{metric}"][-1]
