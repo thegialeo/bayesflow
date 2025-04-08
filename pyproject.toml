@@ -37,6 +37,7 @@ all = [
     # dev
     "jupyter",
     "jupyterlab",
+    "nbconvert",
     "pre-commit",
     "ruff",
     "tox",
@@ -71,6 +72,7 @@ docs = [
     "sphinxcontrib-bibtex",
 ]
 test = [
+    "nbconvert",
     "pytest",
     "pytest-cov",
     "pytest-rerunfailures",
