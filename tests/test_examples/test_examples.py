@@ -1,4 +1,3 @@
-
 import pytest
 
 from tests.utils import run_notebook

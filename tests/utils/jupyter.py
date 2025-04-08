@@ -1,6 +1,6 @@
-
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
+
 
 def run_notebook(path):
     with open(str(path)) as f:
