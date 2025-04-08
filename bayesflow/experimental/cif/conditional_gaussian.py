@@ -1,4 +1,3 @@
-from collections.abc import Sequence
 import keras
 from keras.saving import register_keras_serializable
 import numpy as np
