@@ -7,7 +7,7 @@ from keras.saving import (
 import numpy as np
 
 from bayesflow.types import Tensor
-from bayesflow.utils import find_network, keras_kwargs, serialize_value_or_type, deserialize_value_or_type
+from bayesflow.utils import find_network, keras_kwargs, serialize_value_or_type, deserialize_value_or_type, weighted_sum
 
 
 from ..inference_network import InferenceNetwork
@@ -285,7 +285,9 @@ class ConsistencyModel(InferenceNetwork):
         out = skip * x + out * f
         return out
 
-    def compute_metrics(self, x: Tensor, conditions: Tensor = None, stage: str = "training") -> dict[str, Tensor]:
+    def compute_metrics(
+        self, x: Tensor, conditions: Tensor = None, sample_weight: Tensor = None, stage: str = "training"
+    ) -> dict[str, Tensor]:
         base_metrics = super().compute_metrics(x, conditions=conditions, stage=stage)
 
         # The discretization schedule requires the number of passed training steps.
@@ -328,6 +330,7 @@ class ConsistencyModel(InferenceNetwork):
         lam = 1 / (t2 - t1)
 
         # Pseudo-huber loss, see [2], Section 3.3
-        loss = ops.mean(lam * (ops.sqrt(ops.square(teacher_out - student_out) + self.c_huber2) - self.c_huber))
+        loss = lam * (ops.sqrt(ops.square(teacher_out - student_out) + self.c_huber2) - self.c_huber)
+        loss = weighted_sum(loss, sample_weight)
 
         return base_metrics | {"loss": loss}

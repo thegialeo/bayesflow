@@ -140,6 +140,26 @@ def pad(x: Tensor, value: float | Tensor, n: int, axis: int, side: str = "both")
             raise TypeError(f"Invalid side type {type(side)!r}. Must be str.")
 
 
+def weighted_sum(elements: Tensor, weights: Tensor = None) -> Tensor:
+    """
+    Compute the (optionally) weighted mean of the input tensor.
+
+    Parameters
+    ----------
+    elements : Tensor
+        A tensor containing the elements to average.
+    weights : Tensor, optional
+        A tensor of the same shape as `elements` representing weights.
+        If None, the mean is computed without weights.
+
+    Returns
+    -------
+    Tensor
+        A scalar tensor representing the (weighted) mean.
+    """
+    return keras.ops.mean(elements * weights if weights is not None else elements)
+
+
 def searchsorted(sorted_sequence: Tensor, values: Tensor, side: str = "left") -> Tensor:
     """
     Find indices where elements should be inserted to maintain order.
