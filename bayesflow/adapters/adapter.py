@@ -1,6 +1,7 @@
-from collections.abc import MutableSequence, Sequence
+from collections.abc import MutableSequence, Sequence, Mapping
 
 import numpy as np
+
 from keras.saving import (
     deserialize_keras_object as deserialize,
     register_keras_serializable as serializable,
@@ -121,16 +122,16 @@ class Adapter(MutableSequence[Transform]):
 
         return data
 
-    def __call__(self, data: dict[str, any], *, inverse: bool = False, **kwargs) -> dict[str, np.ndarray]:
+    def __call__(self, data: Mapping[str, any], *, inverse: bool = False, **kwargs) -> dict[str, np.ndarray]:
         """Apply the transforms in the given direction.
 
         Parameters
         ----------
-        data : dict
+        data : Mapping[str, any]
             The data to be transformed.
         inverse : bool, optional
             If False, apply the forward transform, else apply the inverse transform (default False).
-        **kwargs : dict
+        **kwargs
             Additional keyword arguments passed to each transform.
 
         Returns

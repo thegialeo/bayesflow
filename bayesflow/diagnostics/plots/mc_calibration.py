@@ -1,8 +1,7 @@
-from typing import Sequence
+from collections.abc import Mapping, Sequence
 
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 from bayesflow.utils import (
     prepare_plot_data,
@@ -15,8 +14,8 @@ from bayesflow.diagnostics.metrics import expected_calibration_error
 
 
 def mc_calibration(
-    pred_models: dict[str, np.ndarray] | np.ndarray,
-    true_models: dict[str, np.ndarray] | np.ndarray,
+    pred_models: Mapping[str, np.ndarray] | np.ndarray,
+    true_models: Mapping[str, np.ndarray] | np.ndarray,
     model_names: Sequence[str] = None,
     n_bins: int = 10,
     label_fontsize: int = 16,
@@ -45,7 +44,7 @@ def mc_calibration(
         The number of bins to use for the calibration curves (and marginal histograms).
     label_fontsize    : int, optional, default: 16
         The font size of the y-label and y-label texts
-    legend_fontsize   : int, optional, default: 14
+    metyric_fontsize   : int, optional, default: 14
         The font size of the legend text (ECE value)
     title_fontsize    : int, optional, default: 18
         The font size of the title text. Only relevant if `stacked=False`

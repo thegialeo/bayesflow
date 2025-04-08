@@ -1,4 +1,4 @@
-from typing import Sequence
+from collections.abc import Sequence, Mapping
 
 import matplotlib.colors
 import matplotlib.pyplot as plt
@@ -11,8 +11,8 @@ from bayesflow.utils.plot_utils import make_figure
 
 
 def mc_confusion_matrix(
-    pred_models: dict[str, np.ndarray] | np.ndarray,
-    true_models: dict[str, np.ndarray] | np.ndarray,
+    pred_models: Mapping[str, np.ndarray] | np.ndarray,
+    true_models: Mapping[str, np.ndarray] | np.ndarray,
     model_names: Sequence[str] = None,
     fig_size: tuple = (5, 5),
     label_fontsize: int = 16,

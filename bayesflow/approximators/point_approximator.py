@@ -1,5 +1,8 @@
-import keras
+from collections.abc import Mapping
+
 import numpy as np
+
+import keras
 from keras.saving import (
     register_keras_serializable as serializable,
 )
@@ -21,7 +24,7 @@ class PointApproximator(ContinuousApproximator):
 
     def estimate(
         self,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         split: bool = False,
         **kwargs,
     ) -> dict[str, dict[str, np.ndarray | dict[str, np.ndarray]]]:
@@ -33,7 +36,7 @@ class PointApproximator(ContinuousApproximator):
 
         Parameters
         ----------
-        conditions : dict[str, np.ndarray]
+        conditions : Mapping[str, np.ndarray]
             A dictionary mapping variable names to arrays representing the conditions
             for the estimation process.
         split : bool, optional
@@ -71,7 +74,7 @@ class PointApproximator(ContinuousApproximator):
         self,
         *,
         num_samples: int,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         split: bool = False,
         **kwargs,
     ) -> dict[str, dict[str, np.ndarray]]:
@@ -111,7 +114,7 @@ class PointApproximator(ContinuousApproximator):
         # Optionally split the arrays along the last axis.
         if split:
             raise NotImplementedError("split=True is currently not supported for `PointApproximator`.")
-            samples = split_arrays(samples, axis=-1)
+
         # Squeeze sample dictionary if there's only one key-value pair.
         samples = self._squeeze_parametric_score_major_dict(samples)
 
@@ -120,7 +123,7 @@ class PointApproximator(ContinuousApproximator):
     def log_prob(
         self,
         *,
-        data: dict[str, np.ndarray],
+        data: Mapping[str, np.ndarray],
         **kwargs,
     ) -> np.ndarray | dict[str, np.ndarray]:
         """
@@ -152,14 +155,14 @@ class PointApproximator(ContinuousApproximator):
 
         return log_prob
 
-    def _prepare_conditions(self, conditions: dict[str, np.ndarray], **kwargs) -> dict[str, Tensor]:
+    def _prepare_conditions(self, conditions: Mapping[str, np.ndarray], **kwargs) -> dict[str, Tensor]:
         """Adapts and converts the conditions to tensors."""
         conditions = self.adapter(conditions, strict=False, stage="inference", **kwargs)
         conditions.pop("inference_variables", None)
         return keras.tree.map_structure(keras.ops.convert_to_tensor, conditions)
 
     def _apply_inverse_adapter_to_estimates(
-        self, estimates: dict[str, dict[str, Tensor]], **kwargs
+        self, estimates: Mapping[str, Mapping[str, Tensor]], **kwargs
     ) -> dict[str, dict[str, dict[str, np.ndarray]]]:
         """Applies the inverse adapter on each inner element of the _estimate output dictionary."""
         estimates = keras.tree.map_structure(keras.ops.convert_to_numpy, estimates)
@@ -183,7 +186,7 @@ class PointApproximator(ContinuousApproximator):
         return processed
 
     def _apply_inverse_adapter_to_samples(
-        self, samples: dict[str, Tensor], **kwargs
+        self, samples: Mapping[str, Tensor], **kwargs
     ) -> dict[str, dict[str, np.ndarray]]:
         """Applies the inverse adapter to a dictionary of samples."""
         samples = keras.tree.map_structure(keras.ops.convert_to_numpy, samples)
@@ -198,7 +201,7 @@ class PointApproximator(ContinuousApproximator):
         return processed
 
     def _reorder_estimates(
-        self, estimates: dict[str, dict[str, dict[str, np.ndarray]]]
+        self, estimates: Mapping[str, Mapping[str, Mapping[str, np.ndarray]]]
     ) -> dict[str, dict[str, dict[str, np.ndarray]]]:
         """Reorders the nested dictionary so that the inference variable names become the top-level keys."""
         # Grab the variable names from one sample inner dictionary.
@@ -212,7 +215,7 @@ class PointApproximator(ContinuousApproximator):
         return reordered
 
     def _squeeze_estimates(
-        self, estimates: dict[str, dict[str, dict[str, np.ndarray]]]
+        self, estimates: Mapping[str, Mapping[str, Mapping[str, np.ndarray]]]
     ) -> dict[str, dict[str, np.ndarray]]:
         """Squeezes each inner estimate dictionary to remove unnecessary nesting."""
         squeezed = {}
@@ -224,7 +227,7 @@ class PointApproximator(ContinuousApproximator):
         return squeezed
 
     def _squeeze_parametric_score_major_dict(
-        self, samples: dict[str, np.ndarray]
+        self, samples: Mapping[str, np.ndarray]
     ) -> np.ndarray or dict[str, np.ndarray]:
         """Squeezes the dictionary to just the value if there is only one key-value pair."""
         if len(samples) == 1:

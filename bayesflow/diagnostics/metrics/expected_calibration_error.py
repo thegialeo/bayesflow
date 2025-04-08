@@ -1,6 +1,7 @@
+from collections.abc import Sequence
+
 import numpy as np
 from keras import ops
-from typing import Sequence, Any, Mapping
 
 from ...utils.exceptions import ShapeError
 from sklearn.calibration import calibration_curve
@@ -12,7 +13,7 @@ def expected_calibration_error(
     model_names: Sequence[str] = None,
     n_bins: int = 10,
     return_probs: bool = False,
-) -> Mapping[str, Any]:
+) -> dict[str, any]:
     """
     Estimates the expected calibration error (ECE) of a model comparison network according to [1].
 
