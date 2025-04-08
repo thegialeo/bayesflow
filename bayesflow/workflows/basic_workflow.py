@@ -906,8 +906,6 @@ class BasicWorkflow(Workflow):
             )
             self._on_training_finished()
             return self.history
-        except Exception as err:
-            raise err
         finally:
             if not keep_optimizer:
                 self.optimizer = None
