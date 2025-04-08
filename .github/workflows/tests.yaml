@@ -99,13 +99,13 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -x -m not slow
+          pytest -x -m "not slow"
 
       - name: Run Slow Tests
         # run only on manual trigger
         if: github.event_name == 'workflow_dispatch'
         run: |
-          pytest -x -m slow
+          pytest -x -m "slow"
 
       - name: Create Coverage Report
         run: |
