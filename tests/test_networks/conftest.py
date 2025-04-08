@@ -22,7 +22,7 @@ def flow_matching():
     from bayesflow.networks import FlowMatching
 
     return FlowMatching(
-        subnet_kwargs={"widths": None, "width": 64, "depth": 2},
+        subnet_kwargs={"widths": [64, 64]},
         integrate_kwargs={"method": "rk45", "steps": 100},
     )
 
