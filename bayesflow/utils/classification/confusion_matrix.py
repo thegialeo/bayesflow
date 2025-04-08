@@ -29,7 +29,10 @@ def confusion_matrix(targets: np.ndarray, estimates: np.ndarray, labels: Sequenc
     """
 
     # Get unique labels
-    labels = np.asarray(labels) or np.unique(np.concatenate((targets, estimates)))
+    if labels is None:
+        labels = np.unique(np.concatenate((targets, estimates)))
+    else:
+        labels = np.asarray(labels)
 
     label_to_index = {label: i for i, label in enumerate(labels)}
     num_labels = len(labels)
