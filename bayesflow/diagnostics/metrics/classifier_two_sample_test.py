@@ -23,11 +23,10 @@ def classifier_two_sample_test(
 ) -> float | Mapping[str, Any]:
     """
     C2ST metric [1] between samples from two distributions computed using a neural classifier.
-    Can be computationally expensive, since it involves training of a neural classifier.
+    Can be computationally expensive if called in a loop[, since it needs to train the model
+    for each set of samples.
 
     Note: works best for large numbers of samples and averaged across different posteriors.
-
-    Code adapted from https://github.com/sbi-benchmark/sbibm/blob/main/sbibm/metrics/c2st.py
 
     [1] Lopez-Paz, D., & Oquab, M. (2016). Revisiting classifier two-sample tests. arXiv:1610.06545.
 
