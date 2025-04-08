@@ -27,7 +27,6 @@ dependencies = [
     "matplotlib",
     "numpy >= 1.24, <2.0",
     "pandas",
-    "scikit-learn",
     "scipy",
     "seaborn",
     "tqdm",
