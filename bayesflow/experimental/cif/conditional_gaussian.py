@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 import keras
 from keras.saving import register_keras_serializable
 import numpy as np
@@ -33,8 +34,8 @@ class ConditionalGaussian(keras.Layer):
         """
 
         super().__init__(**keras_kwargs(kwargs))
-        self.means = MLP(depth=depth, width=width, activation=activation)
-        self.stds = MLP(depth=depth, width=width, activation=activation)
+        self.means = MLP([width] * depth, activation=activation)
+        self.stds = MLP([width] * depth, activation=activation)
         self.output_projector = keras.layers.Dense(None)
 
     def build(self, input_shape: Shape) -> None:
