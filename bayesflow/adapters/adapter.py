@@ -246,16 +246,13 @@ class Adapter(MutableSequence[Transform]):
 
         Parameters
         ----------
-        forward: callable, no lambda
-            Function to transform the data in the forward pass.
-            For the adapter to be serializable, this function has to be serializable
-            as well (see Notes). Therefore, only proper functions and no lambda
-            functions should be used here.
-        inverse: callable, no lambda
-            Function to transform the data in the inverse pass.
-            For the adapter to be serializable, this function has to be serializable
-            as well (see Notes). Therefore, only proper functions and no lambda
-            functions should be used here.
+        forward : str or np.ufunc
+            The name of the NumPy function to use for the forward transformation.
+        inverse : str or np.ufunc, optional
+            The name of the NumPy function to use for the inverse transformation.
+            By default, the inverse is inferred from the forward argument for supported methods.
+            You can find the supported methods in
+            :py:const:`~bayesflow.adapters.transforms.NumpyTransform.INVERSE_METHODS`.
         predicate : Predicate, optional
             Function that indicates which variables should be transformed.
         include : str or Sequence of str, optional
@@ -264,12 +261,6 @@ class Adapter(MutableSequence[Transform]):
             Names of variables to exclude from the transform.
         **kwargs : dict
             Additional keyword arguments passed to the transform.
-
-        Notes
-        -----
-        Important: This is only serializable if the forward and inverse functions are serializable.
-        This most likely means you will have to pass the scope that the forward and inverse functions are contained in
-        to the `custom_objects` argument of the `deserialize` function when deserializing this class.
         """
         transform = FilterTransform(
             transform_constructor=NumpyTransform,
