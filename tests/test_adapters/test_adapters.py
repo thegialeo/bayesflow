@@ -3,6 +3,7 @@ from keras.saving import (
     serialize_keras_object as serialize,
 )
 import numpy as np
+import pytest
 
 
 def test_cycle_consistency(adapter, random_data):
@@ -110,3 +111,71 @@ def test_simple_transforms(random_data):
     assert np.allclose(inverse["t1"], random_data["t1"])
 
     assert np.allclose(inverse["p1"], random_data["p1"])
+
+
+def test_custom_transform():
+    # test that transform raises errors in all relevant cases
+    import keras
+    from bayesflow.adapters.transforms import SerializableCustomTransform
+    from copy import deepcopy
+
+    class A:
+        @classmethod
+        def fn(cls, x):
+            return x
+
+    def not_registered_fn(x):
+        return x
+
+    @keras.saving.register_keras_serializable("custom")
+    def registered_fn(x):
+        return x
+
+    @keras.saving.register_keras_serializable("custom")
+    def registered_but_changed(x):
+        return x
+
+    def registered_but_changed(x):  # noqa: F811
+        return 2 * x
+
+    # method instead of function provided
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(serializable_forward_fn=A.fn, serializable_inverse_fn=registered_fn)
+        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=A.fn)
+
+    # lambda function provided
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(serializable_forward_fn=lambda x: x, serializable_inverse_fn=registered_fn)
+        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=lambda x: x)
+
+    # unregistered function provided
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(serializable_forward_fn=not_registered_fn, serializable_inverse_fn=registered_fn)
+        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=not_registered_fn)
+
+    # function does not match registered function
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(
+            serializable_forward_fn=registered_but_changed, serializable_inverse_fn=registered_fn
+        )
+        SerializableCustomTransform(
+            serializable_forward_fn=registered_fn, serializable_inverse_fn=registered_but_changed
+        )
+
+    transform = SerializableCustomTransform(
+        serializable_forward_fn=registered_fn, serializable_inverse_fn=registered_fn
+    )
+    serialized_transform = keras.saving.serialize_keras_object(transform)
+    keras.saving.deserialize_keras_object(serialized_transform)
+
+    # modify name of the forward function so that it cannot be found
+    corrupt_serialized_transform = deepcopy(serialized_transform)
+    corrupt_serialized_transform["config"]["forward"]["config"] = "nonexistent"
+    with pytest.raises(TypeError):
+        keras.saving.deserialize_keras_object(corrupt_serialized_transform)
+
+    # modify name of the inverse transform so that it cannot be found
+    corrupt_serialized_transform = deepcopy(serialized_transform)
+    corrupt_serialized_transform["config"]["inverse"]["config"] = "nonexistent"
+    with pytest.raises(TypeError):
+        keras.saving.deserialize_keras_object(corrupt_serialized_transform)
