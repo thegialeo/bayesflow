@@ -40,9 +40,13 @@ def setup():
         torch.autograd.set_grad_enabled(False)
 
         logging.warning(
-            "Autograd is disabled by default to avoid excessive memory usage. "
-            "If you need gradients (e.g., custom training loops), use\n"
-            "with torch.enable_grad():"
+            "\n"
+            "When using torch backend, we need to disable autograd by default to avoid excessive memory usage. Use\n"
+            "\n"
+            "with torch.enable_grad():\n"
+            "    ...\n"
+            "\n"
+            "in contexts where you need gradients (e.g. custom training loops)."
         )
 
 

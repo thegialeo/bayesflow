@@ -1,15 +1,16 @@
+from collections.abc import Mapping, Sequence
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-from typing import Sequence
 from ...utils.plot_utils import prepare_plot_data, add_titles_and_labels, prettify_subplots
 from ...utils.ecdf import simultaneous_ecdf_bands
 from ...utils.ecdf.ranks import fractional_ranks, distance_ranks
 
 
 def calibration_ecdf(
-    estimates: dict[str, np.ndarray] | np.ndarray,
-    targets: dict[str, np.ndarray] | np.ndarray,
+    estimates: Mapping[str, np.ndarray] | np.ndarray,
+    targets: Mapping[str, np.ndarray] | np.ndarray,
     variable_keys: Sequence[str] = None,
     variable_names: Sequence[str] = None,
     difference: bool = False,

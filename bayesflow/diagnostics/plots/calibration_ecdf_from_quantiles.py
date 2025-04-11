@@ -1,14 +1,15 @@
+from collections.abc import Mapping, Sequence
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-from typing import Sequence
 from ...utils.plot_utils import prepare_plot_data, add_titles_and_labels, prettify_subplots
 from ...utils.ecdf import pointwise_ecdf_bands
 
 
 def calibration_ecdf_from_quantiles(
-    estimates: dict[str, dict[str, np.ndarray]],
-    targets: dict[str, np.ndarray],
+    estimates: Mapping[str, Mapping[str, np.ndarray]],
+    targets: Mapping[str, np.ndarray],
     quantile_levels: Sequence[float],
     quantiles_key: str = "quantiles",
     variable_keys: Sequence[str] = None,

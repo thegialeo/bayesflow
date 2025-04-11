@@ -2,7 +2,13 @@ import keras
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from bayesflow.utils import find_permutation, keras_kwargs, serialize_value_or_type, deserialize_value_or_type
+from bayesflow.utils import (
+    find_permutation,
+    keras_kwargs,
+    serialize_value_or_type,
+    deserialize_value_or_type,
+    weighted_sum,
+)
 
 from .actnorm import ActNorm
 from .couplings import DualCoupling
@@ -158,11 +164,9 @@ class CouplingFlow(InferenceNetwork):
     def compute_metrics(
         self, x: Tensor, conditions: Tensor = None, sample_weight: Tensor = None, stage: str = "training"
     ) -> dict[str, Tensor]:
-        if sample_weight is not None:
-            print(sample_weight)
-        base_metrics = super().compute_metrics(x, conditions=conditions, sample_weight=sample_weight, stage=stage)
+        base_metrics = super().compute_metrics(x, conditions=conditions, stage=stage)
 
         z, log_density = self(x, conditions=conditions, inverse=False, density=True)
-        loss = self.aggregate(-log_density, sample_weight)
+        loss = weighted_sum(-log_density, sample_weight)
 
         return base_metrics | {"loss": loss}

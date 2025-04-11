@@ -1,13 +1,13 @@
 # BayesFlow
 
 BayesFlow is a Python library for simulation-based **Amortized Bayesian Inference** with neural networks.
-It provides users with:
+It provides users and researchers with:
 
 - A user-friendly API for rapid Bayesian workflows
 - A rich collection of neural network architectures
-- Multi-Backend Support via [Keras3](https://keras.io/keras_3/): You can use [PyTorch](https://github.com/pytorch/pytorch), [TensorFlow](https://github.com/tensorflow/tensorflow), or [JAX](https://github.com/google/jax)
+- Multi-backend support via [Keras3](https://keras.io/keras_3/): You can use [PyTorch](https://github.com/pytorch/pytorch), [TensorFlow](https://github.com/tensorflow/tensorflow), or [JAX](https://github.com/google/jax)
 
-BayesFlow is designed to be a flexible and efficient tool that enables rapid statistical inference
+BayesFlow (version 2+) is designed to be a flexible and efficient tool that enables rapid statistical inference
 fueled by continuous progress in generative AI and Bayesian inference.
 
 ## Conceptual Overview
@@ -16,7 +16,7 @@ fueled by continuous progress in generative AI and Bayesian inference.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="_static/bayesflow_landing_dark.jpg">
   <source media="(prefers-color-scheme: light)" srcset="_static/bayesflow_landing_light.jpg">
-        <img alt="Overview graphic on using BayesFlow. It is split in three columns: 1. Choose you backend: BayesFlow is based on Keras, so you can choose PyTorch, TensorFlow or JAX. 2. Define your simulator: You specify you simulator in Python, and use it to generate simulated data. 3. Choose your algorithm: You define a generative nerual network, that you can use for estimation after training." src="_static/bayesflow_landing_dark.jpg">
+        <img alt="Overview graphic on using BayesFlow. It is split in three columns: 1. Choose your backend: BayesFlow is based on Keras, so you can choose PyTorch, TensorFlow or JAX. 2. Define your simulator: You specify your simulator in Python, and use it to generate simulated data. 3. Choose your algorithm: You define a generative neural network that you can use for estimation after training." src="_static/bayesflow_landing_dark.jpg">
 </picture>
 </div>
 
@@ -25,78 +25,106 @@ neural networks for parameter estimation, model comparison, and model validation
 when working with intractable simulators whose behavior as a whole is too
 complex to be described analytically.
 
-## Disclaimer
+## Getting Started
 
-This is the current dev version of BayesFlow, which constitutes a complete refactor of the library built on Keras 3. This way, you can now use any of the major deep learning libraries as backend for BayesFlow. The refactor is still work in progress with some of the advanced features not yet implemented. We are actively working on them and promise to catch up soon.
+Using the high-level interface is easy, as demonstrated by the minimal working example below:
 
-If you encounter any issues, please don't hesitate to open an issue here on [Github](https://github.com/bayesflow-org/bayesflow/issues) or ask questions on our [Discourse Forums](https://discuss.bayesflow.org/).
+```python
+import bayesflow as bf
 
-## Installation
+workflow = bf.BasicWorkflow(
+    inference_network=bf.networks.FlowMatching(),
+    summary_network=bf.networks.TimeSeriesTransformer(),
+    inference_variables=["parameters"],
+    summary_variables=["observables"],
+    simulator=bf.simulators.SIR()
+)
+
+history = workflow.fit_online(epochs=50, batch_size=32, num_batches_per_epoch=500)
+
+diagnostics = workflow.plot_default_diagnostics(test_data=300)
+```
+
+For an in-depth exposition, check out our walkthrough notebooks below.
+
+1. [Linear regression starter example](_examples/Linear_Regression_Starter.ipynb)
+2. [From ABC to BayesFlow](_examples/From_ABC_to_BayesFlow.ipynb)
+3. [Two moons starter example](_examples/Two_Moons_Starter.ipynb)
+4. [Rapid iteration with point estimators](_examples/Lotka_Volterra_point_estimation_and_expert_stats.ipynb)
+5. [SIR model with custom summary network](_examples/SIR_Posterior_Estimation.ipynb)
+6. [Bayesian experimental design](_examples/Bayesian_Experimental_Design.ipynb)
+7. [Simple model comparison example](_examples/One_Sample_TTest.ipynb)
+
+More tutorials are always welcome! Please consider making a pull request if you have a cool application that you want to contribute.
+
+## Install
+
+```{eval-rst}
+.. tab-set::
+
+    .. tab-item:: pip
+
+        The v2 version is not available on PyPI yet, please install from source.
+
+    .. tab-item:: source
+
+        .. code-block:: bash
+
+            pip install git+https://github.com/bayesflow-org/bayesflow.git
+```
 
 ### Backend
 
-First, install one machine learning backend of choice. Note that BayesFlow **will not run** without a backend.
+To use BayesFlow, you will also need to install one of the following machine learning backends.
+Note that BayesFlow **will not run** without a backend.
 
 - [Install JAX](https://jax.readthedocs.io/en/latest/installation.html)
 - [Install PyTorch](https://pytorch.org/get-started/locally/)
 - [Install TensorFlow](https://www.tensorflow.org/install)
 
-If you don't know which backend to use, we recommend JAX to get started.
-It is the fastest backend and already works pretty reliably with the current
-dev version of bayesflow.
+If you don't know which backend to use, we recommend JAX as it is currently the fastest backend.
 
-Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend). For example, inside your Python script write:
+Once installed, [set the backend environment variable as required by keras](https://keras.io/getting_started/#configuring-your-backend) to one of the following:
 
-```python
-import os
-os.environ["KERAS_BACKEND"] = "jax"
-import bayesflow
-```
+- `KERAS_BACKEND=jax`
+- `KERAS_BACKEND=torch`
+- `KERAS_BACKEND=tensorflow`
 
-If you use conda, you can alternatively set this individually for each environment in your terminal. For example:
-
-```bash
-conda env config vars set KERAS_BACKEND=jax
-```
-
-This way, you also don't have to manually set the backend every time you are starting Python to use BayesFlow.
-
-**Caution:** Some people report that the IDE (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
-
-### BayesFlow
-
-You can then install BayesFlow itself using one of the following options:
+For example, to set the backend to `jax`, you can use one of the following:
 
 ```{eval-rst}
 .. tab-set::
 
-    .. tab-item:: Pip
+    .. tab-item:: Python
 
-       .. code-block:: bash
+        .. code-block:: python
 
-          pip install git+https://github.com/bayesflow-org/bayesflow@dev
+            import os
+            os.environ["KERAS_BACKEND"] = "jax"
+            import bayesflow
 
+    .. tab-item:: Conda
 
-    .. tab-item:: Conda (coming soon)
+        .. code-block:: bash
 
-       The dev version is not conda-installable yet.
+            conda env config vars set KERAS_BACKEND=jax
 
+    .. tab-item:: Shell
 
-    .. tab-item:: Source
+        .. code-block:: bash
 
-       .. code-block:: bash
-
-          git clone -b dev git@github.com:bayesflow-org/bayesflow.git
-          cd <local-path-to-bayesflow-repository>
-          conda env create --file environment.yaml --name bayesflow
-
-       This will create a new conda environment. Please activate it and install your preferred backend.
+            export KERAS_BACKEND=jax
 ```
 
-## Getting Started
+**Caution:** Some development environments (e.g., VSCode or PyCharm) can silently overwrite environment variables. If you have set your backend as an environment variable and you still get keras-related import errors when loading BayesFlow, these IDE shenanigans might be the culprit. Try setting the keras backend in your Python script via `import os; os.environ["KERAS_BACKEND"] = "<YOUR-BACKEND>"`.
 
-To get started, take a look at our [Getting Started Tutorial](_examples/Linear_Regression_Starter.ipynb).
-After that, check out some of our walk-through notebooks in the [Examples](examples) section.
+## Contributing
+
+To contribute to BayesFlow, please check out the [git repository](https://github.com/bayesflow-org/bayesflow)
+
+### Reporting Issues
+
+If you encounter any issues, please don't hesitate to open an issue here on [Github](https://github.com/bayesflow-org/bayesflow/issues) or ask questions on our [Discourse Forums](https://discuss.bayesflow.org/).
 
 ## Getting Help
 
@@ -106,9 +134,8 @@ Please use the [BayesFlow Forums](https://discuss.bayesflow.org/) for any BayesF
 
 You can cite BayesFlow along the lines of:
 
-- We approximated the posterior with neural posterior estimation and learned summary statistics (NPE; Radev et al., 2020), as implemented in the BayesFlow software for amortized Bayesian workflows (Radev et al., 2023a).
-- We approximated the likelihood with neural likelihood estimation (NLE; Papamakarios et al., 2019) without hand-crafted summary statistics, as implemented in the BayesFlow software for amortized Bayesian workflows (Radev et al., 2023b).
-- We performed simultaneous posterior and likelihood estimation with jointly amortized neural approximation (JANA; Radev et al., 2023a), as implemented in the BayesFlow software for amortized Bayesian workflows (Radev et al., 2023b).
+- We approximated the posterior using neural posterior estimation (NPE) with learned summary statistics (Radev et al., 2020), as implemented in the BayesFlow framework for amortized Bayesian inference (Radev et al., 2023a).
+- We approximated the likelihood using neural likelihood estimation (NLE) without hand-crafted summary statistics (Papamakarios et al., 2019), leveraging its implementation in BayesFlow for efficient and flexible inference.
 
 1. Radev, S. T., Schmitt, M., Schumacher, L., Elsemüller, L., Pratz, V., Schälte, Y., Köthe, U., & Bürkner, P.-C. (2023a). BayesFlow: Amortized Bayesian workflows with neural networks. *The Journal of Open Source Software, 8(89)*, 5702.([arXiv](https://arxiv.org/abs/2306.16015))([JOSS](https://joss.theoj.org/papers/10.21105/joss.05702))
 2. Radev, S. T., Mertens, U. K., Voss, A., Ardizzone, L., Köthe, U. (2020). BayesFlow: Learning complex stochastic models with invertible neural networks. *IEEE Transactions on Neural Networks and Learning Systems, 33(4)*, 1452-1466. ([arXiv](https://arxiv.org/abs/2003.06281))([IEEE TNNLS](https://ieeexplore.ieee.org/document/9298920))
@@ -148,6 +175,61 @@ You can cite BayesFlow along the lines of:
   publisher = {PMLR}
 }
 ```
+
+## FAQ
+
+-------------
+
+**Question:**
+I am starting with Bayesflow, which backend should I use?
+
+**Answer:**
+We recommend JAX as it is currently the fastest backend.
+
+-------------
+
+**Question:**
+I am getting `ModuleNotFoundError: No module named 'tensorflow'` when I try to import BayesFlow.
+
+**Answer:**
+One of these applies:
+- You want to use tensorflow as your backend, but you have not installed it.
+See [here](https://www.tensorflow.org/install).
+
+
+- You want to use a backend other than tensorflow, but have not set the environment variable correctly.
+See [here](https://keras.io/getting_started/#configuring-your-backend).
+
+
+- You have set the environment variable, but it is not being picked up by Python.
+This can happen silently in some development environments (e.g., VSCode or PyCharm).
+Try setting the backend as shown [here](https://keras.io/getting_started/#configuring-your-backend)
+in your Python script via `os.environ`.
+
+-------------
+
+**Question:**
+What is the difference between Bayesflow 2.0+ and previous versions?
+
+**Answer:**
+BayesFlow 2.0+ is a complete rewrite of the library. It shares the same
+overall goals with previous versions, but has much better modularity
+and extensibility. What is more, the new BayesFlow has multi-backend support via Keras3,
+while the old version was based on TensorFlow.
+
+-------------
+
+**Question:**
+I still need the old BayesFlow for some of my projects. How can I install it?
+
+**Answer:**
+You can find and install the old Bayesflow version via the `stable-legacy` branch on GitHub.
+
+-------------
+
+## Awesome Amortized Inference
+
+If you are interested in a curated list of resources, including reviews, software, papers, and other resources related to amortized inference, feel free to explore our [community-driven list](https://github.com/bayesflow-org/awesome-amortized-inference).
 
 ## Acknowledgments
 

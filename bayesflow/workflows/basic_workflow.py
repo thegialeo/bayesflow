@@ -1,4 +1,5 @@
-from typing import Sequence, Callable
+from collections.abc import Mapping, Sequence, Callable
+
 import os
 
 import matplotlib.pyplot as plt
@@ -93,21 +94,17 @@ class BasicWorkflow(Workflow):
 
         self.simulator = simulator
 
-        if adapter is None:
-            self.adapter = BasicWorkflow.default_adapter(
-                inference_variables, inference_conditions, summary_variables, standardize
-            )
-        else:
-            self.adapter = adapter
-
-        self.inference_variables = inference_variables
+        adapter = adapter or BasicWorkflow.default_adapter(
+            inference_variables, inference_conditions, summary_variables, standardize
+        )
 
         if isinstance(self.inference_network, PointInferenceNetwork):
-            Approximator = PointApproximator
+            constructor = PointApproximator
         else:
-            Approximator = ContinuousApproximator
-        self.approximator = Approximator(
-            inference_network=self.inference_network, summary_network=self.summary_network, adapter=self.adapter
+            constructor = ContinuousApproximator
+
+        self.approximator = constructor(
+            inference_network=self.inference_network, summary_network=self.summary_network, adapter=adapter
         )
 
         self.initial_learning_rate = initial_learning_rate
@@ -141,14 +138,18 @@ class BasicWorkflow(Workflow):
                 logging.warning(msg)
         self.history = None
 
+    @property
+    def adapter(self):
+        return self.approximator.adapter
+
     @staticmethod
-    def samples_to_data_frame(samples: dict[str, np.ndarray]) -> pd.DataFrame:
+    def samples_to_data_frame(samples: Mapping[str, np.ndarray]) -> pd.DataFrame:
         """
         Convert a dictionary of samples into a pandas DataFrame.
 
         Parameters
         ----------
-        samples : dict[str, np.ndarray]
+        samples : Mapping[str, np.ndarray]
             A dictionary where keys represent variable names and values are
             arrays containing sampled data.
 
@@ -231,8 +232,7 @@ class BasicWorkflow(Workflow):
         """
         if self.simulator is not None:
             return self.simulator.sample(batch_shape, **kwargs)
-        else:
-            raise RuntimeError("No simulator provided!")
+        raise RuntimeError("No simulator provided!")
 
     def simulate_adapted(self, batch_shape: Shape, **kwargs) -> dict[str, np.ndarray]:
         """
@@ -258,14 +258,13 @@ class BasicWorkflow(Workflow):
         """
         if self.simulator is not None:
             return self.adapter(self.simulator.sample(batch_shape, **kwargs))
-        else:
-            raise RuntimeError("No simulator provided!")
+        raise RuntimeError("No simulator provided!")
 
     def sample(
         self,
         *,
         num_samples: int,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         **kwargs,
     ) -> dict[str, np.ndarray]:
         """
@@ -293,7 +292,7 @@ class BasicWorkflow(Workflow):
     def estimate(
         self,
         *,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         **kwargs,
     ) -> dict[str, dict[str, np.ndarray | dict[str, np.ndarray]]]:
         """
@@ -301,7 +300,7 @@ class BasicWorkflow(Workflow):
 
         Parameters
         ----------
-        conditions : dict[str, np.ndarray]
+        conditions : Mapping[str, np.ndarray]
             A dictionary mapping variable names to arrays representing the conditions for the estimation process.
         **kwargs
             Additional keyword arguments passed to underlying processing functions.
@@ -320,13 +319,13 @@ class BasicWorkflow(Workflow):
         """
         return self.approximator.estimate(conditions=conditions, **kwargs)
 
-    def log_prob(self, data: dict[str, np.ndarray], **kwargs) -> np.ndarray:
+    def log_prob(self, data: Mapping[str, np.ndarray], **kwargs) -> np.ndarray:
         """
         Compute the log probability of given variables under the approximator.
 
         Parameters
         ----------
-        data : dict[str, np.ndarray]
+        data : Mapping[str, np.ndarray]
             A dictionary where keys represent variable names and values are arrays corresponding to the variables'
             realizations.
         **kwargs : dict, optional
@@ -341,8 +340,9 @@ class BasicWorkflow(Workflow):
 
     def plot_default_diagnostics(
         self,
-        test_data: dict[str, np.ndarray] | int,
+        test_data: Mapping[str, np.ndarray] | int,
         num_samples: int = 1000,
+        variable_keys: Sequence[str] = None,
         variable_names: Sequence[str] = None,
         **kwargs,
     ) -> dict[str, plt.Figure]:
@@ -356,7 +356,7 @@ class BasicWorkflow(Workflow):
 
         Parameters
         ----------
-        test_data : dict[str, np.ndarray] or int
+        test_data : Mapping[str, np.ndarray] or int
             A dictionary containing test data where keys represent variable
             names and values are corresponding data arrays. If an integer
             is provided, that number of test data sets will be generated
@@ -364,9 +364,11 @@ class BasicWorkflow(Workflow):
         num_samples : int, optional
             The number of samples to draw from the approximator for diagnostics,
             by default 1000.
-        variable_names : Sequence[str], optional
-            A list of variable names to include in the diagnostic plots. If
-            None, all available variables are used.
+        variable_keys : list or None, optional, default: None
+           Select keys from the dictionaries provided in estimates and targets.
+           By default, select all keys.
+        variable_names : list or None, optional, default: None
+            The variable names for nice table plot titles.
         **kwargs : dict, optional
             Additional keyword arguments:
 
@@ -391,7 +393,7 @@ class BasicWorkflow(Workflow):
             types, and values are the respective matplotlib Figure objects.
         """
 
-        samples, inference_variables = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
+        samples, test_data = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
 
         figures = dict()
 
@@ -407,7 +409,8 @@ class BasicWorkflow(Workflow):
         for k, plot_fn in plot_fns.items():
             figures[k] = plot_fn(
                 estimates=samples,
-                targets=inference_variables,
+                targets=test_data,
+                variable_keys=variable_keys,
                 variable_names=variable_names,
                 **kwargs.get(f"{k}_kwargs", {}),
             )
@@ -416,9 +419,10 @@ class BasicWorkflow(Workflow):
 
     def plot_custom_diagnostics(
         self,
-        test_data: dict[str, np.ndarray] | int,
-        plot_fns: dict[str, Callable],
+        test_data: Mapping[str, np.ndarray] | int,
+        plot_fns: Mapping[str, Callable],
         num_samples: int = 1000,
+        variable_keys: Sequence[str] = None,
         variable_names: Sequence[str] = None,
         **kwargs,
     ) -> dict[str, plt.Figure]:
@@ -431,21 +435,23 @@ class BasicWorkflow(Workflow):
 
         Parameters
         ----------
-        test_data : dict[str, np.ndarray] or int
+        test_data : Mapping[str, np.ndarray] or int
             A dictionary containing test data where keys represent variable
             names and values are corresponding data arrays. If an integer
             is provided, that number of test data sets will be generated
             using the simulator (if available).
-        plot_fns: dict[str, callable]
+        plot_fns: Mapping[str, Callable]
             A dictionary containing custom plotting functions where keys represent
             the function names and values correspond to the functions themselves.
             The functions should have a signature of fn(samples, inference_variables, variable_names)
         num_samples : int, optional
             The number of samples to draw from the approximator for diagnostics,
             by default 1000.
-        variable_names : Sequence[str], optional
-            A list of variable names to include in the diagnostic plots. If
-            None, all available variables are used.
+        variable_keys : list or None, optional, default: None
+           Select keys from the dictionaries provided in estimates and targets.
+           By default, select all keys.
+        variable_names : list or None, optional, default: None
+            The variable names for nice table plot titles.
         **kwargs : dict, optional
             Additional keyword arguments:
 
@@ -470,11 +476,11 @@ class BasicWorkflow(Workflow):
             types, and values are the respective matplotlib Figure objects.
         """
 
-        samples, inference_variables = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
+        samples, test_data = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
 
         figures = dict()
         for key, plot_fn in plot_fns.items():
-            figures[key] = plot_fn(samples, inference_variables, variable_names)
+            figures[key] = plot_fn(samples, test_data, variable_keys=variable_keys, variable_names=variable_names)
         return figures
 
     def plot_diagnostics(self, **kwargs):
@@ -486,8 +492,9 @@ class BasicWorkflow(Workflow):
 
     def compute_default_diagnostics(
         self,
-        test_data: dict[str, np.ndarray] | int,
+        test_data: Mapping[str, np.ndarray] | int,
         num_samples: int = 1000,
+        variable_keys: Sequence[str] = None,
         variable_names: Sequence[str] = None,
         as_data_frame: bool = True,
         **kwargs,
@@ -501,7 +508,7 @@ class BasicWorkflow(Workflow):
 
         Parameters
         ----------
-        test_data : dict[str, np.ndarray] or int
+        test_data : Mapping[str, np.ndarray] or int
             A dictionary containing test data where keys represent variable
             names and values are corresponding realizations. If an integer
             is provided, that number of test data sets will be generated
@@ -509,9 +516,11 @@ class BasicWorkflow(Workflow):
         num_samples : int, optional
             The number of samples to draw from the approximator for diagnostics,
             by default 1000.
-        variable_names : Sequence[str], optional
-            A list of variable names to include in the diagnostics. If None,
-            all available variables are used.
+        variable_keys : list or None, optional, default: None
+           Select keys from the dictionaries provided in estimates and targets.
+           By default, select all keys.
+        variable_names : list or None, optional, default: None
+            The parameter names for nice table plot titles.
         as_data_frame : bool, optional
             Whether to return the results as a pandas DataFrame (default: True).
             If False, a sequence of dictionaries with metric values is returned.
@@ -537,25 +546,28 @@ class BasicWorkflow(Workflow):
             returns a sequence of dictionaries with metric values.
         """
 
-        samples, inference_variables = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
+        samples, test_data = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
 
         root_mean_squared_error = bf_metrics.root_mean_squared_error(
             estimates=samples,
-            targets=inference_variables,
+            targets=test_data,
+            variable_keys=variable_keys,
             variable_names=variable_names,
             **kwargs.get("root_mean_squared_error_kwargs", {}),
         )
 
         contraction = bf_metrics.posterior_contraction(
             estimates=samples,
-            targets=inference_variables,
+            targets=test_data,
+            variable_keys=variable_keys,
             variable_names=variable_names,
             **kwargs.get("posterior_contraction_kwargs", {}),
         )
 
         calibration_errors = bf_metrics.calibration_error(
             estimates=samples,
-            targets=inference_variables,
+            targets=test_data,
+            variable_keys=variable_keys,
             variable_names=variable_names,
             **kwargs.get("calibration_error_kwargs", {}),
         )
@@ -567,7 +579,7 @@ class BasicWorkflow(Workflow):
                     contraction["metric_name"]: contraction["values"],
                     calibration_errors["metric_name"]: calibration_errors["values"],
                 },
-                index=root_mean_squared_error["variable_names"],
+                index=variable_keys or root_mean_squared_error["variable_names"],
             ).T
         else:
             metrics = (root_mean_squared_error, contraction, calibration_errors)
@@ -576,38 +588,42 @@ class BasicWorkflow(Workflow):
 
     def compute_custom_diagnostics(
         self,
-        test_data: dict[str, np.ndarray] | int,
-        metrics: dict[str, Callable],
+        test_data: Mapping[str, np.ndarray] | int,
+        metrics: Mapping[str, Callable],
         num_samples: int = 1000,
+        variable_keys: Sequence[str] = None,
         variable_names: Sequence[str] = None,
         as_data_frame: bool = True,
         **kwargs,
-    ) -> Sequence[dict] | pd.DataFrame:
+    ) -> Sequence[Mapping] | pd.DataFrame:
         """
         Computes custom diagnostic metrics to evaluate the quality of inference. The metric functions should
         have a signature of:
 
-        - metric_fn(samples, inference_variables, variable_names)
+        - metric_fn(samples, inference_variables, variable_names, variable_keys) or
+        - metric_fn(samples, inference_variables, **kwargs)
 
         And return a dictionary containing the metric name in 'name' key and the metric values in a 'values' key.
 
         Parameters
         ----------
-        test_data : dict[str, np.ndarray] or int
+        test_data : Mapping[str, np.ndarray] or int
             A dictionary containing test data where keys represent variable
             names and values are corresponding realizations. If an integer
             is provided, that number of test data sets will be generated
             using the simulator (if available).
-        metrics: dict[str, callable]
+        metrics: Mapping[str, Callable]
             A dictionary containing custom metric functions where keys represent
             the function names and values correspond to the functions themselves.
             The functions should have a signature of fn(samples, inference_variables, variable_names)
         num_samples : int, optional
             The number of samples to draw from the approximator for diagnostics,
             by default 1000.
-        variable_names : Sequence[str], optional
-            A list of variable names to include in the diagnostics. If None,
-            all available variables are used.
+        variable_keys : list or None, optional, default: None
+           Select keys from the dictionaries provided in estimates and targets.
+           By default, select all keys.
+        variable_names : list or None, optional, default: None
+            The variable names for nice plot titles.
         as_data_frame : bool, optional
             Whether to return the results as a pandas DataFrame (default: True).
             If False, a sequence of dictionaries with metric values is returned.
@@ -633,11 +649,11 @@ class BasicWorkflow(Workflow):
             returns a sequence of dictionaries with metric values.
         """
 
-        samples, inference_variables = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
+        samples, test_data = self._prepare_for_diagnostics(test_data, num_samples, **kwargs)
 
         metrics_dict = {}
         for key, metric_fn in metrics.items():
-            metric = metric_fn(samples, inference_variables, variable_names)
+            metric = metric_fn(samples, test_data, variable_keys=variable_keys, variable_names=variable_names)
             metrics_dict[metric["name"]] = metric["values"]
 
         if as_data_frame:
@@ -653,13 +669,13 @@ class BasicWorkflow(Workflow):
 
     def fit_offline(
         self,
-        data: dict[str, np.ndarray],
+        data: Mapping[str, np.ndarray],
         epochs: int = 100,
         batch_size: int = 32,
         keep_optimizer: bool = False,
-        validation_data: dict[str, np.ndarray] | int = None,
+        validation_data: Mapping[str, np.ndarray] | int = None,
         **kwargs,
-    ) -> dict[str, np.ndarray]:
+    ) -> keras.callbacks.History:
         """
         Train the approximator offline using a fixed dataset. This approach will be faster than online training,
         since no computation time is spent in generating new data for each batch, but it assumes that simulations
@@ -667,7 +683,7 @@ class BasicWorkflow(Workflow):
 
         Parameters
         ----------
-        data : dict[str, np.ndarray]
+        data : Mapping[str, np.ndarray]
             A dictionary containing training data where keys represent variable
             names and values are corresponding realizations.
         epochs : int, optional
@@ -678,7 +694,7 @@ class BasicWorkflow(Workflow):
         keep_optimizer : bool, optional
             Whether to retain the current state of the optimizer after training,
             by default False.
-        validation_data : dict[str, np.ndarray] or int, optional
+        validation_data : Mapping[str, np.ndarray] or int, optional
             A dictionary containing validation data. If an integer is provided,
             that number of validation samples will be generated (if supported).
             By default, no validation data is used.
@@ -687,8 +703,8 @@ class BasicWorkflow(Workflow):
 
         Returns
         -------
-        dict[str, np.ndarray]
-            A dictionary containing training history, where keys correspond to
+        history : keras.callbacks.History
+            A history object containing training history, where keys correspond to
             logged metrics (e.g., loss values) and values are arrays tracking
             metric evolution over epochs.
         """
@@ -705,9 +721,9 @@ class BasicWorkflow(Workflow):
         num_batches_per_epoch: int = 100,
         batch_size: int = 32,
         keep_optimizer: bool = False,
-        validation_data: dict[str, np.ndarray] | int = None,
+        validation_data: Mapping[str, np.ndarray] | int = None,
         **kwargs,
-    ) -> dict[str, np.ndarray]:
+    ) -> keras.callbacks.History:
         """
         Train the approximator using an online data-generating process. The dataset is dynamically generated during
         training, making this approach suitable for scenarios where generating new simulations is computationally cheap.
@@ -723,7 +739,7 @@ class BasicWorkflow(Workflow):
         keep_optimizer : bool, optional
             Whether to retain the current state of the optimizer after training,
             by default False.
-        validation_data : dict[str, np.ndarray] or int, optional
+        validation_data : Mapping[str, np.ndarray] or int, optional
             A dictionary containing validation data. If an integer is provided,
             that number of validation samples will be generated (if supported).
             By default, no validation data is used.
@@ -732,8 +748,8 @@ class BasicWorkflow(Workflow):
 
         Returns
         -------
-        dict[str, np.ndarray]
-            A dictionary containing training history, where keys correspond to
+        history : keras.callbacks.History
+            A history object containing training history, where keys correspond to
             logged metrics (e.g., loss values) and values are arrays tracking
             metric evolution over epochs.
         """
@@ -754,9 +770,9 @@ class BasicWorkflow(Workflow):
         load_fn: callable = None,
         epochs: int = 100,
         keep_optimizer: bool = False,
-        validation_data: dict[str, np.ndarray] | int = None,
+        validation_data: Mapping[str, np.ndarray] | int = None,
         **kwargs,
-    ) -> dict[str, np.ndarray]:
+    ) -> keras.callbacks.History:
         """
         Train the approximator using data stored on disk. This approach is suitable for large sets of simulations that
         don't fit in memory.
@@ -778,7 +794,7 @@ class BasicWorkflow(Workflow):
         keep_optimizer : bool, optional
             Whether to retain the current state of the optimizer after training,
             by default False.
-        validation_data : dict[str, np.ndarray] or int, optional
+        validation_data : Mapping[str, np.ndarray] or int, optional
             A dictionary containing validation data. If an integer is provided,
             that number of validation samples will be generated (if supported).
             By default, no validation data is used.
@@ -787,8 +803,8 @@ class BasicWorkflow(Workflow):
 
         Returns
         -------
-        dict[str, np.ndarray]
-            A dictionary containing training history, where keys correspond to
+        history : keras.callbacks.History
+            A history object containing training history, where keys correspond to
             logged metrics (e.g., loss values) and values are arrays tracking
             metric evolution over epochs.
         """
@@ -828,9 +844,11 @@ class BasicWorkflow(Workflow):
 
         # Default case
         learning_rate = keras.optimizers.schedules.CosineDecay(
-            initial_learning_rate=self.initial_learning_rate,
+            initial_learning_rate=0.5 * self.initial_learning_rate,
+            warmup_target=self.initial_learning_rate,
+            warmup_steps=num_batches,
             decay_steps=epochs * num_batches,
-            alpha=self.initial_learning_rate**2,
+            alpha=0,
         )
 
         # Use adam for online learning, apply weight decay otherwise
@@ -845,9 +863,9 @@ class BasicWorkflow(Workflow):
         epochs: int,
         strategy: str,
         keep_optimizer: bool,
-        validation_data: dict[str, np.ndarray] | int,
+        validation_data: Mapping[str, np.ndarray] | int,
         **kwargs,
-    ) -> dict[str, np.ndarray]:
+    ) -> keras.callbacks.History:
         if validation_data is not None:
             if isinstance(validation_data, int) and self.simulator is not None:
                 validation_data = self.simulator.sample(validation_data, **kwargs.pop("validation_data_kwargs", {}))
@@ -890,28 +908,21 @@ class BasicWorkflow(Workflow):
             )
             self._on_training_finished()
             return self.history
-        except Exception as err:
-            raise err
         finally:
             if not keep_optimizer:
                 self.optimizer = None
 
-    def _prepare_for_diagnostics(self, test_data: dict[str, np.ndarray] | int, num_samples: int = 1000, **kwargs):
+    def _prepare_for_diagnostics(self, test_data: Mapping[str, np.ndarray] | int, num_samples: int = 1000, **kwargs):
         if isinstance(test_data, int) and self.simulator is not None:
             test_data = self.simulator.sample(test_data, **kwargs.pop("test_data_kwargs", {}))
         elif isinstance(test_data, int):
             raise ValueError(f"No simulator found for generating {test_data} data sets.")
 
-        if isinstance(self.inference_variables, str):
-            inference_variables = {self.inference_variables: test_data[self.inference_variables]}
-        else:
-            inference_variables = {k: test_data[k] for k in self.inference_variables}
-
         samples = self.approximator.sample(
             num_samples=num_samples, conditions=test_data, **kwargs.get("approximator_kwargs", {})
         )
 
-        return samples, inference_variables
+        return samples, test_data
 
     def _on_training_finished(self):
         if self.checkpoint_filepath is not None:

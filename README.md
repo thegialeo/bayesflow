@@ -20,7 +20,7 @@ fueled by continuous progress in generative AI and Bayesian inference.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./img/bayesflow_landing_dark.jpg">
   <source media="(prefers-color-scheme: light)" srcset="./img/bayesflow_landing_light.jpg">
-  <img alt="dsd" src="./img/bayesflow_landing_dark.jpg">
+  <img alt="Overview graphic on using BayesFlow. It is split in three columns: 1. Choose your backend: BayesFlow is based on Keras, so you can choose PyTorch, TensorFlow or JAX. 2. Define your simulator: You specify your simulator in Python, and use it to generate simulated data. 3. Choose your algorithm: You define a generative neural network that you can use for estimation after training." src="./img/bayesflow_landing_dark.jpg">
 </picture>
 </div>
 
@@ -37,14 +37,14 @@ Using the high-level interface is easy, as demonstrated by the minimal working e
 import bayesflow as bf
 
 workflow = bf.BasicWorkflow(
-    inference_network=bf.networks.FlowMatching(),
-    summary_network=bf.networks.TimeSeriesTransformer(),
+    inference_network=bf.networks.CouplingFlow(),
+    summary_network=bf.networks.TimeSeriesNetwork(),
     inference_variables=["parameters"],
     summary_variables=["observables"],
     simulator=bf.simulators.SIR()
 )
 
-history = workflow.fit_online(epochs=50, batch_size=32, num_batches_per_epoch=500)
+history = workflow.fit_online(epochs=15, batch_size=32, num_batches_per_epoch=200)
 
 diagnostics = workflow.plot_default_diagnostics(test_data=300)
 ```
@@ -54,7 +54,7 @@ For an in-depth exposition, check out our walkthrough notebooks below.
 1. [Linear regression starter example](examples/Linear_Regression_Starter.ipynb)
 2. [From ABC to BayesFlow](examples/From_ABC_to_BayesFlow.ipynb)
 3. [Two moons starter example](examples/Two_Moons_Starter.ipynb)
-4. [Rapid iteration with point estimators](examples/Lotka_Volterra_point_estimation_and_expert_stats.ipynb)
+4. [Rapid iteration with point estimators](examples/Lotka_Volterra_Point_Estimation_and_Expert_Stats.ipynb)
 5. [SIR model with custom summary network](examples/SIR_Posterior_Estimation.ipynb)
 6. [Bayesian experimental design](examples/Bayesian_Experimental_Design.ipynb)
 7. [Simple model comparison example](examples/One_Sample_TTest.ipynb)
@@ -63,11 +63,15 @@ More tutorials are always welcome! Please consider making a pull request if you 
 
 ## Install
 
-BayesFlow is available to install via pip:
+BayesFlow v2 is not yet installable via PyPI, but you can use the following command to install the latest version of the `main` branch:
 
 ```bash
-pip install bayesflow
+pip install git+https://github.com/bayesflow-org/bayesflow.git
 ```
+
+If you encounter problems with this or require more control, please refer to the instructions to install from source below.
+
+Note: `pip install bayesflow` will install the v1 version of BayesFlow.
 
 ### Backend
 

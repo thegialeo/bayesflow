@@ -66,10 +66,3 @@ class InferenceNetwork(keras.Layer):
                 metrics[metric.name] = metric(samples, x)
 
         return metrics
-
-    def aggregate(self, losses: Tensor, weights: Tensor = None):
-        if weights is not None:
-            weighted = losses * weights
-        else:
-            weighted = losses
-        return keras.ops.mean(weighted)

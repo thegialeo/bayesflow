@@ -33,7 +33,26 @@ class MultiHeadAttentionBlock(keras.Layer):
 
         Parameters
         ----------
-        ##TODO
+        embed_dim : int, optional
+            Dimensionality of the embedding space, by default 64.
+        num_heads : int, optional
+            Number of attention heads, by default 4.
+        dropout : float, optional
+            Dropout rate applied to attention and MLP layers, by default 0.05.
+        mlp_depth : int, optional
+            Number of layers in the feedforward MLP block, by default 2.
+        mlp_width : int, optional
+            Width of each hidden layer in the MLP block, by default 128.
+        mlp_activation : str, optional
+            Activation function used in the MLP block, by default "gelu".
+        kernel_initializer : str, optional
+            Initializer for kernel weights, by default "he_normal".
+        use_bias : bool, optional
+            Whether to include bias terms in dense layers, by default True.
+        layer_norm : bool, optional
+            Whether to apply layer normalization before and after attention, by default True.
+        **kwargs : dict
+            Additional keyword arguments passed to the Keras Layer base class.
         """
 
         super().__init__(**kwargs)

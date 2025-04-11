@@ -29,10 +29,10 @@ class FilterTransform(Transform):
 
     def __init__(
         self,
+        include: str | Sequence[str] = None,
         *,
         transform_constructor: Callable[..., ElementwiseTransform],
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):

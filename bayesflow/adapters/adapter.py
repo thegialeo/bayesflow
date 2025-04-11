@@ -1,6 +1,7 @@
-from collections.abc import MutableSequence, Sequence
+from collections.abc import MutableSequence, Sequence, Mapping
 
 import numpy as np
+
 from keras.saving import (
     deserialize_keras_object as deserialize,
     register_keras_serializable as serializable,
@@ -121,16 +122,16 @@ class Adapter(MutableSequence[Transform]):
 
         return data
 
-    def __call__(self, data: dict[str, any], *, inverse: bool = False, **kwargs) -> dict[str, np.ndarray]:
+    def __call__(self, data: Mapping[str, any], *, inverse: bool = False, **kwargs) -> dict[str, np.ndarray]:
         """Apply the transforms in the given direction.
 
         Parameters
         ----------
-        data : dict
+        data : Mapping[str, any]
             The data to be transformed.
         inverse : bool, optional
             If False, apply the forward transform, else apply the inverse transform (default False).
-        **kwargs : dict
+        **kwargs
             Additional keyword arguments passed to each transform.
 
         Returns
@@ -233,11 +234,11 @@ class Adapter(MutableSequence[Transform]):
 
     def apply(
         self,
+        include: str | Sequence[str] = None,
         *,
         forward: np.ufunc | str,
         inverse: np.ufunc | str = None,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):
@@ -245,16 +246,13 @@ class Adapter(MutableSequence[Transform]):
 
         Parameters
         ----------
-        forward: callable, no lambda
-            Function to transform the data in the forward pass.
-            For the adapter to be serializable, this function has to be serializable
-            as well (see Notes). Therefore, only proper functions and no lambda
-            functions should be used here.
-        inverse: callable, no lambda
-            Function to transform the data in the inverse pass.
-            For the adapter to be serializable, this function has to be serializable
-            as well (see Notes). Therefore, only proper functions and no lambda
-            functions should be used here.
+        forward : str or np.ufunc
+            The name of the NumPy function to use for the forward transformation.
+        inverse : str or np.ufunc, optional
+            The name of the NumPy function to use for the inverse transformation.
+            By default, the inverse is inferred from the forward argument for supported methods.
+            You can find the supported methods in
+            :py:const:`~bayesflow.adapters.transforms.NumpyTransform.INVERSE_METHODS`.
         predicate : Predicate, optional
             Function that indicates which variables should be transformed.
         include : str or Sequence of str, optional
@@ -263,12 +261,6 @@ class Adapter(MutableSequence[Transform]):
             Names of variables to exclude from the transform.
         **kwargs : dict
             Additional keyword arguments passed to the transform.
-
-        Notes
-        -----
-        Important: This is only serializable if the forward and inverse functions are serializable.
-        This most likely means you will have to pass the scope that the forward and inverse functions are contained in
-        to the `custom_objects` argument of the `deserialize` function when deserializing this class.
         """
         transform = FilterTransform(
             transform_constructor=NumpyTransform,
@@ -388,6 +380,7 @@ class Adapter(MutableSequence[Transform]):
         exclude: str | Sequence[str] = None,
     ):
         """Append a :py:class:`~transforms.ConvertDType` transform to the adapter.
+        See also :py:meth:`~bayesflow.adapters.Adapter.map_dtype`.
 
         Parameters
         ----------
@@ -525,6 +518,24 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(transform)
         return self
 
+    def map_dtype(self, keys: str | Sequence[str], to_dtype: str):
+        """Append a :py:class:`~transforms.ConvertDType` transform to the adapter.
+        See also :py:meth:`~bayesflow.adapters.Adapter.convert_dtype`.
+
+        Parameters
+        ----------
+        keys : str or Sequence of str
+            The names of the variables to transform.
+        to_dtype : str
+            Target dtype
+        """
+        if isinstance(keys, str):
+            keys = [keys]
+
+        transform = MapTransform({key: ConvertDType(to_dtype) for key in keys})
+        self.transforms.append(transform)
+        return self
+
     def one_hot(self, keys: str | Sequence[str], num_classes: int):
         """Append a :py:class:`~transforms.OneHot` transform to the adapter.
 
@@ -555,6 +566,24 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(Rename(from_key, to_key))
         return self
 
+    def scale(self, keys: str | Sequence[str], by: float | np.ndarray):
+        from .transforms import Scale
+
+        if isinstance(keys, str):
+            keys = [keys]
+
+        self.transforms.append(MapTransform({key: Scale(scale=by) for key in keys}))
+        return self
+
+    def shift(self, keys: str | Sequence[str], by: float | np.ndarray):
+        from .transforms import Shift
+
+        if isinstance(keys, str):
+            keys = [keys]
+
+        self.transforms.append(MapTransform({key: Shift(shift=by) for key in keys}))
+        return self
+
     def sqrt(self, keys: str | Sequence[str]):
         """Append an :py:class:`~transforms.Sqrt` transform to the adapter.
 
@@ -572,9 +601,9 @@ class Adapter(MutableSequence[Transform]):
 
     def standardize(
         self,
+        include: str | Sequence[str] = None,
         *,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):
@@ -603,9 +632,9 @@ class Adapter(MutableSequence[Transform]):
 
     def to_array(
         self,
+        include: str | Sequence[str] = None,
         *,
         predicate: Predicate = None,
-        include: str | Sequence[str] = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
     ):

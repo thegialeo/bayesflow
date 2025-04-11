@@ -35,14 +35,36 @@ class PoolingByMultiHeadAttention(keras.Layer):
         layer_norm: bool = True,
         **kwargs,
     ):
-        """Creates a multi-head attention block (MAB) which will perform cross-attention between an input sequence
-        and a set of seed vectors (typically one for a single summary) with summary_dim output dimensions.
-
-        Could also be used as part of a ``DeepSet`` for representing learnable instead of fixed pooling.
+        """
+        Creates a PoolingByMultiHeadAttention (PMA) block for permutation-invariant set encoding using
+        multi-head attention pooling. Can also be used us a building block for `DeepSet` architectures.
 
         Parameters
         ----------
-        ##TODO
+        num_seeds : int, optional (default=1)
+            Number of seed vectors used for pooling. Acts as the number of summary outputs.
+        embed_dim : int, optional (default=64)
+            Dimensionality of the embedding space used in the attention mechanism.
+        num_heads : int, optional (default=4)
+            Number of attention heads in the multi-head attention block.
+        seed_dim : int or None, optional (default=None)
+            Dimensionality of each seed vector. If None, defaults to `embed_dim`.
+        dropout : float, optional (default=0.05)
+            Dropout rate applied to attention and MLP layers.
+        mlp_depth : int, optional (default=2)
+            Number of layers in the feedforward MLP applied before attention.
+        mlp_width : int, optional (default=128)
+            Number of units in each hidden layer of the MLP.
+        mlp_activation : str, optional (default="gelu")
+            Activation function used in the MLP.
+        kernel_initializer : str, optional (default="he_normal")
+            Initializer for kernel weights in dense layers.
+        use_bias : bool, optional (default=True)
+            Whether to include bias terms in dense layers.
+        layer_norm : bool, optional (default=True)
+            Whether to apply layer normalization before and after attention.
+        **kwargs : dict
+            Additional keyword arguments passed to the Keras Layer base class.
         """
 
         super().__init__(**kwargs)
