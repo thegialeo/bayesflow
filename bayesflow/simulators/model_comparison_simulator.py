@@ -78,7 +78,7 @@ class ModelComparisonSimulator(Simulator):
         ----------
         batch_shape : Shape
             The shape of the batch to sample. Typically, a tuple indicating the number of samples,
-            but can also be an int.
+            but the user can also supply an int.
         **kwargs
             Additional keyword arguments passed to each simulator. These may include outputs from
             the shared simulator.
@@ -95,30 +95,26 @@ class ModelComparisonSimulator(Simulator):
         if self.shared_simulator:
             data |= self.shared_simulator.sample(batch_shape, **kwargs)
 
-        if not self.use_mixed_batches:
-            # draw one model index for the whole batch (faster)
-            model_index = np.random.choice(len(self.simulators), p=npu.softmax(self.logits))
+        softmax_logits = npu.softmax(self.logits)
+        num_models = len(self.simulators)
 
-            simulator = self.simulators[model_index]
-            data = simulator.sample(batch_shape, **(kwargs | data))
+        # generate data randomly from each model (slower)
+        if self.use_mixed_batches:
+            model_counts = np.random.multinomial(n=batch_shape[0], pvals=softmax_logits)
 
-            model_indices = np.full(batch_shape, model_index, dtype="int32")
-            model_indices = npu.one_hot(model_indices, len(self.simulators))
-        else:
-            # generate data randomly from each model (slower)
-            model_counts = np.random.multinomial(n=batch_shape[0], pvals=npu.softmax(self.logits))
-
-            sims = []
-            for n, simulator in zip(model_counts, self.simulators):
-                if n == 0:
-                    continue
-                sim = simulator.sample(n, **(kwargs | data))
-                sims.append(sim)
-
+            sims = [
+                simulator.sample(n, **(kwargs | data)) for simulator, n in zip(self.simulators, model_counts) if n > 0
+            ]
             sims = tree_concatenate(sims, numpy=True)
             data |= sims
 
-            model_indices = np.eye(len(self.simulators), dtype="int32")
-            model_indices = np.repeat(model_indices, model_counts, axis=0)
+            model_indices = np.repeat(np.eye(num_models, dtype="int32"), model_counts, axis=0)
+
+        # draw one model index for the whole batch (faster)
+        else:
+            model_index = np.random.choice(num_models, p=softmax_logits)
+
+            data = self.simulators[model_index].sample(batch_shape, **(kwargs | data))
+            model_indices = npu.one_hot(np.full(batch_shape, model_index, dtype="int32"), num_models)
 
         return data | {"model_indices": model_indices}
