@@ -2,13 +2,8 @@ import keras
 from keras.saving import register_keras_serializable as serializable
 
 from bayesflow.types import Tensor
-from bayesflow.utils import logging, keras_kwargs
+from bayesflow.utils import keras_kwargs
 from bayesflow.utils.decorators import sanitize_input_shape
-
-try:
-    from mamba_ssm import Mamba
-except ImportError:
-    logging.error("Mamba class is not available. Please, install the mamba-ssm library via `pip install mamba-ssm`.")
 
 
 @serializable("bayesflow.wrappers")
@@ -60,8 +55,13 @@ class MambaBlock(keras.Layer):
 
         super().__init__(**keras_kwargs(kwargs))
 
-        if keras.backend.backend() != "torch":
-            raise RuntimeError("Mamba is only available using torch backend.")
+        # if keras.backend.backend() != "torch":
+        #     raise RuntimeError("Mamba is only available using torch backend.")
+
+        try:
+            from mamba_ssm import Mamba
+        except ImportError as e:
+            raise ImportError("Could not import Mamba. Please install it via `pip install mamba-ssm`") from e
 
         self.bidirectional = bidirectional
 
