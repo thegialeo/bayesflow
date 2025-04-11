@@ -24,6 +24,26 @@ class ModelComparisonSimulator(Simulator):
         use_mixed_batches: bool = True,
         shared_simulator: Simulator | FunctionType = None,
     ):
+        """
+        Initialize a multi-model simulator that can generate data for mixture / model comparison problems.
+
+        Parameters
+        ----------
+        simulators : Sequence[Simulator]
+            A sequence of simulator instances, each representing a different model.
+        p : Sequence[float], optional
+            A sequence of probabilities associated with each simulator. Must sum to 1.
+            Mutually exclusive with `logits`.
+        logits : Sequence[float], optional
+            A sequence of logits corresponding to model probabilities. Mutually exclusive with `p`.
+            If neither `p` nor `logits` is provided, defaults to uniform logits.
+        use_mixed_batches : bool, optional
+            If True, samples in a batch are drawn from different models. If False, the entire batch
+            is drawn from a single model chosen according to the model probabilities. Default is True.
+        shared_simulator : Simulator or FunctionType, optional
+            A shared simulator whose outputs are passed to all model simulators. If a function is
+            provided, it is wrapped in a `LambdaSimulator` with batching enabled.
+        """
         self.simulators = simulators
 
         if isinstance(shared_simulator, FunctionType):
@@ -51,6 +71,26 @@ class ModelComparisonSimulator(Simulator):
 
     @allow_batch_size
     def sample(self, batch_shape: Shape, **kwargs) -> dict[str, np.ndarray]:
+        """
+        Sample from the model comparison simulator.
+
+        Parameters
+        ----------
+        batch_shape : Shape
+            The shape of the batch to sample. Typically, a tuple indicating the number of samples,
+            but can also be an int.
+        **kwargs
+            Additional keyword arguments passed to each simulator. These may include outputs from
+            the shared simulator.
+
+        Returns
+        -------
+        data : dict of str to np.ndarray
+            A dictionary containing the sampled outputs. Includes:
+              - outputs from the selected simulator(s)
+              - optionally, outputs from the shared simulator
+              - "model_indices": a one-hot encoded array indicating the model origin of each sample
+        """
         data = {}
         if self.shared_simulator:
             data |= self.shared_simulator.sample(batch_shape, **kwargs)
