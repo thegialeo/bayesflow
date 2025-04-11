@@ -288,8 +288,8 @@ class Adapter(MutableSequence[Transform]):
         self,
         include: str | Sequence[str] = None,
         *,
-        serializable_forward_fn: Callable[[np.ndarray, ...], np.ndarray],
-        serializable_inverse_fn: Callable[[np.ndarray, ...], np.ndarray],
+        forward: Callable[[np.ndarray, ...], np.ndarray],
+        inverse: Callable[[np.ndarray, ...], np.ndarray],
         predicate: Predicate = None,
         exclude: str | Sequence[str] = None,
         **kwargs,
@@ -298,12 +298,12 @@ class Adapter(MutableSequence[Transform]):
 
         Parameters
         ----------
-        serializable_forward_fn : function, no lambda
+        forward : function, no lambda
             Registered serializable function to transform the data in the forward pass.
             For the adapter to be serializable, this function has to be serializable
             as well (see Notes). Therefore, only proper functions and no lambda
             functions can be used here.
-        serializable_inverse_fn : function, no lambda
+        inverse : function, no lambda
             Registered serializable function to transform the data in the inverse pass.
             For the adapter to be serializable, this function has to be serializable
             as well (see Notes). Therefore, only proper functions and no lambda
@@ -350,8 +350,8 @@ class Adapter(MutableSequence[Transform]):
         >>>
         >>> adapter = bf.Adapter().apply_serializable(
         >>>     "x",
-        >>>     serializable_forward_fn=forward_fn,
-        >>>     serializable_inverse_fn=inverse_fn,
+        >>>     forward=forward_fn,
+        >>>     inverse=inverse_fn,
         >>> )
         """
         transform = FilterTransform(
@@ -359,8 +359,8 @@ class Adapter(MutableSequence[Transform]):
             predicate=predicate,
             include=include,
             exclude=exclude,
-            serializable_forward_fn=serializable_forward_fn,
-            serializable_inverse_fn=serializable_inverse_fn,
+            forward=forward,
+            inverse=inverse,
             **kwargs,
         )
         self.transforms.append(transform)

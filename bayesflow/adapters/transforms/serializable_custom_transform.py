@@ -19,12 +19,12 @@ class SerializableCustomTransform(ElementwiseTransform):
 
     Parameters
     ----------
-    serializable_forward_fn : function, no lambda
+    forward : function, no lambda
         Registered serializable function to transform the data in the forward pass.
         For the adapter to be serializable, this function has to be serializable
         as well (see Notes). Therefore, only proper functions and no lambda
         functions can be used here.
-    serializable_inverse_fn : function, no lambda
+    inverse : function, no lambda
         Function to transform the data in the inverse pass.
         For the adapter to be serializable, this function has to be serializable
         as well (see Notes). Therefore, only proper functions and no lambda
@@ -47,28 +47,27 @@ class SerializableCustomTransform(ElementwiseTransform):
     def __init__(
         self,
         *,
-        serializable_forward_fn: Callable[[np.ndarray, ...], np.ndarray],
-        serializable_inverse_fn: Callable[[np.ndarray, ...], np.ndarray],
+        forward: Callable[[np.ndarray, ...], np.ndarray],
+        inverse: Callable[[np.ndarray, ...], np.ndarray],
     ):
         super().__init__()
 
-        self._check_serializable(serializable_forward_fn, label="serializable_forward_fn")
-        self._check_serializable(serializable_inverse_fn, label="serializable_inverse_fn")
-        self._forward = serializable_forward_fn
-        self._inverse = serializable_inverse_fn
+        self._check_serializable(forward, label="forward")
+        self._check_serializable(inverse, label="inverse")
+        self._forward = forward
+        self._inverse = inverse
 
     @classmethod
     def _check_serializable(cls, function, label=""):
-        GENERAL_EXAMPLE_CODE = f"""The example code below shows the structure of a correctly decorated function:
-
-```
-import keras
-
-@keras.saving.register_keras_serializable('custom')
-def my_{label}(...):
-    [your code goes here...]
-```
-"""
+        GENERAL_EXAMPLE_CODE = (
+            "The example code below shows the structure of a correctly decorated function:\n\n"
+            "```\n"
+            "import keras\n\n"
+            "@keras.saving.register_keras_serializable('custom')\n"
+            f"def my_{label}(...):\n"
+            "    [your code goes here...]\n"
+            "```\n"
+        )
         if function is None:
             raise TypeError(
                 f"'{label}' must be a registered serializable function, was 'NoneType'.\n{GENERAL_EXAMPLE_CODE}"
@@ -132,7 +131,7 @@ def my_{label}(...):
             raise TypeError(
                 "\n\nPLEASE READ HERE:\n"
                 "-----------------\n"
-                "The forward function that was provided as `serializable_forward_fn` "
+                "The forward function that was provided as `forward` "
                 "is not registered with Keras, making deserialization impossible. "
                 f"Please ensure that it is registered as '{config['forward']['config']}' and identical to the original "
                 "function before loading your model."
@@ -147,7 +146,7 @@ def my_{label}(...):
             raise TypeError(
                 "\n\nPLEASE READ HERE:\n"
                 "-----------------\n"
-                "The inverse function that was provided as `serializable_inverse_fn` "
+                "The inverse function that was provided as `inverse` "
                 "is not registered with Keras, making deserialization impossible. "
                 f"Please ensure that it is registered as '{config['inverse']['config']}' and identical to the original "
                 "function before loading your model."
@@ -156,8 +155,8 @@ def my_{label}(...):
         forward = deserialize(config["forward"], custom_objects)
         inverse = deserialize(config["inverse"], custom_objects)
         return cls(
-            serializable_forward_fn=forward,
-            serializable_inverse_fn=inverse,
+            forward=forward,
+            inverse=inverse,
         )
 
     def get_config(self) -> dict:

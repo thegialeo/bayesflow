@@ -140,31 +140,29 @@ def test_custom_transform():
 
     # method instead of function provided
     with pytest.raises(ValueError):
-        SerializableCustomTransform(serializable_forward_fn=A.fn, serializable_inverse_fn=registered_fn)
-        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=A.fn)
+        SerializableCustomTransform(forward=A.fn, inverse=registered_fn)
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(forward=registered_fn, inverse=A.fn)
 
     # lambda function provided
     with pytest.raises(ValueError):
-        SerializableCustomTransform(serializable_forward_fn=lambda x: x, serializable_inverse_fn=registered_fn)
-        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=lambda x: x)
+        SerializableCustomTransform(forward=lambda x: x, inverse=registered_fn)
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(forward=registered_fn, inverse=lambda x: x)
 
     # unregistered function provided
     with pytest.raises(ValueError):
-        SerializableCustomTransform(serializable_forward_fn=not_registered_fn, serializable_inverse_fn=registered_fn)
-        SerializableCustomTransform(serializable_forward_fn=registered_fn, serializable_inverse_fn=not_registered_fn)
+        SerializableCustomTransform(forward=not_registered_fn, inverse=registered_fn)
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(forward=registered_fn, inverse=not_registered_fn)
 
     # function does not match registered function
     with pytest.raises(ValueError):
-        SerializableCustomTransform(
-            serializable_forward_fn=registered_but_changed, serializable_inverse_fn=registered_fn
-        )
-        SerializableCustomTransform(
-            serializable_forward_fn=registered_fn, serializable_inverse_fn=registered_but_changed
-        )
+        SerializableCustomTransform(forward=registered_but_changed, inverse=registered_fn)
+    with pytest.raises(ValueError):
+        SerializableCustomTransform(forward=registered_fn, inverse=registered_but_changed)
 
-    transform = SerializableCustomTransform(
-        serializable_forward_fn=registered_fn, serializable_inverse_fn=registered_fn
-    )
+    transform = SerializableCustomTransform(forward=registered_fn, inverse=registered_fn)
     serialized_transform = keras.saving.serialize_keras_object(transform)
     keras.saving.deserialize_keras_object(serialized_transform)
 

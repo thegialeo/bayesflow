@@ -25,9 +25,7 @@ def adapter():
         .constrain("p2", lower=0)
         .apply(include="p2", forward="exp", inverse="log")
         .apply(include="p2", forward="log1p")
-        .apply_serializable(
-            include="x", serializable_forward_fn=serializable_fn, serializable_inverse_fn=serializable_fn
-        )
+        .apply_serializable(include="x", forward=serializable_fn, inverse=serializable_fn)
         .scale("x", by=[-1, 2])
         .shift("x", by=2)
         .standardize(exclude=["t1", "t2", "o1"])
