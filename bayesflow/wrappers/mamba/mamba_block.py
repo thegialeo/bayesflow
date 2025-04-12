@@ -55,8 +55,8 @@ class MambaBlock(keras.Layer):
 
         super().__init__(**keras_kwargs(kwargs))
 
-        # if keras.backend.backend() != "torch":
-        #     raise RuntimeError("Mamba is only available using torch backend.")
+        if keras.backend.backend() != "torch":
+            raise RuntimeError("Mamba is only available using torch backend.")
 
         try:
             from mamba_ssm import Mamba
