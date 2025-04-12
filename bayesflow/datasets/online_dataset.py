@@ -1,8 +1,8 @@
 import keras
+import numpy as np
 
 from bayesflow.adapters import Adapter
 from bayesflow.simulators.simulator import Simulator
-from bayesflow.types import Tensor
 
 
 class OnlineDataset(keras.utils.PyDataset):
@@ -20,18 +20,12 @@ class OnlineDataset(keras.utils.PyDataset):
     ):
         super().__init__(**kwargs)
 
-        if keras.backend.backend() == "torch" and kwargs.get("use_multiprocessing"):
-            # keras workaround: https://github.com/keras-team/keras/issues/19346
-            import multiprocessing as mp
-
-            mp.set_start_method("spawn", force=True)
-
         self.batch_size = batch_size
         self._num_batches = num_batches
         self.adapter = adapter
         self.simulator = simulator
 
-    def __getitem__(self, item: int) -> dict[str, Tensor]:
+    def __getitem__(self, item: int) -> dict[str, np.ndarray]:
         batch = self.simulator.sample((self.batch_size,))
 
         if self.adapter is not None:

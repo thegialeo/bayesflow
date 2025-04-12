@@ -33,8 +33,8 @@ class ConditionalGaussian(keras.Layer):
         """
 
         super().__init__(**keras_kwargs(kwargs))
-        self.means = MLP(depth=depth, width=width, activation=activation)
-        self.stds = MLP(depth=depth, width=width, activation=activation)
+        self.means = MLP([width] * depth, activation=activation)
+        self.stds = MLP([width] * depth, activation=activation)
         self.output_projector = keras.layers.Dense(None)
 
     def build(self, input_shape: Shape) -> None:

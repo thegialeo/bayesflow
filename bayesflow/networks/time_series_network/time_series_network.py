@@ -25,7 +25,7 @@ class TimeSeriesNetwork(SummaryNetwork):
         strides: int | list | tuple = 1,
         activation: str = "mish",
         kernel_initializer: str = "glorot_uniform",
-        groups: int = 8,
+        groups: int = None,
         recurrent_type: str = "gru",
         recurrent_dim: int = 128,
         bidirectional: bool = True,
@@ -62,7 +62,7 @@ class TimeSeriesNetwork(SummaryNetwork):
             Default is "glorot_uniform".
         groups : int, optional
             Number of groups for group normalization applied after each convolutional layer.
-            Default is 8.
+            Default is None.
         recurrent_type : str, optional
             Type of recurrent layer used for sequence modeling, such as "gru" or "lstm".
             Default is "gru".
@@ -99,7 +99,8 @@ class TimeSeriesNetwork(SummaryNetwork):
                     padding="same",
                 )
             )
-            self.conv_blocks.append(keras.layers.GroupNormalization(groups=groups))
+            if groups is not None:
+                self.conv_blocks.append(keras.layers.GroupNormalization(groups=groups))
 
         # Recurrent and feedforward backbones
         self.recurrent = SkipRecurrentNet(
@@ -149,4 +150,3 @@ class TimeSeriesNetwork(SummaryNetwork):
     @sanitize_input_shape
     def build(self, input_shape):
         super().build(input_shape)
-        self.call(keras.ops.zeros(input_shape))

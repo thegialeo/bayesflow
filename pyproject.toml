@@ -27,7 +27,6 @@ dependencies = [
     "matplotlib",
     "numpy >= 1.24, <2.0",
     "pandas",
-    "scikit-learn",
     "scipy",
     "seaborn",
     "tqdm",
@@ -37,6 +36,7 @@ all = [
     # dev
     "jupyter",
     "jupyterlab",
+    "nbconvert",
     "pre-commit",
     "ruff",
     "tox",
@@ -71,6 +71,7 @@ docs = [
     "sphinxcontrib-bibtex",
 ]
 test = [
+    "nbconvert",
     "pytest",
     "pytest-cov",
     "pytest-rerunfailures",

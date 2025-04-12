@@ -42,7 +42,7 @@ class DiskDataset(keras.utils.PyDataset):
 
         self.shuffle()
 
-    def __getitem__(self, item):
+    def __getitem__(self, item) -> dict[str, np.ndarray]:
         if not 0 <= item < self.num_batches:
             raise IndexError(f"Index {item} is out of bounds for dataset with {self.num_batches} batches.")
 

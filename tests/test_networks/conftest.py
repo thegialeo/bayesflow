@@ -22,7 +22,7 @@ def flow_matching():
     from bayesflow.networks import FlowMatching
 
     return FlowMatching(
-        subnet_kwargs={"widths": None, "width": 64, "depth": 2},
+        subnet_kwargs={"widths": [64, 64]},
         integrate_kwargs={"method": "rk45", "steps": 100},
     )
 
@@ -38,14 +38,14 @@ def flow_matching_subnet(subnet):
 def coupling_flow():
     from bayesflow.networks import CouplingFlow
 
-    return CouplingFlow()
+    return CouplingFlow(depth=2)
 
 
 @pytest.fixture()
 def coupling_flow_subnet(subnet):
     from bayesflow.networks import CouplingFlow
 
-    return CouplingFlow(subnet=subnet)
+    return CouplingFlow(depth=2, subnet=subnet)
 
 
 @pytest.fixture()

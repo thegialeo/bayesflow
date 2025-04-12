@@ -1,16 +1,17 @@
-from typing import Sequence
+from collections.abc import Sequence
 
-import keras.src.callbacks
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+import keras.src.callbacks
+
 from ...utils.plot_utils import make_figure, add_titles_and_labels
 
 
 def loss(
-    history: keras.src.callbacks.History,
+    history: keras.callbacks.History,
     train_key: str = "loss",
     val_key: str = "val_loss",
     moving_average: bool = False,

@@ -1,7 +1,8 @@
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence, Callable
+
+import numpy as np
 
 import keras
-import numpy as np
 from keras.saving import (
     deserialize_keras_object as deserialize,
     register_keras_serializable as serializable,
@@ -23,7 +24,7 @@ class ContinuousApproximator(Approximator):
 
     Parameters
     ----------
-    adapter : Adapter
+    adapter : bayesflow.adapters.Adapter
         Adapter for data processing. You can use :py:meth:`build_adapter`
         to create it.
     inference_network : InferenceNetwork
@@ -53,7 +54,7 @@ class ContinuousApproximator(Approximator):
         inference_variables: Sequence[str],
         inference_conditions: Sequence[str] = None,
         summary_variables: Sequence[str] = None,
-        sample_weight: Sequence[str] = None,
+        sample_weight: str = None,
     ) -> Adapter:
         """Create an :py:class:`~bayesflow.adapters.Adapter` suited for the approximator.
 
@@ -159,7 +160,7 @@ class ContinuousApproximator(Approximator):
             A dataset containing simulations for training. If provided, `simulator` must be None.
         simulator : Simulator, optional
             A simulator used to generate a dataset. If provided, `dataset` must be None.
-        **kwargs : dict
+        **kwargs
             Additional keyword arguments passed to `keras.Model.fit()`, including (see also `build_dataset`):
 
             batch_size : int or None, default='auto'
@@ -221,12 +222,50 @@ class ContinuousApproximator(Approximator):
 
     def estimate(
         self,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         split: bool = False,
-        estimators: dict[str, callable] = None,
+        estimators: Mapping[str, Callable] = None,
         num_samples: int = 1000,
         **kwargs,
     ) -> dict[str, dict[str, np.ndarray]]:
+        """
+        Estimate summary statistics for variables based on given conditions.
+
+        This function samples data using the object's ``sample`` method according to the provided
+        conditions and then computes summary statistics for each variable using a set of estimator
+        functions. By default, it calculates the mean, median, and selected quantiles (10th, 50th,
+        and 90th percentiles). Users can also supply custom estimators that override or extend the
+        default ones.
+
+        Parameters
+        ----------
+        conditions : Mapping[str, np.ndarray]
+            A mapping from variable names to numpy arrays representing the conditions under which
+            samples should be generated.
+        split : bool, optional
+            If True, indicates that the data sampling process should split the samples based on an
+            internal logic. The default is False.
+        estimators : Mapping[str, Callable], optional
+            A dictionary where keys are estimator names and values are callables. Each callable must
+            accept an array and an axis parameter, and return a dictionary with the computed statistic.
+            If not provided, a default set of estimators is used:
+                - 'mean': Computes the mean along the specified axis.
+                - 'median': Computes the median along the specified axis.
+                - 'quantiles': Computes the 10th, 50th, and 90th percentiles along the specified axis,
+                  then rearranges the axes for convenience.
+        num_samples : int, optional
+            The number of samples to generate for each variable. The default is 1000.
+        **kwargs
+            Additional keyword arguments passed to the ``sample`` method.
+
+        Returns
+        -------
+        dict[str, dict[str, np.ndarray]]
+            A nested dictionary where the outer keys correspond to variable names and the inner keys
+            correspond to estimator names. Each inner dictionary contains the computed statistic(s) for
+            the variable, potentially with reduced nesting via ``squeeze_inner_estimates_dict``.
+        """
+
         estimators = estimators or {}
         estimators = (
             dict(
@@ -261,7 +300,7 @@ class ContinuousApproximator(Approximator):
         self,
         *,
         num_samples: int,
-        conditions: dict[str, np.ndarray],
+        conditions: Mapping[str, np.ndarray],
         split: bool = False,
         **kwargs,
     ) -> dict[str, np.ndarray]:
@@ -338,14 +377,14 @@ class ContinuousApproximator(Approximator):
             **filter_kwargs(kwargs, self.inference_network.sample),
         )
 
-    def log_prob(self, data: dict[str, np.ndarray], **kwargs) -> np.ndarray:
+    def log_prob(self, data: Mapping[str, np.ndarray], **kwargs) -> np.ndarray | dict[str, np.ndarray]:
         """
         Computes the log-probability of given data under the model. The `data` dictionary is preprocessed using the
         `adapter`. Log-probabilities are returned as NumPy arrays.
 
         Parameters
         ----------
-        data : dict[str, np.ndarray]
+        data : Mapping[str, np.ndarray]
             Dictionary of observed data as NumPy arrays.
         **kwargs : dict
             Additional keyword arguments for the adapter and log-probability computation.
@@ -358,7 +397,7 @@ class ContinuousApproximator(Approximator):
         data = self.adapter(data, strict=False, stage="inference", **kwargs)
         data = keras.tree.map_structure(keras.ops.convert_to_tensor, data)
         log_prob = self._log_prob(**data, **kwargs)
-        log_prob = keras.ops.convert_to_numpy(log_prob)
+        log_prob = keras.tree.map_structure(keras.ops.convert_to_numpy, log_prob)
 
         return log_prob
 
@@ -368,7 +407,7 @@ class ContinuousApproximator(Approximator):
         inference_conditions: Tensor = None,
         summary_variables: Tensor = None,
         **kwargs,
-    ) -> Tensor:
+    ) -> Tensor | dict[str, Tensor]:
         if self.summary_network is None:
             if summary_variables is not None:
                 raise ValueError("Cannot use summary variables without a summary network.")

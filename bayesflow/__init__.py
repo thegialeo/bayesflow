@@ -7,8 +7,9 @@ from . import (
     experimental,
     networks,
     simulators,
-    workflows,
     utils,
+    workflows,
+    wrappers,
 )
 
 from .adapters import Adapter
@@ -40,8 +41,12 @@ def setup():
         torch.autograd.set_grad_enabled(False)
 
         logging.warning(
+            "\n"
             "When using torch backend, we need to disable autograd by default to avoid excessive memory usage. Use\n"
+            "\n"
             "with torch.enable_grad():\n"
+            "    ...\n"
+            "\n"
             "in contexts where you need gradients (e.g. custom training loops)."
         )
 

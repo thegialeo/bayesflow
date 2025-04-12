@@ -128,11 +128,13 @@ class PointInferenceNetwork(keras.Layer):
         conditions: Tensor = None,
         training: bool = False,
         **kwargs,
-    ) -> dict[str, Tensor]:
+    ) -> dict[str, dict[str, Tensor]]:
         if xz is None and not self.built:
             raise ValueError("Cannot build inference network without inference variables.")
         if conditions is None:  # unconditional estimation uses a fixed input vector
-            conditions = keras.ops.convert_to_tensor([[1.0]], dtype=keras.ops.dtype(xz))
+            conditions = keras.ops.convert_to_tensor(
+                [[1.0]], dtype=keras.ops.dtype(xz) if xz is not None else "float32"
+            )
 
         # pass conditions to the shared subnet
         output = self.subnet(conditions, training=training)
@@ -165,7 +167,6 @@ class PointInferenceNetwork(keras.Layer):
 
         return metrics | {"loss": neg_score}
 
-    # WIP: untested draft of sample method
     @allow_batch_size
     def sample(self, batch_shape: Shape, conditions: Tensor = None) -> dict[str, Tensor]:
         """
@@ -199,7 +200,6 @@ class PointInferenceNetwork(keras.Layer):
 
         return samples
 
-    # WIP: untested draft of log_prob method
     def log_prob(self, samples: Tensor, conditions: Tensor = None, **kwargs) -> dict[str, Tensor]:
         output = self.subnet(conditions)
         log_probs = {}

@@ -7,12 +7,10 @@ on:
     branches:
       - main
       - dev
-      - update-workflows
   push:
     branches:
       - main
       - dev
-      - update-workflows
 
 defaults:
   run:
@@ -72,7 +70,13 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -x
+          pytest -x -m "not slow"
+
+      - name: Run Slow Tests
+        # run all slow tests only on manual trigger
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          pytest -m "slow"
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
