@@ -7,7 +7,7 @@ from bayesflow.utils import (
     keras_kwargs,
     serialize_value_or_type,
     deserialize_value_or_type,
-    weighted_sum,
+    weighted_mean,
 )
 
 from .actnorm import ActNorm
@@ -167,6 +167,6 @@ class CouplingFlow(InferenceNetwork):
         base_metrics = super().compute_metrics(x, conditions=conditions, stage=stage)
 
         z, log_density = self(x, conditions=conditions, inverse=False, density=True)
-        loss = weighted_sum(-log_density, sample_weight)
+        loss = weighted_mean(-log_density, sample_weight)
 
         return base_metrics | {"loss": loss}

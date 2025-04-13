@@ -13,7 +13,7 @@ from bayesflow.utils import (
     optimal_transport,
     serialize_value_or_type,
     deserialize_value_or_type,
-    weighted_sum,
+    weighted_mean,
 )
 from ..inference_network import InferenceNetwork
 
@@ -260,6 +260,6 @@ class FlowMatching(InferenceNetwork):
         predicted_velocity = self.velocity(x, time=t, conditions=conditions, training=stage == "training")
 
         loss = self.loss_fn(target_velocity, predicted_velocity)
-        loss = weighted_sum(loss, sample_weight)
+        loss = weighted_mean(loss, sample_weight)
 
         return base_metrics | {"loss": loss}

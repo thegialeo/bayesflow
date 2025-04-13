@@ -12,6 +12,7 @@ from bayesflow.utils import (
     vjp,
     serialize_value_or_type,
     deserialize_value_or_type,
+    weighted_mean,
 )
 
 from bayesflow.networks import InferenceNetwork
@@ -240,6 +241,6 @@ class FreeFormFlow(InferenceNetwork):
         reconstruction_loss = ops.sum((x - x_pred) ** 2, axis=-1)
 
         losses = maximum_likelihood_loss + self.beta * reconstruction_loss
-        loss = self.aggregate(losses, sample_weight)
+        loss = weighted_mean(losses, sample_weight)
 
         return base_metrics | {"loss": loss}

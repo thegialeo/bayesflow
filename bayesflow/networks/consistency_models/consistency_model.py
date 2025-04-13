@@ -7,7 +7,13 @@ from keras.saving import (
 import numpy as np
 
 from bayesflow.types import Tensor
-from bayesflow.utils import find_network, keras_kwargs, serialize_value_or_type, deserialize_value_or_type, weighted_sum
+from bayesflow.utils import (
+    find_network,
+    keras_kwargs,
+    serialize_value_or_type,
+    deserialize_value_or_type,
+    weighted_mean,
+)
 
 
 from ..inference_network import InferenceNetwork
@@ -331,6 +337,6 @@ class ConsistencyModel(InferenceNetwork):
 
         # Pseudo-huber loss, see [2], Section 3.3
         loss = lam * (ops.sqrt(ops.square(teacher_out - student_out) + self.c_huber2) - self.c_huber)
-        loss = weighted_sum(loss, sample_weight)
+        loss = weighted_mean(loss, sample_weight)
 
         return base_metrics | {"loss": loss}
