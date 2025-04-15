@@ -667,7 +667,7 @@ class Adapter(MutableSequence[Transform]):
         self.transforms.append(MapTransform({key: Shift(shift=by) for key in keys}))
         return self
 
-    def split(self, key: str, into: Sequence[str], indices_or_sections: int | Sequence[int] = None, axis: int = -1):
+    def split(self, key: str, *, into: Sequence[str], indices_or_sections: int | Sequence[int] = None, axis: int = -1):
         from .transforms import Split
 
         self.transforms.append(Split(key, into, indices_or_sections, axis))
