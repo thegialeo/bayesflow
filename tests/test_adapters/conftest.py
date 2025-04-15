@@ -28,6 +28,8 @@ def adapter():
         .apply_serializable(include="x", forward=serializable_fn, inverse=serializable_fn)
         .scale("x", by=[-1, 2])
         .shift("x", by=2)
+        .split("x", into=["x1", "x2"])
+        .concatenate(["x1", "x2"], into="x")
         .standardize(exclude=["t1", "t2", "o1"])
         .drop("d1")
         .one_hot("o1", 10)
