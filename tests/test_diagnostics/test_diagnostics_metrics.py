@@ -214,33 +214,6 @@ def test_mmd_comparison_from_summaries_different_distributions():
     assert mmd_observed >= np.quantile(mmd_null, 0.68)
 
 
-# Not needed anymore -> To be removed (kept for reference to unit test bootstrap_comparison)
-# def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
-#     """Test that compute_hypothesis_test_from_summaries raises ValueError for mismatched shapes."""
-#     observed_summaries = np.random.rand(10, 5)
-#     reference_summaries = np.random.rand(20, 4)
-#     num_null_samples = 10
-
-#     with pytest.raises(ValueError):
-#         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
-#             observed_summaries, reference_summaries, num_null_samples
-#         )
-
-
-# def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_reference_samples():
-#     """Test that compute_hypothesis_test_from_summaries raises ValueError when num_null_samples exceeds the number of
-#     reference samples.
-#     """
-#     observed_summaries = np.random.rand(10, 5)
-#     reference_summaries = np.random.rand(5, 5)
-#     num_null_samples = 10
-
-#     with pytest.raises(ValueError):
-#         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
-#             observed_summaries, reference_summaries, num_null_samples
-#         )
-
-
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                             Unit tests for mmd_comparison                                            #
 # -------------------------------------------------------------------------------------------------------------------- #
