@@ -42,6 +42,9 @@ transforms
     NumpyTransform
     OneHot
     Rename
+    Scale
+    SerializableCustomTransform
+    Shift
     Sqrt
     Standardize
     ToArray
