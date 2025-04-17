@@ -1,22 +1,21 @@
 """
-This module provides functions for performing hypothesis testing using the Maximum Mean Discrepancy (MMD) metric.
-
-[1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
-inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866., https://arxiv.org/abs/2112.08866
+This module provides functions for computing distances between observation samples and reference samples with distance 
+distributions within the reference samples for hypothesis testing.
 
 Functions:
 ----------
-- compute_mmd_hypothesis_test_from_summaries:
-    Computes the MMD between observed and reference summaries and generates a null distribution of MMD values
-    for hypothesis testing.
-
-- compute_mmd_hypothesis_test:
-    Computes the MMD between observed and reference data using an approximator to extract summary statistics,
-    and generates a null distribution of MMD values for hypothesis testing.
+- bootstrap_comparison: Computes distance between observed and reference samples and generates a distribution of null
+  sample distances by bootstrapping for hypothesis testing.
+- mmd_comparison_from_summaries: Computes the Maximum Mean Discrepancy (MMD) between observed and reference summaries
+  and generates a distribution of MMD values under the null hypothesis to assess model misspecification.    
+- mmd_comparison: Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a
+  distribution of MMD values under the null hypothesis to assess model misspecification.
 
 Dependencies:
 -------------
 - numpy: For numerical operations.
+- keras.ops: For converting data to numpy and tensor formats.
+- bayesflow.networks: Provides the `SummaryNetwork` class for extracting summary statistics.
 - bayesflow.approximators: Provides the `Approximator` class for extracting summary statistics.
 - bayesflow.metrics: Provides the `maximum_mean_discrepancy` function for computing the MMD.
 """
