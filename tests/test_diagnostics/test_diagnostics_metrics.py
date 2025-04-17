@@ -174,8 +174,8 @@ def test_mmd_comparison_from_summaries_different_distributions():
     "summary_network, is_true_approximator",
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
-def test_compute_hypothesis_test_shapes(summary_network, is_true_approximator, monkeypatch):
-    """Test the compute_mmd_hypothesis_test output shapes."""
+def test_mmd_comparison_shapes(summary_network, is_true_approximator, monkeypatch):
+    """Test the mmd_comparison output shapes."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(100, 5)
     num_null_samples = 50
@@ -191,7 +191,7 @@ def test_compute_hypothesis_test_shapes(summary_network, is_true_approximator, m
         mock_approximator = bf.networks.SummaryNetwork()
         monkeypatch.setattr(mock_approximator, "call", summary_network)
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison(
         observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
     )
 
@@ -204,8 +204,8 @@ def test_compute_hypothesis_test_shapes(summary_network, is_true_approximator, m
     "summary_network, is_true_approximator",
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
-def test_compute_hypothesis_test_positive(summary_network, is_true_approximator, monkeypatch):
-    """Test MMD output values of compute_hypothesis_test are positive."""
+def test_mmd_comparison_positive(summary_network, is_true_approximator, monkeypatch):
+    """Test MMD output values of mmd_comparison are positive."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(100, 5)
     num_null_samples = 50
@@ -221,7 +221,7 @@ def test_compute_hypothesis_test_positive(summary_network, is_true_approximator,
         mock_approximator = bf.networks.SummaryNetwork()
         monkeypatch.setattr(mock_approximator, "call", summary_network)
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison(
         observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
     )
 
@@ -233,8 +233,8 @@ def test_compute_hypothesis_test_positive(summary_network, is_true_approximator,
     "summary_network, is_true_approximator",
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
-def test_compute_hypothesis_test_same_distribution(summary_network, is_true_approximator, monkeypatch):
-    """Test compute_hypothesis_test on same distributions."""
+def test_mmd_comparison_same_distribution(summary_network, is_true_approximator, monkeypatch):
+    """Test mmd_comparison on same distributions."""
     observed_data = np.random.rand(10, 5)
     reference_data = observed_data.copy()
     num_null_samples = 5
@@ -250,7 +250,7 @@ def test_compute_hypothesis_test_same_distribution(summary_network, is_true_appr
         mock_approximator = bf.networks.SummaryNetwork()
         monkeypatch.setattr(mock_approximator, "call", summary_network)
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison(
         observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
     )
 
@@ -261,8 +261,8 @@ def test_compute_hypothesis_test_same_distribution(summary_network, is_true_appr
     "summary_network, is_true_approximator",
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
-def test_compute_hypothesis_test_different_distributions(summary_network, is_true_approximator, monkeypatch):
-    """Test compute_hypothesis_test on different distributions."""
+def test_mmd_comparison_different_distributions(summary_network, is_true_approximator, monkeypatch):
+    """Test mmd_comparison on different distributions."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.normal(loc=0.5, scale=0.1, size=(100, 5))
     num_null_samples = 50
@@ -278,7 +278,7 @@ def test_compute_hypothesis_test_different_distributions(summary_network, is_tru
         mock_approximator = bf.networks.SummaryNetwork()
         monkeypatch.setattr(mock_approximator, "call", summary_network)
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison(
         observed_data, reference_data, mock_approximator, num_null_samples=num_null_samples
     )
 
@@ -289,8 +289,8 @@ def test_compute_hypothesis_test_different_distributions(summary_network, is_tru
     "summary_network, is_true_approximator",
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
-def test_compute_hypothesis_test_mismatched_shapes(summary_network, is_true_approximator, monkeypatch):
-    """Test that compute_hypothesis_test raises ValueError for mismatched shapes."""
+def test_mmd_comparison_mismatched_shapes(summary_network, is_true_approximator, monkeypatch):
+    """Test that mmd_comparison raises ValueError for mismatched shapes."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(20, 4)
     num_null_samples = 10
@@ -307,6 +307,7 @@ def test_compute_hypothesis_test_mismatched_shapes(summary_network, is_true_appr
         monkeypatch.setattr(mock_approximator, "call", summary_network)
 
     with pytest.raises(ValueError):
-        bf.diagnostics.metrics.compute_mmd_hypothesis_test(
-            observed_data, reference_data, mock_approximator, num_null_samples
-        )
+        bf.diagnostics.metrics.mmd_comparison(observed_data, reference_data, mock_approximator, num_null_samples)
+
+
+# TODO: add unit test for approximator not instance of ContinuousApproximator or SummaryNetwork
