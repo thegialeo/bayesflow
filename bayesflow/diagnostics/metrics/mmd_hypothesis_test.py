@@ -62,16 +62,16 @@ def bootstrap_comparison(
     Raises
     ------
     ValueError
-        - If the number of null samples exceeds the number of reference samples
+        - If the number of number of observed samples exceeds the number of reference samples
         - If the shapes of observed and reference samples do not match on dimensions besides the first one.
     """
     num_observed: int = observed_samples.shape[0]
     num_reference: int = reference_samples.shape[0]
 
-    if num_null_samples > num_reference:
+    if num_observed > num_reference:
         raise ValueError(
-            f"Number of null samples ({num_null_samples}) cannot exceed"
-            f"the number of reference samples ({num_reference})."
+            f"Number of observed samples ({num_observed}) cannot exceed"
+            f"the number of reference samples ({num_reference}) for bootstrapping."
         )
     if observed_samples.shape[1:] != reference_samples.shape[1:]:
         raise ValueError(
