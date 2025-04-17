@@ -290,9 +290,9 @@ def test_mmd_comparison_different_distributions(summary_network, is_true_approxi
     [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
 )
 def test_mmd_comparison_mismatched_shapes(summary_network, is_true_approximator, monkeypatch):
-    """Test that mmd_comparison raises ValueError for mismatched shapes."""
+    """Test mmd_comparison raises ValueError for mismatched shapes."""
     observed_data = np.random.rand(10, 5)
-    reference_data = np.random.rand(20, 4)
+    reference_data = np.random.rand(100, 4)
     num_null_samples = 10
 
     if is_true_approximator:
@@ -310,4 +310,26 @@ def test_mmd_comparison_mismatched_shapes(summary_network, is_true_approximator,
         bf.diagnostics.metrics.mmd_comparison(observed_data, reference_data, mock_approximator, num_null_samples)
 
 
-# TODO: add unit test for approximator not instance of ContinuousApproximator or SummaryNetwork
+@pytest.mark.parametrize(
+    "summary_network, is_true_approximator",
+    [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
+)
+def test_mmd_comparison_approximator_incorrect_instance(summary_network, is_true_approximator, monkeypatch):
+    """Test mmd_comparison raises ValueError for incorrect approximator instance."""
+    observed_data = np.random.rand(10, 5)
+    reference_data = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    if is_true_approximator:
+        mock_approximator = bf.approximators.ContinuousApproximator(
+            adapter=None,
+            inference_network=None,
+            summary_network=None,
+        )
+        monkeypatch.setattr(mock_approximator, "summary_network", summary_network)
+    else:
+        mock_approximator = bf.networks.SummaryNetwork()
+        monkeypatch.setattr(mock_approximator, "call", summary_network)
+
+    with pytest.raises(ValueError):
+        bf.diagnostics.metrics.mmd_comparison(observed_data, reference_data, mock_approximator, num_null_samples)
