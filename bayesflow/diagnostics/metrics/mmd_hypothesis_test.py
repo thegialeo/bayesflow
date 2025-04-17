@@ -57,8 +57,45 @@ def bootstrap_comparison(
         The distance value between observed and reference samples.
     distance_null : np.ndarray
         A distribution of distance values under the null hypothesis.
+
+    Raises
+    ------
+    ValueError
+        - If the number of null samples exceeds the number of reference samples
+        - If the shapes of observed and reference samples do not match on dimensions besides the first one.
     """
-    pass
+    num_observed: int = observed_samples.shape[0]
+    num_reference: int = reference_samples.shape[0]
+
+    if num_null_samples > num_reference:
+        raise ValueError(
+            f"Number of null samples ({num_null_samples}) cannot exceed"
+            f"the number of reference samples ({num_reference})."
+        )
+    if observed_samples.shape[1:] != reference_samples.shape[1:]:
+        raise ValueError(
+            f"Expected observed and reference samples to have the same shape, "
+            f"but got {observed_samples.shape[1:]} != {reference_samples.shape[1:]}."
+        )
+
+    observed_samples_tensor: Tensor = convert_to_tensor(observed_samples, dtype="float32")
+    reference_samples_tensor: Tensor = convert_to_tensor(reference_samples, dtype="float32")
+
+    distance_null_samples: np.ndarray = np.zeros(num_null_samples, dtype=np.float64)
+    for i in range(num_null_samples):
+        bootstrap_idx: np.ndarray = np.random.randint(0, num_reference, size=num_observed)
+        bootstrap_samples: np.ndarray = reference_samples[bootstrap_idx]
+        bootstrap_samples_tensor: Tensor = convert_to_tensor(bootstrap_samples, dtype="float32")
+        distance_null_samples[i] = convert_to_numpy(metric_fn(bootstrap_samples_tensor, reference_samples_tensor))
+
+    distance_observed_tensor: Tensor = metric_fn(
+        observed_samples_tensor,
+        reference_samples_tensor,
+    )
+
+    distance_observed: float = float(convert_to_numpy(distance_observed_tensor))
+
+    return distance_observed, distance_null_samples
 
 
 def compute_mmd_hypothesis_test_from_summaries(
