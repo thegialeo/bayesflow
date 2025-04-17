@@ -22,12 +22,13 @@ Dependencies:
 """
 
 import typing
+
 import numpy as np
 from keras.ops import convert_to_numpy, convert_to_tensor
 
 from bayesflow.approximators import ContinuousApproximator
-from bayesflow.networks import SummaryNetwork
 from bayesflow.metrics.functional import maximum_mean_discrepancy
+from bayesflow.networks import SummaryNetwork
 from bayesflow.types import Tensor
 
 
@@ -98,7 +99,7 @@ def bootstrap_comparison(
     return distance_observed, distance_null_samples
 
 
-def compute_mmd_hypothesis_test_from_summaries(
+def mmd_comparison_from_summaries(
     observed_summaries: np.ndarray,
     reference_summaries: np.ndarray,
     num_null_samples: int = 100,
@@ -109,20 +110,6 @@ def compute_mmd_hypothesis_test_from_summaries(
     [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
     inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
     URL: https://arxiv.org/abs/2112.08866
-
-
-    Example:
-    --------
-    # Assuming `observed_summaries` and `reference_summaries` are available:
-
-    from bayesflow.diagnostics.metrics import compute_mmd_hypothesis_test_from_summaries
-    from bayesflow.diagnostics.plots import mmd_hypothesis_test
-
-    # Compute MMD values for hypothesis test
-    mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(observed_summaries, reference_summaries)
-
-    # Plot the null distribution and observed MMD
-    fig = mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
 
 
     Parameters
@@ -140,50 +127,13 @@ def compute_mmd_hypothesis_test_from_summaries(
         The MMD value between observed and reference summaries.
     mmd_null : np.ndarray
         A distribution of MMD values under the null hypothesis.
-
-    Raises
-    ------
-    ValueError
-        - If the number of null samples exceeds the number of reference samples
-        - If the shapes of observed and reference summaries do not match on dimensions besides the first one.
     """
-    num_observed: int = observed_summaries.shape[0]
-    num_reference: int = reference_summaries.shape[0]
-
-    if num_null_samples > num_reference:
-        raise ValueError(
-            f"Number of null samples ({num_null_samples}) cannot exceed"
-            f"the number of reference samples ({num_reference})."
-        )
-
-    if observed_summaries.shape[1:] != reference_summaries.shape[1:]:
-        raise ValueError(
-            f"Expected observed and reference summaries to have the same shape, "
-            f"but got {observed_summaries.shape[1:]} != {reference_summaries.shape[1:]}."
-        )
-
-    observed_summaries_tensor: Tensor = convert_to_tensor(observed_summaries, dtype="float32")
-    reference_summaries_tensor: Tensor = convert_to_tensor(reference_summaries, dtype="float32")
-
-    mmd_null_samples: np.ndarray = np.zeros(num_null_samples, dtype=np.float64)
-
-    for i in range(num_null_samples):
-        bootstrap_idx: np.ndarray = np.random.randint(0, num_reference, size=num_observed)
-        sampled_summaries: np.ndarray = reference_summaries[bootstrap_idx]
-        sampled_summaries_tensor: Tensor = convert_to_tensor(sampled_summaries, dtype="float32")
-        mmd_null_samples[i] = convert_to_numpy(
-            maximum_mean_discrepancy(
-                sampled_summaries_tensor,
-                reference_summaries_tensor,
-            )
-        )
-
-    mmd_observed_tensor: Tensor = maximum_mean_discrepancy(
-        observed_summaries_tensor,
-        reference_summaries_tensor,
+    mmd_observed, mmd_null_samples = bootstrap_comparison(
+        observed_samples=observed_summaries,
+        reference_samples=reference_summaries,
+        metric_fn=maximum_mean_discrepancy,
+        num_null_samples=num_null_samples,
     )
-
-    mmd_observed: float = float(convert_to_numpy(mmd_observed_tensor))
 
     return mmd_observed, mmd_null_samples
 
@@ -263,7 +213,7 @@ def compute_mmd_hypothesis_test(
     else:
         raise ValueError("The approximator must be an instance of ContinuousApproximator or SummaryNetwork.")
 
-    mmd_observed, mmd_null = compute_mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = mmd_comparison_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
