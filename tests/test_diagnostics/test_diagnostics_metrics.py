@@ -141,9 +141,10 @@ def test_bootstrap_comparison_mismatched_shapes():
         )
 
 
-def test_bootstrap_comparison_num_null_samples_exceeds_reference_samples():
-    """Test bootstrap_comparison raises ValueError when num_null_samples exceeds the number of reference samples."""
-    observed_samples = np.random.rand(10, 5)
+def test_bootstrap_comparison_num_observed_exceeds_num_reference():
+    """Test bootstrap_comparison raises ValueError when number of observed samples exceeds the number of reference
+    samples."""
+    observed_samples = np.random.rand(100, 5)
     reference_samples = np.random.rand(20, 5)
     num_null_samples = 50
 
