@@ -141,6 +141,18 @@ def test_bootstrap_comparison_mismatched_shapes():
         )
 
 
+def test_bootstrap_comparison_num_null_samples_exceeds_reference_samples():
+    """Test bootstrap_comparison raises ValueError when num_null_samples exceeds the number of reference samples."""
+    observed_samples = np.random.rand(10, 5)
+    reference_samples = np.random.rand(20, 5)
+    num_null_samples = 50
+
+    with pytest.raises(ValueError):
+        bf.diagnostics.metrics.bootstrap_comparison(
+            observed_samples, reference_samples, lambda x, y: np.abs(np.mean(x) - np.mean(y)), num_null_samples
+        )
+
+
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                     Unit tests for mmd_comparison_from_summaries                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
