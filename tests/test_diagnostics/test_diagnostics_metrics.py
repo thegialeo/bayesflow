@@ -88,13 +88,13 @@ def test_expected_calibration_error(pred_models, true_models, model_names):
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
-def test_compute_hypothesis_test_from_summaries_shapes():
-    """Test the compute_hypothesis_test_from_summaries output shapes."""
+def test_mmd_comparison_from_summaries_shapes():
+    """Test the mmd_comparison_from_summaries output shapes."""
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.rand(100, 5)
     num_null_samples = 50
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
@@ -103,13 +103,13 @@ def test_compute_hypothesis_test_from_summaries_shapes():
     assert mmd_null.shape == (num_null_samples,)
 
 
-def test_compute_hypothesis_test_from_summaries_positive():
-    """Test MMD output values of compute_hypothesis_test_from_summaries are positive."""
+def test_mmd_comparison_from_summaries_positive():
+    """Test MMD output values of mmd_comparison_from_summaries are positive."""
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.rand(100, 5)
     num_null_samples = 50
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
@@ -117,56 +117,57 @@ def test_compute_hypothesis_test_from_summaries_positive():
     assert np.all(mmd_null >= 0)
 
 
-def test_compute_hypothesis_test_from_summaries_same_distribution():
-    """Test compute_hypothesis_test_from_summaries on same distributions."""
+def test_mmd_comparison_from_summaries_same_distribution():
+    """Test mmd_comparison_from_summaries on same distributions."""
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = observed_summaries.copy()
     num_null_samples = 5
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
     assert mmd_observed <= np.quantile(mmd_null, 0.99)
 
 
-def test_compute_hypothesis_test_from_summaries_different_distributions():
-    """Test compute_hypothesis_test_from_summaries on different distributions."""
+def test_mmd_comparison_from_summaries_different_distributions():
+    """Test mmd_comparison_from_summaries on different distributions."""
     observed_summaries = np.random.rand(10, 5)
     reference_summaries = np.random.normal(loc=0.5, scale=0.1, size=(100, 5))
     num_null_samples = 50
 
-    mmd_observed, mmd_null = bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+    mmd_observed, mmd_null = bf.diagnostics.metrics.mmd_comparison_from_summaries(
         observed_summaries, reference_summaries, num_null_samples=num_null_samples
     )
 
     assert mmd_observed >= np.quantile(mmd_null, 0.68)
 
 
-def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
-    """Test that compute_hypothesis_test_from_summaries raises ValueError for mismatched shapes."""
-    observed_summaries = np.random.rand(10, 5)
-    reference_summaries = np.random.rand(20, 4)
-    num_null_samples = 10
+# Not needed anymore -> To be removed (kept for reference to unit test bootstrap_comparison)
+# def test_compute_hypothesis_test_from_summaries_mismatched_shapes():
+#     """Test that compute_hypothesis_test_from_summaries raises ValueError for mismatched shapes."""
+#     observed_summaries = np.random.rand(10, 5)
+#     reference_summaries = np.random.rand(20, 4)
+#     num_null_samples = 10
 
-    with pytest.raises(ValueError):
-        bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
-            observed_summaries, reference_summaries, num_null_samples
-        )
+#     with pytest.raises(ValueError):
+#         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+#             observed_summaries, reference_summaries, num_null_samples
+#         )
 
 
-def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_reference_samples():
-    """Test that compute_hypothesis_test_from_summaries raises ValueError when num_null_samples exceeds the number of
-    reference samples.
-    """
-    observed_summaries = np.random.rand(10, 5)
-    reference_summaries = np.random.rand(5, 5)
-    num_null_samples = 10
+# def test_compute_hypothesis_test_from_summaries_num_null_samples_exceeds_reference_samples():
+#     """Test that compute_hypothesis_test_from_summaries raises ValueError when num_null_samples exceeds the number of
+#     reference samples.
+#     """
+#     observed_summaries = np.random.rand(10, 5)
+#     reference_summaries = np.random.rand(5, 5)
+#     num_null_samples = 10
 
-    with pytest.raises(ValueError):
-        bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
-            observed_summaries, reference_summaries, num_null_samples
-        )
+#     with pytest.raises(ValueError):
+#         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
+#             observed_summaries, reference_summaries, num_null_samples
+#         )
 
 
 @pytest.mark.parametrize(
