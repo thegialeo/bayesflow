@@ -21,6 +21,7 @@ Dependencies:
 - bayesflow.metrics: Provides the `maximum_mean_discrepancy` function for computing the MMD.
 """
 
+import typing
 import numpy as np
 from keras.ops import convert_to_numpy, convert_to_tensor
 
@@ -28,6 +29,36 @@ from bayesflow.approximators import ContinuousApproximator
 from bayesflow.networks import SummaryNetwork
 from bayesflow.metrics.functional import maximum_mean_discrepancy
 from bayesflow.types import Tensor
+
+
+def bootstrap_comparison(
+    observed_samples: np.ndarray,
+    reference_samples: np.ndarray,
+    metric_fn: typing.Callable[[Tensor, Tensor], Tensor],
+    num_null_samples: int = 100,
+) -> tuple[float, np.ndarray]:
+    """Compute distance between observed and reference samples and generated a distribution of null sample distances by
+    bootstrapping for hypothesis testing.
+
+    Parameters
+    ----------
+    observed_samples : np.ndarray)
+        Observed samples, shape (num_observed, ...).
+    reference_samples : np.ndarray
+        Reference samples, shape (num_reference, ...).
+    metric_fn : typing.Callable[[Tensor, Tensor], Tensor]
+        Function to compute the distance metric.
+    num_null_samples : int
+        Number of null samples to generate for hypothesis testing. Default is 100.
+
+    Returns
+    -------
+    distance_observed : float
+        The distance value between observed and reference samples.
+    distance_null : np.ndarray
+        A distribution of distance values under the null hypothesis.
+    """
+    pass
 
 
 def compute_mmd_hypothesis_test_from_summaries(
