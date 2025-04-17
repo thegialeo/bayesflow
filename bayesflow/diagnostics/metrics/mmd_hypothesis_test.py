@@ -35,7 +35,7 @@ from bayesflow.types import Tensor
 def bootstrap_comparison(
     observed_samples: np.ndarray,
     reference_samples: np.ndarray,
-    metric_fn: typing.Callable[[Tensor, Tensor], Tensor],
+    comparison_fn: typing.Callable[[Tensor, Tensor], Tensor],
     num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Compute distance between observed and reference samples and generated a distribution of null sample distances by
@@ -47,7 +47,7 @@ def bootstrap_comparison(
         Observed samples, shape (num_observed, ...).
     reference_samples : np.ndarray
         Reference samples, shape (num_reference, ...).
-    metric_fn : typing.Callable[[Tensor, Tensor], Tensor]
+    comparison_fn : typing.Callable[[Tensor, Tensor], Tensor]
         Function to compute the distance metric.
     num_null_samples : int
         Number of null samples to generate for hypothesis testing. Default is 100.
@@ -87,9 +87,9 @@ def bootstrap_comparison(
         bootstrap_idx: np.ndarray = np.random.randint(0, num_reference, size=num_observed)
         bootstrap_samples: np.ndarray = reference_samples[bootstrap_idx]
         bootstrap_samples_tensor: Tensor = convert_to_tensor(bootstrap_samples, dtype="float32")
-        distance_null_samples[i] = convert_to_numpy(metric_fn(bootstrap_samples_tensor, reference_samples_tensor))
+        distance_null_samples[i] = convert_to_numpy(comparison_fn(bootstrap_samples_tensor, reference_samples_tensor))
 
-    distance_observed_tensor: Tensor = metric_fn(
+    distance_observed_tensor: Tensor = comparison_fn(
         observed_samples_tensor,
         reference_samples_tensor,
     )
@@ -131,14 +131,14 @@ def mmd_comparison_from_summaries(
     mmd_observed, mmd_null_samples = bootstrap_comparison(
         observed_samples=observed_summaries,
         reference_samples=reference_summaries,
-        metric_fn=maximum_mean_discrepancy,
+        comparison_fn=maximum_mean_discrepancy,
         num_null_samples=num_null_samples,
     )
 
     return mmd_observed, mmd_null_samples
 
 
-def compute_mmd_hypothesis_test(
+def mmd_comparison(
     observed_data: np.ndarray,
     reference_data: np.ndarray,
     approximator: ContinuousApproximator | SummaryNetwork,
@@ -150,20 +150,6 @@ def compute_mmd_hypothesis_test(
     [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
     inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
     URL: https://arxiv.org/abs/2112.08866
-
-
-    Example:
-    --------
-    # Assuming `observed_data`, `reference_data`, and an `Approximator` instance are available:
-
-    from bayesflow.diagnostics.metrics import compute_mmd_hypothesis_test
-    from bayesflow.diagnostics.plots import mmd_hypothesis_test
-
-    # Compute MMD values for hypothesis test
-    mmd_observed, mmd_null = compute_mmd_hypothesis_test(observed_data, reference_data, approximator)
-
-    # Plot the null distribution and observed MMD
-    fig = mmd_hypothesis_test(mmd_null=mmd_null, mmd_observed=mmd_observed)
 
 
     Parameters
