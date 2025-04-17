@@ -103,6 +103,32 @@ def test_bootstrap_comparison_shapes():
     assert distance_null.shape == (num_null_samples,)
 
 
+def test_bootstrap_comparison_same_distribution():
+    """Test bootstrap_comparison on same distributions."""
+    observed_samples = np.random.normal(loc=0.5, scale=0.1, size=(10, 5))
+    reference_samples = observed_samples.copy()
+    num_null_samples = 5
+
+    distance_observed, distance_null = bf.diagnostics.metrics.bootstrap_comparison(
+        observed_samples, reference_samples, lambda x, y: np.abs(np.mean(x) - np.mean(y)), num_null_samples
+    )
+
+    assert distance_observed <= np.quantile(distance_null, 0.99)
+
+
+def test_bootstrap_comparison_different_distributions():
+    """Test bootstrap_comparison on different distributions."""
+    observed_samples = np.random.normal(loc=-5, scale=0.1, size=(10, 5))
+    reference_samples = np.random.normal(loc=5, scale=0.1, size=(100, 5))
+    num_null_samples = 50
+
+    distance_observed, distance_null = bf.diagnostics.metrics.bootstrap_comparison(
+        observed_samples, reference_samples, lambda x, y: np.abs(np.mean(x) - np.mean(y)), num_null_samples
+    )
+
+    assert distance_observed >= np.quantile(distance_null, 0.68)
+
+
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                     Unit tests for mmd_comparison_from_summaries                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
