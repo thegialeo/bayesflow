@@ -84,7 +84,12 @@ def test_expected_calibration_error(pred_models, true_models, model_names):
 
 
 # -------------------------------------------------------------------------------------------------------------------- #
-#                                          Unit tests for MMD Hypothesis Test                                          #
+#                                          Unit tests for bootstrap_comparison                                         #
+# -------------------------------------------------------------------------------------------------------------------- #
+
+
+# -------------------------------------------------------------------------------------------------------------------- #
+#                                     Unit tests for mmd_comparison_from_summaries                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -168,6 +173,11 @@ def test_mmd_comparison_from_summaries_different_distributions():
 #         bf.diagnostics.metrics.compute_mmd_hypothesis_test_from_summaries(
 #             observed_summaries, reference_summaries, num_null_samples
 #         )
+
+
+# -------------------------------------------------------------------------------------------------------------------- #
+#                                             Unit tests for mmd_comparison                                            #
+# -------------------------------------------------------------------------------------------------------------------- #
 
 
 @pytest.mark.parametrize(
@@ -310,26 +320,16 @@ def test_mmd_comparison_mismatched_shapes(summary_network, is_true_approximator,
         bf.diagnostics.metrics.mmd_comparison(observed_data, reference_data, mock_approximator, num_null_samples)
 
 
-@pytest.mark.parametrize(
-    "summary_network, is_true_approximator",
-    [(lambda data: data + 1, True), (None, True), (lambda data: data + 1, False)],
-)
-def test_mmd_comparison_approximator_incorrect_instance(summary_network, is_true_approximator, monkeypatch):
+def test_mmd_comparison_approximator_incorrect_instance():
     """Test mmd_comparison raises ValueError for incorrect approximator instance."""
     observed_data = np.random.rand(10, 5)
     reference_data = np.random.rand(100, 5)
     num_null_samples = 50
 
-    if is_true_approximator:
-        mock_approximator = bf.approximators.ContinuousApproximator(
-            adapter=None,
-            inference_network=None,
-            summary_network=None,
-        )
-        monkeypatch.setattr(mock_approximator, "summary_network", summary_network)
-    else:
-        mock_approximator = bf.networks.SummaryNetwork()
-        monkeypatch.setattr(mock_approximator, "call", summary_network)
+    class IncorrectApproximator:
+        pass
+
+    mock_approximator = IncorrectApproximator()
 
     with pytest.raises(ValueError):
         bf.diagnostics.metrics.mmd_comparison(observed_data, reference_data, mock_approximator, num_null_samples)
