@@ -36,7 +36,7 @@ def compute_mmd_hypothesis_test_from_summaries(
     num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference summaries and generates a distribution
-    of MMD values under the null hypothesis to assess model fit.
+    of MMD values under the null hypothesis to assess model misspecification.
 
     [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
     inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
@@ -76,8 +76,7 @@ def compute_mmd_hypothesis_test_from_summaries(
     Raises
     ------
     ValueError
-        - If the number of null samples exceeds the number of reference samples or if the shapes of observed and
-        reference summaries do not match.
+        - If the number of null samples exceeds the number of reference samples
         - If the shapes of observed and reference summaries do not match on dimensions besides the first one.
     """
     num_observed: int = observed_summaries.shape[0]
@@ -128,7 +127,7 @@ def compute_mmd_hypothesis_test(
     num_null_samples: int = 100,
 ) -> tuple[float, np.ndarray]:
     """Computes the Maximum Mean Discrepancy (MMD) between observed and reference data and generates a distribution of
-    MMD values under the null hypothesis to assess model fit.
+    MMD values under the null hypothesis to assess model misspecification.
 
     [1] M. Schmitt, P.-C. Bürkner, U. Köthe, and S. T. Radev, "Detecting model misspecification in amortized Bayesian
     inference with neural networks," arXiv e-prints, Dec. 2021, Art. no. arXiv:2112.08866.
