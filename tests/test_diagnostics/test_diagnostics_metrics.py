@@ -129,6 +129,18 @@ def test_bootstrap_comparison_different_distributions():
     assert distance_observed >= np.quantile(distance_null, 0.68)
 
 
+def test_bootstrap_comparison_mismatched_shapes():
+    """Test bootstrap_comparison raises ValueError for mismatched shapes."""
+    observed_samples = np.random.rand(10, 5)
+    reference_samples = np.random.rand(20, 4)
+    num_null_samples = 10
+
+    with pytest.raises(ValueError):
+        bf.diagnostics.metrics.bootstrap_comparison(
+            observed_samples, reference_samples, lambda x, y: np.abs(np.mean(x) - np.mean(y)), num_null_samples
+        )
+
+
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                     Unit tests for mmd_comparison_from_summaries                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
