@@ -88,6 +88,21 @@ def test_expected_calibration_error(pred_models, true_models, model_names):
 # -------------------------------------------------------------------------------------------------------------------- #
 
 
+def test_bootstrap_comparison_shapes():
+    """Test the bootstrap_comparison output shapes."""
+    observed_samples = np.random.rand(10, 5)
+    reference_samples = np.random.rand(100, 5)
+    num_null_samples = 50
+
+    distance_observed, distance_null = bf.diagnostics.metrics.bootstrap_comparison(
+        observed_samples, reference_samples, lambda x, y: np.abs(np.mean(x) - np.mean(y)), num_null_samples
+    )
+
+    assert isinstance(distance_observed, float)
+    assert isinstance(distance_null, np.ndarray)
+    assert distance_null.shape == (num_null_samples,)
+
+
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                     Unit tests for mmd_comparison_from_summaries                                     #
 # -------------------------------------------------------------------------------------------------------------------- #
